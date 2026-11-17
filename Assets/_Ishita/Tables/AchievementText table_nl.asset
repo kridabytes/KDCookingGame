@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: AchievementText table_nl
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: nl
+  m_SharedData: {fileID: 11400000, guid: d370270c7127356449176e6e79025072, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12027449344
+    m_Localized: "Verdiene {0} M\xFCnzen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8646853677056
+    m_Localized: "Schlie\xDFe {0} Level ab"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9627754582016
+    m_Localized: "Schlie\xDFe {0} Level ab, ohne Essen zu verbrennen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10797759877120
+    m_Localized: "Schlie\xDFe {0} Bestellungen ab"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11933854224384
+    m_Localized: Verwende einen beliebigen Booster {0}-mal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12687281246208
+    m_Localized: "Schlie\xDFe t\xE4gliche Aufgaben {0} Tage lang ab"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21376947998720
+    m_Localized: Gewinne {0} Level ohne Neustart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90308026327912448
+    m_Localized: Dagelijkse beloningen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90309614505316352
+    m_Localized: Dagelijkse taken
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90310985812037632
+    m_Localized: Prestaties
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90312638233595904
+    m_Localized: Je hebt gewonnen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90314538219753472
+    m_Localized: Mislukt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90317217880887296
+    m_Localized: Opnieuw proberen
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

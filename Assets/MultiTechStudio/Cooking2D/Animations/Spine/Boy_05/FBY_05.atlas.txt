@@ -1,0 +1,188 @@
+
+FBY_05.png
+size: 1911,617
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Angry_Lip
+  rotate: false
+  xy: 404, 6
+  size: 136, 151
+  orig: 136, 151
+  offset: 0, 0
+  index: -1
+Back Blur
+  rotate: false
+  xy: 964, 41
+  size: 28, 116
+  orig: 28, 117
+  offset: 0, 1
+  index: -1
+Body
+  rotate: true
+  xy: 285, 159
+  size: 456, 868
+  orig: 456, 868
+  offset: 0, 0
+  index: -1
+Eye_Blink
+  rotate: false
+  xy: 41, 19
+  size: 142, 53
+  orig: 142, 53
+  offset: 0, 0
+  index: -1
+Face
+  rotate: false
+  xy: 1684, 339
+  size: 225, 276
+  orig: 225, 276
+  offset: 0, 0
+  index: -1
+Left_Eye
+  rotate: true
+  xy: 158, 88
+  size: 21, 24
+  orig: 21, 24
+  offset: 0, 0
+  index: -1
+Left_Eye_White_BG
+  rotate: false
+  xy: 285, 136
+  size: 38, 21
+  orig: 38, 21
+  offset: 0, 0
+  index: -1
+Left_Eye_White_Dot
+  rotate: false
+  xy: 2, 2
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1
+Right_Eye_White_Dot
+  rotate: false
+  xy: 2, 2
+  size: 6, 6
+  orig: 6, 6
+  offset: 0, 0
+  index: -1
+Left_Eyebrow
+  rotate: true
+  xy: 2, 10
+  size: 62, 16
+  orig: 62, 16
+  offset: 0, 0
+  index: -1
+Left_Hand_Forarm
+  rotate: false
+  xy: 2, 74
+  size: 154, 541
+  orig: 154, 541
+  offset: 0, 0
+  index: -1
+Left_Up_Hand
+  rotate: false
+  xy: 1506, 259
+  size: 176, 356
+  orig: 176, 356
+  offset: 0, 0
+  index: -1
+Lefthand_Forarm_Yee
+  rotate: true
+  xy: 1155, 8
+  size: 245, 274
+  orig: 245, 274
+  offset: 0, 0
+  index: -1
+Lefthand_Yee
+  rotate: true
+  xy: 542, 12
+  size: 145, 209
+  orig: 145, 209
+  offset: 0, 0
+  index: -1
+Normal_Lip
+  rotate: false
+  xy: 994, 8
+  size: 78, 39
+  orig: 78, 39
+  offset: 0, 0
+  index: -1
+Right_Eye
+  rotate: true
+  xy: 158, 111
+  size: 23, 24
+  orig: 23, 24
+  offset: 0, 0
+  index: -1
+Right_Eye_White_BG
+  rotate: false
+  xy: 325, 136
+  size: 38, 21
+  orig: 38, 21
+  offset: 0, 0
+  index: -1
+Right_Eyebrow
+  rotate: true
+  xy: 20, 12
+  size: 60, 19
+  orig: 60, 19
+  offset: 0, 0
+  index: -1
+Right_Hand_Forarm
+  rotate: false
+  xy: 158, 136
+  size: 125, 479
+  orig: 125, 485
+  offset: 0, 6
+  index: -1
+Right_Up_Hand
+  rotate: false
+  xy: 1155, 255
+  size: 169, 360
+  orig: 171, 360
+  offset: 2, 0
+  index: -1
+Righthand_Yee
+  rotate: true
+  xy: 753, 12
+  size: 145, 209
+  orig: 145, 209
+  offset: 0, 0
+  index: -1
+Rightthand_Forarm_Yee
+  rotate: true
+  xy: 1431, 12
+  size: 245, 274
+  orig: 245, 274
+  offset: 0, 0
+  index: -1
+Smile_Lip
+  rotate: true
+  xy: 994, 49
+  size: 108, 74
+  orig: 108, 74
+  offset: 0, 0
+  index: -1
+Why_Right_Forarm
+  rotate: true
+  xy: 1707, 63
+  size: 274, 176
+  orig: 274, 176
+  offset: 0, 0
+  index: -1
+Why_Right_Hand
+  rotate: false
+  xy: 185, 3
+  size: 217, 131
+  orig: 217, 131
+  offset: 0, 0
+  index: -1
+Yee_Right_Up_Hand
+  rotate: false
+  xy: 1326, 259
+  size: 178, 356
+  orig: 178, 356
+  offset: 0, 0
+  index: -1

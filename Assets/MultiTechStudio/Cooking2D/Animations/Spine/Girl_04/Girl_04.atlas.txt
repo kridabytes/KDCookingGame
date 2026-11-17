@@ -1,0 +1,271 @@
+
+Girl_04.png
+size: 2047,1564
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Angry_Face
+  rotate: true
+  xy: 491, 166
+  size: 413, 476
+  orig: 424, 486
+  offset: 11, 0
+  index: -1
+Angry_Lip
+  rotate: false
+  xy: 823, 1473
+  size: 151, 89
+  orig: 151, 89
+  offset: 0, 0
+  index: -1
+Back_Hair
+  rotate: false
+  xy: 2, 1088
+  size: 308, 242
+  orig: 308, 242
+  offset: 0, 0
+  index: -1
+Cap
+  rotate: false
+  xy: 618, 581
+  size: 706, 367
+  orig: 706, 376
+  offset: 0, 9
+  index: -1
+Happy_Lip
+  rotate: false
+  xy: 663, 1481
+  size: 158, 81
+  orig: 158, 81
+  offset: 0, 0
+  index: -1
+Heart 1
+  rotate: false
+  xy: 1281, 1434
+  size: 142, 128
+  orig: 142, 128
+  offset: 0, 0
+  index: -1
+Heart 2
+  rotate: false
+  xy: 1281, 1434
+  size: 142, 128
+  orig: 142, 128
+  offset: 0, 0
+  index: -1
+Left_Angry_Hand
+  rotate: false
+  xy: 931, 1230
+  size: 232, 204
+  orig: 236, 210
+  offset: 2, 3
+  index: -1
+Left_Black_Eye
+  rotate: false
+  xy: 369, 1506
+  size: 60, 56
+  orig: 60, 56
+  offset: 0, 0
+  index: -1
+Right_Balck_Eye
+  rotate: false
+  xy: 369, 1506
+  size: 60, 56
+  orig: 60, 56
+  offset: 0, 0
+  index: -1
+Left_Blink
+  rotate: false
+  xy: 1771, 1390
+  size: 201, 172
+  orig: 201, 172
+  offset: 0, 0
+  index: -1
+Left_Eye_White
+  rotate: false
+  xy: 431, 1506
+  size: 95, 56
+  orig: 95, 56
+  offset: 0, 0
+  index: -1
+Left_Eye_White_Dot
+  rotate: false
+  xy: 2, 1545
+  size: 17, 17
+  orig: 17, 17
+  offset: 0, 0
+  index: -1
+Left_Eyebrow
+  rotate: false
+  xy: 155, 1508
+  size: 124, 54
+  orig: 124, 54
+  offset: 0, 0
+  index: -1
+Left_ForArm_ Happy
+  rotate: true
+  xy: 1503, 878
+  size: 284, 409
+  orig: 284, 409
+  offset: 0, 0
+  index: -1
+Left_Hand
+  rotate: true
+  xy: 1541, 1164
+  size: 224, 449
+  orig: 224, 449
+  offset: 0, 0
+  index: -1
+Left_Hand_ Happy
+  rotate: false
+  xy: 312, 1056
+  size: 306, 243
+  orig: 306, 243
+  offset: 0, 0
+  index: -1
+Left_Hand_ Normal
+  rotate: true
+  xy: 382, 1301
+  size: 170, 547
+  orig: 170, 547
+  offset: 0, 0
+  index: -1
+Left_Hand_Thumb
+  rotate: true
+  xy: 620, 1054
+  size: 245, 263
+  orig: 251, 263
+  offset: 3, 0
+  index: -1
+Left_Hand_Watch
+  rotate: false
+  xy: 976, 1463
+  size: 162, 99
+  orig: 162, 102
+  offset: 0, 0
+  index: -1
+Left_Up_Hand
+  rotate: true
+  xy: 1326, 471
+  size: 405, 719
+  orig: 433, 719
+  offset: 0, 0
+  index: -1
+Left_Wav_Hand
+  rotate: true
+  xy: 1165, 1211
+  size: 216, 374
+  orig: 265, 379
+  offset: 48, 0
+  index: -1
+Leftt_Open_Eye
+  rotate: false
+  xy: 1583, 1414
+  size: 186, 148
+  orig: 186, 148
+  offset: 0, 0
+  index: -1
+Normal_Lip
+  rotate: false
+  xy: 528, 1496
+  size: 133, 66
+  orig: 133, 66
+  offset: 0, 0
+  index: -1
+Right_Angry_Hand
+  rotate: true
+  xy: 1199, 950
+  size: 259, 302
+  orig: 265, 306
+  offset: 4, 4
+  index: -1
+Right_Blink
+  rotate: false
+  xy: 1425, 1429
+  size: 156, 133
+  orig: 156, 133
+  offset: 0, 0
+  index: -1
+Right_Cap_ForArm
+  rotate: true
+  xy: 2, 369
+  size: 412, 487
+  orig: 412, 487
+  offset: 0, 0
+  index: -1
+Right_Cap_Hand
+  rotate: true
+  xy: 885, 959
+  size: 250, 312
+  orig: 250, 312
+  offset: 0, 0
+  index: -1
+Right_Eye_White
+  rotate: false
+  xy: 281, 1508
+  size: 86, 54
+  orig: 86, 54
+  offset: 0, 0
+  index: -1
+Right_Eye_White_Dot
+  rotate: false
+  xy: 21, 1545
+  size: 17, 17
+  orig: 17, 17
+  offset: 0, 0
+  index: -1
+Right_Eyebrow
+  rotate: false
+  xy: 40, 1511
+  size: 113, 51
+  orig: 113, 51
+  offset: 0, 0
+  index: -1
+Right_For_Arm
+  rotate: true
+  xy: 2, 783
+  size: 271, 614
+  orig: 271, 614
+  offset: 0, 0
+  index: -1
+Right_Hand
+  rotate: true
+  xy: 2, 1332
+  size: 172, 378
+  orig: 172, 378
+  offset: 0, 0
+  index: -1
+Right_Open_Eye
+  rotate: false
+  xy: 1140, 1436
+  size: 139, 126
+  orig: 139, 126
+  offset: 0, 0
+  index: -1
+Right_Up_Hand
+  rotate: true
+  xy: 969, 2
+  size: 467, 726
+  orig: 467, 726
+  offset: 0, 0
+  index: -1
+
+Girl_042.png
+size: 1734,1583
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: true
+  xy: 2, 685
+  size: 896, 1730
+  orig: 977, 1769
+  offset: 81, 0
+  index: -1
+Face
+  rotate: true
+  xy: 2, 2
+  size: 681, 843
+  orig: 681, 859
+  offset: 0, 0
+  index: -1

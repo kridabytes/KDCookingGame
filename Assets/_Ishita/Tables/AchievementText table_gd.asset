@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: AchievementText table_gd
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: gd
+  m_SharedData: {fileID: 11400000, guid: d370270c7127356449176e6e79025072, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12027449344
+    m_Localized: Tuille {0} bonn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8646853677056
+    m_Localized: "Cr\xEDochnaigh {0} leibh\xE9al"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9627754582016
+    m_Localized: "Cr\xEDochnaigh {0} leibh\xE9al gan bia a dh\xF3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10797759877120
+    m_Localized: "Cr\xEDochnaigh {0} ord\xFA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11933854224384
+    m_Localized: "\xDAs\xE1id aon bhreise\xE1n {0} uair"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12687281246208
+    m_Localized: "Cr\xEDochnaigh tascanna laeth\xFAla ar feadh {0} l\xE1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21376947998720
+    m_Localized: "Buaigh {0} leibh\xE9al gan iarracht ar\xEDs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90308026327912448
+    m_Localized: "Duaisean L\xE0itheil"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90309614505316352
+    m_Localized: "Gn\xEComh L\xE0itheil"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90310985812037632
+    m_Localized: Coileanadh
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90312638233595904
+    m_Localized: Bhuannaich thu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90314538219753472
+    m_Localized: "DH'FH\xC0ILLIG"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90317217880887296
+    m_Localized: Feuch ris a-rithist
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,258 @@
+
+Girl_01.png
+size: 1424,396
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Angry
+  rotate: true
+  xy: 947, 127
+  size: 52, 37
+  orig: 52, 37
+  offset: 0, 0
+  index: -1
+Back_Hair
+  rotate: true
+  xy: 1108, 33
+  size: 162, 157
+  orig: 167, 163
+  offset: 5, 6
+  index: -1
+Blink
+  rotate: false
+  xy: 1267, 7
+  size: 82, 71
+  orig: 145, 74
+  offset: 0, 3
+  index: -1
+Body
+  rotate: true
+  xy: 2, 105
+  size: 289, 440
+  orig: 289, 440
+  offset: 0, 0
+  index: -1
+Close_Left_Hand
+  rotate: false
+  xy: 693, 30
+  size: 67, 88
+  orig: 67, 96
+  offset: 0, 0
+  index: -1
+Close_Rightt_Hand
+  rotate: true
+  xy: 1019, 129
+  size: 66, 87
+  orig: 66, 87
+  offset: 0, 0
+  index: -1
+Face
+  rotate: false
+  xy: 1000, 197
+  size: 197, 197
+  orig: 197, 197
+  offset: 0, 0
+  index: -1
+Front_Hair
+  rotate: false
+  xy: 637, 120
+  size: 229, 274
+  orig: 229, 274
+  offset: 0, 0
+  index: -1
+Girl
+  rotate: true
+  xy: 444, 110
+  size: 284, 191
+  orig: 284, 191
+  offset: 0, 0
+  index: -1
+L_Down_Open_Eyelesh
+  rotate: false
+  xy: 725, 4
+  size: 43, 24
+  orig: 43, 24
+  offset: 0, 0
+  index: -1
+L_Eye
+  rotate: true
+  xy: 770, 4
+  size: 24, 27
+  orig: 24, 27
+  offset: 0, 0
+  index: -1
+L_Eye_BG_White
+  rotate: true
+  xy: 986, 130
+  size: 49, 31
+  orig: 49, 31
+  offset: 0, 0
+  index: -1
+L_Flash
+  rotate: true
+  xy: 2, 2
+  size: 7, 6
+  orig: 7, 6
+  offset: 0, 0
+  index: -1
+L_Up_Open_Eyelesh
+  rotate: true
+  xy: 868, 123
+  size: 56, 30
+  orig: 56, 30
+  offset: 0, 0
+  index: -1
+Left_Eyebrow
+  rotate: false
+  xy: 556, 3
+  size: 39, 15
+  orig: 39, 15
+  offset: 0, 0
+  index: -1
+Left_For_Arm
+  rotate: false
+  xy: 1199, 234
+  size: 85, 160
+  orig: 85, 160
+  offset: 0, 0
+  index: -1
+Left_Hand
+  rotate: false
+  xy: 868, 181
+  size: 130, 213
+  orig: 130, 215
+  offset: 0, 2
+  index: -1
+Left_Hand_W
+  rotate: true
+  xy: 243, 11
+  size: 92, 121
+  orig: 92, 121
+  offset: 0, 0
+  index: -1
+Normal
+  rotate: false
+  xy: 799, 5
+  size: 52, 23
+  orig: 52, 23
+  offset: 0, 0
+  index: -1
+Normal _Left_Hand
+  rotate: false
+  xy: 1267, 80
+  size: 73, 152
+  orig: 73, 152
+  offset: 0, 0
+  index: -1
+Normal _Right_Hand
+  rotate: true
+  xy: 556, 20
+  size: 88, 135
+  orig: 88, 135
+  offset: 0, 0
+  index: -1
+OOO
+  rotate: true
+  xy: 1351, 13
+  size: 41, 36
+  orig: 41, 36
+  offset: 0, 0
+  index: -1
+Open_Left_Hand
+  rotate: true
+  xy: 955, 7
+  size: 118, 140
+  orig: 118, 141
+  offset: 0, 0
+  index: -1
+Open_Right_Hand
+  rotate: false
+  xy: 1286, 247
+  size: 130, 147
+  orig: 130, 148
+  offset: 0, 0
+  index: -1
+R_Down_Open_Eyelesh
+  rotate: false
+  xy: 1097, 2
+  size: 60, 29
+  orig: 60, 29
+  offset: 0, 0
+  index: -1
+R_Eye
+  rotate: true
+  xy: 693, 2
+  size: 26, 30
+  orig: 26, 30
+  offset: 0, 0
+  index: -1
+R_Eye_BG_White
+  rotate: true
+  xy: 900, 127
+  size: 52, 45
+  orig: 52, 45
+  offset: 0, 0
+  index: -1
+R_Flash
+  rotate: true
+  xy: 10, 2
+  size: 7, 6
+  orig: 7, 6
+  offset: 0, 0
+  index: -1
+R_UP_Open_Eyelesh
+  rotate: false
+  xy: 1199, 198
+  size: 60, 34
+  orig: 60, 34
+  offset: 0, 0
+  index: -1
+Right_Eyebrow
+  rotate: false
+  xy: 853, 8
+  size: 65, 21
+  orig: 65, 21
+  offset: 0, 0
+  index: -1
+Right_For_Arm
+  rotate: true
+  xy: 366, 15
+  size: 88, 188
+  orig: 88, 189
+  offset: 0, 0
+  index: -1
+Right_Hand
+  rotate: true
+  xy: 2, 11
+  size: 92, 239
+  orig: 92, 239
+  offset: 0, 0
+  index: -1
+Right_Hand_W
+  rotate: true
+  xy: 816, 31
+  size: 87, 137
+  orig: 87, 138
+  offset: 0, 0
+  index: -1
+Right_Hand_Wow
+  rotate: false
+  xy: 1342, 105
+  size: 80, 140
+  orig: 80, 140
+  offset: 0, 0
+  index: -1
+Sad
+  rotate: true
+  xy: 1351, 56
+  size: 47, 39
+  orig: 47, 39
+  offset: 0, 0
+  index: -1
+Smile
+  rotate: true
+  xy: 762, 30
+  size: 88, 52
+  orig: 88, 52
+  offset: 0, 0
+  index: -1

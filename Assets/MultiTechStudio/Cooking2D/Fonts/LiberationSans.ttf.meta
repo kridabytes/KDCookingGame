@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 695c29f623dc0384c890256a04d60e27
+timeCreated: 1484171297
+licenseType: Store
+TrueTypeFontImporter:
+  serializedVersion: 2
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 1
+  characterPadding: 0
+  includeFontData: 1
+  use2xBehaviour: 0
+  fontNames: []
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 334514
+  packageName: "Cooking Game Template \u2013 Restaurant System with 210+ Levels &
+    Boosters"
+  packageVersion: 1.0
+  assetPath: Assets/MultiTechStudio/Cooking2D/Fonts/LiberationSans.ttf
+  uploadId: 811704

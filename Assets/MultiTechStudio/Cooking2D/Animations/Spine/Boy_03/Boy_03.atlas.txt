@@ -1,0 +1,244 @@
+
+Boy_03.png
+size: 2016,1937
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Blink
+  rotate: false
+  xy: 484, 37
+  size: 115, 41
+  orig: 115, 41
+  offset: 0, 0
+  index: -1
+Blink_R
+  rotate: false
+  xy: 22, 11
+  size: 165, 67
+  orig: 165, 67
+  offset: 0, 0
+  index: -1
+Body
+  rotate: true
+  xy: 1008, 345
+  size: 460, 910
+  orig: 460, 910
+  offset: 0, 0
+  index: -1
+Book
+  rotate: true
+  xy: 2, 80
+  size: 829, 593
+  orig: 829, 593
+  offset: 0, 0
+  index: -1
+Both_Eye_R_L
+  rotate: false
+  xy: 360, 32
+  size: 122, 46
+  orig: 122, 46
+  offset: 0, 0
+  index: -1
+Both_White
+  rotate: false
+  xy: 484, 2
+  size: 103, 33
+  orig: 103, 33
+  offset: 0, 0
+  index: -1
+Cap_Back
+  rotate: false
+  xy: 2, 911
+  size: 1024, 1024
+  orig: 1024, 1024
+  offset: 0, 0
+  index: -1
+Cap_Hand
+  rotate: false
+  xy: 1028, 1368
+  size: 981, 567
+  orig: 1024, 1024
+  offset: 19, 227
+  index: -1
+Cap_Hand - Head
+  rotate: false
+  xy: 1028, 807
+  size: 976, 559
+  orig: 1024, 1024
+  offset: 22, 230
+  index: -1
+Face
+  rotate: false
+  xy: 749, 464
+  size: 249, 316
+  orig: 249, 316
+  offset: 0, 0
+  index: -1
+L_Eye_Balck
+  rotate: false
+  xy: 326, 10
+  size: 19, 19
+  orig: 19, 19
+  offset: 0, 0
+  index: -1
+L_Eye_Dot
+  rotate: false
+  xy: 2006, 1358
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+L_Eyebrow
+  rotate: true
+  xy: 2, 4
+  size: 74, 18
+  orig: 74, 18
+  offset: 0, 0
+  index: -1
+Left_For_Up_Arm
+  rotate: false
+  xy: 1067, 2
+  size: 206, 208
+  orig: 206, 227
+  offset: 0, 0
+  index: -1
+Left_Hand_Thumb
+  rotate: false
+  xy: 1920, 653
+  size: 83, 152
+  orig: 83, 152
+  offset: 0, 0
+  index: -1
+Left_Hand_Why
+  rotate: true
+  xy: 597, 345
+  size: 117, 172
+  orig: 117, 172
+  offset: 0, 0
+  index: -1
+Left_Up_Hand
+  rotate: false
+  xy: 597, 85
+  size: 150, 258
+  orig: 150, 258
+  offset: 0, 0
+  index: -1
+Left_Up_Wave Hand
+  rotate: true
+  xy: 1001, 212
+  size: 131, 182
+  orig: 131, 182
+  offset: 0, 0
+  index: -1
+Normal_Left_Hand_Thumb
+  rotate: true
+  xy: 1714, 190
+  size: 153, 162
+  orig: 153, 162
+  offset: 0, 0
+  index: -1
+Normal_Left_Up_Hand
+  rotate: false
+  xy: 1543, 49
+  size: 169, 294
+  orig: 172, 333
+  offset: 0, 39
+  index: -1
+Normal_Lip
+  rotate: false
+  xy: 281, 31
+  size: 77, 47
+  orig: 77, 47
+  offset: 0, 0
+  index: -1
+Normal_Right_ForArm
+  rotate: true
+  xy: 597, 782
+  size: 127, 409
+  orig: 127, 410
+  offset: 0, 1
+  index: -1
+Normal_Right_Up_Hand
+  rotate: true
+  xy: 749, 7
+  size: 187, 316
+  orig: 187, 316
+  offset: 0, 0
+  index: -1
+Normal_Thumb_Hand
+  rotate: true
+  xy: 597, 486
+  size: 294, 116
+  orig: 294, 116
+  offset: 0, 0
+  index: -1
+R_Eye_Balck
+  rotate: false
+  xy: 347, 10
+  size: 19, 19
+  orig: 19, 19
+  offset: 0, 0
+  index: -1
+R_Eye_Dot
+  rotate: false
+  xy: 189, 3
+  size: 10, 10
+  orig: 70, 24
+  offset: 0, 0
+  index: -1
+R_Eyebrow
+  rotate: false
+  xy: 281, 5
+  size: 43, 24
+  orig: 43, 24
+  offset: 0, 0
+  index: -1
+Right_For_Up_Arm
+  rotate: true
+  xy: 1275, 32
+  size: 178, 228
+  orig: 178, 240
+  offset: 0, 0
+  index: -1
+Right_Hand_Why
+  rotate: true
+  xy: 1369, 226
+  size: 117, 172
+  orig: 117, 172
+  offset: 0, 0
+  index: -1
+Right_Up_Hand
+  rotate: false
+  xy: 771, 196
+  size: 228, 266
+  orig: 228, 266
+  offset: 0, 0
+  index: -1
+Right_Up_Wave Hand
+  rotate: true
+  xy: 1185, 212
+  size: 131, 182
+  orig: 131, 182
+  offset: 0, 0
+  index: -1
+Sad
+  rotate: false
+  xy: 189, 15
+  size: 90, 63
+  orig: 90, 63
+  offset: 0, 0
+  index: -1
+Sad Angry Face
+  rotate: true
+  xy: 1714, 29
+  size: 159, 153
+  orig: 159, 153
+  offset: 0, 0
+  index: -1
+Smile
+  rotate: false
+  xy: 589, 2
+  size: 80, 33
+  orig: 80, 33
+  offset: 0, 0
+  index: -1

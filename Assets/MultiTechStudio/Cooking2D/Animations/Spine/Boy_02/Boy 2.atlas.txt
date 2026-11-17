@@ -1,0 +1,230 @@
+
+Boy 2.png
+size: 2030,650
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Angry-Face
+  rotate: true
+  xy: 1806, 186
+  size: 177, 214
+  orig: 179, 221
+  offset: 2, 5
+  index: -1
+Blink
+  rotate: true
+  xy: 1348, 210
+  size: 133, 46
+  orig: 133, 46
+  offset: 0, 0
+  index: -1
+Body
+  rotate: true
+  xy: 2, 185
+  size: 463, 938
+  orig: 463, 938
+  offset: 0, 0
+  index: -1
+Eye_Open
+  rotate: false
+  xy: 1225, 294
+  size: 121, 49
+  orig: 121, 49
+  offset: 0, 0
+  index: -1
+Face
+  rotate: false
+  xy: 1806, 365
+  size: 222, 283
+  orig: 222, 283
+  offset: 0, 0
+  index: -1
+Hair_Front
+  rotate: true
+  xy: 1099, 189
+  size: 88, 99
+  orig: 88, 99
+  offset: 0, 0
+  index: -1
+Layer 3
+  rotate: false
+  xy: 1074, 247
+  size: 8, 9
+  orig: 8, 9
+  offset: 0, 0
+  index: -1
+Left_Eybrow
+  rotate: false
+  xy: 1229, 189
+  size: 47, 24
+  orig: 47, 24
+  offset: 0, 0
+  index: -1
+Left_Eye_White
+  rotate: false
+  xy: 1396, 192
+  size: 37, 22
+  orig: 37, 22
+  offset: 0, 0
+  index: -1
+Right_Eye_White
+  rotate: false
+  xy: 1396, 192
+  size: 37, 22
+  orig: 37, 22
+  offset: 0, 0
+  index: -1
+Left_For_Hand
+  rotate: true
+  xy: 665, 5
+  size: 178, 225
+  orig: 178, 225
+  offset: 0, 0
+  index: -1
+Left_Hand_Thumb
+  rotate: false
+  xy: 2, 2
+  size: 99, 181
+  orig: 99, 181
+  offset: 0, 0
+  index: -1
+Left_Hand_Wav
+  rotate: true
+  xy: 1769, 71
+  size: 113, 191
+  orig: 114, 191
+  offset: 0, 0
+  index: -1
+Left_Hand_Why
+  rotate: true
+  xy: 1396, 216
+  size: 127, 187
+  orig: 127, 187
+  offset: 0, 0
+  index: -1
+Left_Up_Hand
+  rotate: false
+  xy: 1430, 345
+  size: 186, 303
+  orig: 186, 303
+  offset: 0, 0
+  index: -1
+Left_Up_Hand_C
+  rotate: false
+  xy: 1618, 345
+  size: 186, 303
+  orig: 186, 303
+  offset: 0, 0
+  index: -1
+Normal_Left_For_Arm
+  rotate: false
+  xy: 942, 244
+  size: 130, 404
+  orig: 131, 404
+  offset: 1, 0
+  index: -1
+Normal_Left_Up_Hand
+  rotate: false
+  xy: 1074, 279
+  size: 149, 369
+  orig: 149, 369
+  offset: 0, 0
+  index: -1
+Normal_Lip
+  rotate: true
+  xy: 1200, 197
+  size: 80, 27
+  orig: 80, 27
+  offset: 0, 0
+  index: -1
+Normal_Right_For_Arm
+  rotate: true
+  xy: 204, 4
+  size: 179, 459
+  orig: 179, 459
+  offset: 0, 0
+  index: -1
+Normal_Right_Up_Hand
+  rotate: true
+  xy: 1119, 5
+  size: 182, 360
+  orig: 182, 360
+  offset: 0, 0
+  index: -1
+Right_Eybrow
+  rotate: false
+  xy: 1278, 196
+  size: 66, 17
+  orig: 66, 17
+  offset: 0, 0
+  index: -1
+Right_Eye_Black
+  rotate: false
+  xy: 1074, 258
+  size: 20, 19
+  orig: 20, 19
+  offset: 0, 0
+  index: -1
+Right_Forarm
+  rotate: true
+  xy: 892, 5
+  size: 178, 225
+  orig: 178, 225
+  offset: 0, 0
+  index: -1
+Right_Hand_Thumb
+  rotate: false
+  xy: 103, 2
+  size: 99, 181
+  orig: 99, 181
+  offset: 0, 0
+  index: -1
+Right_Hand_Wav
+  rotate: false
+  xy: 1653, 23
+  size: 114, 191
+  orig: 114, 191
+  offset: 0, 0
+  index: -1
+Right_Hand_Why
+  rotate: true
+  xy: 1585, 216
+  size: 127, 187
+  orig: 127, 187
+  offset: 0, 0
+  index: -1
+Right_Up_Hand
+  rotate: false
+  xy: 1225, 345
+  size: 203, 303
+  orig: 203, 303
+  offset: 0, 0
+  index: -1
+Sad_1
+  rotate: false
+  xy: 1021, 186
+  size: 76, 56
+  orig: 76, 56
+  offset: 0, 0
+  index: -1
+Sad_2
+  rotate: false
+  xy: 942, 186
+  size: 77, 56
+  orig: 77, 56
+  offset: 0, 0
+  index: -1
+Smile
+  rotate: false
+  xy: 1229, 215
+  size: 116, 77
+  orig: 116, 77
+  offset: 0, 0
+  index: -1
+What-Face
+  rotate: false
+  xy: 1481, 10
+  size: 170, 204
+  orig: 179, 221
+  offset: 9, 17
+  index: -1

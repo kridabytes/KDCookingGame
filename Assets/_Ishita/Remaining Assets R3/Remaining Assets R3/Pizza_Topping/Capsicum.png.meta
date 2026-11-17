@@ -1,0 +1,1976 @@
+fileFormatVersion: 2
+guid: 1d5ff1f1b74d6b4488f1190189cad209
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 400440723777428155
+    second: Capsicum_0
+  - first:
+      213: 975165202997311132
+    second: Capsicum_1
+  - first:
+      213: -2528521939630216208
+    second: Capsicum_2
+  - first:
+      213: -5604515749927347301
+    second: Capsicum_3
+  - first:
+      213: -9126773957363275337
+    second: Capsicum_4
+  - first:
+      213: -8247359367241043348
+    second: Capsicum_5
+  - first:
+      213: -4091074568411500963
+    second: Capsicum_6
+  - first:
+      213: -2986319350666809238
+    second: Capsicum_7
+  - first:
+      213: -5579649684272185236
+    second: Capsicum_8
+  - first:
+      213: -3229792507001044659
+    second: Capsicum_9
+  - first:
+      213: 6019046626078483853
+    second: Capsicum_10
+  - first:
+      213: -8588755905195213606
+    second: Capsicum_11
+  - first:
+      213: 3675495934001776471
+    second: Capsicum_12
+  - first:
+      213: -8118067248701920585
+    second: Capsicum_13
+  - first:
+      213: -1263919806879248836
+    second: Capsicum_14
+  - first:
+      213: -1349570452157572002
+    second: Capsicum_15
+  - first:
+      213: -323479864919360197
+    second: Capsicum_16
+  - first:
+      213: 803930502104036770
+    second: Capsicum_17
+  - first:
+      213: -7806282132752004284
+    second: Capsicum_18
+  - first:
+      213: 934531657674841855
+    second: Capsicum_19
+  - first:
+      213: 7054354171832686866
+    second: Capsicum_20
+  - first:
+      213: -8124286756539034736
+    second: Capsicum_21
+  - first:
+      213: -2343767077909716393
+    second: Capsicum_22
+  - first:
+      213: -3961720248304757997
+    second: Capsicum_23
+  - first:
+      213: -5273101830351941236
+    second: Capsicum_24
+  - first:
+      213: -8513670373001011090
+    second: Capsicum_25
+  - first:
+      213: 7887232659373481260
+    second: Capsicum_26
+  - first:
+      213: -5581513434641767919
+    second: Capsicum_27
+  - first:
+      213: 4485619695286779773
+    second: Capsicum_28
+  - first:
+      213: -1544289206943625817
+    second: Capsicum_29
+  - first:
+      213: 1435812343297682087
+    second: Capsicum_30
+  - first:
+      213: 3428432289697006312
+    second: Capsicum_31
+  - first:
+      213: -8195758722619962500
+    second: Capsicum_32
+  - first:
+      213: -1812098638533080763
+    second: Capsicum_33
+  - first:
+      213: -5237788104193300084
+    second: Capsicum_34
+  - first:
+      213: -1119840980714406913
+    second: Capsicum_35
+  - first:
+      213: 8697759154748211237
+    second: Capsicum_36
+  - first:
+      213: 1206327397255533634
+    second: Capsicum_37
+  - first:
+      213: 5312616189411497664
+    second: Capsicum_38
+  - first:
+      213: -2572110300836562872
+    second: Capsicum_39
+  - first:
+      213: -1351327996889153363
+    second: Capsicum_40
+  - first:
+      213: 6279547353998539928
+    second: Capsicum_41
+  - first:
+      213: -3258102270301855961
+    second: Capsicum_42
+  - first:
+      213: -1988788295329464399
+    second: Capsicum_43
+  - first:
+      213: 1832268126143105847
+    second: Capsicum_44
+  - first:
+      213: -7186191899039057066
+    second: Capsicum_45
+  - first:
+      213: -8298802839146815427
+    second: Capsicum_46
+  - first:
+      213: 2624196585575405465
+    second: Capsicum_47
+  - first:
+      213: 1485235196697734651
+    second: Capsicum_48
+  - first:
+      213: -371967608922782049
+    second: Capsicum_49
+  - first:
+      213: -8730765835038372960
+    second: Capsicum_50
+  - first:
+      213: -19652237361145569
+    second: Capsicum_51
+  - first:
+      213: -6210065795928922722
+    second: Capsicum_52
+  - first:
+      213: -3811688796582240043
+    second: Capsicum_53
+  - first:
+      213: 8989120799999803966
+    second: Capsicum_54
+  - first:
+      213: 4377098631008377640
+    second: Capsicum_55
+  - first:
+      213: -2418599264477686068
+    second: Capsicum_56
+  - first:
+      213: -368135035503481484
+    second: Capsicum_57
+  - first:
+      213: -7693066119004694598
+    second: Capsicum_58
+  - first:
+      213: 4036909497437883281
+    second: Capsicum_59
+  - first:
+      213: -450660308094492797
+    second: Capsicum_60
+  - first:
+      213: -3636109607978577720
+    second: Capsicum_61
+  - first:
+      213: -9078501819927660376
+    second: Capsicum_62
+  - first:
+      213: -1199103047386995092
+    second: Capsicum_63
+  - first:
+      213: -5593373992706478008
+    second: Capsicum_64
+  - first:
+      213: 1088924858366003718
+    second: Capsicum_65
+  - first:
+      213: 8543302497168097737
+    second: Capsicum_66
+  - first:
+      213: 4758180318878807889
+    second: Capsicum_67
+  - first:
+      213: 3550831108183733409
+    second: Capsicum_68
+  - first:
+      213: 2585041306640954663
+    second: Capsicum_69
+  - first:
+      213: 588197344276214652
+    second: Capsicum_70
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Capsicum_0
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 718
+        width: 47
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bba9a5677b6ae8500800000000000000
+      internalID: 400440723777428155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_1
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 730
+        width: 40
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c96f9f1e59b788d00800000000000000
+      internalID: 975165202997311132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_2
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 584
+        width: 372
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb2f8d41b2e8ecd0800000000000000
+      internalID: -2528521939630216208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_3
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 730
+        width: 35
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9b9f739e92c832b0800000000000000
+      internalID: -5604515749927347301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_4
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 718
+        width: 47
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b96316017f275180800000000000000
+      internalID: -9126773957363275337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_5
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 701
+        width: 21
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c627b941a5e7b8d80800000000000000
+      internalID: -8247359367241043348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_6
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 708
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5ea2300b559937c0800000000000000
+      internalID: -4091074568411500963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_7
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 704
+        width: 44
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6031ad6f567e86d0800000000000000
+      internalID: -2986319350666809238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_8
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 690
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6006d5ac2a1192b0800000000000000
+      internalID: -5579649684272185236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_9
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 693
+        width: 30
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d410cf9b3d87d23d0800000000000000
+      internalID: -3229792507001044659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_10
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 682
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d85ebe12403f78350800000000000000
+      internalID: 6019046626078483853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_11
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 680
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adcfc48620c9ec880800000000000000
+      internalID: -8588755905195213606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_12
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 684
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 757819f041cf10330800000000000000
+      internalID: 3675495934001776471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_13
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 508
+        width: 268
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7baa36249d4d65f80800000000000000
+      internalID: -8118067248701920585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_14
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 668
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3ec166d1a7a57ee0800000000000000
+      internalID: -1263919806879248836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_15
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 485
+        width: 179
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5cd8c7f2dc554de0800000000000000
+      internalID: -1349570452157572002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_16
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 660
+        width: 41
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d7d77d6c4c28bf0800000000000000
+      internalID: -323479864919360197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_17
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 655
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a533024882282b00800000000000000
+      internalID: 803930502104036770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_18
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 651
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b86dc72c38aa390800000000000000
+      internalID: -7806282132752004284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_19
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 533
+        width: 136
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffed01f579f18fc00800000000000000
+      internalID: 934531657674841855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_20
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 402
+        width: 208
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 219d1e36eb916e160800000000000000
+      internalID: 7054354171832686866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_21
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 442
+        width: 341
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093941f3d3cb04f80800000000000000
+      internalID: -8124286756539034736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_22
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 282
+        width: 537
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 752afeca244497fd0800000000000000
+      internalID: -2343767077909716393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_23
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 521
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 313925c9c642509c0800000000000000
+      internalID: -3961720248304757997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_24
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 511
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c811969c2dd22d6b0800000000000000
+      internalID: -5273101830351941236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_25
+      rect:
+        serializedVersion: 2
+        x: 1237
+        y: 504
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e60e18237ed59d980800000000000000
+      internalID: -8513670373001011090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_26
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 488
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2dd0dab054157d60800000000000000
+      internalID: 7887232659373481260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_27
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 374
+        width: 23
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1126b137a1b7a82b0800000000000000
+      internalID: -5581513434641767919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_28
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 366
+        width: 200
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7f7017d85f104e30800000000000000
+      internalID: 4485619695286779773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_29
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 479
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7adc7a5f525919ae0800000000000000
+      internalID: -1544289206943625817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_30
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 449
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aa216e08b70de310800000000000000
+      internalID: 1435812343297682087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_31
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 314
+        width: 14
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e28edbb00d349f20800000000000000
+      internalID: 3428432289697006312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_32
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 175
+        width: 373
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7b8d616dd0d24e80800000000000000
+      internalID: -8195758722619962500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_33
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 314
+        width: 219
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5494440a3e12ad6e0800000000000000
+      internalID: -1812098638533080763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_34
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 236
+        width: 201
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c89aac06873af47b0800000000000000
+      internalID: -5237788104193300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_35
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 313
+        width: 14
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffbb79baf868570f0800000000000000
+      internalID: -1119840980714406913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_36
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 369
+        width: 10
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5204ba85ed5a4b870800000000000000
+      internalID: 8697759154748211237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_37
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 289
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 244dc3c506cbdb010800000000000000
+      internalID: 1206327397255533634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_38
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 275
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c69cddd6443ab940800000000000000
+      internalID: 5312616189411497664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_39
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 137
+        width: 390
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 848738b1f470e4cd0800000000000000
+      internalID: -2572110300836562872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_40
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 282
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da0c162b85e1f3de0800000000000000
+      internalID: -1351327996889153363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_41
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 295
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89cb3594c0f652750800000000000000
+      internalID: 6279547353998539928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_42
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 244
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72f93c05f35e8c2d0800000000000000
+      internalID: -3258102270301855961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_43
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 162
+        width: 80
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bfbe6b15976664e0800000000000000
+      internalID: -1988788295329464399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_44
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 144
+        width: 127
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73bc70827268d6910800000000000000
+      internalID: 1832268126143105847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_45
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 147
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65bbcf9ba84854c90800000000000000
+      internalID: -7186191899039057066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_46
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 140
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30a6a769cab4dc80800000000000000
+      internalID: -8298802839146815427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_47
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 136
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 997d30814e40b6420800000000000000
+      internalID: 2624196585575405465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_48
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 127
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfd6313da8d9c9410800000000000000
+      internalID: 1485235196697734651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_49
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 125
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f96c4323e6186daf0800000000000000
+      internalID: -371967608922782049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_50
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 121
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0abcb690bb616d680800000000000000
+      internalID: -8730765835038372960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_51
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 114
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f191c0de46e2abff0800000000000000
+      internalID: -19652237361145569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_52
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 114
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e956ad99f0a61d9a0800000000000000
+      internalID: -6210065795928922722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_53
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 108
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d021651c392a1bc0800000000000000
+      internalID: -3811688796582240043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_54
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 93
+        width: 31
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e32401fbdb5cfbc70800000000000000
+      internalID: 8989120799999803966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_55
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 93
+        width: 42
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82b5a1893049ebc30800000000000000
+      internalID: 4377098631008377640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_56
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 88
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc659c288c86f6ed0800000000000000
+      internalID: -2418599264477686068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_57
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 77
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47d607bb22f14eaf0800000000000000
+      internalID: -368135035503481484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_58
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 79
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab7d127df1dbc3590800000000000000
+      internalID: -7693066119004694598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_59
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 88
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b8f29accbf50830800000000000000
+      internalID: 4036909497437883281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_60
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 69
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38fd8a566deeeb9f0800000000000000
+      internalID: -450660308094492797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_61
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 61
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c05d049391f98dc0800000000000000
+      internalID: -3636109607978577720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_62
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 63
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a8797ad1bea20280800000000000000
+      internalID: -9078501819927660376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_63
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 69
+        width: 27
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c66e86ba12eeb5fe0800000000000000
+      internalID: -1199103047386995092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_64
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 49
+        width: 41
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84072d41df75062b0800000000000000
+      internalID: -5593373992706478008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_65
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 41
+        width: 33
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60a8ff9a363ac1f00800000000000000
+      internalID: 1088924858366003718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_66
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 18
+        width: 238
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c189685b58ef8670800000000000000
+      internalID: 8543302497168097737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_67
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 49
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 157b6044ac3780240800000000000000
+      internalID: 4758180318878807889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_68
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 53
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a4b2bc6416174130800000000000000
+      internalID: 3550831108183733409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_69
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 37
+        width: 19
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 725bb0c4f59efd320800000000000000
+      internalID: 2585041306640954663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capsicum_70
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 18
+        width: 189
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7379634e52b92800800000000000000
+      internalID: 588197344276214652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Capsicum_0: 400440723777428155
+      Capsicum_1: 975165202997311132
+      Capsicum_10: 6019046626078483853
+      Capsicum_11: -8588755905195213606
+      Capsicum_12: 3675495934001776471
+      Capsicum_13: -8118067248701920585
+      Capsicum_14: -1263919806879248836
+      Capsicum_15: -1349570452157572002
+      Capsicum_16: -323479864919360197
+      Capsicum_17: 803930502104036770
+      Capsicum_18: -7806282132752004284
+      Capsicum_19: 934531657674841855
+      Capsicum_2: -2528521939630216208
+      Capsicum_20: 7054354171832686866
+      Capsicum_21: -8124286756539034736
+      Capsicum_22: -2343767077909716393
+      Capsicum_23: -3961720248304757997
+      Capsicum_24: -5273101830351941236
+      Capsicum_25: -8513670373001011090
+      Capsicum_26: 7887232659373481260
+      Capsicum_27: -5581513434641767919
+      Capsicum_28: 4485619695286779773
+      Capsicum_29: -1544289206943625817
+      Capsicum_3: -5604515749927347301
+      Capsicum_30: 1435812343297682087
+      Capsicum_31: 3428432289697006312
+      Capsicum_32: -8195758722619962500
+      Capsicum_33: -1812098638533080763
+      Capsicum_34: -5237788104193300084
+      Capsicum_35: -1119840980714406913
+      Capsicum_36: 8697759154748211237
+      Capsicum_37: 1206327397255533634
+      Capsicum_38: 5312616189411497664
+      Capsicum_39: -2572110300836562872
+      Capsicum_4: -9126773957363275337
+      Capsicum_40: -1351327996889153363
+      Capsicum_41: 6279547353998539928
+      Capsicum_42: -3258102270301855961
+      Capsicum_43: -1988788295329464399
+      Capsicum_44: 1832268126143105847
+      Capsicum_45: -7186191899039057066
+      Capsicum_46: -8298802839146815427
+      Capsicum_47: 2624196585575405465
+      Capsicum_48: 1485235196697734651
+      Capsicum_49: -371967608922782049
+      Capsicum_5: -8247359367241043348
+      Capsicum_50: -8730765835038372960
+      Capsicum_51: -19652237361145569
+      Capsicum_52: -6210065795928922722
+      Capsicum_53: -3811688796582240043
+      Capsicum_54: 8989120799999803966
+      Capsicum_55: 4377098631008377640
+      Capsicum_56: -2418599264477686068
+      Capsicum_57: -368135035503481484
+      Capsicum_58: -7693066119004694598
+      Capsicum_59: 4036909497437883281
+      Capsicum_6: -4091074568411500963
+      Capsicum_60: -450660308094492797
+      Capsicum_61: -3636109607978577720
+      Capsicum_62: -9078501819927660376
+      Capsicum_63: -1199103047386995092
+      Capsicum_64: -5593373992706478008
+      Capsicum_65: 1088924858366003718
+      Capsicum_66: 8543302497168097737
+      Capsicum_67: 4758180318878807889
+      Capsicum_68: 3550831108183733409
+      Capsicum_69: 2585041306640954663
+      Capsicum_7: -2986319350666809238
+      Capsicum_70: 588197344276214652
+      Capsicum_8: -5579649684272185236
+      Capsicum_9: -3229792507001044659
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: ChooseLanguage Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: ChooseLanguage
+  m_TableCollectionNameGuidString: e1b9ba8ced589354db7e64b417ef4f5f
+  m_Entries:
+  - m_Id: 14846021632
+    m_Key: ChooseLanguage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10483161911296
+    m_Key: Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13056652627968
+    m_Key: FreeGift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14657652019200
+    m_Key: get_50_coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15485779595264
+    m_Key: get_1_diamond
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16393498284032
+    m_Key: get_1_combo_extender
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17337057300480
+    m_Key: get_1_helping_hand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18310827888640
+    m_Key: get_1_double_profit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 468155480952832
+    m_Key: watch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1452935521521664
+    m_Key: Clime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1455370591817728
+    m_Key: collect
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4011838772057210978
+  references:
+    version: 2
+    RefIds:
+    - rid: 4011838772057210978
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1772689073533

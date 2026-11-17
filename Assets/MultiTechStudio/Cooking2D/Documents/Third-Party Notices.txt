@@ -1,0 +1,27 @@
+THIRD‑PARTY NOTICES
+
+This template intentionally avoids bundling third‑party SDKs.
+
+Included components and licenses:
+
+1) Unity TextMesh Pro
+- Copyright © Unity Technologies
+- License: Unity Companion License
+- Notes: Package included via Unity Package Manager.
+
+2) Liberation Sans (TextMesh Pro sample)
+- Copyright © 2012 Red Hat, Inc.
+- License: SIL Open Font License 1.1
+- Location: Assets/TextMesh Pro/Fonts/LiberationSans.ttf
+- License file: Assets/TextMesh Pro/Fonts/"LiberationSans - OFL.txt"
+
+3) Built‑in Arial font
+- Copyright © Monotype Imaging Inc. (distributed via Unity as built‑in resource)
+- License: Provided as part of the Unity Editor/Runtime distribution; not
+  redistributed as a standalone font file in this package.
+
+Removed/not included:
+- Ad networks (Google Mobile Ads, Unity Ads SDK binaries, AppLovin, ironSource)
+- External editor packages pulled from Git (e.g., com.boxqkrtm.ide.cursor)
+- Custom TTF/OTF fonts without clear OFL/Apache/MIT licenses
+- EmojiOne sprite set

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 0ae7e4cb08d9ec347ba9d61d239eaf77
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 334514
+  packageName: "Cooking Game Template \u2013 Restaurant System with 210+ Levels &
+    Boosters"
+  packageVersion: 1.0
+  assetPath: Assets/MultiTechStudio/Cooking2D/Scripts/Utilities/Vibration.cs
+  uploadId: 811704

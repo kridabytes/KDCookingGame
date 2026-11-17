@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Scottish Gaelic (gd)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Scottish Gaelic (gd)
+  m_GUID: da4dcaa427644b44a993d1bd0cf33918
+  m_SerializeEntries:
+  - m_GUID: 14163ba2617107f4fa6668034a27c27d
+    m_Address: AchievementText table_gd
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gd
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2306668edbb78b944b662fd8dd8900c5
+    m_Address: ChooseLanguage_gd
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gd
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cc366eeddb505b48a6938fed5dfcae4
+    m_Address: offerIAP_gd
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gd
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a935add3d3d6924429ee95a6cde7747b
+    m_Address: IAP Text_gd
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gd
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8308614ab751934fb1554de05825f89
+    m_Address: ICECREAM MAKER_gd
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gd
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 9b8459c617b752c409bf70b499cdcc2b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 26a6ee44b2fa5244697f0ed3f1ab22db, type: 2}
+    - {fileID: 11400000, guid: 22543e975cbca3e4d95037a36ac1e8a6, type: 2}

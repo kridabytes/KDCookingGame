@@ -1,0 +1,494 @@
+fileFormatVersion: 2
+guid: b4b9d1b3072932041b1e799b63551547
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1094127058050519981
+    second: LevelWood_0
+  - first:
+      213: 3177306581673258218
+    second: LevelWood_1
+  - first:
+      213: 8420514665547776884
+    second: LevelWood_2
+  - first:
+      213: 4321355865625867625
+    second: LevelWood_3
+  - first:
+      213: -8239391538898724072
+    second: LevelWood_4
+  - first:
+      213: 5068925802341692869
+    second: LevelWood_5
+  - first:
+      213: 1307788867909909447
+    second: LevelWood_6
+  - first:
+      213: 8322675374064616970
+    second: LevelWood_7
+  - first:
+      213: 4857615033450879467
+    second: LevelWood_8
+  - first:
+      213: 5241126329360789788
+    second: LevelWood_9
+  - first:
+      213: -8519805431526390417
+    second: LevelWood_10
+  - first:
+      213: -4113624659543481325
+    second: LevelWood_11
+  - first:
+      213: 2411733846546812699
+    second: LevelWood_12
+  - first:
+      213: -2385975219022095003
+    second: LevelWood_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LevelWood_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1794
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35c61c5dc31e0d0f0800000000000000
+      internalID: -1094127058050519981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1660
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aec252f708f081c20800000000000000
+      internalID: 3177306581673258218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1526
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47341f9797dabd470800000000000000
+      internalID: 8420514665547776884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1392
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9653ea6a34a88fb30800000000000000
+      internalID: 4321355865625867625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1258
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81b159eac0dc7ad80800000000000000
+      internalID: -8239391538898724072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1124
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c573613921785640800000000000000
+      internalID: 5068925802341692869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 990
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cbfaf0eb03362210800000000000000
+      internalID: 1307788867909909447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 854
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0643044825108370800000000000000
+      internalID: 8322675374064616970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be9df6cd227b96340800000000000000
+      internalID: 4857615033450879467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 580
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c113f7cb0a83cb840800000000000000
+      internalID: 5241126329360789788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 446
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f650d62991293c980800000000000000
+      internalID: -8519805431526390417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 312
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 314af94ca2879e6c0800000000000000
+      internalID: -4113624659543481325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1f8530d723387120800000000000000
+      internalID: 2411733846546812699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelWood_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 42
+        width: 500
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d9d430e2053eed0800000000000000
+      internalID: -2385975219022095003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      LevelWood_0: -1094127058050519981
+      LevelWood_1: 3177306581673258218
+      LevelWood_10: -8519805431526390417
+      LevelWood_11: -4113624659543481325
+      LevelWood_12: 2411733846546812699
+      LevelWood_13: -2385975219022095003
+      LevelWood_2: 8420514665547776884
+      LevelWood_3: 4321355865625867625
+      LevelWood_4: -8239391538898724072
+      LevelWood_5: 5068925802341692869
+      LevelWood_6: 1307788867909909447
+      LevelWood_7: 8322675374064616970
+      LevelWood_8: 4857615033450879467
+      LevelWood_9: 5241126329360789788
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

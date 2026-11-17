@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Western Frisian (Netherlands) (fy-NL)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Western Frisian (Netherlands) (fy-NL)
+  m_GUID: 5f7eb9ef440dc244d91a0ae5e8cdbc8c
+  m_SerializeEntries:
+  - m_GUID: 2392b9801b185f84ea5b21bfe9f048f3
+    m_Address: ChooseLanguage_fy-NL
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fy-NL
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b7ebfea050e7b445a7e027be1f2c673
+    m_Address: IAP Text_fy-NL
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fy-NL
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65ca705e082fbc34597d44dbb02eb543
+    m_Address: AchievementText table_fy-NL
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fy-NL
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b30b8f695c582048b690f413f6a3b9a
+    m_Address: offerIAP_fy-NL
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fy-NL
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c91610ca29dcb554784deb526e668554
+    m_Address: ICECREAM MAKER_fy-NL
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fy-NL
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 9b8459c617b752c409bf70b499cdcc2b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 0f8f2291f3477194ea210c8538da3625, type: 2}
+    - {fileID: 11400000, guid: 4f451c1289a72ce4f8ee1670b1818e4a, type: 2}

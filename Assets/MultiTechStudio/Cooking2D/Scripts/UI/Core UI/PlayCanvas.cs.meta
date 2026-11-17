@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: e2868a123f32ace4fac1246676a74d5f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 334514
+  packageName: "Cooking Game Template \u2013 Restaurant System with 210+ Levels &
+    Boosters"
+  packageVersion: 1.0
+  assetPath: Assets/MultiTechStudio/Cooking2D/Scripts/UI/Core UI/PlayCanvas.cs
+  uploadId: 811704

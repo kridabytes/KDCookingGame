@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc55fe68fd6b5946bbe99a84cfc00c3, type: 3}
+  m_Name: Achievements
+  m_EditorClassIdentifier: 
+  Task:
+  - taskType: 0
+    targetValue: 200
+    rewardIcon: {fileID: -502274862, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
+    rewardType: 4
+    rewardAmount: 1
+    localizedTaskText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d370270c7127356449176e6e79025072
+      m_TableEntryReference:
+        m_KeyId: 12027449344
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - taskType: 1
+    targetValue: 2
+    rewardIcon: {fileID: 2023174375, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
+    rewardType: 1
+    rewardAmount: 1
+    localizedTaskText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d370270c7127356449176e6e79025072
+      m_TableEntryReference:
+        m_KeyId: 8646853677056
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - taskType: 2
+    targetValue: 2
+    rewardIcon: {fileID: 2023174375, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
+    rewardType: 1
+    rewardAmount: 1
+    localizedTaskText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d370270c7127356449176e6e79025072
+      m_TableEntryReference:
+        m_KeyId: 9627754582016
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - taskType: 3
+    targetValue: 10
+    rewardIcon: {fileID: -502274862, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
+    rewardType: 4
+    rewardAmount: 1
+    localizedTaskText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d370270c7127356449176e6e79025072
+      m_TableEntryReference:
+        m_KeyId: 10797759877120
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - taskType: 4
+    targetValue: 2
+    rewardIcon: {fileID: -1345704482, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
+    rewardType: 3
+    rewardAmount: 1
+    localizedTaskText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d370270c7127356449176e6e79025072
+      m_TableEntryReference:
+        m_KeyId: 11933854224384
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - taskType: 5
+    targetValue: 1
+    rewardIcon: {fileID: 21300000, guid: cd2de22c9f8975143b990c15052485bb, type: 3}
+    rewardType: 5
+    rewardAmount: 2
+    localizedTaskText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d370270c7127356449176e6e79025072
+      m_TableEntryReference:
+        m_KeyId: 12687281246208
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - taskType: 0
+    targetValue: 400
+    rewardIcon: {fileID: 603736332, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
+    rewardType: 2
+    rewardAmount: 1
+    localizedTaskText:
+      m_TableReference:
+        m_TableCollectionName: GUID:d370270c7127356449176e6e79025072
+      m_TableEntryReference:
+        m_KeyId: 12027449344
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

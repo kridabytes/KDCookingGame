@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f4efb203706ae478a4be7589512a65, type: 3}
+  m_Name: Level01_2
+  m_EditorClassIdentifier: 
+  ObjectsForLevel:
+  - objectType: 0
+    noOfObject: 1
+    baseDish: 0
+    mustHave: 0
+    notHave: 1
+  - objectType: 1
+    noOfObject: 1
+    baseDish: 0
+    mustHave: 0
+    notHave: 1
+  - objectType: 2
+    noOfObject: 1
+    baseDish: 0
+    mustHave: 0
+    notHave: 1
+  - objectType: 8
+    noOfObject: 1
+    baseDish: 0
+    mustHave: 0
+    notHave: 1
+  baseCoockingTime: 4
+  baseBurningTime: 10
+  juicingTime: 4
+  allOrders:
+  - time: 5
+    coockBase: 2
+    isTopping: 0
+    allToppings: 
+    orderStatus: 3
+    botMain: {fileID: 0}
+    multiOrder: 1
+    allMultiOrders:
+    - coockBase: 2
+      isTopping: 0
+      allToppings: 
+      orderCompleted: 1
+      coinReward: 5
+    orderCompleted: 1
+    coinReward: 5
+  - time: 5
+    coockBase: 2
+    isTopping: 0
+    allToppings: 
+    orderStatus: 3
+    botMain: {fileID: 0}
+    multiOrder: 0
+    allMultiOrders: []
+    orderCompleted: 1
+    coinReward: 5
+  - time: 5
+    coockBase: 2
+    isTopping: 0
+    allToppings: 
+    orderStatus: 3
+    botMain: {fileID: 0}
+    multiOrder: 1
+    allMultiOrders:
+    - coockBase: 8
+      isTopping: 0
+      allToppings: 
+      orderCompleted: 1
+      coinReward: 6
+    orderCompleted: 1
+    coinReward: 5
+  - time: 5
+    coockBase: 8
+    isTopping: 0
+    allToppings: 
+    orderStatus: 3
+    botMain: {fileID: 0}
+    multiOrder: 0
+    allMultiOrders: []
+    orderCompleted: 1
+    coinReward: 6
+  - time: 6
+    coockBase: 2
+    isTopping: 0
+    allToppings: 
+    orderStatus: 3
+    botMain: {fileID: 0}
+    multiOrder: 0
+    allMultiOrders: []
+    orderCompleted: 1
+    coinReward: 5
+  - time: 6
+    coockBase: 2
+    isTopping: 0
+    allToppings: 
+    orderStatus: 3
+    botMain: {fileID: 0}
+    multiOrder: 1
+    allMultiOrders:
+    - coockBase: 8
+      isTopping: 0
+      allToppings: 
+      orderCompleted: 1
+      coinReward: 6
+    orderCompleted: 1
+    coinReward: 5
+  - time: 5
+    coockBase: 8
+    isTopping: 0
+    allToppings: 
+    orderStatus: 3
+    botMain: {fileID: 0}
+    multiOrder: 0
+    allMultiOrders: []
+    orderCompleted: 1
+    coinReward: 6
+  - time: 5
+    coockBase: 2
+    isTopping: 0
+    allToppings: 
+    orderStatus: 3
+    botMain: {fileID: 0}
+    multiOrder: 1
+    allMultiOrders:
+    - coockBase: 2
+      isTopping: 0
+      allToppings: 
+      orderCompleted: 1
+      coinReward: 5
+    orderCompleted: 1
+    coinReward: 5
+  targetType: 0
+  targetAmount: 70
+  targetLimit: 0
+  timer: 0
+  isFailTarget: 0
+  targetFail: 0
+  rewardType: 0
+  rewardAmount: 3
+  isTutorialLevel: 0
+  hasTopping2: 0
+  hasTopping3: 0
+  isPizzaLevel: 0
+  isLevel2Tutorial: 0

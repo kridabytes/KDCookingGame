@@ -1,0 +1,307 @@
+
+Girl_03.png
+size: 1969,1095
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Angry
+  rotate: false
+  xy: 1737, 861
+  size: 186, 232
+  orig: 186, 232
+  offset: 0, 0
+  index: -1
+Back_Hair_Down
+  rotate: true
+  xy: 1134, 186
+  size: 405, 272
+  orig: 453, 272
+  offset: 0, 0
+  index: -1
+Back_Hair_Up
+  rotate: false
+  xy: 651, 27
+  size: 168, 154
+  orig: 168, 154
+  offset: 0, 0
+  index: -1
+Blink
+  rotate: true
+  xy: 1343, 13
+  size: 171, 58
+  orig: 171, 58
+  offset: 0, 0
+  index: -1
+Body
+  rotate: false
+  xy: 2, 206
+  size: 473, 887
+  orig: 473, 887
+  offset: 0, 0
+  index: -1
+Eyelash_Left_Eye
+  rotate: false
+  xy: 1884, 16
+  size: 59, 50
+  orig: 59, 50
+  offset: 0, 0
+  index: -1
+Eyelash_Left_Eye_Dot
+  rotate: false
+  xy: 1669, 728
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+Eyelash_Right_Eye_Dot
+  rotate: false
+  xy: 1669, 728
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+Eyelash_Right_Eye
+  rotate: false
+  xy: 1810, 13
+  size: 72, 53
+  orig: 72, 53
+  offset: 0, 0
+  index: -1
+Face
+  rotate: false
+  xy: 1408, 409
+  size: 259, 327
+  orig: 259, 327
+  offset: 0, 0
+  index: -1
+Front_left Hait
+  rotate: true
+  xy: 1810, 385
+  size: 107, 157
+  orig: 107, 157
+  offset: 0, 0
+  index: -1
+Happy
+  rotate: true
+  xy: 231, 18
+  size: 186, 191
+  orig: 186, 191
+  offset: 0, 0
+  index: -1
+Happy_Eye_Blink
+  rotate: false
+  xy: 1403, 35
+  size: 116, 102
+  orig: 116, 124
+  offset: 0, 22
+  index: -1
+Left_Angry_Hand
+  rotate: false
+  xy: 1056, 10
+  size: 119, 158
+  orig: 120, 158
+  offset: 1, 0
+  index: -1
+Left_Black_Eye
+  rotate: true
+  xy: 1943, 239
+  size: 23, 24
+  orig: 23, 24
+  offset: 0, 0
+  index: -1
+Left_Eye_White
+  rotate: true
+  xy: 1596, 22
+  size: 58, 47
+  orig: 58, 47
+  offset: 0, 0
+  index: -1
+Left_Eyebrow
+  rotate: false
+  xy: 424, 2
+  size: 63, 27
+  orig: 63, 27
+  offset: 0, 0
+  index: -1
+Left_Forarm
+  rotate: false
+  xy: 477, 520
+  size: 338, 573
+  orig: 338, 573
+  offset: 0, 0
+  index: -1
+Left_Hand_W
+  rotate: true
+  xy: 821, 29
+  size: 139, 233
+  orig: 139, 233
+  offset: 0, 0
+  index: -1
+Left_Hand_Wow
+  rotate: true
+  xy: 424, 31
+  size: 150, 225
+  orig: 150, 225
+  offset: 0, 0
+  index: -1
+Left_Normal_Hand
+  rotate: false
+  xy: 1177, 26
+  size: 81, 158
+  orig: 81, 158
+  offset: 0, 0
+  index: -1
+Left_Up_Hand
+  rotate: true
+  xy: 477, 183
+  size: 335, 350
+  orig: 335, 350
+  offset: 0, 0
+  index: -1
+Left_Wav_Hand
+  rotate: true
+  xy: 1737, 728
+  size: 131, 194
+  orig: 131, 194
+  offset: 0, 0
+  index: -1
+Normal_Lip
+  rotate: true
+  xy: 1925, 1011
+  size: 82, 33
+  orig: 82, 33
+  offset: 0, 0
+  index: -1
+Right_Angry_Hand
+  rotate: true
+  xy: 1810, 264
+  size: 119, 148
+  orig: 120, 148
+  offset: 0, 0
+  index: -1
+Right_Black_Eye
+  rotate: true
+  xy: 1943, 214
+  size: 23, 24
+  orig: 23, 24
+  offset: 0, 0
+  index: -1
+Right_Down_Hip_Hand
+  rotate: true
+  xy: 829, 170
+  size: 381, 303
+  orig: 381, 303
+  offset: 0, 0
+  index: -1
+Right_Eye_White
+  rotate: true
+  xy: 1925, 962
+  size: 47, 29
+  orig: 47, 29
+  offset: 0, 0
+  index: -1
+Right_Eyebrow
+  rotate: true
+  xy: 1669, 414
+  size: 87, 27
+  orig: 87, 27
+  offset: 0, 0
+  index: -1
+Right_Forarm
+  rotate: false
+  xy: 817, 553
+  size: 310, 540
+  orig: 310, 540
+  offset: 0, 0
+  index: -1
+Right_Hand_W
+  rotate: false
+  xy: 1821, 494
+  size: 139, 232
+  orig: 139, 233
+  offset: 0, 1
+  index: -1
+Right_Hand_Wow
+  rotate: false
+  xy: 1669, 503
+  size: 150, 223
+  orig: 150, 225
+  offset: 0, 2
+  index: -1
+Right_Normal_Hand
+  rotate: false
+  xy: 1260, 26
+  size: 81, 158
+  orig: 81, 158
+  offset: 0, 0
+  index: -1
+Right_UP_Hip_Hand
+  rotate: false
+  xy: 1408, 139
+  size: 288, 268
+  orig: 296, 294
+  offset: 0, 18
+  index: -1
+Right_Up_Hand
+  rotate: false
+  xy: 1400, 738
+  size: 335, 355
+  orig: 335, 375
+  offset: 0, 19
+  index: -1
+Right_Walk
+  rotate: false
+  xy: 1129, 593
+  size: 269, 500
+  orig: 274, 500
+  offset: 0, 0
+  index: -1
+Right_Wav_Hand
+  rotate: false
+  xy: 1810, 68
+  size: 131, 194
+  orig: 131, 194
+  offset: 0, 0
+  index: -1
+Sad
+  rotate: true
+  xy: 2, 20
+  size: 184, 227
+  orig: 184, 227
+  offset: 0, 0
+  index: -1
+Sad_Lip
+  rotate: false
+  xy: 1521, 32
+  size: 73, 48
+  orig: 73, 48
+  offset: 0, 0
+  index: -1
+Smile_Lip
+  rotate: false
+  xy: 1521, 82
+  size: 105, 55
+  orig: 105, 55
+  offset: 0, 0
+  index: -1
+V_Hand Left
+  rotate: false
+  xy: 1698, 279
+  size: 110, 222
+  orig: 110, 222
+  offset: 0, 0
+  index: -1
+V_Hand Right
+  rotate: false
+  xy: 1698, 55
+  size: 110, 222
+  orig: 110, 222
+  offset: 0, 0
+  index: -1
+What_Lip
+  rotate: false
+  xy: 1628, 90
+  size: 63, 47
+  orig: 63, 47
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,215 @@
+
+Boy_04.png
+size: 1929,1651
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Blink
+  rotate: false
+  xy: 1147, 1546
+  size: 269, 103
+  orig: 269, 103
+  offset: 0, 0
+  index: -1
+Boo_Hand
+  rotate: false
+  xy: 937, 1287
+  size: 321, 257
+  orig: 321, 257
+  offset: 0, 0
+  index: -1
+Face
+  rotate: true
+  xy: 902, 2
+  size: 574, 630
+  orig: 574, 630
+  offset: 0, 0
+  index: -1
+Hand_Vectory
+  rotate: true
+  xy: 1418, 1517
+  size: 132, 206
+  orig: 132, 206
+  offset: 0, 0
+  index: -1
+Left_Eye_Black
+  rotate: false
+  xy: 716, 1607
+  size: 43, 42
+  orig: 43, 42
+  offset: 0, 0
+  index: -1
+Left_Eye_White
+  rotate: false
+  xy: 16, 1613
+  size: 70, 36
+  orig: 70, 36
+  offset: 0, 0
+  index: -1
+Left_Eye_White_Dot
+  rotate: false
+  xy: 2, 1638
+  size: 12, 11
+  orig: 12, 11
+  offset: 0, 0
+  index: -1
+Right_Eye_White_Dot
+  rotate: false
+  xy: 2, 1638
+  size: 12, 11
+  orig: 12, 11
+  offset: 0, 0
+  index: -1
+Left_Eyebrow
+  rotate: false
+  xy: 450, 1608
+  size: 119, 41
+  orig: 119, 41
+  offset: 0, 0
+  index: -1
+Left_Forarm_Hand
+  rotate: true
+  xy: 730, 578
+  size: 313, 966
+  orig: 313, 966
+  offset: 0, 0
+  index: -1
+Left_Hand
+  rotate: true
+  xy: 770, 1007
+  size: 270, 716
+  orig: 270, 717
+  offset: 0, 1
+  index: -1
+Left_Up_Eye_Blink
+  rotate: false
+  xy: 1626, 1516
+  size: 143, 133
+  orig: 143, 133
+  offset: 0, 0
+  index: -1
+Normal_ Lip
+  rotate: false
+  xy: 226, 1610
+  size: 146, 39
+  orig: 146, 39
+  offset: 0, 0
+  index: -1
+Right Wav_Hand
+  rotate: true
+  xy: 1488, 893
+  size: 384, 425
+  orig: 384, 425
+  offset: 0, 0
+  index: -1
+Right_Eye_Black
+  rotate: false
+  xy: 761, 1607
+  size: 43, 42
+  orig: 43, 42
+  offset: 0, 0
+  index: -1
+Right_Eye_White
+  rotate: false
+  xy: 374, 1610
+  size: 74, 39
+  orig: 74, 39
+  offset: 0, 0
+  index: -1
+Right_Eyebrow
+  rotate: false
+  xy: 571, 1608
+  size: 143, 41
+  orig: 143, 41
+  offset: 0, 0
+  index: -1
+Right_Forarm_Hand
+  rotate: true
+  xy: 2, 218
+  size: 358, 898
+  orig: 358, 898
+  offset: 0, 0
+  index: -1
+Right_Hand_Thumb
+  rotate: true
+  xy: 2, 1113
+  size: 284, 351
+  orig: 284, 351
+  offset: 0, 0
+  index: -1
+Right_Shoulder_Middle
+  rotate: true
+  xy: 2, 1399
+  size: 207, 557
+  orig: 207, 557
+  offset: 0, 0
+  index: -1
+Right_Thumb_Hand
+  rotate: false
+  xy: 1260, 1279
+  size: 609, 228
+  orig: 609, 228
+  offset: 0, 0
+  index: -1
+Right_UP_Hand
+  rotate: true
+  xy: 2, 734
+  size: 296, 726
+  orig: 296, 726
+  offset: 0, 0
+  index: -1
+Right_UP_Wav_Hand
+  rotate: true
+  xy: 355, 1032
+  size: 308, 413
+  orig: 308, 413
+  offset: 0, 0
+  index: -1
+Right_Up_Eye_Blink
+  rotate: false
+  xy: 1771, 1509
+  size: 156, 140
+  orig: 310, 140
+  offset: 0, 0
+  index: -1
+Sad
+  rotate: false
+  xy: 88, 1612
+  size: 136, 37
+  orig: 136, 37
+  offset: 0, 0
+  index: -1
+Smile
+  rotate: false
+  xy: 806, 1583
+  size: 182, 66
+  orig: 182, 66
+  offset: 0, 0
+  index: -1
+Watch
+  rotate: true
+  xy: 990, 1562
+  size: 87, 155
+  orig: 87, 155
+  offset: 0, 0
+  index: -1
+Why_Right_Hand
+  rotate: false
+  xy: 561, 1342
+  size: 374, 239
+  orig: 374, 239
+  offset: 0, 0
+  index: -1
+
+Boy_042.png
+size: 839,1845
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: false
+  xy: 2, 2
+  size: 835, 1841
+  orig: 835, 1841
+  offset: 0, 0
+  index: -1

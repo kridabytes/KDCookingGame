@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea69d41f90c6ea4fa55c27c1d60c145, type: 3}
+  m_Name: AddressableAssetGroupSortSettings
+  m_EditorClassIdentifier: 
+  sortOrder:
+  - daad1ca14a01ab24a9e9d56ea8fc13ec
+  - e0f940e437b706d47b3c7e3ebcff8080
+  - fa4f67db89531d1478340c059fd0084c
+  - 677be98c7e4247f4ba961eea5bbd04ce
+  - e7fe9d228c373ca47a028faa086f5fae
+  - 4e3c17b32fd5e1444a8d260bb36e49fe
+  - 1876c1cb3e1b6be4c9d11c6e34f39829
+  - d4ccf66a3a6c0bc498e4c805046bc7b2
+  - 78b415ca093d2574f8bf02a1fd2439cf
+  - 1f5665fe9a18bc94f95f836bd1ed318c
+  - 6a23b90278a96aa428b32171dfb25765
+  - 0695af58bfc3e1742bf3848da98d63a2
+  - 6eaf4fde3a771c049bbc1160dafbf709
+  - 641c34f8125ba6b42b040ba2f2ba47f7
+  - 4fdcfa1ef7ad1bc4ba281580de19928c
+  - 37c501aeab45acd47949cb3c541f97ff
+  - ee67c4b077a88344b91e1bf1ddff458f
+  - cb7506655815bed4ca6c79fd861a0708
+  - 6c39c69e020e92346bddb858012c9a22
+  - af102327298aab44d84b0eb4a285f3a4
+  - c667101e582c4964f80c182125d78b90
+  - f466305cef0e60d4fad4cf3853b2cc03
+  - 73fe80e8e11c0c44a94fea71c3d07f25
+  - 25f22a414b7f29c419c212a6a90d4d11
+  - d8f2b1c1a8995974990189d99bb295c7
+  - a7e3125bfdca73447bc3315aa673dbf4
+  - 1390e8c97e5127c4dbf27384c459d135
+  - f917e777de622624186ba1fd0dd4c64b
+  - e5aadf23f40bac149bd04322ecc08796
+  - 6346d03901cd93a4583926da046cbf26
+  - faa6f71db19056c4ea3c8891de91c2fd
+  - 3fd531b03da72c4499085eabe2f5fb09
+  - 0eb6680e9e064a0479f1d6aa196bd7e2
+  - 91a4647ab3e68344cab8f6207197272b
+  - 21fa2ebfe8e44cc43a5e2a755ea6c28e
+  - 4ca683cce44ad9045bc38c1109de30f6
+  - 59a76538b5523a24a83c640b569584e3
+  - 184c0052939661d4da1778293d8c644d
+  - e38c38be51cc8c744ae9cf6664d2ec65
+  - 63cca966f95bf5f4f93ce968b7765953
+  - 842be15bfbc51f14b9261673dc2e83c4
+  - 2c2af318cf321f243b04a64582cfef1e
+  - 42bf0782da2ddab4194685114b78713d
+  - 3147c3ed9f8db67468e7df9e0084aef4
+  - ec2f96cea6fca544185d9b8db6c3a6e7
+  - 4e55cdf032e17434abd19d3a2f2b2bf3
+  - 0370a2d5b8e8c0b42a2ae052a3e55992
+  - e2b88eaa931b2d54285406c9ed7e6446
+  - f5a42d74eda869e4d98ab681ba07e60d
+  - da4dcaa427644b44a993d1bd0cf33918
+  - b836c6c69943c694f838e958953e7604
+  - 5f7eb9ef440dc244d91a0ae5e8cdbc8c

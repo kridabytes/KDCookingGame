@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: 8a9fb1ae4989ed4469ee2de235715ea9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5512431771892712351
+    second: LightGreen_Olive_0
+  - first:
+      213: 6637133425717159534
+    second: LightGreen_Olive_1
+  - first:
+      213: -7776551258941259050
+    second: LightGreen_Olive_2
+  - first:
+      213: -9112643048078690617
+    second: LightGreen_Olive_3
+  - first:
+      213: 5703463981165898929
+    second: LightGreen_Olive_4
+  - first:
+      213: -5015999150865439950
+    second: LightGreen_Olive_5
+  - first:
+      213: 3061619555698654765
+    second: LightGreen_Olive_6
+  - first:
+      213: 1248295954681614014
+    second: LightGreen_Olive_7
+  - first:
+      213: -5750357396113230727
+    second: LightGreen_Olive_8
+  - first:
+      213: -5308706110901289228
+    second: LightGreen_Olive_9
+  - first:
+      213: 3888308249907381180
+    second: LightGreen_Olive_10
+  - first:
+      213: -3240442835310223024
+    second: LightGreen_Olive_11
+  - first:
+      213: -3560097486821504461
+    second: LightGreen_Olive_12
+  - first:
+      213: 1187742244207645751
+    second: LightGreen_Olive_13
+  - first:
+      213: 4021862770015922176
+    second: LightGreen_Olive_14
+  - first:
+      213: -8745113401557022247
+    second: LightGreen_Olive_15
+  - first:
+      213: 6753627875093241969
+    second: LightGreen_Olive_16
+  - first:
+      213: -340050251527654828
+    second: LightGreen_Olive_17
+  - first:
+      213: 5468020589240464497
+    second: LightGreen_Olive_18
+  - first:
+      213: 634240013953455029
+    second: LightGreen_Olive_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LightGreen_Olive_0
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 641
+        width: 100
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f930e3c8d77108c40800000000000000
+      internalID: 5512431771892712351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_1
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 673
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e662eb68fa5db1c50800000000000000
+      internalID: 6637133425717159534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_2
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 631
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d28039f4d3241490800000000000000
+      internalID: -7776551258941259050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_3
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 598
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c6365abd63698180800000000000000
+      internalID: -9112643048078690617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_4
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 550
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bce0aac546c62f40800000000000000
+      internalID: 5703463981165898929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_5
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 599
+        width: 100
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23321032957936ab0800000000000000
+      internalID: -5015999150865439950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_6
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 539
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2ebec6c3ce0d7a20800000000000000
+      internalID: 3061619555698654765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_7
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 568
+        width: 99
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebeca599e86d25110800000000000000
+      internalID: 1248295954681614014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_8
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 500
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97471293a60a230b0800000000000000
+      internalID: -5750357396113230727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_9
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 460
+        width: 99
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fe78ca3befa356b0800000000000000
+      internalID: -5308706110901289228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_10
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 500
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb343fc80cb06f530800000000000000
+      internalID: 3888308249907381180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_11
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 450
+        width: 99
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 051ef5ee862a703d0800000000000000
+      internalID: -3240442835310223024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_12
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 494
+        width: 99
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a4e3ca23ef79ec0800000000000000
+      internalID: -3560097486821504461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_13
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 397
+        width: 100
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 734d8b63745bb7010800000000000000
+      internalID: 1187742244207645751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_14
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 415
+        width: 99
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 008ea2e61e680d730800000000000000
+      internalID: 4021862770015922176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_15
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 383
+        width: 99
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d98fa3e1bd13a680800000000000000
+      internalID: -8745113401557022247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_16
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 393
+        width: 99
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170eb1825c4b9bd50800000000000000
+      internalID: 6753627875093241969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_17
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 319
+        width: 99
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45279ef0916e74bf0800000000000000
+      internalID: -340050251527654828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_18
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 306
+        width: 99
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 174333e41cf42eb40800000000000000
+      internalID: 5468020589240464497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightGreen_Olive_19
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 314
+        width: 99
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b3d80eaee54dc800800000000000000
+      internalID: 634240013953455029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      LightGreen_Olive_0: 5512431771892712351
+      LightGreen_Olive_1: 6637133425717159534
+      LightGreen_Olive_10: 3888308249907381180
+      LightGreen_Olive_11: -3240442835310223024
+      LightGreen_Olive_12: -3560097486821504461
+      LightGreen_Olive_13: 1187742244207645751
+      LightGreen_Olive_14: 4021862770015922176
+      LightGreen_Olive_15: -8745113401557022247
+      LightGreen_Olive_16: 6753627875093241969
+      LightGreen_Olive_17: -340050251527654828
+      LightGreen_Olive_18: 5468020589240464497
+      LightGreen_Olive_19: 634240013953455029
+      LightGreen_Olive_2: -7776551258941259050
+      LightGreen_Olive_3: -9112643048078690617
+      LightGreen_Olive_4: 5703463981165898929
+      LightGreen_Olive_5: -5015999150865439950
+      LightGreen_Olive_6: 3061619555698654765
+      LightGreen_Olive_7: 1248295954681614014
+      LightGreen_Olive_8: -5750357396113230727
+      LightGreen_Olive_9: -5308706110901289228
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Chinese (Traditional) (zh-TW)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Chinese (Traditional) (zh-TW)
+  m_GUID: 59a76538b5523a24a83c640b569584e3
+  m_SerializeEntries:
+  - m_GUID: 7c3bb636757b91e47a71b86b102e1b3e
+    m_Address: ChooseLanguage_zh-TW
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-TW
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 959e0bf2049577344aacde4091e819a4
+    m_Address: offerIAP_zh-TW
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-TW
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ad258cbe7f233e45b7e1d40e37d98d8
+    m_Address: AchievementText table_zh-TW
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-TW
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bea07ec0d0a7c114d8b7b16d065b1329
+    m_Address: IAP Text_zh-TW
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-TW
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c02bfee3fd697304c873abe7cfc90052
+    m_Address: ICECREAM MAKER_zh-TW
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-TW
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 9b8459c617b752c409bf70b499cdcc2b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 173465a83d66b8d478d89b68e2af199d, type: 2}
+    - {fileID: 11400000, guid: 6c99ce221fc149d4393aff2e258c30d4, type: 2}

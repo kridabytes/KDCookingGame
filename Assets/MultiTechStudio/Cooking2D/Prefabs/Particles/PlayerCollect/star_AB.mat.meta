@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d05bd487e32791148ab238ebabb0154b
+timeCreated: 1455892385
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 334514
+  packageName: "Cooking Game Template \u2013 Restaurant System with 210+ Levels &
+    Boosters"
+  packageVersion: 1.0
+  assetPath: Assets/MultiTechStudio/Cooking2D/Prefabs/Particles/PlayerCollect/star_AB.mat
+  uploadId: 811704

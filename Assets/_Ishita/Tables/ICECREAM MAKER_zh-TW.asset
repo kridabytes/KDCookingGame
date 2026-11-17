@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ICECREAM MAKER_zh-TW
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: zh-TW
+  m_SharedData: {fileID: 11400000, guid: 461aafdf7536aca42991738d0c4a95f2, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 10211315712
+    m_Localized: "\u51B0\u6DC7\u6DCB\u88FD\u4F5C\u6A5F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 930294812672
+    m_Localized: "\u5DF2\u9818\u53D6\u91D1\u984D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2203886833664
+    m_Localized: "\u5132\u5B58\u4E0A\u9650"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3021411209216
+    m_Localized: "\u7B49\u5F85\u6642\u9593"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4344412131328
+    m_Localized: "\u958B\u59CB\u904A\u6232"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1071434837544960
+    m_Localized: "\u9EDE\u64CA\u7E7C\u7E8C"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
