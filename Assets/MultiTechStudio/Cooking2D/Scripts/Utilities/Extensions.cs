@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 namespace MultiTechStudio.Cooking2D
@@ -151,11 +152,7 @@ namespace MultiTechStudio.Cooking2D
 
         public static void DiamondAdder(int valueToAdd)
         {
-            var target = UiManager.TotalDiamond + valueToAdd;
-            UiManager.TotalDiamond = target;
-            UiManager.Instance.diamondAddAnim.PlayAnim();
-
-            UiManager.Instance.allCanvas.persistent.diamondTxt.text = UiManager.TotalDiamond.ToString();
+            AddDiamonds(valueToAdd);
             GoogleLogin.instance.SavePlayerDataToFirebase();
         }
         public static void DiamondReducer(int valueToRed)
@@ -163,7 +160,83 @@ namespace MultiTechStudio.Cooking2D
             var target = UiManager.TotalDiamond - valueToRed;
             UiManager.TotalDiamond = target;
 
-            UiManager.Instance.allCanvas.persistent.diamondTxt.text = UiManager.TotalDiamond.ToString();
+            SetCounterText(UiManager.Instance.allCanvas.persistent.diamondTxt, UiManager.TotalDiamond);
+        }
+
+        /// <summary>
+        /// Adds coins, plays the flying-coin effect and counts the top-bar number up
+        /// while the coins arrive. Use this everywhere coins are given (level win,
+        /// shop purchase, rewarded ad, daily bonus...) so it always looks the same.
+        /// Pass a different animation only if the coins should start from a special place.
+        /// </summary>
+        public static void AddCoins(int amount, CoinAnimation animation = null)
+        {
+            int before = UiManager.TotalCoins;
+            UiManager.TotalCoins = before + amount;
+
+            PlayCurrencyAnimation(animation != null ? animation : UiManager.Instance.coinAddAnim,
+                UiManager.Instance.allCanvas.persistent.coinTxt, before, UiManager.TotalCoins);
+        }
+
+        /// <summary>Same as <see cref="AddCoins"/> but for diamonds.</summary>
+        public static void AddDiamonds(int amount, CoinAnimation animation = null)
+        {
+            int before = UiManager.TotalDiamond;
+            UiManager.TotalDiamond = before + amount;
+
+            PlayCurrencyAnimation(animation != null ? animation : UiManager.Instance.diamondAddAnim,
+                UiManager.Instance.allCanvas.persistent.diamondTxt, before, UiManager.TotalDiamond);
+        }
+
+        private static void PlayCurrencyAnimation(CoinAnimation animation, Text counter, int from, int to)
+        {
+            if (animation == null || to <= from)
+            {
+                SetCounterText(counter, to);
+                return;
+            }
+
+            animation.PlayAnim();
+
+            // Start counting when the first icon lands and finish when the last one lands.
+            float countTime = Mathf.Max(0.25f, animation.ArrivalSpread);
+            CountUp(counter, from, to, animation.FirstArrivalTime, countTime);
+        }
+
+        /// <summary>
+        /// Rolls a number label from one value to another, e.g. 120 -> 170.
+        /// If the label is already counting, it carries on from the number on screen.
+        /// </summary>
+        public static void CountUp(Text label, int from, int to, float delay, float duration)
+        {
+            if (label == null)
+                return;
+
+            label.DOKill();
+            if (int.TryParse(label.text, out int shownNow))
+                from = shownNow;
+
+            int current = from;
+            DOTween.To(() => current, value =>
+                {
+                    current = value;
+                    label.text = value.ToString();
+                }, to, duration)
+                .SetDelay(delay)
+                .SetEase(Ease.OutQuad)
+                .SetTarget(label)
+                .SetLink(label.gameObject)
+                .OnKill(() => label.text = to.ToString());
+        }
+
+        /// <summary>Shows a number right away and stops any count-up running on that label.</summary>
+        public static void SetCounterText(Text label, int value)
+        {
+            if (label == null)
+                return;
+
+            label.DOKill();
+            label.text = value.ToString();
         }
         public static void KeyAdder(int valueToAdd)
         {
@@ -226,11 +299,7 @@ namespace MultiTechStudio.Cooking2D
 
         public static void ScoreAdder(int valueToAdd)
         {
-            var target = UiManager.TotalCoins + valueToAdd;
-           
-            UiManager.TotalCoins = target;
-            UiManager.Instance.coinAddAnim.PlayAnim();
-            UiManager.Instance.allCanvas.persistent.coinTxt.text = UiManager.TotalCoins.ToString();
+            AddCoins(valueToAdd);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
         }
@@ -242,7 +311,7 @@ namespace MultiTechStudio.Cooking2D
                 target = 0;
 
             UiManager.TotalCoins = target;
-            UiManager.Instance.allCanvas.persistent.coinTxt.text = UiManager.TotalCoins.ToString();
+            SetCounterText(UiManager.Instance.allCanvas.persistent.coinTxt, UiManager.TotalCoins);
         }
 
 

@@ -1,84 +1,77 @@
+using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace MultiTechStudio.Cooking2D
 {
     /// <summary>
-    /// Moves a flying ice cream along a bezier curve from start to target bot.
-    /// When it reaches, it boosts the customer's fill bar and destroys itself.
+    /// The ice cream that flies from the HUD button to a waiting customer's patience bar.
+    ///
+    /// 1. It pops up on the button the moment the player taps it.
+    /// 2. It flies in a smooth arc to the customer's bar, drawn above everything else.
+    /// 3. It shrinks into the bar, and the bar grows, glows and fills up so the
+    ///    player clearly sees which customer got the ice cream.
     /// </summary>
     public class FlyingIceCreamAnimation : MonoBehaviour
     {
-        [SerializeField] private float duration = 0.6f;
-        [Tooltip("Arc height in canvas local units (pixels).")]
-        [SerializeField] private float arcHeight = 160f;
+        [Tooltip("Seconds from the tap until the ice cream reaches the customer.")]
+        [SerializeField] private float flightTime = 0.6f;
 
-        private RectTransform rect;
-        private RectTransform canvasRect;
-        private Camera canvasCamera;
+        [Tooltip("How high the arc goes, in canvas pixels.")]
+        [SerializeField] private float arcHeightPixels = 180f;
 
-        private Vector2 startLocal;
-        private Vector2 endLocal;
+        [Tooltip("Seconds for the pop-in on the button.")]
+        [SerializeField] private float popTime = 0.15f;
+
+        [Tooltip("Seconds for the ice cream to shrink into the bar after it arrives.")]
+        [SerializeField] private float absorbTime = 0.15f;
+
         private BotMain targetBot;
-        private float elapsed;
 
         /// <summary>
-        /// Initialize animation in UI space (RectTransform local position on a canvas).
+        /// Starts the animation. Positions are screen positions; they are turned into
+        /// local positions on <paramref name="canvasRect"/>, which is this object's parent.
         /// </summary>
         public void Init(RectTransform canvasRect, Camera canvasCamera, Vector2 startScreenPos, Vector2 endScreenPos, BotMain bot)
         {
-            this.canvasRect = canvasRect;
-            this.canvasCamera = canvasCamera;
             targetBot = bot;
-            elapsed = 0f;
 
-            rect = transform as RectTransform;
-            if (rect == null)
-                rect = gameObject.AddComponent<RectTransform>();
+            // The customers and stations sit on their own canvases with higher sort orders,
+            // so without this the ice cream would fly behind them.
+            FlyToTarget.DrawOnTop(gameObject);
 
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, startScreenPos, canvasCamera, out startLocal);
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, endScreenPos, canvasCamera, out endLocal);
+            var rect = transform as RectTransform;
+
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, startScreenPos, canvasCamera, out Vector2 startLocal);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, endScreenPos, canvasCamera, out Vector2 endLocal);
 
             rect.anchoredPosition = startLocal;
-        }
 
-        private void Update()
-        {
-            if (targetBot == null)
-            {
-                Destroy(gameObject);
-                return;
-            }
+            Vector3 normalScale = rect.localScale;
+            rect.localScale = Vector3.zero;
 
-            elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / duration);
+            Sequence anim = DOTween.Sequence().SetLink(gameObject);
 
-            float easedT = t * t * (3f - 2f * t);
+            // 1. Pop up on the button.
+            anim.Append(rect.DOScale(normalScale * 1.15f, popTime).SetEase(Ease.OutBack));
 
-            // Quadratic bezier curve
-            Vector2 mid = (startLocal + endLocal) * 0.5f + Vector2.up * arcHeight;
-            Vector2 p1 = Vector2.Lerp(startLocal, mid, easedT);
-            Vector2 p2 = Vector2.Lerp(mid, endLocal, easedT);
-            Vector2 pos = Vector2.Lerp(p1, p2, easedT);
-            if (rect != null)
-                rect.anchoredPosition = pos;
+            // 2. Fly: soft start, soft landing, a little bigger at the top of the arc.
+            anim.Append(rect.DOJumpAnchorPos(endLocal, arcHeightPixels, 1, flightTime).SetEase(Ease.InOutSine));
+            anim.Join(rect.DOScale(normalScale, flightTime).SetEase(Ease.InOutSine));
 
-            if (t >= 1f)
-            {
-                OnArrived();
-            }
+            // 3. Shrink into the bar, and start filling it at the same moment.
+            anim.AppendCallback(OnArrived);
+            anim.Append(rect.DOScale(Vector3.zero, absorbTime).SetEase(Ease.InBack));
+
+            anim.OnComplete(() => Destroy(gameObject));
         }
 
         private void OnArrived()
         {
-            if (IceCreamManager.Instance != null && targetBot != null)
-            {
-                IceCreamManager.Instance.ApplyBoostToCustomer(targetBot);
-                // Optionally trigger bot happy anim without finishing order:
-                targetBot.anim.SetHappyAnim();
-            }
+            if (targetBot == null || IceCreamManager.Instance == null)
+                return;
 
-            Destroy(gameObject);
+            IceCreamManager.Instance.ApplyBoostToCustomer(targetBot);
+            targetBot.anim.SetHappyAnim();
         }
     }
 }

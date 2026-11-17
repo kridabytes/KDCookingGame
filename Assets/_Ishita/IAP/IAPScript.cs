@@ -139,16 +139,12 @@ public class IAPScript : MonoBehaviour, IStoreListener
 
             if (citem.rewardCoins > 0)
             {
-                UiManager.TotalCoins += citem.rewardCoins;
-                UiManager.Instance.allCanvas.persistent.coinTxt.text = UiManager.TotalCoins.ToString();
-                DailyBonusUI.Instance.coinAnimation.PlayAnim();
+                Extensions.AddCoins(citem.rewardCoins, DailyBonusUI.Instance.coinAnimation);
             }
 
             if (citem.rewardDiamonds > 0)
             {
-                UiManager.TotalDiamond += citem.rewardDiamonds;
-                PersistentCanvas.instance.diamondTxt.text = UiManager.TotalDiamond.ToString();
-                DailyBonusUI.Instance.diamondAnimation.PlayAnim();
+                Extensions.AddDiamonds(citem.rewardDiamonds, DailyBonusUI.Instance.diamondAnimation);
             }
 
             int selectedIndex = Array.IndexOf(items, citem);

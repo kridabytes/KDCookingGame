@@ -35,7 +35,20 @@ namespace MultiTechStudio.Cooking2D
         private int curGlasses;
 
         [Header("VFX")]
+        [Tooltip("Stream set up by hand in the scene (the coffee machine has one). " +
+                 "If empty, a juice pour effect is built automatically on the glass.")]
         public ParticleSystem juicePourParticle;
+
+        [Tooltip("Colour of the automatic juice pour. Leave fully transparent (alpha 0) for orange juice.")]
+        [SerializeField] private Color pourColor = new Color(0f, 0f, 0f, 0f);
+
+        [Tooltip("Where the automatic juice stream starts, in pixels from the top-centre of the glass.")]
+        [SerializeField] private Vector2 pourOffset = new Vector2(0f, 10f);
+
+        private static readonly Color JuiceColor = new Color(1f, 0.6f, 0.12f);
+
+        // Built in code when no particle is assigned (the juice machine).
+        private JuicePourEffect juicePour;
 
         [Header("Sound")]
         public AudioSource fillsound;
@@ -43,15 +56,51 @@ namespace MultiTechStudio.Cooking2D
 
         void StartPourEffect()
         {
-            if (juicePourParticle != null)
+            if (juicePour != null)
+            {
+                juicePour.Play();
+            }
+            else if (juicePourParticle != null)
+            {
+                juicePourParticle.Clear();
                 juicePourParticle.Play();
+            }
         }
 
         void StopPourEffect()
         {
-            if (juicePourParticle != null)
+            if (juicePour != null)
+                juicePour.Stop();
+            else if (juicePourParticle != null)
                 juicePourParticle.Stop();
         }
+
+        /// <summary>
+        /// The coffee machine keeps the stream that was set up for it in the scene.
+        /// A machine without one (the juice machine) gets the juice pour effect on its glass:
+        /// a stream into the glass, plus splashes and foam that rise with the juice level.
+        /// </summary>
+        private void SetUpPourEffect()
+        {
+            if (juicePourParticle != null)
+            {
+                juicePourParticle.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                return;
+            }
+
+            if (juicePour != null || glassImg == null)
+                return;
+
+            // The glass object (the fill image usually sits inside a "Glass" object).
+            RectTransform glass = glassImg.rectTransform.parent as RectTransform;
+            if (glass == null || glass == transform)
+                glass = glassImg.rectTransform;
+
+            Color juice = pourColor.a > 0f ? pourColor : JuiceColor;
+            juice.a = 1f;
+            juicePour = JuicePourEffect.Create(transform, glass, glassImg, pourOffset, juice);
+        }
+
         void Update()
         {
             if (!UiManager.IsPlaying)
@@ -266,6 +315,8 @@ namespace MultiTechStudio.Cooking2D
             // ✅ Apply machine image
             Sprite _machineImg = GameManager.instance.upgradeManager.GetToppingImageAsLevel(juiceType, true);
             GetComponent<Image>().sprite = _machineImg;
+
+            SetUpPourEffect();
 
             gameObject.SetActive(true);
             maxGlasses = Mathf.Clamp(_no, 0, allGlassImg.Length);

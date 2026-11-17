@@ -99,16 +99,12 @@ public class DailyBonusUI : MonoBehaviour
 
         if (dayData.rewardType == RewardType.Coin)
         {
-            UiManager.TotalCoins += amount;
-            PersistentCanvas.instance.coinTxt.text = UiManager.TotalCoins.ToString();
-            coinAnimation.PlayAnim();
+            Extensions.AddCoins(amount, coinAnimation);
             Debug.Log("Collect coins" + amount);
         }
         else if (dayData.rewardType == RewardType.Diamond)
         {
-            UiManager.TotalDiamond += amount;
-            PersistentCanvas.instance.diamondTxt.text = UiManager.TotalDiamond.ToString();
-            diamondAnimation.PlayAnim();
+            Extensions.AddDiamonds(amount, diamondAnimation);
             Debug.Log("Collect Diamond" + amount);
 
         }

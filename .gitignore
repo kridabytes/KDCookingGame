@@ -136,3 +136,8 @@ crashlytics-build.properties
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Firebase Unity SDK (378 MB; desktop binaries exceed GitHub's 100 MB limit).
+# Re-import the Firebase Unity SDK (v13.8.0: App, Auth, Database) locally after cloning.
+/[Aa]ssets/Firebase/
+/[Aa]ssets/Firebase.meta

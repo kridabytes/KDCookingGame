@@ -10907,7 +10907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2263400886593003554, guid: 0cd9e54cc4fc33042988600b5948fbdb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3108228817644050310, guid: 0cd9e54cc4fc33042988600b5948fbdb, type: 3}
       propertyPath: m_AnchorMax.x
@@ -200737,12 +200737,13 @@ MonoBehaviour:
   animSprite: {fileID: 0}
   animImage: {fileID: 6995330588278577996}
   targetPos: {fileID: 7986902539801226684}
-  moveTime: 1
-  waitTime: 1
   spreadArea: 0.5
   isMultiple: 0
   multipleCount: 10
-  multipleDelay: 0.1
+  burstTime: 0.25
+  holdTime: 0.08
+  flyTime: 0.45
+  staggerDelay: 0.04
 --- !u!224 &193416935156676526
 RectTransform:
   m_ObjectHideFlags: 0
@@ -204912,12 +204913,13 @@ MonoBehaviour:
   animSprite: {fileID: 0}
   animImage: {fileID: 8234660974529200253}
   targetPos: {fileID: 7986902539801226684}
-  moveTime: 1
-  waitTime: 1
   spreadArea: 0.5
   isMultiple: 0
   multipleCount: 10
-  multipleDelay: 0.1
+  burstTime: 0.25
+  holdTime: 0.08
+  flyTime: 0.45
+  staggerDelay: 0.04
 --- !u!222 &1223188703224796794
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -206935,12 +206937,13 @@ MonoBehaviour:
   animSprite: {fileID: 0}
   animImage: {fileID: 5264761376565183318}
   targetPos: {fileID: 7986902539801226684}
-  moveTime: 1
-  waitTime: 1
   spreadArea: 0.5
   isMultiple: 0
   multipleCount: 10
-  multipleDelay: 0.1
+  burstTime: 0.25
+  holdTime: 0.08
+  flyTime: 0.45
+  staggerDelay: 0.04
 --- !u!1 &1618803644488860731
 GameObject:
   m_ObjectHideFlags: 0
@@ -224933,12 +224936,13 @@ MonoBehaviour:
   animSprite: {fileID: 0}
   animImage: {fileID: 1535133818347231392}
   targetPos: {fileID: 7986902539801226684}
-  moveTime: 1
-  waitTime: 1
   spreadArea: 0.5
   isMultiple: 0
   multipleCount: 10
-  multipleDelay: 0.1
+  burstTime: 0.25
+  holdTime: 0.08
+  flyTime: 0.45
+  staggerDelay: 0.04
 --- !u!1 &4896739246638689608
 GameObject:
   m_ObjectHideFlags: 0

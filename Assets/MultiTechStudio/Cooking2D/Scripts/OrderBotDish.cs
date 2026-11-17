@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 namespace MultiTechStudio.Cooking2D
 {
+    /// <summary>
+    /// The dish shown in a customer's order bubble.
+    /// Normal dishes (base + toppings) are drawn by the player's own plate, so the bubble
+    /// looks exactly like what the player has to build. Pizza, garlic bread, cupcake and
+    /// drinks are a single picture.
+    /// </summary>
     public class OrderBotDish : MonoBehaviour
     {
 
@@ -19,16 +25,6 @@ namespace MultiTechStudio.Cooking2D
 
         [Header("Cupcake Image")]
         public Sprite cupcakeImg;
-        // Start is called before the first frame update
-        void Start()
-        {
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
 
         public void SetServed()
         {
@@ -45,101 +41,75 @@ namespace MultiTechStudio.Cooking2D
 
         public void SetData()
         {
-
             levelController = LevelManager.Instance.ThisLevel;
 
-            GameObject _imgGo = Instantiate(childImg, childImg.transform.position, childImg.transform.rotation, childImg.transform.parent);
+            // subOrderNo 0 is the main order, 1..n are the extra dishes of a multi-order.
+            OrderDetails order = levelController.allOrders[orderNo];
+            ObjectType dishBase;
+            ObjectType[] toppings;
             if (subOrderNo <= 0)
             {
-                // _imgGo.GetComponent<Image>().sprite = levelController.FindImageAsLevel(levelController.allOrders[orderNo].coockBase);
-                if (levelController.allOrders[orderNo].coockBase == ObjectType.Pizza)
-                {
-                    Sprite finalPizza = levelController.GetFinalPizzaSprite();
-
-                    if (finalPizza != null)
-                    {
-                        _imgGo.GetComponent<Image>().sprite = finalPizza;
-                    }
-                }
-                else if (levelController.allOrders[orderNo].coockBase == ObjectType.GarlicBread)
-                {
-                    if (levelController.garlicBreadManager != null)
-                    {
-                        _imgGo.GetComponent<Image>().sprite =
-                            levelController.garlicBreadManager.GetGarlicBreadSprite();
-                    }
-                }
-                else if (levelController.allOrders[orderNo].coockBase == ObjectType.CapCake)
-                {
-                    _imgGo.GetComponent<Image>().sprite = cupcakeImg;
-                }
-                else
-                {
-                    _imgGo.GetComponent<Image>().sprite = levelController.FindImageAsLevel(levelController.allOrders[orderNo].coockBase);
-                }
-
-
-                _imgGo.transform.SetParent(transform);
-                _imgGo.SetActive(true);
-                if (levelController.allOrders[orderNo].coockBase == ObjectType.JuiceMachine1)
-                {
-                    // transform.GetComponent<Image>().sprite = null;
-                    transform.GetComponent<Image>().enabled = false;
-                }
-
-                for (int i = 0; i < levelController.allOrders[orderNo].allToppings.Length; i++)
-                {
-                    GameObject _imgGo2 = Instantiate(childImg, childImg.transform.position, childImg.transform.rotation, childImg.transform.parent);
-                    _imgGo2.GetComponent<Image>().sprite = levelController.FindImageAsLevel(levelController.allOrders[orderNo].allToppings[i]);
-                    _imgGo2.transform.SetParent(transform);
-                    _imgGo2.SetActive(true);
-                }
+                dishBase = order.coockBase;
+                toppings = order.allToppings;
             }
             else
             {
-                // _imgGo.GetComponent<Image>().sprite = levelController.FindImageAsLevel(levelController.allOrders[orderNo].allMultiOrders[subOrderNo-1].coockBase);
-                ObjectType type = levelController.allOrders[orderNo].allMultiOrders[subOrderNo - 1].coockBase;
-
-                if (type == ObjectType.Pizza)
-                {
-                    Sprite finalPizza = levelController.GetFinalPizzaSprite();
-
-                    if (finalPizza != null)
-                    {
-                        _imgGo.GetComponent<Image>().sprite = finalPizza;
-                    }
-                }
-                else if (type == ObjectType.GarlicBread)
-                {
-                    _imgGo.GetComponent<Image>().sprite =
-                        levelController.garlicBreadManager.GetGarlicBreadSprite();
-                }
-                else if (type == ObjectType.CapCake)
-                {
-                    _imgGo.GetComponent<Image>().sprite = cupcakeImg;
-                }
-                else
-                {
-                    _imgGo.GetComponent<Image>().sprite =
-                        levelController.FindImageAsLevel(type);
-                }
-                _imgGo.transform.SetParent(transform);
-                _imgGo.SetActive(true);
-                if (levelController.allOrders[orderNo].allMultiOrders[subOrderNo - 1].coockBase == ObjectType.JuiceMachine1)
-                {
-                    // transform.GetComponent<Image>().sprite = null;
-                    transform.GetComponent<Image>().enabled = false;
-                }
-
-                for (int i = 0; i < levelController.allOrders[orderNo].allMultiOrders[subOrderNo - 1].allToppings.Length; i++)
-                {
-                    GameObject _imgGo2 = Instantiate(childImg, childImg.transform.position, childImg.transform.rotation, childImg.transform.parent);
-                    _imgGo2.GetComponent<Image>().sprite = levelController.FindImageAsLevel(levelController.allOrders[orderNo].allMultiOrders[subOrderNo - 1].allToppings[i]);
-                    _imgGo2.transform.SetParent(transform);
-                    _imgGo2.SetActive(true);
-                }
+                MultiOrderDetails subOrder = order.allMultiOrders[subOrderNo - 1];
+                dishBase = subOrder.coockBase;
+                toppings = subOrder.allToppings;
             }
+
+            // Normal dish: let the player's plate draw it, so both look the same.
+            MainDish playerPlate = levelController.GetPlateFor(dishBase);
+            if (playerPlate != null)
+            {
+                playerPlate.BuildOrderPreview((RectTransform)transform, dishBase, toppings);
+                gameObject.SetActive(true);
+                return;
+            }
+
+            // Everything else is a single picture.
+            AddPicture(GetSingleItemSprite(dishBase));
+
+            if (dishBase == ObjectType.JuiceMachine1)
+            {
+                // The glass is drawn on its own, without a plate behind it.
+                transform.GetComponent<Image>().enabled = false;
+            }
+
+            if (toppings != null)
+            {
+                foreach (ObjectType topping in toppings)
+                    AddPicture(levelController.FindImageAsLevel(topping));
+            }
+
             gameObject.SetActive(true);
+        }
+
+        private Sprite GetSingleItemSprite(ObjectType item)
+        {
+            switch (item)
+            {
+                case ObjectType.Pizza:
+                    return levelController.GetFinalPizzaSprite();
+                case ObjectType.GarlicBread:
+                    return levelController.garlicBreadManager != null
+                        ? levelController.garlicBreadManager.GetGarlicBreadSprite()
+                        : null;
+                case ObjectType.CapCake:
+                    return cupcakeImg;
+                default:
+                    return levelController.FindImageAsLevel(item);
+            }
+        }
+
+        private void AddPicture(Sprite sprite)
+        {
+            GameObject picture = Instantiate(childImg, childImg.transform.position, childImg.transform.rotation, childImg.transform.parent);
+            if (sprite != null)
+                picture.GetComponent<Image>().sprite = sprite;
+            picture.transform.SetParent(transform);
+            picture.SetActive(true);
         }
     }
 }

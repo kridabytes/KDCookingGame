@@ -161,7 +161,7 @@ namespace MultiTechStudio.Cooking2D
                 if (levelController.cupcakeCooker != null &&
                     levelController.cupcakeCooker.state == CookerState.ReadyToCook)
                 {
-                    levelController.cupcakeCooker.StartCupcakeCooking();
+                    levelController.cupcakeCooker.StartCupcakeCooking(transform);
                 }
 
                 return;
@@ -215,7 +215,7 @@ namespace MultiTechStudio.Cooking2D
                     if (levelController.ovenCooker != null &&
                         levelController.ovenCooker.state == CookerState.ReadyToCook)
                     {
-                        levelController.ovenCooker.StartPizzaCooking();
+                        levelController.ovenCooker.StartPizzaCooking(transform);
                     }
                     return;
                 }

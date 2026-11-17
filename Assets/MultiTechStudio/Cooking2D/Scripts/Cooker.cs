@@ -67,21 +67,98 @@ namespace MultiTechStudio.Cooking2D
                 burnParticle.Stop();
         }
 
-        public void StartPizzaCooking()
-        {
-            isPizzaMode = true;
-            baseCookImages = GameManager.instance.upgradeManager.GetPizzaCookImages();
+        /// <param name="flyFrom">Where the raw pizza was tapped. If set, the pizza flies into the oven.</param>
+       public void StartPizzaCooking(Transform flyFrom = null)
+{
+    Sprite ovenBefore = baseImage.sprite;
+    Color ovenColorBefore = baseImage.color;
 
-            // Reset & start cooking
-            ChangeStateTo(CookerState.Cooking);
-        }
-        public void StartCupcakeCooking()
+    isPizzaMode = true;
+    baseCookImages = GameManager.instance.upgradeManager.GetPizzaCookImages();
+
+    // Plate ma je Pizza image dekhay che te j fly thase
+    Sprite pizzaSprite = GetPlatePizzaSprite();
+    if (pizzaSprite == null)
+        pizzaSprite = baseCookImages.normalImg;
+
+    ChangeStateTo(CookerState.Cooking);
+    FlyFoodIn(flyFrom, ovenBefore, ovenColorBefore,
+              flyingSprite: pizzaSprite, goesIntoOven: true);
+}
+
+// Pizza plate ma je pizza sprite use thay che te return kare
+private Sprite GetPlatePizzaSprite()
+{
+    Sprite sprite = GameManager.instance.upgradeManager.GetToppingImageAsLevel(ObjectType.Pizza);
+    if (sprite != null)
+        return sprite;
+
+    foreach (MainDish plate in levelController.allDishes)
+    {
+        if (plate == null || plate.GetObjectType() != ObjectType.PizzaPlate)
+            continue;
+
+        OnDishObjects entry = plate.dishObjects.Find(x => x.objectType == ObjectType.Pizza);
+        if (entry != null && entry.Img != null)
+            return entry.Img;
+    }
+    return null;
+}
+        /// <param name="flyFrom">Where the cupcake was tapped. If set, the cupcake flies into the oven.</param>
+        public void StartCupcakeCooking(Transform flyFrom = null)
         {
+            Sprite ovenBefore = baseImage.sprite;
+            Color ovenColorBefore = baseImage.color;
+
             isCupcakeMode = true;
 
             baseCookImages = GameManager.instance.upgradeManager.GetCupcakeCookImages();// reuse or make new if needed
 
             ChangeStateTo(CookerState.Cooking);
+            FlyFoodIn(flyFrom, ovenBefore, ovenColorBefore);
+        }
+
+        // Bumped on every state change, so a flight that lands late can tell
+        // that the stove has moved on and must not overwrite its picture.
+        private int foodFlightId;
+
+        /// <summary>
+        /// Plays "food flies from the tray onto the stove".
+        /// While the food is in the air the stove keeps showing what it showed before
+        /// (empty pan or closed oven); when it lands we switch to the cooking picture.
+        /// Cooking itself has already started, so the timer is not delayed.
+        /// </summary>
+        /// <param name="flyingSprite">Picture to fly. Default: whatever the stove shows while cooking.</param>
+        /// <param name="goesIntoOven">The food keeps its own size and shrinks as it enters the oven,
+        /// instead of growing to the size of the stove.</param>
+        private void FlyFoodIn(Transform from, Sprite stoveSprite, Color stoveColor,
+                               Sprite flyingSprite = null, bool goesIntoOven = false)
+        {
+            if (from == null)
+                return;
+
+            // What the stove shows once the food has arrived.
+            Sprite cookingSprite = baseImage.sprite;
+            Color cookingColor = baseImage.color;
+
+            // Until then it keeps showing what it showed before.
+            baseImage.sprite = stoveSprite;
+            baseImage.color = stoveColor;
+
+            Sprite travelling = flyingSprite != null ? flyingSprite : cookingSprite;
+
+            int thisFlight = foodFlightId;
+            FlyToTarget.Fly(travelling, from, baseImage.transform, () =>
+            {
+                if (thisFlight != foodFlightId || state != CookerState.Cooking)
+                    return;
+
+                baseImage.sprite = cookingSprite;
+                baseImage.color = cookingColor;
+                FlyToTarget.Plop(baseImage.transform);
+            },
+            useSourceSize: goesIntoOven,
+            landScale: goesIntoOven ? 0.55f : 1f);
         }
         // Update is called once per frame
         void Update()
@@ -119,11 +196,16 @@ namespace MultiTechStudio.Cooking2D
 
         #region Cooking Behaviour
 
-        public void StartCooking()
+        /// <param name="flyFrom">Where the raw food was tapped. If set, the food flies onto the stove.</param>
+        public void StartCooking(Transform flyFrom = null)
         {
             if (state == CookerState.ReadyToCook)
             {
+                Sprite stoveBefore = baseImage.sprite;
+                Color stoveColorBefore = baseImage.color;
+
                 ChangeStateTo(CookerState.Cooking);
+                FlyFoodIn(flyFrom, stoveBefore, stoveColorBefore);
             }
         }
 
@@ -153,6 +235,8 @@ namespace MultiTechStudio.Cooking2D
 
         private void ChangeStateTo(CookerState _state)
         {
+            foodFlightId++;
+
             Color _color = Color.white;
             _color.a = 1;
             baseImage.color = _color;
@@ -193,7 +277,11 @@ namespace MultiTechStudio.Cooking2D
                     break;
                 case CookerState.Cooking:
                     cooksound.Play();
-                    baseImage.sprite = baseCookImages.normalImg;
+                    // A pizza cooks inside a closed oven; other food is shown on the stove.
+                   // if (isPizzaMode && !isCupcakeMode && ovenSprite != null)
+                   //     baseImage.sprite = ovenSprite;
+                   // else
+                        baseImage.sprite = baseCookImages.normalImg;
 
                     if (!cookTimer.activeInHierarchy)
                         cookTimer.SetActive(true);
@@ -247,7 +335,7 @@ namespace MultiTechStudio.Cooking2D
                 {
                     cooksound.Stop();
                     AudioManager.Instance.MakeVibrate(VibrationType.Low);
-                    bool placed = levelController.TryPlaceCupcakeOnPlate();
+                    bool placed = levelController.TryPlaceCupcakeOnPlate(baseImage.transform);
 
                     if (placed)
                     {
@@ -296,7 +384,7 @@ namespace MultiTechStudio.Cooking2D
                 {
                     cooksound.Stop();
                     AudioManager.Instance.MakeVibrate(VibrationType.Low);
-                    bool placed = levelController.TryPlacePizzaOnPlate();
+                    bool placed = levelController.TryPlacePizzaOnPlate(baseImage.transform);
 
                     if (placed)
                     {
@@ -375,7 +463,8 @@ namespace MultiTechStudio.Cooking2D
 
         private void MoveBaseToPlate()
         {
-            levelController.ObjectClicked(objectType, transform);
+            // Pass the food picture (not the whole stove) so the flight starts exactly where the food is.
+            levelController.ObjectClicked(objectType, baseImage.transform);
 
             // ✅ highlight cooker stop
             if (TutorialHighlighter.instance != null)

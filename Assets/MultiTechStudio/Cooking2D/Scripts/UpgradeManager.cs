@@ -300,7 +300,8 @@ namespace MultiTechStudio.Cooking2D
                 if (upgradedata.unlocked)
                 {
                     upgradedata.objImg.sprite = GetImagePerLevel(upgradedata);
-                    upgradedata.upgradeBtn.interactable = true;
+                  //  upgradedata.upgradeBtn.interactable = true;
+                    upgradedata.upgradeBtn.interactable = upgradedata.level < upgradedata.maxLevel;
                     upgradedata.upgradeBtn.gameObject.SetActive(true);
                 }
                 else

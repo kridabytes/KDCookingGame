@@ -110,7 +110,9 @@ namespace MultiTechStudio.Cooking2D
             Camera botCam = (botCanvas != null && botCanvas.renderMode != RenderMode.ScreenSpaceOverlay)
                 ? botCanvas.worldCamera
                 : null;
-            Vector2 endScreen = RectTransformUtility.WorldToScreenPoint(botCam, targetFillRect.position);
+            // Aim at the middle of the bar, not at its pivot (a fill bar's pivot is often on the left edge).
+            Vector3 barCenter = targetFillRect.TransformPoint(targetFillRect.rect.center);
+            Vector2 endScreen = RectTransformUtility.WorldToScreenPoint(botCam, barCenter);
 
             // Spawn as a UI element under the same canvas so it's always visible
             GameObject go = Instantiate(flyingIceCreamPrefab, mainCanvas.transform);

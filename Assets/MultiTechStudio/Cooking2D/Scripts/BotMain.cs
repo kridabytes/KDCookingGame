@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -186,6 +187,8 @@ namespace MultiTechStudio.Cooking2D
             {
                 subOrderBotDish[subOrderNo].SetServed();
             }
+            // Finish any ice cream fill at once, so it can't overwrite the patience reset below.
+            DOTween.Complete(this);
             _time = 0;
         }
 
@@ -232,10 +235,60 @@ namespace MultiTechStudio.Cooking2D
             // Convert back to internal time:
             // fillAmount = (botWaitTime - _time) / botWaitTime
             // => _time = (1 - fillAmount) * botWaitTime
-            _time = (1f - newNormalized) * botWaitTime;
+            float targetTime = (1f - newNormalized) * botWaitTime;
 
-            // Immediately update UI so player sees the effect
-            fillBar.fillAmount = newNormalized;
+            PlayIceCreamFill(targetTime);
+        }
+
+        // Remembered the first time, so repeated boosts never leave the bar bigger or tinted.
+        private Vector3 barNormalScale;
+        private Color fillNormalColor;
+        private bool barLooksSaved;
+
+        private const float IceCreamFillTime = 0.6f;
+
+        /// <summary>
+        /// What the player sees when the ice cream lands: the bar grows and glows,
+        /// fills up smoothly, then goes back to normal.
+        /// </summary>
+        private void PlayIceCreamFill(float targetTime)
+        {
+            Transform bar = fillBar.transform.parent != null ? fillBar.transform.parent : fillBar.transform;
+
+            if (!barLooksSaved)
+            {
+                barNormalScale = bar.localScale;
+                fillNormalColor = fillBar.color;
+                barLooksSaved = true;
+            }
+
+            // Stop an earlier boost that may still be playing, and reset the looks.
+            DOTween.Kill(this);
+            bar.DOKill();
+            fillBar.DOKill();
+            bar.localScale = barNormalScale;
+            fillBar.color = fillNormalColor;
+
+            Color glow = Color.Lerp(fillNormalColor, Color.white, 0.6f);
+            glow.a = fillNormalColor.a;
+
+            Sequence fill = DOTween.Sequence().SetTarget(this).SetLink(gameObject);
+
+            // Grow and glow so it is obvious which customer got the ice cream.
+            fill.Append(bar.DOScale(barNormalScale * 1.3f, 0.15f).SetEase(Ease.OutBack));
+            fill.Join(fillBar.DOColor(glow, 0.15f));
+
+            // Fill up. We animate _time (not fillAmount) because Waiting() redraws the bar
+            // from _time every frame and would otherwise undo our change.
+            fill.Append(DOTween.To(() => _time, value =>
+                {
+                    _time = value;
+                    fillBar.fillAmount = (botWaitTime - _time) / botWaitTime;
+                }, targetTime, IceCreamFillTime).SetEase(Ease.OutCubic));
+
+            // Back to normal.
+            fill.Append(bar.DOScale(barNormalScale, 0.15f).SetEase(Ease.InOutSine));
+            fill.Join(fillBar.DOColor(fillNormalColor, 0.15f));
         }
     }
 }

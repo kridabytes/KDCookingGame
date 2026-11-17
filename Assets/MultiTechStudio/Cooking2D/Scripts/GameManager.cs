@@ -24,7 +24,7 @@ public enum ObjectType
     Olive,
     mushroom,
     CapCake,
-    CupcakePlate
+    CupcakePlate,
 }
 
 /// <summary>

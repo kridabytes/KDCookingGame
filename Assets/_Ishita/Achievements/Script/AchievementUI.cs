@@ -203,9 +203,7 @@ public class AchievementUI : MonoBehaviour
                 break;
 
             case AchievementRewardType.Diamond:
-                UiManager.TotalDiamond += amount;
-                PersistentCanvas.instance.diamondTxt.text =
-                    UiManager.TotalDiamond.ToString();
+                Extensions.AddDiamonds(amount);
                 break;
         }
 
@@ -310,10 +308,7 @@ public class AchievementUI : MonoBehaviour
 
             case AchievementRewardType.Diamond:
 
-                UiManager.TotalDiamond += amount;
-
-                PersistentCanvas.instance.diamondTxt.text =
-                    UiManager.TotalDiamond.ToString();
+                Extensions.AddDiamonds(amount);
 
                 break;
         }

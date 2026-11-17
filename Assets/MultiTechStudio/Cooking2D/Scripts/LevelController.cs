@@ -271,7 +271,8 @@ namespace MultiTechStudio.Cooking2D
 
             return false;
         }
-        public bool TryPlaceCupcakeOnPlate()
+        /// <param name="flyFrom">Oven position; if set, the cupcake flies onto the plate.</param>
+        public bool TryPlaceCupcakeOnPlate(Transform flyFrom = null)
         {
             for (int i = 0; i < cupCakeallDishes.Length; i++)
             {
@@ -294,7 +295,7 @@ namespace MultiTechStudio.Cooking2D
 
                     Debug.Log("Placing cupcake on plate index: " + i);
 
-                    dish.AssignOnDish(ObjectType.CapCake);
+                    dish.AssignOnDish(ObjectType.CapCake, flyFrom);
 
                     return true;
                 }
@@ -337,7 +338,8 @@ namespace MultiTechStudio.Cooking2D
 
             return null;
         }
-        public bool TryPlacePizzaOnPlate()
+        /// <param name="flyFrom">Oven position; if set, the pizza flies onto the plate.</param>
+        public bool TryPlacePizzaOnPlate(Transform flyFrom = null)
         {
             Debug.Log("Trying to place pizza...");
 
@@ -358,7 +360,7 @@ namespace MultiTechStudio.Cooking2D
                     if (!allDishes[i].HavePizza())
                     {
                         Debug.Log("Placing pizza...");
-                        allDishes[i].AssignOnDish(ObjectType.Pizza);
+                        allDishes[i].AssignOnDish(ObjectType.Pizza, flyFrom);
                         return true;
                     }
                     else
@@ -1406,19 +1408,20 @@ namespace MultiTechStudio.Cooking2D
                     FillOrder(_objectType);
                     break;
                 case ObjectType.PickBase1:
-                    AssignBaseToCook(_objectType);
+                    AssignBaseToCook(_objectType, _clickedTrans);
                     break;
                 case ObjectType.CoockedBase1:
-                    _yesNo = AssignOnDish(_objectType);
+                    // _clickedTrans is the food on the stove, so the patty flies to the plate.
+                    _yesNo = AssignOnDish(_objectType, _clickedTrans);
                     break;
                 case ObjectType.MainDish2:
                     FillOrder(_objectType);
                     break;
                 case ObjectType.PickBase2:
-                    AssignBaseToCook(_objectType);
+                    AssignBaseToCook(_objectType, _clickedTrans);
                     break;
                 case ObjectType.CoockedBase2:
-                    _yesNo = AssignOnDish(_objectType);
+                    _yesNo = AssignOnDish(_objectType, _clickedTrans);
                     break;
                 case ObjectType.Topping1:
                     _yesNo = AssignOnDish(_objectType);
@@ -1456,7 +1459,8 @@ namespace MultiTechStudio.Cooking2D
             return _yesNo;
         }
 
-        private bool AssignOnDish(ObjectType _objectType)
+        /// <param name="flyFrom">If set, the item flies from here onto the plate it is placed on.</param>
+        private bool AssignOnDish(ObjectType _objectType, Transform flyFrom = null)
         {
 
             if (GetDishObject(_objectType) == ObjectType.MainDish1)
@@ -1465,7 +1469,7 @@ namespace MultiTechStudio.Cooking2D
                 {
                     if (allMainDishes[i].CanDropOnDish(_objectType))
                     {
-                        allMainDishes[i].AssignOnDish(_objectType);
+                        allMainDishes[i].AssignOnDish(_objectType, flyFrom);
                         return true;
                     }
                 }
@@ -1476,7 +1480,7 @@ namespace MultiTechStudio.Cooking2D
                 {
                     if (allMainDishes2[i].CanDropOnDish(_objectType))
                     {
-                        allMainDishes2[i].AssignOnDish(_objectType);
+                        allMainDishes2[i].AssignOnDish(_objectType, flyFrom);
                         return true;
                     }
                 }
@@ -1484,7 +1488,8 @@ namespace MultiTechStudio.Cooking2D
             return false;
         }
 
-        private void AssignBaseToCook(ObjectType _objectType)
+        /// <param name="flyFrom">The tray that was tapped; the raw food flies from there to the free stove.</param>
+        private void AssignBaseToCook(ObjectType _objectType, Transform flyFrom = null)
         {
             if (GetDishObject(_objectType) == ObjectType.MainDish1)
             {
@@ -1492,7 +1497,7 @@ namespace MultiTechStudio.Cooking2D
                 {
                     if (allCookers[i].state == CookerState.ReadyToCook)
                     {
-                        allCookers[i].StartCooking();
+                        allCookers[i].StartCooking(flyFrom);
                         break;
                     }
                 }
@@ -1503,7 +1508,7 @@ namespace MultiTechStudio.Cooking2D
                 {
                     if (allCookers2[i].state == CookerState.ReadyToCook)
                     {
-                        allCookers2[i].StartCooking();
+                        allCookers2[i].StartCooking(flyFrom);
                         break;
                     }
                 }
@@ -1609,6 +1614,32 @@ namespace MultiTechStudio.Cooking2D
             dustbinOrderNo++;
             GameManager.instance.uiAnimationManager.ClickAnimation(dustbin.transform, 2);
             GameManager.instance.targetManager.CheckFailTarget(TargetFail.Waste);
+        }
+
+        /// <summary>
+        /// Returns one of the player's plates that serves this cooked base
+        /// (CoockedBase1 -> first plate row, CoockedBase2 -> second row), or null.
+        /// Used to draw customer orders with the same look as the player's plate.
+        /// </summary>
+        public MainDish GetPlateFor(ObjectType cookedBase)
+        {
+            MainDish[] plates;
+            if (cookedBase == ObjectType.CoockedBase1)
+                plates = mainDishes;
+            else if (cookedBase == ObjectType.CoockedBase2)
+                plates = mainDishes2;
+            else
+                return null;
+
+            if (plates == null)
+                return null;
+
+            foreach (MainDish plate in plates)
+            {
+                if (plate != null)
+                    return plate;
+            }
+            return null;
         }
 
         public Sprite FindImageAsLevel(ObjectType _objectType)

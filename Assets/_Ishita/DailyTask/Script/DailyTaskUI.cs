@@ -142,9 +142,7 @@ public class DailyTaskUI : MonoBehaviour
                 break;
 
             case DailyTaskRewardType.Diamond:
-                UiManager.TotalDiamond += amount;
-                PersistentCanvas.instance.diamondTxt.text =
-                    UiManager.TotalDiamond.ToString();
+                Extensions.AddDiamonds(amount);
                 break;
         }
 
@@ -245,10 +243,7 @@ public class DailyTaskUI : MonoBehaviour
 
             case DailyTaskRewardType.Diamond:
 
-                UiManager.TotalDiamond += amount;
-
-                PersistentCanvas.instance.diamondTxt.text =
-                    UiManager.TotalDiamond.ToString();
+                Extensions.AddDiamonds(amount);
 
                 break;
         }

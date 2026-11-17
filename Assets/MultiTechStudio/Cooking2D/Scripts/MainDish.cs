@@ -187,7 +187,8 @@ namespace MultiTechStudio.Cooking2D
         /// <summary>
         /// Place an ingredient object onto this dish and animate the stack.
         /// </summary>
-        public void AssignOnDish(ObjectType _objectType)
+        /// <param name="flyFrom">If set (e.g. the stove), the item flies from there and appears when it lands.</param>
+        public void AssignOnDish(ObjectType _objectType, Transform flyFrom = null)
         {
             Debug.Log("AssignOnDish called for: " + _objectType);
 
@@ -225,7 +226,13 @@ namespace MultiTechStudio.Cooking2D
 
                     dishObjects[i].imageInGame.SetActive(true);
 
-                    return; 
+                    if (flyFrom != null)
+                    {
+                        Sprite itemSprite = dishObjects[i].imageInGame.GetComponent<Image>().sprite;
+                        FlyToTarget.FlyAndReveal(itemSprite, flyFrom, dishObjects[i].imageInGame);
+                    }
+
+                    return;
                 }
             }
 
@@ -620,6 +627,84 @@ namespace MultiTechStudio.Cooking2D
 
             gameObject.SetActive(true);
         }
+        #region Order bubble preview
+
+        /// <summary>
+        /// Draws "this plate holding these items" inside <paramref name="bubble"/>.
+        /// It uses the very same prefabs, sprites and layout as <see cref="AssignOnDish"/>,
+        /// so what the customer asks for looks exactly like the plate the player builds.
+        /// </summary>
+        public void BuildOrderPreview(RectTransform bubble, ObjectType cookedBase, ObjectType[] toppings)
+        {
+            // The bubble shows the same plate picture as the player's plate.
+            Image bubbleImage = bubble.GetComponent<Image>();
+            Image plateImage = GetComponent<Image>();
+            if (bubbleImage != null && plateImage != null)
+            {
+                bubbleImage.sprite = plateImage.sprite;
+                bubbleImage.color = plateImage.color;
+                bubbleImage.preserveAspect = plateImage.preserveAspect;
+            }
+
+            // A holder the same size as the real plate, so the items land in the same spots.
+            // It is then scaled down to fit the bubble if the bubble is smaller.
+            var plateRect = (RectTransform)transform;
+            Vector2 plateSize = plateRect.rect.size;
+
+            float fit = 1f;
+            if (plateSize.x > 0f && plateSize.y > 0f)
+                fit = Mathf.Min(bubble.rect.width / plateSize.x, bubble.rect.height / plateSize.y);
+            if (fit <= 0f || float.IsNaN(fit) || float.IsInfinity(fit))
+                fit = 1f;
+
+            var holder = new GameObject("Dish Preview", typeof(RectTransform));
+            var holderRect = (RectTransform)holder.transform;
+            holderRect.SetParent(bubble, false);
+            holderRect.anchorMin = holderRect.anchorMax = new Vector2(0.5f, 0.5f);
+            holderRect.pivot = plateRect.pivot;
+            holderRect.sizeDelta = plateSize;
+            holderRect.localScale = Vector3.one * fit;
+            // Keep the holder centred in the bubble even if the plate's pivot is not in the middle.
+            holderRect.anchoredPosition = Vector2.Scale(plateRect.pivot - new Vector2(0.5f, 0.5f), plateSize) * fit;
+
+            AddPreviewItem(holderRect, cookedBase);
+            if (toppings != null)
+            {
+                foreach (ObjectType topping in toppings)
+                    AddPreviewItem(holderRect, topping);
+            }
+        }
+
+        private void AddPreviewItem(Transform holder, ObjectType itemType)
+        {
+            // Same lookup as AssignOnDish: the first entry for this item decides the prefab.
+            OnDishObjects entry = dishObjects.Find(x => x.objectType == itemType);
+            GameObject prefab = entry != null && entry.customPrefab != null ? entry.customPrefab : childImg;
+            if (prefab == null)
+                return;
+
+            GameObject item = Instantiate(prefab, holder);
+            item.transform.localPosition = Vector3.zero;
+
+            Sprite sprite = GameManager.instance.upgradeManager.GetToppingImageAsLevel(itemType);
+            if (sprite == null && entry != null)
+                sprite = entry.Img;
+
+            Image image = item.GetComponent<Image>();
+            if (image != null && sprite != null)
+                image.sprite = sprite;
+
+            // It is only a picture: it must not catch taps meant for the game.
+            foreach (Collider2D col in item.GetComponentsInChildren<Collider2D>(true))
+                Destroy(col);
+            foreach (Graphic graphic in item.GetComponentsInChildren<Graphic>(true))
+                graphic.raycastTarget = false;
+
+            item.SetActive(true);
+        }
+
+        #endregion
+
         public Image GetCurrentFoodImage()
         {
             // ✅ ONLY instantiated child (toppings / pizza)

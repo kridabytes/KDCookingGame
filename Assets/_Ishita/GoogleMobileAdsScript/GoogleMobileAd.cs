@@ -39,6 +39,10 @@ public class GoogleMobileAd : MonoBehaviour
 
         Debug.Log("Initializing Google Mobile Ads...");
 
+        // Reward callbacks touch UI and start animations, which is only safe on Unity's main thread.
+        // Without this, Android calls them from a background thread.
+        MobileAds.RaiseAdEventsOnUnityMainThread = true;
+
         MobileAds.Initialize((InitializationStatus status) =>
         {
             Debug.Log("Google Mobile Ads Initialized Successfully");
@@ -120,11 +124,8 @@ public class GoogleMobileAd : MonoBehaviour
 
         rewardedAdCoin.Show((Reward reward) =>
         {
-            UiManager.TotalCoins += 50;
             mobileadspanel.SetActive(false);
-
-            UiManager.Instance.allCanvas.persistent.coinTxt.text = UiManager.TotalCoins.ToString();
-            DailyBonusUI.Instance.coinAnimation.PlayAnim();
+            Extensions.AddCoins(50, DailyBonusUI.Instance.coinAnimation);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
             LoadCoinAd();
@@ -203,11 +204,8 @@ public class GoogleMobileAd : MonoBehaviour
 
         rewardedAdDiamond.Show((Reward reward) =>
         {
-            UiManager.TotalDiamond += 1;
             mobileadspanel.SetActive(false);
-
-            PersistentCanvas.instance.diamondTxt.text = UiManager.TotalDiamond.ToString();
-            DailyBonusUI.Instance.diamondAnimation.PlayAnim();
+            Extensions.AddDiamonds(1, DailyBonusUI.Instance.diamondAnimation);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
             LoadDiamondAd();
@@ -226,10 +224,8 @@ public class GoogleMobileAd : MonoBehaviour
 
         rewardedAdCoin.Show((Reward reward) =>
         {
-            UiManager.TotalCoins += 100;
             Debug.Log("Add reward coins: " + reward.Amount);
-
-            UiManager.Instance.allCanvas.persistent.coinTxt.text = UiManager.TotalCoins.ToString();
+            Extensions.AddCoins(100);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
 
@@ -249,13 +245,11 @@ public class GoogleMobileAd : MonoBehaviour
 
         rewardedAdCoin.Show((Reward reward) =>
         {
-            UiManager.TotalCoins += 50;
             Debug.Log("Add reward coins in IAP: " + reward.Amount);
             IAPScript.Instance.CloseIAPPanel();
             adpanel.SetActive(false);
 
-            DailyBonusUI.Instance.coinAnimation.PlayAnim();
-            UiManager.Instance.allCanvas.persistent.coinTxt.text = UiManager.TotalCoins.ToString();
+            Extensions.AddCoins(50, DailyBonusUI.Instance.coinAnimation);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
 
@@ -270,11 +264,9 @@ public class GoogleMobileAd : MonoBehaviour
 
         rewardedAdDiamond.Show((Reward reward) =>
         {
-            UiManager.TotalDiamond += 1;
             IAPScript.Instance.CloseIAPPanel();
             adpanel.SetActive(false);
-            PersistentCanvas.instance.diamondTxt.text = UiManager.TotalDiamond.ToString();
-            DailyBonusUI.Instance.diamondAnimation.PlayAnim();
+            Extensions.AddDiamonds(1, DailyBonusUI.Instance.diamondAnimation);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
             LoadDiamondAd();
@@ -303,11 +295,8 @@ public class GoogleMobileAd : MonoBehaviour
 
         rewardedAdDiamond.Show((Reward reward) =>
         {
-            UiManager.TotalDiamond += 1;
             freegiftpanel.SetActive(false);
-
-            PersistentCanvas.instance.diamondTxt.text = UiManager.TotalDiamond.ToString();
-            DailyBonusUI.Instance.diamondAnimation.PlayAnim();
+            Extensions.AddDiamonds(1, DailyBonusUI.Instance.diamondAnimation);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
             LoadDiamondAd();
@@ -328,12 +317,10 @@ public class GoogleMobileAd : MonoBehaviour
 
         rewardedAdCoin.Show((Reward reward) =>
         {
-            UiManager.TotalCoins += 50;
             freegiftpanel.SetActive(false);
 
             Debug.Log("Add reward coins in IAP: " + reward.Amount);
-            DailyBonusUI.Instance.coinAnimation.PlayAnim();
-            UiManager.Instance.allCanvas.persistent.coinTxt.text = UiManager.TotalCoins.ToString();
+            Extensions.AddCoins(50, DailyBonusUI.Instance.coinAnimation);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
 

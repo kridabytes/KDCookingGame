@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectsForLevel:
   - objectType: 0
-    noOfObject: 1
+    noOfObject: 3
     baseDish: 0
     mustHave: 0
     notHave: 1
@@ -24,84 +24,84 @@ MonoBehaviour:
     mustHave: 0
     notHave: 1
   - objectType: 2
-    noOfObject: 1
+    noOfObject: 3
     baseDish: 0
     mustHave: 0
     notHave: 1
   - objectType: 8
-    noOfObject: 1
+    noOfObject: 3
     baseDish: 0
     mustHave: 0
     notHave: 1
-  baseCoockingTime: 4
+  baseCoockingTime: 2
   baseBurningTime: 10
-  juicingTime: 4
+  juicingTime: 2
   allOrders:
   - time: 0
     coockBase: 2
     isTopping: 0
     allToppings: 
-    orderStatus: 3
+    orderStatus: 2
     botMain: {fileID: 0}
     multiOrder: 0
     allMultiOrders: []
-    orderCompleted: 1
-    coinReward: 5
+    orderCompleted: 0
+    coinReward: 9
   - time: 1
     coockBase: 8
     isTopping: 0
     allToppings: 
-    orderStatus: 3
+    orderStatus: 2
     botMain: {fileID: 0}
     multiOrder: 0
     allMultiOrders: []
-    orderCompleted: 1
-    coinReward: 6
+    orderCompleted: 0
+    coinReward: 10
   - time: 15
     coockBase: 2
     isTopping: 0
     allToppings: 
-    orderStatus: 3
+    orderStatus: 0
     botMain: {fileID: 0}
     multiOrder: 0
     allMultiOrders: []
-    orderCompleted: 1
-    coinReward: 5
+    orderCompleted: 0
+    coinReward: 9
   - time: 8.76
     coockBase: 2
     isTopping: 0
     allToppings: 
-    orderStatus: 3
+    orderStatus: 0
     botMain: {fileID: 0}
     multiOrder: 1
     allMultiOrders:
     - coockBase: 8
       isTopping: 0
       allToppings: 
-      orderCompleted: 1
-      coinReward: 6
-    orderCompleted: 1
-    coinReward: 5
+      orderCompleted: 0
+      coinReward: 10
+    orderCompleted: 0
+    coinReward: 9
   - time: 5
     coockBase: 2
     isTopping: 0
     allToppings: 
-    orderStatus: 3
+    orderStatus: 0
     botMain: {fileID: 0}
     multiOrder: 0
     allMultiOrders: []
-    orderCompleted: 1
-    coinReward: 5
+    orderCompleted: 0
+    coinReward: 9
   - time: 3
     coockBase: 2
     isTopping: 0
     allToppings: 
-    orderStatus: 3
+    orderStatus: 0
     botMain: {fileID: 0}
     multiOrder: 0
     allMultiOrders: []
-    orderCompleted: 1
-    coinReward: 5
+    orderCompleted: 0
+    coinReward: 9
   targetType: 0
   targetAmount: 30
   targetLimit: 0
