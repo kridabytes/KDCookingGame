@@ -28,7 +28,7 @@ public class DailyBonusUI : MonoBehaviour
         CheckMissedDayReset();
         if (CanShowDailyReward())
         {
-            dailybonusPanel.SetActive(true);
+            PopupAnimation.Show(dailybonusPanel);
             Dailybonusui();
         }
         else
@@ -114,7 +114,7 @@ public class DailyBonusUI : MonoBehaviour
         PlayerPrefs.Save();
 
         clickedButton.interactable = false;
-        dailybonusPanel.SetActive(false);
+        PopupAnimation.Hide(dailybonusPanel);
     }
 
     bool CanShowDailyReward()

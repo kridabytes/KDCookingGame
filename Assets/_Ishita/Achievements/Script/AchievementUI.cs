@@ -25,7 +25,7 @@ public class AchievementUI : MonoBehaviour
 
     public void ClickAchievement()
     {
-        achievementpanel.SetActive(true);
+        PopupAnimation.Show(achievementpanel);
         Achievementdata();
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
 
@@ -33,7 +33,7 @@ public class AchievementUI : MonoBehaviour
 
     public void CloseAchievement()
     {
-        achievementpanel.SetActive(false);
+        PopupAnimation.Hide(achievementpanel);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
 
     }

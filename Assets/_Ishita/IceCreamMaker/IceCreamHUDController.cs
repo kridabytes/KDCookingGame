@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using DG.Tweening;
 
 namespace MultiTechStudio.Cooking2D
 {
@@ -16,9 +17,10 @@ namespace MultiTechStudio.Cooking2D
         [SerializeField] private TextMeshProUGUI totalIceCreamText;
 
         [Header("Flying Ice Cream")]
+        [Tooltip("Only its picture is used. The flight itself is drawn on the GameFx overlay, so it is visible above every canvas.")]
         [SerializeField] private GameObject flyingIceCreamPrefab;
-        [SerializeField] private Canvas mainCanvas;   // HUD canvas (for ScreenToWorldPoint ref)
-        [SerializeField] private Camera uiCamera;     // camera that renders the canvas
+        [Tooltip("Optional: picture to fly instead of the prefab's picture.")]
+        [SerializeField] private Sprite flyingSprite;
 
         private bool subscribed;
         private Coroutine bindRoutine;
@@ -78,58 +80,49 @@ namespace MultiTechStudio.Cooking2D
 
         private void OnIceCreamButtonClicked()
         {
-            AudioManager.Instance.MakeVibrate(VibrationType.Low);
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.MakeVibrate(VibrationType.Low);
 
-            if (IceCreamManager.Instance == null)
+            if (IceCreamManager.Instance == null || iceCreamButton == null)
                 return;
+
+            Transform buttonTransform = iceCreamButton.transform;
 
             if (!IceCreamManager.Instance.TryUseOneForCustomer(out BotMain targetBot) || targetBot == null)
-                return;
-
-            if (flyingIceCreamPrefab == null || mainCanvas == null)
-                return;
-
-            RectTransform canvasRect = mainCanvas.transform as RectTransform;
-            if (canvasRect == null)
-                return;
-
-            // Choose the correct camera for this canvas.
-            // Screen Space Overlay: pass null
-            // Screen Space Camera / World Space: use assigned uiCamera
-            Camera cam = mainCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : uiCamera;
-
-            // Start: screen position of the HUD button
-            RectTransform buttonRect = iceCreamButton.GetComponent<RectTransform>();
-            Vector2 startScreen = RectTransformUtility.WorldToScreenPoint(cam, buttonRect.position);
-
-            // End: screen position of the bot's fill bar UI (works for world-space and screen-space canvases)
-            if (targetBot.fillBar == null)
-                return;
-            RectTransform targetFillRect = targetBot.fillBar.rectTransform;
-            Canvas botCanvas = targetFillRect.GetComponentInParent<Canvas>();
-            Camera botCam = (botCanvas != null && botCanvas.renderMode != RenderMode.ScreenSpaceOverlay)
-                ? botCanvas.worldCamera
-                : null;
-            // Aim at the middle of the bar, not at its pivot (a fill bar's pivot is often on the left edge).
-            Vector3 barCenter = targetFillRect.TransformPoint(targetFillRect.rect.center);
-            Vector2 endScreen = RectTransformUtility.WorldToScreenPoint(botCam, barCenter);
-
-            // Spawn as a UI element under the same canvas so it's always visible
-            GameObject go = Instantiate(flyingIceCreamPrefab, mainCanvas.transform);
-            var goRect = go.transform as RectTransform;
-            if (goRect != null)
             {
-                goRect.anchorMin = new Vector2(0.5f, 0.5f);
-                goRect.anchorMax = new Vector2(0.5f, 0.5f);
-                goRect.pivot = new Vector2(0.5f, 0.5f);
-                goRect.localScale = Vector3.one;
+                // Nothing in stock, or nobody waiting: a small "no" shake.
+                buttonTransform.DOKill(true);
+                buttonTransform.DOShakePosition(0.3f, new Vector3(12f, 0f, 0f), 18, 0f).SetLink(gameObject);
+                return;
             }
 
-            FlyingIceCreamAnimation anim = go.GetComponent<FlyingIceCreamAnimation>();
-            if (anim != null)
+            // Button squish so the tap feels responsive.
+            buttonTransform.DOKill(true);
+            buttonTransform.DOPunchScale(new Vector3(-0.15f, -0.15f, 0f), 0.25f, 8, 0.7f).SetLink(gameObject);
+
+            Sprite sprite = GetFlyingSprite();
+            if (FlyingIceCreamAnimation.Launch(sprite, buttonTransform, targetBot) == null)
             {
-                anim.Init(canvasRect, cam, startScreen, endScreen, targetBot);
+                // Could not animate (e.g. missing picture): still give the customer the ice cream.
+                IceCreamManager.Instance.ApplyBoostToCustomer(targetBot);
             }
+        }
+
+        /// <summary>The ice cream picture: from the flying prefab, or the button's own image.</summary>
+        private Sprite GetFlyingSprite()
+        {
+            if (flyingSprite != null)
+                return flyingSprite;
+
+            if (flyingIceCreamPrefab != null)
+            {
+                Image prefabImage = flyingIceCreamPrefab.GetComponentInChildren<Image>(true);
+                if (prefabImage != null && prefabImage.sprite != null)
+                    return prefabImage.sprite;
+            }
+
+            Image buttonImage = iceCreamButton.image != null ? iceCreamButton.image : iceCreamButton.GetComponent<Image>();
+            return buttonImage != null ? buttonImage.sprite : null;
         }
     }
 }

@@ -39,7 +39,7 @@ public class DailyTaskUI : MonoBehaviour
     public void ClickDailyTask()
     {
         DaliyTaskUI();
-        dailytaskpanel.SetActive(true);
+        PopupAnimation.Show(dailytaskpanel);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
 
 
@@ -47,7 +47,7 @@ public class DailyTaskUI : MonoBehaviour
 
     public void CloseDailyTask()
     {
-        dailytaskpanel.SetActive(false);
+        PopupAnimation.Hide(dailytaskpanel);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
     }
 

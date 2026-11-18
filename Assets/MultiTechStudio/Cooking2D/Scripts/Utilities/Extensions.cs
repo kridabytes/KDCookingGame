@@ -188,6 +188,13 @@ namespace MultiTechStudio.Cooking2D
                 UiManager.Instance.allCanvas.persistent.diamondTxt, before, UiManager.TotalDiamond);
         }
 
+        private static System.Collections.IEnumerator PlayNextFrame(CoinAnimation animation)
+        {
+            yield return null;
+            if (animation != null)
+                animation.PlayAnim();
+        }
+
         private static void PlayCurrencyAnimation(CoinAnimation animation, Text counter, int from, int to)
         {
             if (animation == null || to <= from)
@@ -196,7 +203,15 @@ namespace MultiTechStudio.Cooking2D
                 return;
             }
 
-            animation.PlayAnim();
+            // On the Home screen, bring the coin/diamond bar in front of any open popup
+            // (shop, ad, bonus) so the player sees the reward arrive. Must happen before
+            // PlayAnim, because the icons aim at the counter's position when they launch.
+            bool moved = TopBarSpotlight.Show(animation.FirstArrivalTime + animation.ArrivalSpread + 0.6f);
+
+            if (moved)
+                GameFx.Instance.StartCoroutine(PlayNextFrame(animation)); // canvases settle into their new place first
+            else
+                animation.PlayAnim();
 
             // Start counting when the first icon lands and finish when the last one lands.
             float countTime = Mathf.Max(0.25f, animation.ArrivalSpread);

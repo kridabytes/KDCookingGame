@@ -148,8 +148,8 @@ MonoBehaviour:
   - objectType: 0
     allImages:
     - {fileID: -4018809649267681444, guid: 80f31b9215fddc54b9e821074af76ba5, type: 3}
-    - {fileID: 7349223683580781731, guid: 5c84ee945f3fae04f8c506062398f5ca, type: 3}
-    - {fileID: 677756991305216387, guid: af89c56596726bc46bc0efec4f698b76, type: 3}
+    - {fileID: -4018809649267681444, guid: 80f31b9215fddc54b9e821074af76ba5, type: 3}
+    - {fileID: -4018809649267681444, guid: 80f31b9215fddc54b9e821074af76ba5, type: 3}
     isMaking: 1
   - objectType: 2
     allImages:

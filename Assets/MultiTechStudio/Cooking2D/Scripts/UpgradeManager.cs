@@ -61,7 +61,7 @@ namespace MultiTechStudio.Cooking2D
             }
             SetMainUi();
             UiManager.Instance.noadsbutton.SetActive(false);
-            upgradeUi.SetActive(true);
+            PopupAnimation.Show(upgradeUi);
             AudioManager.Instance.MakeVibrate(VibrationType.Low);
 
         }
@@ -83,7 +83,7 @@ namespace MultiTechStudio.Cooking2D
                     AudioManager.Instance.MakeVibrate(VibrationType.Low);
 
                     SetSubUi();
-                    subUpgradeUi.SetActive(true);
+                    PopupAnimation.Show(subUpgradeUi);
                     break;
                 }
             }
@@ -95,10 +95,11 @@ namespace MultiTechStudio.Cooking2D
 
             if (allUpgradeData[selectedUpgrade].level >= allUpgradeData[selectedUpgrade].maxLevel)
             {
-                subUpgradeUi.SetActive(false);
+                PopupAnimation.Hide(subUpgradeUi);
                 return;
             }
-            if (UiManager.TotalCoins <= allUpgradeData[selectedUpgrade].price)
+            // Not enough coins (having exactly the price is enough).
+            if (UiManager.TotalCoins < allUpgradeData[selectedUpgrade].price)
             {
                 IAPScript.Instance.CoinIAPClick();
                 return;
@@ -114,7 +115,7 @@ namespace MultiTechStudio.Cooking2D
             //   SetEffectOnLevel(unlockLevelConfig); // for test Ishita
 
             SetMainUi();
-            subUpgradeUi.SetActive(false);
+            PopupAnimation.Hide(subUpgradeUi);
         }
 
         /// <summary>

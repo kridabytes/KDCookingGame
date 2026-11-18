@@ -64,14 +64,14 @@ public class GoogleMobileAd : MonoBehaviour
     }*/
     public void CloseMobileADPanel()
     {
-        mobileadspanel.SetActive(false);
+        PopupAnimation.Hide(mobileadspanel);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
 
 
     }
     public void OpenneMobileADPanel()
     {
-        mobileadspanel.SetActive(true);
+        PopupAnimation.Show(mobileadspanel);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
 
     }
@@ -124,7 +124,7 @@ public class GoogleMobileAd : MonoBehaviour
 
         rewardedAdCoin.Show((Reward reward) =>
         {
-            mobileadspanel.SetActive(false);
+            PopupAnimation.Hide(mobileadspanel);
             Extensions.AddCoins(50, DailyBonusUI.Instance.coinAnimation);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
@@ -204,7 +204,7 @@ public class GoogleMobileAd : MonoBehaviour
 
         rewardedAdDiamond.Show((Reward reward) =>
         {
-            mobileadspanel.SetActive(false);
+            PopupAnimation.Hide(mobileadspanel);
             Extensions.AddDiamonds(1, DailyBonusUI.Instance.diamondAnimation);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
@@ -247,7 +247,7 @@ public class GoogleMobileAd : MonoBehaviour
         {
             Debug.Log("Add reward coins in IAP: " + reward.Amount);
             IAPScript.Instance.CloseIAPPanel();
-            adpanel.SetActive(false);
+            PopupAnimation.Hide(adpanel);
 
             Extensions.AddCoins(50, DailyBonusUI.Instance.coinAnimation);
             GoogleLogin.instance.SavePlayerDataToFirebase();
@@ -265,7 +265,7 @@ public class GoogleMobileAd : MonoBehaviour
         rewardedAdDiamond.Show((Reward reward) =>
         {
             IAPScript.Instance.CloseIAPPanel();
-            adpanel.SetActive(false);
+            PopupAnimation.Hide(adpanel);
             Extensions.AddDiamonds(1, DailyBonusUI.Instance.diamondAnimation);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
@@ -277,12 +277,12 @@ public class GoogleMobileAd : MonoBehaviour
 
     public void FreeGiftOpen()
     {
-        freegiftpanel.SetActive(true);
+        PopupAnimation.Show(freegiftpanel);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
     }
     public void CloseFreeGift()
     {
-        freegiftpanel.SetActive(false);
+        PopupAnimation.Hide(freegiftpanel);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
     }
     public void ShowDiamondRewardAd_FreeGift()
@@ -295,7 +295,7 @@ public class GoogleMobileAd : MonoBehaviour
 
         rewardedAdDiamond.Show((Reward reward) =>
         {
-            freegiftpanel.SetActive(false);
+            PopupAnimation.Hide(freegiftpanel);
             Extensions.AddDiamonds(1, DailyBonusUI.Instance.diamondAnimation);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
@@ -317,7 +317,7 @@ public class GoogleMobileAd : MonoBehaviour
 
         rewardedAdCoin.Show((Reward reward) =>
         {
-            freegiftpanel.SetActive(false);
+            PopupAnimation.Hide(freegiftpanel);
 
             Debug.Log("Add reward coins in IAP: " + reward.Amount);
             Extensions.AddCoins(50, DailyBonusUI.Instance.coinAnimation);
@@ -341,7 +341,7 @@ public class GoogleMobileAd : MonoBehaviour
         rewordAdComboExtender.Show((Reward reward) =>
         {
             BoosterManager.instance.UnlockGiveBooster(BoosterType.ComboExtender, 1);
-            freegiftpanel.SetActive(false);
+            PopupAnimation.Hide(freegiftpanel);
             achievementUI.PlayRewardFlyAnimation(comboExtenderRewardSprite);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
@@ -362,7 +362,7 @@ public class GoogleMobileAd : MonoBehaviour
         rewordAdComboExtender.Show((Reward reward) =>
         {
             BoosterManager.instance.UnlockGiveBooster(BoosterType.HelpingHand, 1);
-            freegiftpanel.SetActive(false);
+            PopupAnimation.Hide(freegiftpanel);
             achievementUI.PlayRewardFlyAnimation(helpingHandRewardSprite);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
@@ -383,7 +383,7 @@ public class GoogleMobileAd : MonoBehaviour
         rewordAdComboExtender.Show((Reward reward) =>
         {
             BoosterManager.instance.UnlockGiveBooster(BoosterType.DoubleProfit, 1);
-            freegiftpanel.SetActive(false);
+            PopupAnimation.Hide(freegiftpanel);
             achievementUI.PlayRewardFlyAnimation(doubleProfitRewardSprite);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 

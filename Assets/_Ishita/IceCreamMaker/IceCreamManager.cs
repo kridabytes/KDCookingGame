@@ -237,6 +237,19 @@ namespace MultiTechStudio.Cooking2D
         }
 
         /// <summary>
+        /// Gives back one ice cream that was taken for a customer who left before it arrived.
+        /// </summary>
+        public void RefundOne()
+        {
+            if (storage == null || storage.AddToMachine(1) <= 0)
+                return;
+
+            dirty = true;
+            SaveState(force: true);
+            SafeInvokeStateChanged();
+        }
+
+        /// <summary>
         /// Called by flying ice cream when it reaches the customer.
         /// </summary>
         public void ApplyBoostToCustomer(BotMain customer)
@@ -394,7 +407,7 @@ namespace MultiTechStudio.Cooking2D
 
         private BotMain FindLowestFillCustomer()
         {
-            BotMain[] allBots = FindObjectsOfType<BotMain>();
+            BotMain[] allBots = FindObjectsByType<BotMain>(FindObjectsSortMode.None);
             BotMain best = null;
             float bestFill = 1.01f; // we want the SMALLEST fill
 
@@ -403,8 +416,8 @@ namespace MultiTechStudio.Cooking2D
                 if (bot == null || bot.fillBar == null)
                     continue;
 
-                // Active fill bar means the bot is currently waiting (see BotMain.ChangeStatus)
-                if (!bot.fillBar.gameObject.activeInHierarchy)
+                // Only customers that are standing and waiting for food (see BotMain.ChangeStatus)
+                if (!bot.IsWaitingForOrder || !bot.fillBar.gameObject.activeInHierarchy)
                     continue;
 
                 float fill = bot.fillBar.fillAmount;

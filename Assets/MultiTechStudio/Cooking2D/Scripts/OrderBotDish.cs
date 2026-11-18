@@ -88,6 +88,15 @@ namespace MultiTechStudio.Cooking2D
 
         private Sprite GetSingleItemSprite(ObjectType item)
         {
+            // Same picture the player's plate uses (AssignOnDish), so upgrades show in the order bubble too.
+            // Garlic bread is the exception: its plate always shows the fixed "final" picture.
+            if (item != ObjectType.GarlicBread)
+            {
+                Sprite upgraded = levelController.FindImageAsLevel(item);
+                if (upgraded != null)
+                    return upgraded;
+            }
+
             switch (item)
             {
                 case ObjectType.Pizza:
@@ -106,8 +115,15 @@ namespace MultiTechStudio.Cooking2D
         private void AddPicture(Sprite sprite)
         {
             GameObject picture = Instantiate(childImg, childImg.transform.position, childImg.transform.rotation, childImg.transform.parent);
-            if (sprite != null)
-                picture.GetComponent<Image>().sprite = sprite;
+            Image image = picture.GetComponent<Image>();
+            if (image != null)
+            {
+                if (sprite != null)
+                    image.sprite = sprite;
+                // Upgraded pictures can have a different shape: never stretch them.
+                image.preserveAspect = true;
+                image.raycastTarget = false;
+            }
             picture.transform.SetParent(transform);
             picture.SetActive(true);
         }

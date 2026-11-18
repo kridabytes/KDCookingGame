@@ -651,9 +651,11 @@ namespace MultiTechStudio.Cooking2D
             var plateRect = (RectTransform)transform;
             Vector2 plateSize = plateRect.rect.size;
 
+            // Small margin so the food never touches or spills over the bubble's edge.
+            const float BubblePadding = 0.9f;
             float fit = 1f;
-            if (plateSize.x > 0f && plateSize.y > 0f)
-                fit = Mathf.Min(bubble.rect.width / plateSize.x, bubble.rect.height / plateSize.y);
+            if (plateSize.x > 0f && plateSize.y > 0f && bubble.rect.width > 0f && bubble.rect.height > 0f)
+                fit = Mathf.Min(bubble.rect.width / plateSize.x, bubble.rect.height / plateSize.y) * BubblePadding;
             if (fit <= 0f || float.IsNaN(fit) || float.IsInfinity(fit))
                 fit = 1f;
 
@@ -692,7 +694,11 @@ namespace MultiTechStudio.Cooking2D
 
             Image image = item.GetComponent<Image>();
             if (image != null && sprite != null)
+            {
                 image.sprite = sprite;
+                // Upgraded pictures can have a different shape: never stretch them in the bubble.
+                image.preserveAspect = true;
+            }
 
             // It is only a picture: it must not catch taps meant for the game.
             foreach (Collider2D col in item.GetComponentsInChildren<Collider2D>(true))

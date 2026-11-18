@@ -42,8 +42,8 @@ namespace MultiTechStudio.Cooking2D
         [Tooltip("Colour of the automatic juice pour. Leave fully transparent (alpha 0) for orange juice.")]
         [SerializeField] private Color pourColor = new Color(0f, 0f, 0f, 0f);
 
-        [Tooltip("Where the automatic juice stream starts, in pixels from the top-centre of the glass.")]
-        [SerializeField] private Vector2 pourOffset = new Vector2(0f, 10f);
+        [Tooltip("Where the automatic juice stream starts, in pixels from the centre of the glass. It always falls downwards from there.")]
+        [SerializeField] private Vector2 pourOffset = Vector2.zero;
 
         private static readonly Color JuiceColor = new Color(1f, 0.6f, 0.12f);
 

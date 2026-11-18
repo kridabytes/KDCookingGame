@@ -24,17 +24,17 @@ public class LanguageManager : MonoBehaviour
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale =
         LocalizationSettings.AvailableLocales.Locales[index];
-         languageScreen.SetActive(false);
+         PopupAnimation.Hide(languageScreen);
     }
 
     public void OpenLanguageScreen()
     {
-        languageScreen.SetActive(true);
+        PopupAnimation.Show(languageScreen);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
     }
     public void CloseLanguageScreen()
     {
-        languageScreen.SetActive(false);
+        PopupAnimation.Hide(languageScreen);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
     }
 }

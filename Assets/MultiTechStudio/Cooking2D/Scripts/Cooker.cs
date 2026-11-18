@@ -41,6 +41,15 @@ namespace MultiTechStudio.Cooking2D
 
         [Header("VFX")]
         public ParticleSystem burnParticle;
+        [Tooltip("Optional extra particle played once when the food is cooked. The built-in sparkle/steam effect plays anyway.")]
+        public ParticleSystem cookedParticle;
+
+        // While cooked food waits on the stove, a soft puff of steam now and then shows it is ready;
+        // when it is close to burning the puffs turn into grey smoke as a warning.
+        private const float ReadySteamInterval = 0.75f;
+        private const float WarningSmokeInterval = 0.4f;
+        private const float WarningFromBurnProgress = 0.6f;
+        private float readyFxTimer;
 
         [Header("Sound")]
         public AudioSource cooksound;
@@ -223,6 +232,22 @@ private Sprite GetPlatePizzaSprite()
         {
             _timer += Time.deltaTime;
             burnBar.fillAmount = _timer / baseBurningTime;
+
+            readyFxTimer -= Time.deltaTime;
+            if (readyFxTimer <= 0f)
+            {
+                bool nearlyBurned = _timer / baseBurningTime >= WarningFromBurnProgress;
+                if (nearlyBurned)
+                {
+                    GameFx.Smoke(baseImage.transform, 2, dark: false);
+                    readyFxTimer = WarningSmokeInterval;
+                }
+                else
+                {
+                    GameFx.Steam(baseImage.transform, 2);
+                    readyFxTimer = ReadySteamInterval;
+                }
+            }
             if (_timer >= baseBurningTime)
             {
                 ChangeStateTo(CookerState.Burned);
@@ -292,6 +317,13 @@ private Sprite GetPlatePizzaSprite()
 
                     baseImage.sprite = baseCookImages.cookedImg;
                     cookedfinishsound.Play();
+
+                    // "It's done!" — sparkles, glow ring, steam and a little bounce.
+                    GameFx.Cooked(baseImage.transform);
+                    FlyToTarget.Plop(baseImage.transform);
+                    if (cookedParticle != null)
+                        cookedParticle.Play(true);
+                    readyFxTimer = ReadySteamInterval;
                     if (cookTimer.activeInHierarchy)
                         cookTimer.SetActive(false);
                     if (!burnTimer.activeInHierarchy)
@@ -304,6 +336,7 @@ private Sprite GetPlatePizzaSprite()
                     // if (isPizzaMode || isCupcakeMode)
                     // {
                     PlayBurnVFX(); // 🔥 START
+                    GameFx.Smoke(baseImage.transform, 8, dark: true);
                                    //}
 
                     baseImage.sprite = baseCookImages.burnedImg;

@@ -155,7 +155,7 @@ namespace MultiTechStudio.Cooking2D
             GameManager.instance.boosterManager.SetBoosterUi();
             SetLevelUi(btn, levelBtnIndex);
             levelNoTxt.text = allLevelConfigs[LevelIndex].name;
-            levelConfirmUi.SetActive(true);
+            PopupAnimation.Show(levelConfirmUi);
         }
         private void SetLevelBtns()
         {
@@ -229,7 +229,7 @@ namespace MultiTechStudio.Cooking2D
             GameManager.instance.boosterManager.SetBoosterUi();
             SetLevelUi(_levelButton, _levelBtnIndex);
             levelNoTxt.text = allLevelConfigs[LevelIndex].name;
-            levelConfirmUi.SetActive(true);
+            PopupAnimation.Show(levelConfirmUi);
         }
 
         /// <summary>
@@ -252,7 +252,7 @@ namespace MultiTechStudio.Cooking2D
         /// </summary>
         public void OpenLevelCompleteUi()
         {
-            levelCompleteUi.SetActive(true);
+            PopupAnimation.Show(levelCompleteUi);
         }
 
         /// <summary>

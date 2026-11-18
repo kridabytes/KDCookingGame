@@ -276,13 +276,13 @@ namespace MultiTechStudio.Cooking2D
         }
         public void OpenIceCreemPopup()
         {
-            icecreempopup.SetActive(true);
+            PopupAnimation.Show(icecreempopup);
             AudioManager.Instance.MakeVibrate(VibrationType.Low);
 
         }
         public void CloseIceCreemPopup()
         {
-            icecreempopup.SetActive(false);
+            PopupAnimation.Hide(icecreempopup);
             AudioManager.Instance.MakeVibrate(VibrationType.Low);
 
         }

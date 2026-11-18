@@ -45,9 +45,9 @@ namespace MultiTechStudio.Cooking2D
         /// </summary>
         /// <param name="owner">The machine. The effect is attached to it (not to the glass, because the
         /// glass gets hidden when it is full and the last drops should still finish falling).</param>
-        /// <param name="glass">The glass the juice pours into. The stream starts above its top-centre.</param>
+        /// <param name="glass">The glass the juice pours into. The stream starts at its centre and falls down.</param>
         /// <param name="liquid">The glass fill image; its fillAmount tells how full the glass is.</param>
-        /// <param name="nozzleOffset">Where the stream starts, in pixels from the top-centre of the glass.</param>
+        /// <param name="nozzleOffset">Where the stream starts, in pixels from the centre of the glass.</param>
         /// <param name="juiceColor">Colour of the juice.</param>
         public static JuicePourEffect Create(Transform owner, RectTransform glass, Image liquid, Vector2 nozzleOffset, Color juiceColor)
         {
@@ -66,11 +66,14 @@ namespace MultiTechStudio.Cooking2D
             return effect;
         }
 
-        /// <summary>Keeps the nozzle point at the top-centre of the glass (plus the offset).</summary>
+        /// <summary>
+        /// Keeps the juice point at the centre of the glass (plus the offset).
+        /// Everything is drawn from this point downwards, never above it.
+        /// </summary>
         private void FollowGlass()
         {
             Rect g = glass.rect;
-            Vector3 nozzleInGlass = new Vector3(g.center.x + nozzleOffset.x, g.yMax + nozzleOffset.y, 0f);
+            Vector3 nozzleInGlass = new Vector3(g.center.x + nozzleOffset.x, g.center.y + nozzleOffset.y, 0f);
             transform.position = glass.TransformPoint(nozzleInGlass);
         }
 
@@ -122,8 +125,9 @@ namespace MultiTechStudio.Cooking2D
             Vector3 surfaceInLiquid = new Vector3(r.center.x, r.yMin + r.height * fill, 0f);
             Vector3 surfaceLocal = transform.InverseTransformPoint(liquidRect.TransformPoint(surfaceInLiquid));
 
-            // Stream falls straight down, so keep the splash under the nozzle.
-            surface.localPosition = new Vector3(0f, surfaceLocal.y, 0f);
+            // Stream falls straight down, so keep the splash under the juice point.
+            // Once the juice rises past the point, the splash stays on the point (never above it).
+            surface.localPosition = new Vector3(0f, Mathf.Min(0f, surfaceLocal.y), 0f);
 
             // The stream lives just long enough to reach the surface.
             float fallDistance = Mathf.Max(4f, -surfaceLocal.y);
@@ -205,7 +209,7 @@ namespace MultiTechStudio.Cooking2D
 
             ParticleSystem.MainModule main = ps.main;
             main.startLifetime = new ParticleSystem.MinMaxCurve(0.25f, 0.45f);
-            main.startSpeed = new ParticleSystem.MinMaxCurve(110f, 240f);
+            main.startSpeed = new ParticleSystem.MinMaxCurve(70f, 150f);
             main.startSize = new ParticleSystem.MinMaxCurve(4f, 9f);
             main.startColor = color;
 

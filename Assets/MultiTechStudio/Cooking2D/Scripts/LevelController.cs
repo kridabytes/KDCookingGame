@@ -1613,6 +1613,7 @@ namespace MultiTechStudio.Cooking2D
             burnedThisLevel = true;
             dustbinOrderNo++;
             GameManager.instance.uiAnimationManager.ClickAnimation(dustbin.transform, 2);
+            GameFx.Trash(dustbin.transform);
             GameManager.instance.targetManager.CheckFailTarget(TargetFail.Waste);
         }
 
@@ -1859,6 +1860,7 @@ namespace MultiTechStudio.Cooking2D
             }
 
             SetCookerLock();
+            SetPizzaOvenVisibility();
 
             baseCoockingTime = levelConfig.baseCoockingTime;
             baseBurningTime = levelConfig.baseBurningTime;
@@ -1874,6 +1876,50 @@ namespace MultiTechStudio.Cooking2D
             isLevelSet = true;
             burnedThisLevel = false;
 
+        }
+
+        /// <summary>
+        /// The pizza oven only belongs in levels that actually make pizza.
+        /// </summary>
+        private void SetPizzaOvenVisibility()
+        {
+            if (ovenCooker == null)
+                return;
+
+            ovenCooker.gameObject.SetActive(IsPizzaLevel());
+        }
+
+        /// <summary>
+        /// True when this level uses pizza: pizza/pizza plates are placed, it is the pizza
+        /// tutorial, or any customer (or part of a multi order) asks for pizza.
+        /// </summary>
+        public bool IsPizzaLevel()
+        {
+            if (levelConfig == null)
+                return false;
+
+            if (levelConfig.isPizzaLevel || HasObject(ObjectType.Pizza) || HasObject(ObjectType.PizzaPlate))
+                return true;
+
+            if (levelConfig.allOrders == null)
+                return false;
+
+            foreach (OrderDetails order in levelConfig.allOrders)
+            {
+                if (order == null)
+                    continue;
+                if (order.coockBase == ObjectType.Pizza || order.coockBase == ObjectType.PizzaPlate)
+                    return true;
+                if (order.multiOrder && order.allMultiOrders != null)
+                {
+                    foreach (MultiOrderDetails multi in order.allMultiOrders)
+                    {
+                        if (multi != null && (multi.coockBase == ObjectType.Pizza || multi.coockBase == ObjectType.PizzaPlate))
+                            return true;
+                    }
+                }
+            }
+            return false;
         }
 
         private void SetCookerLock()

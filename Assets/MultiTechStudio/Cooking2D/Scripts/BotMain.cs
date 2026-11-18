@@ -37,6 +37,9 @@ namespace MultiTechStudio.Cooking2D
          [Header("Sound")]
         public AudioSource botsound;
 
+        /// <summary>True while the customer stands at the counter waiting for food (patience bar visible).</summary>
+        public bool IsWaitingForOrder => orderStatus == OrderStatus.Waiting && !dishServed;
+
         void Start()
         {
             transform.position = startPoint.position;
@@ -137,6 +140,7 @@ namespace MultiTechStudio.Cooking2D
                     break;
                 case OrderStatus.Served:
                     dishServed = true;
+                    GameFx.Served(orderBotDish != null ? orderBotDish.transform : transform);
                     SetAllOrderToServed();
                     anim.SetHappyAnim();
                     this.Wait(1, () =>

@@ -75,6 +75,8 @@ namespace MultiTechStudio.Cooking2D
                 .OnComplete(() =>
                 {
                     UnityEngine.Object.Destroy(flyer);
+                    if (to != null)
+                        GameFx.LandPuff(to);
                     onLanded?.Invoke();
                 })
                 .OnKill(() =>
