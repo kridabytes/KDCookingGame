@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccaa12e96434f78a1d26f971110ff47, type: 3}
+  m_Name: FreeGift
+  m_EditorClassIdentifier: 
+  gifts:
+  - giftName: Coins
+    text: Get 50 Coins
+    icon: {fileID: 21300000, guid: 135e7e7115ee14d49b47d6d384bff32d, type: 3}
+    rewardType: 0
+    amount: 50
+    boosterType: 5
+  - giftName: Diamond
+    text: Get 1 Diamond
+    icon: {fileID: 21300000, guid: cd2de22c9f8975143b990c15052485bb, type: 3}
+    rewardType: 1
+    amount: 1
+    boosterType: 5
+  - giftName: Combo Extender
+    text: Get 1 Combo Extender
+    icon: {fileID: 1542343882, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
+    rewardType: 2
+    amount: 1
+    boosterType: 5
+  - giftName: Helping Hand
+    text: Get 1 Helping Hand
+    icon: {fileID: 603736332, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
+    rewardType: 2
+    amount: 1
+    boosterType: 4
+  - giftName: Double Profit
+    text: Get 1 Double Profit
+    icon: {fileID: 2023174375, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
+    rewardType: 2
+    amount: 1
+    boosterType: 2

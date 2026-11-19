@@ -285,6 +285,31 @@ public class GoogleMobileAd : MonoBehaviour
         PopupAnimation.Hide(freegiftpanel);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
     }
+    /// <summary>
+    /// Used by FreeGiftUI: shows a rewarded ad, closes the free gift panel,
+    /// then runs onRewarded (which gives that gift's reward).
+    /// </summary>
+    public void ShowFreeGiftRewardAd(System.Action onRewarded)
+    {
+        AudioManager.Instance.MakeVibrate(VibrationType.Low);
+
+        if (AdsDisabled) return;
+
+        if (rewardedAdCoin == null)
+        {
+            LoadCoinAd();
+            return;
+        }
+
+        rewardedAdCoin.Show((Reward reward) =>
+        {
+            PopupAnimation.Hide(freegiftpanel);
+            onRewarded?.Invoke();
+            GoogleLogin.instance.SavePlayerDataToFirebase();
+
+            LoadCoinAd();
+        });
+    }
     public void ShowDiamondRewardAd_FreeGift()
     {
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
