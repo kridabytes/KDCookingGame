@@ -16,7 +16,7 @@ namespace MultiTechStudio.Cooking2D
     /// </summary>
     public static class FlyToTarget
     {
-        public const float DefaultDuration = 0.45f;
+        public const float DefaultDuration = 0.28f;
 
         /// <summary>
         /// Draw order of the flying copy. The stoves, plates and customers each sit on their own
@@ -59,18 +59,23 @@ namespace MultiTechStudio.Cooking2D
 
             // Size of the copy, measured in the top canvas' units.
             flyerRect.sizeDelta = SizeInCanvas(useSourceSize ? from : to, canvasTransform);
-            flyerRect.position = from.position;
-            flyerRect.localScale = Vector3.one * (useSourceSize ? 1f : 0.85f);
 
-            // A gentle arc: the longer the distance, the higher the hop.
-            float hop = Vector3.Distance(from.position, to.position) * 0.3f;
+            // Fly between the visual centres of the two pictures (not their pivots),
+            // so the item starts exactly where it is drawn and lands right in the middle of the target.
+            Vector3 startPos = VisualCentre(from);
+            Vector3 endPos = VisualCentre(to);
+            flyerRect.position = startPos;
+            flyerRect.localScale = Vector3.one * (useSourceSize ? 1f : 0.9f);
 
-            // Soft start and soft landing (InOutSine), and the item grows a little at the
-            // top of the arc then settles to its landing size, like it is being tossed.
+            // A low, quick arc: enough to read as a toss, small enough to feel snappy.
+            float hop = Vector3.Distance(startPos, endPos) * 0.18f;
+
+            // Fast start, soft landing (OutQuad) so short flights feel quick but never jerky.
+            // The item swells slightly early in the arc, then settles to its landing size.
             DOTween.Sequence()
-                .Append(flyerRect.DOJump(to.position, hop, 1, duration).SetEase(Ease.InOutSine))
-                .Join(flyerRect.DOScale(1.12f, duration * 0.5f).SetEase(Ease.OutSine))
-                .Insert(duration * 0.5f, flyerRect.DOScale(landScale, duration * 0.5f).SetEase(Ease.InSine))
+                .Append(flyerRect.DOJump(endPos, hop, 1, duration).SetEase(Ease.OutQuad))
+                .Join(flyerRect.DOScale(1.06f, duration * 0.4f).SetEase(Ease.OutQuad))
+                .Insert(duration * 0.4f, flyerRect.DOScale(landScale, duration * 0.6f).SetEase(Ease.InOutQuad))
                 .SetLink(flyer)
                 .OnComplete(() =>
                 {
@@ -133,7 +138,16 @@ namespace MultiTechStudio.Cooking2D
                 return;
 
             target.DOKill(true);
-            target.DOPunchScale(new Vector3(0.12f, -0.08f, 0f), 0.2f, 6, 0.6f);
+            target.DOPunchScale(new Vector3(0.1f, -0.07f, 0f), 0.16f, 5, 0.7f);
+        }
+
+        /// <summary>World position of the middle of a UI rect, whatever its pivot is.</summary>
+        private static Vector3 VisualCentre(Transform target)
+        {
+            var rect = target as RectTransform;
+            if (rect == null)
+                return target.position;
+            return rect.TransformPoint(rect.rect.center);
         }
 
         private static Vector2 SizeInCanvas(Transform target, Transform canvasTransform)

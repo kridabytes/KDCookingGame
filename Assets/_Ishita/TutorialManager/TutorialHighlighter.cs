@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MultiTechStudio.Cooking2D;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TutorialHighlighter : MonoBehaviour
 {
@@ -63,6 +64,7 @@ void SafeSet(Component obj, bool state)
 }
 public void HighlightCooker(Cooker cooker)
 {
+    ClearExtraLayers();
     dimBackground.gameObject.SetActive(true);
     highlightImage.gameObject.SetActive(true);
 
@@ -77,6 +79,7 @@ public void HighlightTarget(Transform target)
     }
 
     currentCooker = null;
+    ClearExtraLayers();
 
     dimBackground.gameObject.SetActive(true);
     highlightImage.gameObject.SetActive(true);
@@ -110,6 +113,8 @@ public void HighlightTarget(Transform target)
 }
   public void Hide()
 {
+    ClearExtraLayers();
+
     if (dimBackground != null)
         dimBackground.gameObject.SetActive(false);
 
@@ -158,6 +163,7 @@ public void ClearCooker()
 public void HighlightDish(MainDish dish)
 {
     currentCooker = null;
+    ClearExtraLayers();
 
     StartCoroutine(HighlightDishCoroutine(dish));
 }
@@ -170,9 +176,10 @@ IEnumerator HighlightDishCoroutine(MainDish dish)
     dimBackground.gameObject.SetActive(true);
     highlightImage.gameObject.SetActive(true);
 
-    Image targetImg = dish.GetCurrentFoodImage();
+    // The whole stack on the plate, bottom first: meat, then the toppings on top of it.
+    List<Image> layers = dish.GetCurrentFoodImages();
 
-    if (targetImg == null)
+    if (layers.Count == 0)
     {
         Debug.LogError("No food image found on dish!");
         yield break;
@@ -181,13 +188,48 @@ IEnumerator HighlightDishCoroutine(MainDish dish)
     // 🔥 FORCE CANVAS UPDATE (CRITICAL)
     Canvas.ForceUpdateCanvases();
 
-    highlightImage.sprite = targetImg.sprite;
+    // Bottom layer goes on the main highlight image...
+    PlaceOver(highlightImage, layers[0]);
 
-    RectTransform targetRect = targetImg.GetComponent<RectTransform>();
-    RectTransform highlightRect = highlightImage.GetComponent<RectTransform>();
+    // ...and every layer above it gets its own copy, drawn on top in the same order.
+    for (int i = 1; i < layers.Count; i++)
+    {
+        Image copy = Instantiate(highlightImage, highlightImage.transform.parent);
+        copy.name = "Highlight Layer " + i;
+        foreach (Transform child in copy.transform)
+            Destroy(child.gameObject);
+        copy.raycastTarget = false;
+        copy.transform.SetSiblingIndex(highlightImage.transform.GetSiblingIndex() + i);
+        PlaceOver(copy, layers[i]);
+        extraLayers.Add(copy.gameObject);
+    }
+}
+
+// Extra highlight copies made for a stacked dish (toppings over the meat).
+private readonly List<GameObject> extraLayers = new List<GameObject>();
+
+void ClearExtraLayers()
+{
+    for (int i = 0; i < extraLayers.Count; i++)
+    {
+        if (extraLayers[i] != null)
+            Destroy(extraLayers[i]);
+    }
+    extraLayers.Clear();
+}
+
+// Copies the sprite, size and screen position of target onto highlight.
+void PlaceOver(Image highlight, Image target)
+{
+    highlight.sprite = target.sprite;
+    highlight.preserveAspect = target.preserveAspect;
+
+    RectTransform targetRect = target.rectTransform;
+    RectTransform highlightRect = highlight.rectTransform;
 
     highlightRect.sizeDelta = targetRect.rect.size;
     highlightRect.localScale = Vector3.one;
+    highlightRect.rotation = Quaternion.identity;
 
     Vector2 pos;
     RectTransformUtility.ScreenPointToLocalPointInRectangle(

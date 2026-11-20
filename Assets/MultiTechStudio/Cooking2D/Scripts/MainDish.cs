@@ -148,6 +148,7 @@ namespace MultiTechStudio.Cooking2D
             }
 
             toppingObj.imageInGame.SetActive(toppingObj.isOnDish);
+            SortStack();
 
             UpdatePizzaImage();
         }
@@ -225,6 +226,7 @@ namespace MultiTechStudio.Cooking2D
                     }
 
                     dishObjects[i].imageInGame.SetActive(true);
+                    SortStack();
 
                     if (flyFrom != null)
                     {
@@ -509,6 +511,14 @@ namespace MultiTechStudio.Cooking2D
                         AudioManager.Instance.MakeVibrate(VibrationType.Low);
                         Debug.Log("Pizza Order Found → Serving");
 
+                        // Copy of the finished pizza (with toppings) that flies to the customer,
+                        // the same serve animation the other dishes use.
+                        GameObject _dish = Instantiate(gameObject, transform.position, Quaternion.identity, transform.parent);
+                        _dish.SetActive(false);
+                        Destroy(_dish.GetComponent<BoxCollider2D>());
+                        Destroy(_dish.GetComponent<MainDish>());
+                        GameManager.instance.uiAnimationManager.SetOrderCompleteAnim(_dish);
+
                         // Complete order
                         levelController.ObjectClicked(ObjectType.Pizza, transform);
 
@@ -710,6 +720,56 @@ namespace MultiTechStudio.Cooking2D
         }
 
         #endregion
+
+        /// <summary>
+        /// Puts the food pictures in a fixed draw order, whatever order they were added in:
+        /// the cooked base (meat / pizza) at the bottom, then the toppings on top of it.
+        /// Without this a topping added before the meat would be drawn under the meat.
+        /// </summary>
+        private void SortStack()
+        {
+            Transform baseImg = null;
+            for (int i = 0; i < dishObjects.Count; i++)
+            {
+                ObjectType t = dishObjects[i].objectType;
+                if ((t == ObjectType.CoockedBase1 || t == ObjectType.CoockedBase2 || t == ObjectType.Pizza)
+                    && dishObjects[i].imageInGame != null)
+                {
+                    baseImg = dishObjects[i].imageInGame.transform;
+                    break;
+                }
+            }
+            if (baseImg == null)
+                return;
+
+            // Move the base just below the lowest topping picture.
+            int lowest = baseImg.GetSiblingIndex();
+            for (int i = 0; i < dishObjects.Count; i++)
+            {
+                GameObject img = dishObjects[i].imageInGame;
+                if (img == null || img.transform == baseImg)
+                    continue;
+                lowest = Mathf.Min(lowest, img.transform.GetSiblingIndex());
+            }
+            baseImg.SetSiblingIndex(lowest);
+        }
+
+        /// <summary>Food pictures currently on the plate, bottom first (draw order).</summary>
+        public List<Image> GetCurrentFoodImages()
+        {
+            var images = new List<Image>();
+            for (int i = 0; i < dishObjects.Count; i++)
+            {
+                if (dishObjects[i].isOnDish && dishObjects[i].imageInGame != null && dishObjects[i].imageInGame.activeInHierarchy)
+                {
+                    Image img = dishObjects[i].imageInGame.GetComponent<Image>();
+                    if (img != null)
+                        images.Add(img);
+                }
+            }
+            images.Sort((x, y) => x.transform.GetSiblingIndex().CompareTo(y.transform.GetSiblingIndex()));
+            return images;
+        }
 
         public Image GetCurrentFoodImage()
         {
