@@ -26,6 +26,8 @@ namespace MultiTechStudio.Cooking2D
         public Image glassImg;
 
         private Sprite[] glassFillImgs;
+        // Upgraded full glass for this machine (same sprite as the served glasses).
+        private Sprite fullGlassSprite;
 
         public bool isSingleGlass = false;
         public bool isAutoFill = true;
@@ -201,7 +203,12 @@ namespace MultiTechStudio.Cooking2D
                     StopPourEffect();
                     fillsound.Stop();
                     fillcompliteSound.Play();
-                    glassImg.sprite = glassFillImgs[glassFillImgs.Length - 1];
+                    // Keep the upgraded glass (set in SetData). Swapping to glassFillImgs here put the
+                    // original glass back after the first fill.
+                    if (fullGlassSprite != null)
+                        glassImg.sprite = fullGlassSprite;
+                    else if (glassFillImgs != null && glassFillImgs.Length > 0)
+                        glassImg.sprite = glassFillImgs[glassFillImgs.Length - 1];
                     //baseImage.sprite = baseCookImages.cookedImg;
 
                     if (cookTimer.activeInHierarchy)
@@ -294,9 +301,6 @@ namespace MultiTechStudio.Cooking2D
             levelController = _levelController;
             juicingTime = GameManager.instance.boosterManager.IsBoosterOn(BoosterType.InstantCook) ? 0 : levelController.levelConfig.juicingTime;
 
-            glassFillImgs = GameManager.instance.upgradeManager.GetJuiceFillImagesAsLevel();
-            // fillGlassImg.GetComponent<Image>().sprite = GameManager.instance.upgradeManager.GetJuiceEmptyImageAsLevel(); Ishita
-
             // 🔥 Get current level upgrade number
             int levelNo = LevelManager.Instance.GetCurLevelUpgradeNo();
 
@@ -305,11 +309,27 @@ namespace MultiTechStudio.Cooking2D
                 ? ObjectType.JuiceMachine1   // Level 1
                 : ObjectType.JuiceMachine2;  // Level 2 & 3
 
+            glassFillImgs = GameManager.instance.upgradeManager.GetJuiceFillImagesAsLevel(juiceType);
+
             // ✅ Apply glass image
             Sprite _glassImg = GameManager.instance.upgradeManager.GetToppingImageAsLevel(juiceType);
             foreach (GameObject glass in allGlassImg)
             {
                 glass.GetComponent<Image>().sprite = _glassImg;
+            }
+
+            // ✅ The glass being filled in the machine uses the same upgraded glass as the served ones.
+            fullGlassSprite = _glassImg;
+            if (glassImg != null && fullGlassSprite != null)
+                glassImg.sprite = fullGlassSprite;
+
+            // ✅ Its empty back glass follows the same upgrade (only the juice glass has empty sprites).
+            if (juiceType == ObjectType.JuiceMachine1 && fillGlassImg != null)
+            {
+                Image emptyGlass = fillGlassImg.GetComponent<Image>();
+                Sprite emptySprite = GameManager.instance.upgradeManager.GetJuiceEmptyImageAsLevel(juiceType);
+                if (emptyGlass != null && emptySprite != null)
+                    emptyGlass.sprite = emptySprite;
             }
 
             // ✅ Apply machine image

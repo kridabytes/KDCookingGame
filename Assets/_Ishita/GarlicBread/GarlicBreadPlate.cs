@@ -10,13 +10,21 @@ namespace MultiTechStudio.Cooking2D
 
         private LevelController levelController;
 
-        public void SpawnBread()
+        /// <param name="flyFrom">The garlic bread tray that was tapped; the bread jumps from there onto the plate, like the meat.</param>
+        public void SpawnBread(Transform flyFrom = null)
         {
             if (isFilled)
                 return;
 
             isFilled = true;
             garlicBreadVisual.SetActive(true);
+
+            if (flyFrom != null)
+            {
+                UnityEngine.UI.Image visualImg = garlicBreadVisual.GetComponentInChildren<UnityEngine.UI.Image>();
+                Sprite sprite = visualImg != null && visualImg.sprite != null ? visualImg.sprite : finalGarlicSprite;
+                FlyToTarget.FlyAndReveal(sprite, flyFrom, garlicBreadVisual);
+            }
         }
 
         public void ClearBread()

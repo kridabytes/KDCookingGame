@@ -173,7 +173,7 @@ namespace MultiTechStudio.Cooking2D
                     toopingSound.Play();
 
                     AudioManager.Instance.MakeVibrate(VibrationType.Low);
-                    levelController.garlicBreadManager.OnClickGarlicBread();
+                    levelController.garlicBreadManager.OnClickGarlicBread(transform);
                 }
                 return; // IMPORTANT
             }
@@ -195,7 +195,7 @@ namespace MultiTechStudio.Cooking2D
                 MainDish pizzaPlate = levelController.GetPizzaPlate(); // ✅ You need this function
                 if (pizzaPlate != null && pizzaPlate.HavePizza())
                 {
-                    pizzaPlate.ToggleTopping(objectType); // Add topping image to pizza
+                    pizzaPlate.ToggleTopping(objectType, transform); // Add topping image to pizza (flies from the tray)
                 }
 
                 return;

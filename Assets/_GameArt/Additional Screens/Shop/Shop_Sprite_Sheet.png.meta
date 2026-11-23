@@ -3,8 +3,47 @@ guid: b539426c2e3431c429cf4c2ae5b0e4bf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2753714096211700871
-    second: Shop_Sprite_Sheet_0
+      213: -7973152073595389539
+    second: Shop_Title_Banner
+  - first:
+      213: -2160403819557348655
+    second: Shop_Button_Pink_Bubble
+  - first:
+      213: -6741271303373434281
+    second: Shop_Button_LightPink
+  - first:
+      213: -7712989804431911202
+    second: Shop_Panel_Main_Pink
+  - first:
+      213: -8054648888641625943
+    second: Shop_Badge_Red_Ribbon
+  - first:
+      213: -2168545854980870803
+    second: Shop_Panel_Cream
+  - first:
+      213: -3969881521981890224
+    second: Shop_Button_Green
+  - first:
+      213: -3553667884146385022
+    second: Shop_Chest_Coins
+  - first:
+      213: -8706856484392201831
+    second: Shop_Coins_Pile_Large
+  - first:
+      213: -8135813903736321426
+    second: Shop_Coins_Pile_Medium
+  - first:
+      213: -6854082004079302517
+    second: Shop_Icon_Whisk
+  - first:
+      213: -3447357279880677679
+    second: Shop_Coins_Pile_Small
+  - first:
+      213: -3823427981334343757
+    second: Shop_Icon_Coin
+  - first:
+      213: -2395884733777902039
+    second: Shop_Icon_Gem
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -34,7 +73,7 @@ TextureImporter:
   cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: 1
-  maxTextureSize: 2048
+  maxTextureSize: 4096
   textureSettings:
     serializedVersion: 2
     filterMode: 1
@@ -45,7 +84,7 @@ TextureImporter:
     wrapW: 1
   nPOTScale: 0
   lightmap: 0
-  compressionQuality: 50
+  compressionQuality: 100
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -72,11 +111,11 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
+    textureCompression: 0
+    compressionQuality: 100
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -85,11 +124,11 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
+    textureCompression: 0
+    compressionQuality: 100
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -98,11 +137,11 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
+    textureCompression: 0
+    compressionQuality: 100
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -113,23 +152,309 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shop_Sprite_Sheet_0
+      name: Shop_Title_Banner
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 117
+        y: 801
+        width: 657
+        height: 223
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 973d05a8e97d8c9d0800000000000000
-      internalID: -2753714096211700871
+      spriteID: 6b65a6a48b8148f6b38a088ca65ed389
+      internalID: -7973152073595389539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Button_Pink_Bubble
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 819
+        width: 316
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4737819096da1dac72ff5d2a386ecbe0
+      internalID: -2160403819557348655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Button_LightPink
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 839
+        width: 327
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c241330b01a9e71fde8a774bcf36d58b
+      internalID: -6741271303373434281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Panel_Main_Pink
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 284
+        width: 822
+        height: 516
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c307511b2b9437a28df6ec4ce4a2bbd
+      internalID: -7712989804431911202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Badge_Red_Ribbon
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 513
+        width: 251
+        height: 276
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 371ecd7b27cd813047229389571aa876
+      internalID: -8054648888641625943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Panel_Cream
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 314
+        width: 329
+        height: 474
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2a73ed562b0f79c37459eef50bea63
+      internalID: -2168545854980870803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Button_Green
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 366
+        width: 304
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5be6128e18c267976142ea7d17be3111
+      internalID: -3969881521981890224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Chest_Coins
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 66
+        width: 309
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43b7a3a69a8dca03580d7b71d8f56413
+      internalID: -3553667884146385022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Coins_Pile_Large
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 70
+        width: 252
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 759cde66bacfb3d00b1f9163ce9ff57f
+      internalID: -8706856484392201831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Coins_Pile_Medium
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 70
+        width: 212
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec1b8ca1f91e1d4c1ff49b7889463e85
+      internalID: -8135813903736321426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Icon_Whisk
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 84
+        width: 120
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b0dbb418d5288f1142c3fe860e7a113
+      internalID: -6854082004079302517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Coins_Pile_Small
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 72
+        width: 179
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2acf72f9e574f7aa0ee89aed453dd32
+      internalID: -3447357279880677679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Icon_Coin
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 83
+        width: 119
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3139d32c93cd59bf5c941cf0dc98d2c1
+      internalID: -3823427981334343757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Icon_Gem
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 84
+        width: 131
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9488d990bbb259911ce5dd2b45ed1f0
+      internalID: -2395884733777902039
       vertices: []
       indices: 
       edges: []
@@ -148,7 +473,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Shop_Sprite_Sheet_0: -2753714096211700871
+      Shop_Title_Banner: -7973152073595389539
+      Shop_Button_Pink_Bubble: -2160403819557348655
+      Shop_Button_LightPink: -6741271303373434281
+      Shop_Panel_Main_Pink: -7712989804431911202
+      Shop_Badge_Red_Ribbon: -8054648888641625943
+      Shop_Panel_Cream: -2168545854980870803
+      Shop_Button_Green: -3969881521981890224
+      Shop_Chest_Coins: -3553667884146385022
+      Shop_Coins_Pile_Large: -8706856484392201831
+      Shop_Coins_Pile_Medium: -8135813903736321426
+      Shop_Icon_Whisk: -6854082004079302517
+      Shop_Coins_Pile_Small: -3447357279880677679
+      Shop_Icon_Coin: -3823427981334343757
+      Shop_Icon_Gem: -2395884733777902039
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

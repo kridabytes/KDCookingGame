@@ -191,18 +191,36 @@ IEnumerator HighlightDishCoroutine(MainDish dish)
     // Bottom layer goes on the main highlight image...
     PlaceOver(highlightImage, layers[0]);
 
-    // ...and every layer above it gets its own copy, drawn on top in the same order.
+    // ...and every layer above it (the toppings) is drawn on top of it, in the same order.
+    // The highlight image has its own Canvas with override sorting. A cloned copy would get the
+    // same sorting order, and with equal orders Unity ignores sibling order, so a topping could
+    // end up drawn under the meat. Instead each topping layer is a plain Image *inside* the
+    // highlight image: children of a canvas always draw after (above) their parent, in child order,
+    // and they stay below the hand pointer's canvas.
     for (int i = 1; i < layers.Count; i++)
     {
-        Image copy = Instantiate(highlightImage, highlightImage.transform.parent);
-        copy.name = "Highlight Layer " + i;
-        foreach (Transform child in copy.transform)
-            Destroy(child.gameObject);
-        copy.raycastTarget = false;
-        copy.transform.SetSiblingIndex(highlightImage.transform.GetSiblingIndex() + i);
-        PlaceOver(copy, layers[i]);
-        extraLayers.Add(copy.gameObject);
+        Image layer = CreateHighlightLayer(i);
+        PlaceOver(layer, layers[i]);
+        extraLayers.Add(layer.gameObject);
     }
+}
+
+Image CreateHighlightLayer(int index)
+{
+    var go = new GameObject("Highlight Layer " + index, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+    go.layer = highlightImage.gameObject.layer;
+
+    var rect = (RectTransform)go.transform;
+    rect.SetParent(highlightImage.transform, false);
+    rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 0.5f);
+    rect.pivot = new Vector2(0.5f, 0.5f);
+    rect.SetAsLastSibling();
+
+    Image img = go.GetComponent<Image>();
+    img.material = highlightImage.material;
+    img.color = highlightImage.color;
+    img.raycastTarget = false;
+    return img;
 }
 
 // Extra highlight copies made for a stacked dish (toppings over the meat).

@@ -16,8 +16,12 @@ namespace MultiTechStudio.Cooking2D
     {
         public static AudioManager Instance;
 
+        [SerializeField] private bool isMusicEnabled = true;
         [SerializeField] private bool isSoundEnabled = true;
         [SerializeField] private bool isVibrateEnabled = true;
+
+        [Header("Background Music Sources (controlled by Music toggle)")]
+        [SerializeField] private List<AudioSource> musicSources = new List<AudioSource>();
 
         [Header("All Sound Sources")]
         [SerializeField] private List<AudioSource> allSoundSources = new List<AudioSource>();
@@ -32,6 +36,18 @@ namespace MultiTechStudio.Cooking2D
         [Header("Coin Sounds")]
         public AudioSource[] coinSource;
 
+        // PlayerPrefs keys (0 = ON, 1 = OFF -> default is ON for new players)
+        private const string MusicKey = "IsMusicOn";
+        private const string SoundKey = "IsSoundOn";
+        private const string VibrateKey = "IsVibrateOn";
+
+        // While sound is OFF, re-scan this often so newly spawned AudioSources are muted too.
+        private const float RescanInterval = 0.5f;
+        private float rescanTimer;
+
+        /// <summary>Fired whenever music/sound/vibrate changes, so any UI can refresh.</summary>
+        public static event Action OnSettingsChanged;
+
         private void Awake()
         {
             if (Instance == null)
@@ -40,61 +56,117 @@ namespace MultiTechStudio.Cooking2D
 
         private void OnEnable()
         {
-            isSoundEnabled = PlayerPrefs.GetInt("IsSoundOn") == 0;
-            isVibrateEnabled = PlayerPrefs.GetInt("IsVibrateOn") == 0;
+            isMusicEnabled = PlayerPrefs.GetInt(MusicKey, 0) == 0;
+            isSoundEnabled = PlayerPrefs.GetInt(SoundKey, 0) == 0;
+            isVibrateEnabled = PlayerPrefs.GetInt(VibrateKey, 0) == 0;
 
-            SetGameMusicOnStart();
+            ApplyAudioSettings();
+        }
+
+        private void Start()
+        {
+            // Second pass after every object's Awake/OnEnable has run.
+            ApplyAudioSettings();
+        }
+
+        private void Update()
+        {
+            if (isSoundEnabled && isMusicEnabled)
+                return;
+
+            rescanTimer -= Time.unscaledDeltaTime;
+            if (rescanTimer > 0f)
+                return;
+
+            rescanTimer = RescanInterval;
+            ApplyAudioSettings();
         }
 
         /// <summary>
-        /// Enable / Disable ALL sound sources.
+        /// Mutes / unmutes every AudioSource in the scene:
+        /// music sources follow the Music toggle, everything else follows the Sound toggle.
         /// </summary>
-        private void SetGameMusicOnStart()
+        public void ApplyAudioSettings()
         {
+            AudioSource[] sources = FindObjectsByType<AudioSource>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            foreach (AudioSource source in sources)
+            {
+                if (source == null)
+                    continue;
+
+                source.mute = musicSources.Contains(source) ? !isMusicEnabled : !isSoundEnabled;
+            }
+
+            foreach (AudioSource source in musicSources)
+            {
+                if (source == null)
+                    continue;
+
+                source.mute = !isMusicEnabled;
+                if (isMusicEnabled && source.playOnAwake && !source.isPlaying && source.isActiveAndEnabled)
+                    source.Play();
+            }
+
+            // Keep the old "enabled" behaviour for the listed sources so existing checks still work.
             foreach (AudioSource source in allSoundSources)
             {
-                if (source != null)
+                if (source != null && !musicSources.Contains(source))
                     source.enabled = isSoundEnabled;
             }
         }
 
+        public static bool IsMusicOn()
+        {
+            return Instance == null || Instance.isMusicEnabled;
+        }
+
         public static bool IsVibrateOn()
         {
-            return Instance.isVibrateEnabled;
+            return Instance == null || Instance.isVibrateEnabled;
         }
 
         public static bool IsSoundOn()
         {
-            return Instance.isSoundEnabled;
+            return Instance == null || Instance.isSoundEnabled;
+        }
+
+        public void SetMusicEnabled(bool value)
+        {
+            isMusicEnabled = value;
+            PlayerPrefs.SetInt(MusicKey, value ? 0 : 1);
+            PlayerPrefs.Save();
+            ApplyAudioSettings();
+            OnSettingsChanged?.Invoke();
+        }
+
+        public void SetSoundEnabled(bool value)
+        {
+            isSoundEnabled = value;
+            PlayerPrefs.SetInt(SoundKey, value ? 0 : 1);
+            PlayerPrefs.Save();
+            ApplyAudioSettings();
+            OnSettingsChanged?.Invoke();
+        }
+
+        public void SetVibrateEnabled(bool value)
+        {
+            isVibrateEnabled = value;
+            PlayerPrefs.SetInt(VibrateKey, value ? 0 : 1);
+            PlayerPrefs.Save();
+            OnSettingsChanged?.Invoke();
         }
 
         /// <summary>
-        /// Toggle all game sounds ON/OFF.
+        /// Legacy: toggles all game SOUNDS (used by old SettingScreen).
         /// </summary>
         public void SetMusicOnOff()
         {
-            isSoundEnabled = !isSoundEnabled;
-
-            PlayerPrefs.SetInt(
-                "IsSoundOn",
-                isSoundEnabled ? 0 : 1
-            );
-
-            PlayerPrefs.Save();
-
-            SetGameMusicOnStart();
+            SetSoundEnabled(!isSoundEnabled);
         }
 
         public void SetVibrateOnOff()
         {
-            isVibrateEnabled = !isVibrateEnabled;
-
-            PlayerPrefs.SetInt(
-                "IsVibrateOn",
-                isVibrateEnabled ? 0 : 1
-            );
-
-            PlayerPrefs.Save();
+            SetVibrateEnabled(!isVibrateEnabled);
         }
 
         #region Sound Public Methods
@@ -114,7 +186,8 @@ namespace MultiTechStudio.Cooking2D
 
         public void PlayMusic()
         {
-            if (!IsSoundOn())
+            bool allowed = musicSources.Contains(audioSourceSfx) ? IsMusicOn() : IsSoundOn();
+            if (!allowed)
                 return;
 
             if (audioSourceSfx == null)

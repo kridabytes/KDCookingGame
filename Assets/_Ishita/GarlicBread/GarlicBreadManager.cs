@@ -17,14 +17,15 @@ public Sprite GetGarlicBreadSprite()
 
     return null;
 }
-        public void OnClickGarlicBread()
+        /// <param name="flyFrom">The tapped garlic bread tray; the bread flies from there to the free plate.</param>
+        public void OnClickGarlicBread(Transform flyFrom = null)
         {
             // Find empty plate
             for (int i = 0; i < plates.Length; i++)
             {
                 if (!plates[i].isFilled)
                 {
-                    plates[i].SpawnBread();
+                    plates[i].SpawnBread(flyFrom);
                     return;
                 }
             }

@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 3acf67639f9fb1649bd325d9b001947f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1158751626550609651
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_0
+  - first:
+      213: -2531319170927037872
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_1
+  - first:
+      213: 3036779071811828278
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_2
+  - first:
+      213: -6880269543383966565
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_3
+  - first:
+      213: -8981080621833682981
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_4
+  - first:
+      213: 2764292974450980270
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_5
+  - first:
+      213: 1756812931654530330
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_6
+  - first:
+      213: -674316782488603188
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_7
+  - first:
+      213: -8995777937393059587
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_8
+  - first:
+      213: -7492535529790585645
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_9
+  - first:
+      213: 5911181845289107344
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_10
+  - first:
+      213: 868245471493894818
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_11
+  - first:
+      213: 8871216530178781378
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_12
+  - first:
+      213: 1590178688453487176
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_13
+  - first:
+      213: 1484688176024521706
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_14
+  - first:
+      213: -8523894181622472950
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_15
+  - first:
+      213: -7912487451238675663
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_16
+  - first:
+      213: -1496226105445872843
+    second: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1431
+        width: 2721
+        height: 1169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d097b84f8894befe0800000000000000
+      internalID: -1158751626550609651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_1
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 2535
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052f1c320a2fedcd0800000000000000
+      internalID: -2531319170927037872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_2
+      rect:
+        serializedVersion: 2
+        x: 2785
+        y: 2039
+        width: 196
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a3face97ec42a20800000000000000
+      internalID: 3036779071811828278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_3
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 2407
+        width: 36
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9cd8a3bd4f5480a0800000000000000
+      internalID: -6880269543383966565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2253
+        width: 129
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdf757c12cacc5380800000000000000
+      internalID: -8981080621833682981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_5
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 2335
+        width: 40
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea5324d70ddbc5620800000000000000
+      internalID: 2764292974450980270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_6
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 2211
+        width: 96
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a15b418ad04716810800000000000000
+      internalID: 1756812931654530330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 2199
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc5bea1857854a6f0800000000000000
+      internalID: -674316782488603188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_8
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 2183
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df8f36ba0a3982380800000000000000
+      internalID: -8995777937393059587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_9
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 2191
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d4c6dff1aa250890800000000000000
+      internalID: -7492535529790585645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_10
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 2167
+        width: 44
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09ff13bc19cb80250800000000000000
+      internalID: 5911181845289107344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_11
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 2191
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a23c3af7a0ac0c00800000000000000
+      internalID: 868245471493894818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_12
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 551
+        width: 2808
+        height: 1328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c031e6be64ec1b70800000000000000
+      internalID: 8871216530178781378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_13
+      rect:
+        serializedVersion: 2
+        x: 2749
+        y: 1103
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84aaaae8713711610800000000000000
+      internalID: 1590178688453487176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_14
+      rect:
+        serializedVersion: 2
+        x: 2297
+        y: 579
+        width: 456
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeb0a26a70caa9410800000000000000
+      internalID: 1484688176024521706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_15
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 357
+        width: 1330
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0f9f51476b05b980800000000000000
+      internalID: -8523894181622472950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_16
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 217
+        width: 988
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13bce23d592313290800000000000000
+      internalID: -7912487451238675663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reusable_UI_States_and_Separators_Sprite_Sheet_2x_17
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 47
+        width: 1330
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53b8b31d8465c3be0800000000000000
+      internalID: -1496226105445872843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_0: -1158751626550609651
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_1: -2531319170927037872
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_10: 5911181845289107344
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_11: 868245471493894818
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_12: 8871216530178781378
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_13: 1590178688453487176
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_14: 1484688176024521706
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_15: -8523894181622472950
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_16: -7912487451238675663
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_17: -1496226105445872843
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_2: 3036779071811828278
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_3: -6880269543383966565
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_4: -8981080621833682981
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_5: 2764292974450980270
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_6: 1756812931654530330
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_7: -674316782488603188
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_8: -8995777937393059587
+      Reusable_UI_States_and_Separators_Sprite_Sheet_2x_9: -7492535529790585645
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

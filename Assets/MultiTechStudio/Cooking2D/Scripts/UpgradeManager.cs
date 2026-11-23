@@ -421,13 +421,12 @@ namespace MultiTechStudio.Cooking2D
         //    }
         //    return null;
         //}
-        public Sprite[] GetJuiceFillImagesAsLevel() // Ishita
+        public Sprite[] GetJuiceFillImagesAsLevel(ObjectType juiceType = ObjectType.JuiceMachine1) // Ishita
         {
             for (int i = 0; i < allUpgradeData.Length; i++)
             {
-                // ✅ Check BOTH machines
-                if (allUpgradeData[i].objectType == ObjectType.JuiceMachine1 ||
-                    allUpgradeData[i].objectType == ObjectType.JuiceMachine2)
+                // Glass upgrade (not the machine "making" upgrade) of this machine.
+                if (allUpgradeData[i].objectType == juiceType && !allUpgradeData[i].isMaking)
                 {
                     switch (allUpgradeData[i].level)
                     {
@@ -445,9 +444,11 @@ namespace MultiTechStudio.Cooking2D
             return levelImages.glass0FillImgs; // ✅ fallback (VERY IMPORTANT)
         }
 
-        public Sprite GetJuiceEmptyImageAsLevel()
+        public Sprite GetJuiceEmptyImageAsLevel(ObjectType juiceType = ObjectType.JuiceMachine1)
         {
-            return levelImages.glassEmptyImgs[Mathf.Clamp(GetUpgradedLevel(ObjectType.JuiceMachine1, false), 0, levelImages.glassEmptyImgs.Length - 1)];
+            if (levelImages == null || levelImages.glassEmptyImgs == null || levelImages.glassEmptyImgs.Length == 0)
+                return null;
+            return levelImages.glassEmptyImgs[Mathf.Clamp(GetUpgradedLevel(juiceType, false), 0, levelImages.glassEmptyImgs.Length - 1)];
         }
 
         public Sprite GetPickBaseImage(ObjectType _objectType, bool isMaking = false)

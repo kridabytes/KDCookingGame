@@ -23,6 +23,10 @@ public class DailyTaskUI : MonoBehaviour
 
     public static DailyTaskUI instance;
 
+    // Last fill value shown per task, so the bar animates up from where it was.
+    private readonly Dictionary<DailyTaskCollector.TaskData, float> lastShownProgress =
+        new Dictionary<DailyTaskCollector.TaskData, float>();
+
     private void Awake()
     {
         instance = this;
@@ -49,6 +53,13 @@ public class DailyTaskUI : MonoBehaviour
     {
         PopupAnimation.Hide(dailytaskpanel);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
+    }
+
+    // Rebuild the list only when the panel is visible (e.g. progress changed while open).
+    public void RefreshIfOpen()
+    {
+        if (dailytaskpanel != null && dailytaskpanel.activeInHierarchy)
+            DaliyTaskUI();
     }
 
     public void DaliyTaskUI()
@@ -89,6 +100,17 @@ public class DailyTaskUI : MonoBehaviour
             }
 
             btn.interactable = completed && !data.collected;
+
+            // Progress bar: currentProgress / targetValue
+            float progress = data.GetProgress01();
+            float previous;
+            if (!lastShownProgress.TryGetValue(data, out previous))
+                previous = progress;
+            lastShownProgress[data] = progress;
+
+            DailyTaskItemUI item = task.GetComponent<DailyTaskItemUI>();
+            if (item != null)
+                item.SetProgress(previous, progress);
             //btn.interactable = data.completed && !data.collected;
 
             btn.onClick.RemoveAllListeners();

@@ -1424,19 +1424,19 @@ namespace MultiTechStudio.Cooking2D
                     _yesNo = AssignOnDish(_objectType, _clickedTrans);
                     break;
                 case ObjectType.Topping1:
-                    _yesNo = AssignOnDish(_objectType);
+                    _yesNo = AssignOnDish(_objectType, _clickedTrans); // topping flies from its tray, like the meat
                     break;
                 case ObjectType.Topping2:
-                    _yesNo = AssignOnDish(_objectType);
+                    _yesNo = AssignOnDish(_objectType, _clickedTrans); // topping flies from its tray, like the meat
                     break;
                 case ObjectType.Topping3:
-                    _yesNo = AssignOnDish(_objectType);
+                    _yesNo = AssignOnDish(_objectType, _clickedTrans); // topping flies from its tray, like the meat
                     break;
                 case ObjectType.Topping4:
-                    _yesNo = AssignOnDish(_objectType);
+                    _yesNo = AssignOnDish(_objectType, _clickedTrans); // topping flies from its tray, like the meat
                     break;
                 case ObjectType.Topping5:
-                    _yesNo = AssignOnDish(_objectType);
+                    _yesNo = AssignOnDish(_objectType, _clickedTrans); // topping flies from its tray, like the meat
                     break;
                 case ObjectType.JuiceMachine2:
                     FillOrder(_objectType);

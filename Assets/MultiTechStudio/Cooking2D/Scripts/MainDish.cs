@@ -67,7 +67,8 @@ namespace MultiTechStudio.Cooking2D
             }
             return false;
         }
-        public void ToggleTopping(ObjectType topping)
+        /// <param name="flyFrom">The topping tray that was tapped; the topping jumps from there onto the pizza.</param>
+        public void ToggleTopping(ObjectType topping, Transform flyFrom = null)
         {
             // 🔥 STEP 1: Find correct pizza plate 
             MainDish targetPlate = null;
@@ -114,7 +115,7 @@ namespace MultiTechStudio.Cooking2D
             // 🔥 IMPORTANT: If this is NOT target → redirect call
             if (targetPlate != this)
             {
-                targetPlate.ToggleTopping(topping);
+                targetPlate.ToggleTopping(topping, flyFrom);
                 return;
             }
 
@@ -149,6 +150,20 @@ namespace MultiTechStudio.Cooking2D
 
             toppingObj.imageInGame.SetActive(toppingObj.isOnDish);
             SortStack();
+
+            // Same quick jump onto the plate as the meat (only when the topping is added).
+            if (toppingObj.isOnDish && flyFrom != null)
+            {
+                Sprite itemSprite = toppingObj.imageInGame.GetComponent<Image>().sprite;
+                FlyToTarget.FlyAndReveal(itemSprite, flyFrom, toppingObj.imageInGame);
+            }
+            else if (!toppingObj.isOnDish)
+            {
+                // Removed mid-flight: make sure it is not left invisible for the next time it is added.
+                CanvasGroup group = toppingObj.imageInGame.GetComponent<CanvasGroup>();
+                if (group != null)
+                    group.alpha = 1f;
+            }
 
             UpdatePizzaImage();
         }
@@ -537,6 +552,8 @@ namespace MultiTechStudio.Cooking2D
                     Debug.Log("Pizza is not ready yet. Need all 4 toppings.");
                 }
 
+                // Not served → same double-tap-to-dustbin as the other plates.
+                HandleDustbinTap();
                 return;
             }
             ObjectType _cookedBase = ObjectType.CoockedBase1;
@@ -565,7 +582,19 @@ namespace MultiTechStudio.Cooking2D
                 levelController.ObjectClicked(objectType, transform);
                 ClearDish();
             }
-            else if (!checkForDustbin && !IsDishClear())
+            else
+            {
+                HandleDustbinTap();
+            }
+        }
+
+        /// <summary>
+        /// Double-tap a plate that holds food (and was not served) to throw it in the dustbin.
+        /// The first tap arms it, a second tap within <see cref="dustbinTimer"/> clears the plate.
+        /// </summary>
+        private void HandleDustbinTap()
+        {
+            if (!checkForDustbin && !IsDishClear())
             {
                 servfoodSound.Play();
                 AudioManager.Instance.MakeVibrate(VibrationType.Low);
@@ -577,6 +606,11 @@ namespace MultiTechStudio.Cooking2D
                 {
                     dustbinTime = 0;
                     checkForDustbin = false;
+
+                    // The dustbin is blocked in the tutorial: keep the food instead of losing it.
+                    if (TutorialManager.instance != null && TutorialManager.instance.isTutorialRunning)
+                        return;
+
                     ClearDish();
                     levelController.ThrowInDustbin(objectType);
                 }

@@ -64,6 +64,20 @@ public class DailyTaskCollector : ScriptableObject
             }
         }*/
 
+        // Current progress value toward targetValue (EarnCoins reads live coins).
+        public int GetCurrentProgress()
+        {
+            return taskType == DailyTaskType.EarnCoins ? UiManager.TotalCoins : currentValue;
+        }
+
+        // Progress as 0..1 for fill bars.
+        public float GetProgress01()
+        {
+            if (targetValue <= 0)
+                return 1f;
+            return Mathf.Clamp01((float)GetCurrentProgress() / targetValue);
+        }
+
         public bool IsCompleted()
         {
             switch (taskType)
@@ -127,6 +141,9 @@ public class DailyTaskCollector : ScriptableObject
                 }
             }
         }
+
+        if (DailyTaskUI.instance != null)
+            DailyTaskUI.instance.RefreshIfOpen();
     }
 
     private void ResetDailyTasks()
