@@ -90,6 +90,9 @@ namespace MultiTechStudio.Cooking2D
 
             GameManager.instance.uiAnimationManager.SetOrderCompleteAnim(animDish);
 
+            if (levelController.garlicBreadManager != null)
+                levelController.garlicBreadManager.servingPlate = this;
+
             levelController.ObjectClicked(ObjectType.GarlicBread, transform);
 
             GameManager.instance.uiAnimationManager.ClickAnimation(transform);

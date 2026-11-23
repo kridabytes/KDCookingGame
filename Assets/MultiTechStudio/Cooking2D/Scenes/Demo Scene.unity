@@ -97214,7 +97214,7 @@ PrefabInstance:
     - target: {fileID: 1995218522111440794, guid: 126bb05b0d9e863489630d4c5bef9dc1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -5168428189350600385, guid: 040d9b57b424e404b942b3c66a340c52, type: 3}
+      objectReference: {fileID: -5168428189350600385, guid: d4bc4c555a923a6429748886a590bdce, type: 3}
     - target: {fileID: 1995218522111440795, guid: 126bb05b0d9e863489630d4c5bef9dc1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -241537,7 +241537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4143207915943418158
 RectTransform:
   m_ObjectHideFlags: 0
@@ -242097,6 +242097,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5436167851726917510, guid: 6615dba332fdb0f47887e17a5fc06264, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052360071414652887, guid: 6615dba332fdb0f47887e17a5fc06264, type: 3}
+      propertyPath: m_FillAmount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8269367022862637221, guid: 6615dba332fdb0f47887e17a5fc06264, type: 3}
@@ -263641,7 +263645,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!1 &7825148641797579169
 GameObject:

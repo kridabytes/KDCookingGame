@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -592,34 +592,17 @@ namespace MultiTechStudio.Cooking2D
                                 }
                             }
                         }
-                        else
+                        else if (_mainDish != null)
                         {
-                            // Check MainDish must not have extra toppings
-                            int _toppings = 0;
-                            for (int k = 0; k < _mainDish.dishObjects.Count; k++)
+                            // Plain order: the plate must hold only the cooked base, no toppings.
+                            if (_mainDish.HasOnlyBase(_objectType))
                             {
-                                if (_mainDish.dishObjects[k].isOnDish)
-                                    _toppings++;
-                            }
-                            if (_toppings > 2) //It count Main Dish + CoocBase
-                            {
-                                _yesNo = false;
-                                goto MultiOrder;
-                            }
-
-                            for (int k = 0; k < _mainDish.dishObjects.Count; k++)
-                            {
-                                if (_mainDish.dishObjects[k].objectType == _objectType && _mainDish.dishObjects[k].isOnDish)
-                                {
-                                    _yesNo = true;
-                                    clickedOrderNo = i;
-                                    return _yesNo;
-
-                                }
+                                _yesNo = true;
+                                clickedOrderNo = i;
+                                return _yesNo;
                             }
                         }
                     }
-                MultiOrder:
                     //For Multiple Order
                     if (allOrders[i].multiOrder && !_yesNo)
                     {
@@ -651,31 +634,16 @@ namespace MultiTechStudio.Cooking2D
 
                                     }
                                 }
-                                else
+                                else if (_mainDish != null)
                                 {
-                                    //Check Dish Must not have any toppings
-                                    int _toppings = 0;
-                                    for (int k = 0; k < _mainDish.dishObjects.Count; k++)
+                                    // Plain sub-order: only the cooked base, no toppings.
+                                    // (Do not stop searching here: another order may still match.)
+                                    if (_mainDish.HasOnlyBase(_objectType))
                                     {
-                                        if (_mainDish.dishObjects[k].isOnDish)
-                                            _toppings++;
-                                    }
-                                    if (_toppings > 2)//It count Main Dish + CoocBase
-                                    {
-                                        Debug.Log("False Here");
-                                        return false;
-                                    }
-
-                                    for (int k = 0; k < _mainDish.dishObjects.Count; k++)
-                                    {
-                                        if (_mainDish.dishObjects[k].objectType == _objectType && _mainDish.dishObjects[k].isOnDish)
-                                        {
-                                            _yesNo = true;
-                                            clickedOrderNo = i;
-                                            clickedSubOrderNo = j;
-                                            return _yesNo;
-                                            // break;
-                                        }
+                                        _yesNo = true;
+                                        clickedOrderNo = i;
+                                        clickedSubOrderNo = j;
+                                        return _yesNo;
                                     }
                                 }
                             }
@@ -1632,13 +1600,27 @@ namespace MultiTechStudio.Cooking2D
             else
                 return null;
 
-            if (plates == null)
-                return null;
-
-            foreach (MainDish plate in plates)
+            if (plates != null)
             {
-                if (plate != null)
-                    return plate;
+                foreach (MainDish plate in plates)
+                {
+                    if (plate != null)
+                        return plate;
+                }
+            }
+
+            // Row not assigned for this level: use any meat plate, so the order bubble
+            // still shows a plate under the meat instead of the meat alone.
+            MainDish[][] fallbacks = { mainDishes, mainDishes2 };
+            foreach (MainDish[] row in fallbacks)
+            {
+                if (row == null)
+                    continue;
+                foreach (MainDish plate in row)
+                {
+                    if (plate != null)
+                        return plate;
+                }
             }
             return null;
         }

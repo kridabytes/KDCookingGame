@@ -27,9 +27,36 @@ namespace MultiTechStudio.Cooking2D
         public static MainDish instance;
         //[SerializeField] private Sprite pizzaBaseSprite;
 
+        // How many entries were set in the Inspector. SetMainDish adds the rest at runtime;
+        // they must be removed again before the next level, or every level load adds a
+        // second copy (2x MainDish1 "on dish" etc.) and a plain meat order can never be served.
+        private int authoredDishObjectCount = -1;
+
         void Awake()
         {
             instance =this;
+            if (authoredDishObjectCount < 0)
+                authoredDishObjectCount = dishObjects != null ? dishObjects.Count : 0;
+        }
+
+        /// <summary>
+        /// True when the plate holds the given base and nothing else
+        /// (the plate itself is not counted as an extra).
+        /// </summary>
+        public bool HasOnlyBase(ObjectType baseType)
+        {
+            bool hasBase = false;
+            for (int i = 0; i < dishObjects.Count; i++)
+            {
+                OnDishObjects obj = dishObjects[i];
+                if (!obj.isOnDish)
+                    continue;
+                if (obj.objectType == baseType)
+                    hasBase = true;
+                else if (obj.objectType != objectType)
+                    return false; // a topping (or anything else) is on the plate
+            }
+            return hasBase;
         }
 
         // Start is called before the first frame update
@@ -378,6 +405,23 @@ namespace MultiTechStudio.Cooking2D
         private void SetMainDish()
         {
             // dishObjects = new List<OnDishObjects>();
+            if (authoredDishObjectCount < 0)
+                authoredDishObjectCount = dishObjects.Count;
+
+            // Undo what the previous level added, so entries are never duplicated.
+            for (int i = dishObjects.Count - 1; i >= authoredDishObjectCount; i--)
+            {
+                if (dishObjects[i].imageInGame != null)
+                    Destroy(dishObjects[i].imageInGame);
+                dishObjects.RemoveAt(i);
+            }
+            for (int i = 0; i < dishObjects.Count; i++)
+            {
+                dishObjects[i].isOnDish = dishObjects[i].objectType == objectType;
+                if (dishObjects[i].imageInGame != null)
+                    dishObjects[i].imageInGame.SetActive(false);
+            }
+
             if (objectType == ObjectType.PizzaPlate)
             {
                 foreach (var obj in dishObjects)
@@ -683,8 +727,9 @@ namespace MultiTechStudio.Cooking2D
             // The bubble shows the same plate picture as the player's plate.
             Image bubbleImage = bubble.GetComponent<Image>();
             Image plateImage = GetComponent<Image>();
-            if (bubbleImage != null && plateImage != null)
+            if (bubbleImage != null && plateImage != null && plateImage.sprite != null)
             {
+                bubbleImage.enabled = true;
                 bubbleImage.sprite = plateImage.sprite;
                 bubbleImage.color = plateImage.color;
                 bubbleImage.preserveAspect = plateImage.preserveAspect;
