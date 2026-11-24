@@ -74,9 +74,10 @@ public class DailyBonusUI : MonoBehaviour
 
             Text[] texts = task.GetComponentsInChildren<Text>();
             texts[0].text = dayData.rewardAmount;
-            texts[1].text = "Day " + (i + 1);
+            GameText.Set(texts[1], "ui_day_n", "Day {0}", i + 1);
 
             Button collectBtn = task.GetComponentInChildren<Button>();
+            MakeWholeCardClickable(task, collectBtn);
             int index = i;
 
             collectBtn.onClick.AddListener(() => CollectReward(dayData, collectBtn, index));
@@ -90,6 +91,26 @@ public class DailyBonusUI : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// The collect Button sits on the card background, but the reward picture, amount and
+    /// "Day N" text on top of it caught the taps, so only the bare background worked.
+    /// Those pictures/texts now let taps through, so a tap anywhere on the card collects.
+    /// </summary>
+    private static void MakeWholeCardClickable(GameObject card, Button collectBtn)
+    {
+        if (collectBtn == null)
+            return;
+
+        Graphic buttonGraphic = collectBtn.targetGraphic != null ? collectBtn.targetGraphic : collectBtn.GetComponent<Graphic>();
+        foreach (Graphic graphic in card.GetComponentsInChildren<Graphic>(true))
+        {
+            if (graphic != buttonGraphic)
+                graphic.raycastTarget = false;
+        }
+        if (buttonGraphic != null)
+            buttonGraphic.raycastTarget = true;
+    }
+
     public void CollectReward(DailyBonusCollector.DayReward dayData, Button clickedButton, int dayIndex)
     {
         buttonsound.Play();

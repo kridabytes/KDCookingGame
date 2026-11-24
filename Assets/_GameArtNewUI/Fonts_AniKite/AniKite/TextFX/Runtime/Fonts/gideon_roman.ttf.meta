@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 251c50692efdf0d40b08eab68371574e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Gideon Roman
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/gideon_roman.ttf
+  uploadId: 1017394

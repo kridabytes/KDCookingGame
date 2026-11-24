@@ -62,6 +62,294 @@ MonoBehaviour:
     m_Localized: Sammeln
     m_Metadata:
       m_Items: []
+  - m_Id: 970000000000
+    m_Localized: "Instellingen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000001
+    m_Localized: "Muziek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000002
+    m_Localized: "Geluid"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000003
+    m_Localized: "Trillen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000004
+    m_Localized: "Haptische feedback"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000005
+    m_Localized: "Meldingen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000006
+    m_Localized: "Taal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000007
+    m_Localized: "AAN"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000008
+    m_Localized: "UIT"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000009
+    m_Localized: "Privacybeleid"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000010
+    m_Localized: "Voorwaarden"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000011
+    m_Localized: "Hulp en ondersteuning"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000012
+    m_Localized: "Uitloggen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000013
+    m_Localized: "Winkel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000014
+    m_Localized: "Munten"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000015
+    m_Localized: "Diamanten"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000016
+    m_Localized: "Booster"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000017
+    m_Localized: "Boosters"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000018
+    m_Localized: "Bundels"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000019
+    m_Localized: "Beste waarde"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000020
+    m_Localized: "Bekijk advertentie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000021
+    m_Localized: "1 uur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000022
+    m_Localized: "Geen advertenties"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000023
+    m_Localized: "Dagelijkse taak"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000024
+    m_Localized: "Reeks van 7 dagen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000025
+    m_Localized: "Claim dagelijks om je reeks te behouden!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000026
+    m_Localized: "Sluiten"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000027
+    m_Localized: "OK"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000028
+    m_Localized: "Ok\u00e9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000029
+    m_Localized: "Volgende"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000030
+    m_Localized: "Opnieuw"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000031
+    m_Localized: "Spelen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000032
+    m_Localized: "Tik om te spelen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000033
+    m_Localized: "Tik om verder te gaan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000034
+    m_Localized: "Level voltooid"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000035
+    m_Localized: "Mislukt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000036
+    m_Localized: "Verdiend:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000037
+    m_Localized: "Laden"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000038
+    m_Localized: "Vergrendeld"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000039
+    m_Localized: "MAX"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000040
+    m_Localized: "Onbeperkt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000041
+    m_Localized: "Vol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000042
+    m_Localized: "Verbonden"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000043
+    m_Localized: "Verbinding controleren"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000044
+    m_Localized: "Netwerkfout"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000045
+    m_Localized: "Maak verbinding met internet!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000046
+    m_Localized: "Dag {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000047
+    m_Localized: "Level {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000048
+    m_Localized: "{0} min"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000049
+    m_Localized: "{0} en krijg {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000050
+    m_Localized: "{0} x{1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000051
+    m_Localized: "{0} diamanten"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000052
+    m_Localized: "Combo-verlenger"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000053
+    m_Localized: "Dubbele winst"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000054
+    m_Localized: "Helpende hand"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000055
+    m_Localized: "Direct koken"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000056
+    m_Localized: "Superkoker"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000057
+    m_Localized: "Level voltooid!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000058
+    m_Localized: "Paprika"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000059
+    m_Localized: "Borden"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000060
+    m_Localized: "Sapglas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000061
+    m_Localized: "Sapmachine"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000062
+    m_Localized: "Ketchup"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000063
+    m_Localized: "Sla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000064
+    m_Localized: "Mayo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000065
+    m_Localized: "Vlees"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000066
+    m_Localized: "Champignon"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000067
+    m_Localized: "Olijf"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000068
+    m_Localized: "Ui"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000069
+    m_Localized: "Pizzabord"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000070
+    m_Localized: "Fornuis"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000071
+    m_Localized: "Tomaat"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

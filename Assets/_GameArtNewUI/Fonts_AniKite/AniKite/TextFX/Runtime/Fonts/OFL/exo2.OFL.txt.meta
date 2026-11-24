@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 90f9f7d823cb03e44b30ca01cb9cabf3
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/exo2.OFL.txt
+  uploadId: 1017394

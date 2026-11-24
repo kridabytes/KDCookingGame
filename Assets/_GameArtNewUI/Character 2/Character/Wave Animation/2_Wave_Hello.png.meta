@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: c44d2bde76b34ac4998bb48ecaa767db
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -12900346548294082
+    second: 2_Wave_Hello_0
+  - first:
+      213: 6869796908056135010
+    second: 2_Wave_Hello_1
+  - first:
+      213: 4954094637694186857
+    second: 2_Wave_Hello_2
+  - first:
+      213: -1425026333214389466
+    second: 2_Wave_Hello_3
+  - first:
+      213: 8570302370288936296
+    second: 2_Wave_Hello_4
+  - first:
+      213: -2490509308234057163
+    second: 2_Wave_Hello_5
+  - first:
+      213: 1288715123445106218
+    second: 2_Wave_Hello_6
+  - first:
+      213: -4720884572464906529
+    second: 2_Wave_Hello_7
+  - first:
+      213: 3553098868439434288
+    second: 2_Wave_Hello_8
+  - first:
+      213: 2004040185052817007
+    second: 2_Wave_Hello_9
+  - first:
+      213: -8538558385034034589
+    second: 2_Wave_Hello_10
+  - first:
+      213: -5786415893564867182
+    second: 2_Wave_Hello_11
+  - first:
+      213: 3799620063409923674
+    second: 2_Wave_Hello_12
+  - first:
+      213: 2602270632482216833
+    second: 2_Wave_Hello_13
+  - first:
+      213: 2937315063308340377
+    second: 2_Wave_Hello_14
+  - first:
+      213: 7335760186511574048
+    second: 2_Wave_Hello_15
+  - first:
+      213: -3424588586108443789
+    second: 2_Wave_Hello_16
+  - first:
+      213: 563446781399083641
+    second: 2_Wave_Hello_17
+  - first:
+      213: 5653838126113934439
+    second: 2_Wave_Hello_18
+  - first:
+      213: -7508945880999784153
+    second: 2_Wave_Hello_19
+  - first:
+      213: -242089207118638549
+    second: 2_Wave_Hello_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 2_Wave_Hello_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 2559
+        width: 183
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3e6282043b22dff0800000000000000
+      internalID: -12900346548294082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_1
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 2559
+        width: 189
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26543cfd3eb665f50800000000000000
+      internalID: 6869796908056135010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_2
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 2559
+        width: 204
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 965fd6733da70c440800000000000000
+      internalID: 4954094637694186857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_3
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 2559
+        width: 185
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62bcd2d991a493ce0800000000000000
+      internalID: -1425026333214389466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_4
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 2047
+        width: 188
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 865a2ce2994dfe670800000000000000
+      internalID: 8570302370288936296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_5
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 2047
+        width: 196
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53ab7ecbafeef6dd0800000000000000
+      internalID: -2490509308234057163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_6
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 2047
+        width: 201
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a268e9da39f62e110800000000000000
+      internalID: 1288715123445106218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_7
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 2047
+        width: 189
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fde7b906e7c0c7eb0800000000000000
+      internalID: -4720884572464906529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_8
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1535
+        width: 184
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 034cc2188942f4130800000000000000
+      internalID: 3553098868439434288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_9
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 1535
+        width: 195
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f666ea13ee7cfcb10800000000000000
+      internalID: 2004040185052817007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_10
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 1535
+        width: 202
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3620d165362f08980800000000000000
+      internalID: -8538558385034034589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_11
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 1535
+        width: 184
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29d346d076582bfa0800000000000000
+      internalID: -5786415893564867182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_12
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1023
+        width: 188
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56eef00156fab430800000000000000
+      internalID: 3799620063409923674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_13
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 1023
+        width: 195
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18b98825a5f1d1420800000000000000
+      internalID: 2602270632482216833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_14
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 1023
+        width: 202
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99cc5edcc7073c820800000000000000
+      internalID: 2937315063308340377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_15
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 1023
+        width: 202
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 024c97ae50bddc560800000000000000
+      internalID: 7335760186511574048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_16
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 511
+        width: 202
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 373262f33da6970d0800000000000000
+      internalID: -3424588586108443789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_17
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 511
+        width: 198
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a2127ccd3c1d700800000000000000
+      internalID: 563446781399083641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_18
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 511
+        width: 199
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76cc49402d7767e40800000000000000
+      internalID: 5653838126113934439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_19
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 511
+        width: 198
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 721106d518ddac790800000000000000
+      internalID: -7508945880999784153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Wave_Hello_20
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 0
+        width: 198
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b22dcb5162de3acf0800000000000000
+      internalID: -242089207118638549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      2_Wave_Hello_0: -12900346548294082
+      2_Wave_Hello_1: 6869796908056135010
+      2_Wave_Hello_10: -8538558385034034589
+      2_Wave_Hello_11: -5786415893564867182
+      2_Wave_Hello_12: 3799620063409923674
+      2_Wave_Hello_13: 2602270632482216833
+      2_Wave_Hello_14: 2937315063308340377
+      2_Wave_Hello_15: 7335760186511574048
+      2_Wave_Hello_16: -3424588586108443789
+      2_Wave_Hello_17: 563446781399083641
+      2_Wave_Hello_18: 5653838126113934439
+      2_Wave_Hello_19: -7508945880999784153
+      2_Wave_Hello_2: 4954094637694186857
+      2_Wave_Hello_20: -242089207118638549
+      2_Wave_Hello_3: -1425026333214389466
+      2_Wave_Hello_4: 8570302370288936296
+      2_Wave_Hello_5: -2490509308234057163
+      2_Wave_Hello_6: 1288715123445106218
+      2_Wave_Hello_7: -4720884572464906529
+      2_Wave_Hello_8: 3553098868439434288
+      2_Wave_Hello_9: 2004040185052817007
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

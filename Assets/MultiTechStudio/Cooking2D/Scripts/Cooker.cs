@@ -83,6 +83,7 @@ namespace MultiTechStudio.Cooking2D
     Color ovenColorBefore = baseImage.color;
 
     isPizzaMode = true;
+    ApplyOvenBoosters();
     baseCookImages = GameManager.instance.upgradeManager.GetPizzaCookImages();
 
     // Plate ma je Pizza image dekhay che te j fly thase
@@ -120,11 +121,69 @@ private Sprite GetPlatePizzaSprite()
             Color ovenColorBefore = baseImage.color;
 
             isCupcakeMode = true;
+            ApplyOvenBoosters();
 
             baseCookImages = GameManager.instance.upgradeManager.GetCupcakeCookImages();// reuse or make new if needed
 
+            // The cooking picture is the closed oven, so flying it looked like "an oven going into
+            // the oven". Fly the cupcake itself, keeping its size and shrinking into the oven.
+            Sprite cupcakeSprite = GetCupcakeSprite(flyFrom);
+
             ChangeStateTo(CookerState.Cooking);
-            FlyFoodIn(flyFrom, ovenBefore, ovenColorBefore);
+            FlyFoodIn(flyFrom, ovenBefore, ovenColorBefore,
+                      flyingSprite: cupcakeSprite, goesIntoOven: true);
+        }
+
+        /// <summary>The cupcake picture: the tapped cupcake tray, else the cupcake plate's picture.</summary>
+        private Sprite GetCupcakeSprite(Transform tappedTray)
+        {
+            if (tappedTray != null)
+            {
+                Image trayImage = tappedTray.GetComponent<Image>();
+                if (trayImage != null && trayImage.sprite != null)
+                    return trayImage.sprite;
+            }
+
+            Sprite upgraded = GameManager.instance.upgradeManager.GetToppingImageAsLevel(ObjectType.CapCake);
+            if (upgraded != null)
+                return upgraded;
+
+            if (levelController != null && levelController.cupCakeallDishes != null)
+            {
+                foreach (MainDish plate in levelController.cupCakeallDishes)
+                {
+                    if (plate == null)
+                        continue;
+                    Image img = plate.GetComponent<Image>();
+                    if (img != null && img.sprite != null)
+                        return img.sprite;
+                }
+            }
+            return null;
+        }
+
+        // The oven (pizza / cupcake) never gets SetData, so it used to keep its default
+        // times and ignored Instant Cook / Super Cooker. Its own times are remembered here.
+        private bool ovenTimesSaved;
+        private float ovenCookTime;
+        private float ovenBurnTime;
+
+        /// <summary>Instant Cook and Super Cooker for the pizza / cupcake oven.</summary>
+        private void ApplyOvenBoosters()
+        {
+            if (!ovenTimesSaved)
+            {
+                ovenCookTime = baseCoockingTime;
+                ovenBurnTime = baseBurningTime;
+                ovenTimesSaved = true;
+            }
+
+            BoosterManager boosters = GameManager.instance != null ? GameManager.instance.boosterManager : null;
+            bool instant = boosters != null && boosters.IsBoosterOn(BoosterType.InstantCook);
+            bool super = boosters != null && boosters.IsBoosterOn(BoosterType.SuperCooker);
+
+            baseCoockingTime = instant ? 0f : ovenCookTime;
+            baseBurningTime = super ? Mathf.Infinity : ovenBurnTime;
         }
 
         // Bumped on every state change, so a flight that lands late can tell
@@ -230,6 +289,14 @@ private Sprite GetPlatePizzaSprite()
 
         private void BurningBase()
         {
+            // While a hint is running nothing may burn: the cooked food just waits on the stove.
+            if (TutorialManager.instance != null && TutorialManager.instance.isTutorialRunning)
+            {
+                _timer = 0f;
+                burnBar.fillAmount = 0f;
+                return;
+            }
+
             _timer += Time.deltaTime;
             burnBar.fillAmount = _timer / baseBurningTime;
 
@@ -360,6 +427,11 @@ private Sprite GetPlatePizzaSprite()
         /// </summary>
         void OnMouseDown()
         {
+            // Hint running: only the item under the hint hand can be tapped.
+            ObjectType tappedType = isPizzaMode ? ObjectType.Pizza : (isCupcakeMode ? ObjectType.CapCake : objectType);
+            if (TutorialManager.instance != null && TutorialManager.instance.IsClickBlocked(tappedType, TutorialClickSource.Cooker))
+                return;
+
             GameManager.instance.uiAnimationManager.ClickAnimation(transform);
             if (isCupcakeMode)
             {

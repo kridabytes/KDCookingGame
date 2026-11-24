@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: 2211b51baf1010c448db570bd69ac4ed
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -14665839319441124
+    second: 1_Tasting_0
+  - first:
+      213: 2545201375462643624
+    second: 1_Tasting_1
+  - first:
+      213: 5639662350659652406
+    second: 1_Tasting_2
+  - first:
+      213: -2871633108656332285
+    second: 1_Tasting_3
+  - first:
+      213: -594086101258941383
+    second: 1_Tasting_4
+  - first:
+      213: -8264047060689292094
+    second: 1_Tasting_5
+  - first:
+      213: -7280702191756082673
+    second: 1_Tasting_6
+  - first:
+      213: -1899145069824044430
+    second: 1_Tasting_7
+  - first:
+      213: -7729065340290423098
+    second: 1_Tasting_8
+  - first:
+      213: -2414382116732315397
+    second: 1_Tasting_9
+  - first:
+      213: 1351183266171889108
+    second: 1_Tasting_10
+  - first:
+      213: -1277629832064164559
+    second: 1_Tasting_11
+  - first:
+      213: 1753882224136740911
+    second: 1_Tasting_12
+  - first:
+      213: 2257628622877862975
+    second: 1_Tasting_13
+  - first:
+      213: -5886790409573424128
+    second: 1_Tasting_14
+  - first:
+      213: -3638127557560607373
+    second: 1_Tasting_15
+  - first:
+      213: -1458620922110940218
+    second: 1_Tasting_16
+  - first:
+      213: 7415922862783976390
+    second: 1_Tasting_17
+  - first:
+      213: -1714545882681409552
+    second: 1_Tasting_18
+  - first:
+      213: -5121342482398230663
+    second: 1_Tasting_19
+  - first:
+      213: -8529101406141149827
+    second: 1_Tasting_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1_Tasting_0
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 2559
+        width: 177
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1128013f75ebcff0800000000000000
+      internalID: -14665839319441124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_1
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 2559
+        width: 172
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a7594a7a2f525320800000000000000
+      internalID: 2545201375462643624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_2
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 2559
+        width: 158
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63b8638170b144e40800000000000000
+      internalID: 5639662350659652406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_3
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 2559
+        width: 163
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 302e949f6e8e528d0800000000000000
+      internalID: -2871633108656332285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_4
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 2047
+        width: 166
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93cc678a6d161c7f0800000000000000
+      internalID: -594086101258941383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_5
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 2047
+        width: 160
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c4f08cabf4305d80800000000000000
+      internalID: -8264047060689292094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_6
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 2047
+        width: 159
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0288f07eefb5fa90800000000000000
+      internalID: -7280702191756082673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_7
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 2047
+        width: 166
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27214300f91e4a5e0800000000000000
+      internalID: -1899145069824044430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_8
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1535
+        width: 176
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c6a43af508dcb490800000000000000
+      internalID: -7729065340290423098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_9
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1535
+        width: 170
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf85d1cb1446e7ed0800000000000000
+      internalID: -2414382116732315397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_10
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 1535
+        width: 166
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d5a0ae850e50c210800000000000000
+      internalID: 1351183266171889108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_11
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 1535
+        width: 166
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13d9f59df62f44ee0800000000000000
+      internalID: -1277629832064164559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_12
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1023
+        width: 167
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f20ea83279a075810800000000000000
+      internalID: 1753882224136740911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_13
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 1023
+        width: 164
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3ca3656545b45f10800000000000000
+      internalID: 2257628622877862975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_14
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 1023
+        width: 163
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0042332ef4bed4ea0800000000000000
+      internalID: -5886790409573424128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_15
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 1023
+        width: 165
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37d5a041346c28dc0800000000000000
+      internalID: -3638127557560607373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_16
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 511
+        width: 165
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cbef9bdfffe1cbe0800000000000000
+      internalID: -1458620922110940218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_17
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 511
+        width: 162
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3dfed6d86aae660800000000000000
+      internalID: 7415922862783976390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_18
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 511
+        width: 162
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ff7aaf8a95b438e0800000000000000
+      internalID: -1714545882681409552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_19
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 511
+        width: 163
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 977498375265de8b0800000000000000
+      internalID: -5121342482398230663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Tasting_20
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 164
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7d0ca1d57b82a980800000000000000
+      internalID: -8529101406141149827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      1_Tasting_0: -14665839319441124
+      1_Tasting_1: 2545201375462643624
+      1_Tasting_10: 1351183266171889108
+      1_Tasting_11: -1277629832064164559
+      1_Tasting_12: 1753882224136740911
+      1_Tasting_13: 2257628622877862975
+      1_Tasting_14: -5886790409573424128
+      1_Tasting_15: -3638127557560607373
+      1_Tasting_16: -1458620922110940218
+      1_Tasting_17: 7415922862783976390
+      1_Tasting_18: -1714545882681409552
+      1_Tasting_19: -5121342482398230663
+      1_Tasting_2: 5639662350659652406
+      1_Tasting_20: -8529101406141149827
+      1_Tasting_3: -2871633108656332285
+      1_Tasting_4: -594086101258941383
+      1_Tasting_5: -8264047060689292094
+      1_Tasting_6: -7280702191756082673
+      1_Tasting_7: -1899145069824044430
+      1_Tasting_8: -7729065340290423098
+      1_Tasting_9: -2414382116732315397
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

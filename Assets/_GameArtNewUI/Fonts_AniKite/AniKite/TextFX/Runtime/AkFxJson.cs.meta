@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 9f1804c908aed11439ed28f44f75d70a
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/AkFxJson.cs
+  uploadId: 1017394

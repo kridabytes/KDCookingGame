@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f80388aa55f04df47b0fb2d258e4d28c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Demo/Presets/Coin Plus.asset
+  uploadId: 1017394

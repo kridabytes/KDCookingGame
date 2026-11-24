@@ -15,30 +15,75 @@ MonoBehaviour:
   gifts:
   - giftName: Coins
     text: Get 50 Coins
+    localizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:e1b9ba8ced589354db7e64b417ef4f5f
+      m_TableEntryReference:
+        m_KeyId: 14657652019200
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     icon: {fileID: 21300000, guid: 135e7e7115ee14d49b47d6d384bff32d, type: 3}
     rewardType: 0
     amount: 50
     boosterType: 5
   - giftName: Diamond
     text: Get 1 Diamond
+    localizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:e1b9ba8ced589354db7e64b417ef4f5f
+      m_TableEntryReference:
+        m_KeyId: 15485779595264
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     icon: {fileID: 21300000, guid: cd2de22c9f8975143b990c15052485bb, type: 3}
     rewardType: 1
     amount: 1
     boosterType: 5
   - giftName: Combo Extender
     text: Get 1 Combo Extender
+    localizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:e1b9ba8ced589354db7e64b417ef4f5f
+      m_TableEntryReference:
+        m_KeyId: 16393498284032
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     icon: {fileID: 1542343882, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
     rewardType: 2
     amount: 1
     boosterType: 5
   - giftName: Helping Hand
     text: Get 1 Helping Hand
+    localizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:e1b9ba8ced589354db7e64b417ef4f5f
+      m_TableEntryReference:
+        m_KeyId: 17337057300480
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     icon: {fileID: 603736332, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
     rewardType: 2
     amount: 1
     boosterType: 4
   - giftName: Double Profit
     text: Get 1 Double Profit
+    localizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:e1b9ba8ced589354db7e64b417ef4f5f
+      m_TableEntryReference:
+        m_KeyId: 18310827888640
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     icon: {fileID: 2023174375, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
     rewardType: 2
     amount: 1

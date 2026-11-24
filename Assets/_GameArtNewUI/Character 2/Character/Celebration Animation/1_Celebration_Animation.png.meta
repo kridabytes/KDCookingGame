@@ -1,0 +1,1118 @@
+fileFormatVersion: 2
+guid: c55611113839b2e4f9c4333e60d0112f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3687310953863868210
+    second: 1_Celebration_Animation_0
+  - first:
+      213: 1576000024268534743
+    second: 1_Celebration_Animation_1
+  - first:
+      213: 444174089491379951
+    second: 1_Celebration_Animation_2
+  - first:
+      213: 4163732254678087211
+    second: 1_Celebration_Animation_3
+  - first:
+      213: -4544151291988002575
+    second: 1_Celebration_Animation_4
+  - first:
+      213: -7663416384433976537
+    second: 1_Celebration_Animation_5
+  - first:
+      213: 1358687541419367980
+    second: 1_Celebration_Animation_6
+  - first:
+      213: -4131921314631241007
+    second: 1_Celebration_Animation_7
+  - first:
+      213: -5322409811393447018
+    second: 1_Celebration_Animation_8
+  - first:
+      213: 8310260175701596637
+    second: 1_Celebration_Animation_9
+  - first:
+      213: -8400978468729851229
+    second: 1_Celebration_Animation_10
+  - first:
+      213: 651198650720819733
+    second: 1_Celebration_Animation_11
+  - first:
+      213: -3671482173292924971
+    second: 1_Celebration_Animation_12
+  - first:
+      213: 5259503797709944924
+    second: 1_Celebration_Animation_13
+  - first:
+      213: -4869489274952285993
+    second: 1_Celebration_Animation_14
+  - first:
+      213: -5455472530931430116
+    second: 1_Celebration_Animation_15
+  - first:
+      213: -3525609147623092422
+    second: 1_Celebration_Animation_16
+  - first:
+      213: 2023446593869996184
+    second: 1_Celebration_Animation_17
+  - first:
+      213: -7158119111993064873
+    second: 1_Celebration_Animation_18
+  - first:
+      213: -3308648641506523856
+    second: 1_Celebration_Animation_19
+  - first:
+      213: 362772526997216255
+    second: 1_Celebration_Animation_20
+  - first:
+      213: 8171192813956733209
+    second: 1_Celebration_Animation_21
+  - first:
+      213: -4261987501017138287
+    second: 1_Celebration_Animation_22
+  - first:
+      213: 4590961536808739050
+    second: 1_Celebration_Animation_23
+  - first:
+      213: 4409074214111679712
+    second: 1_Celebration_Animation_24
+  - first:
+      213: -3166518135631061021
+    second: 1_Celebration_Animation_25
+  - first:
+      213: 6039715364416397049
+    second: 1_Celebration_Animation_26
+  - first:
+      213: -5607523220307063869
+    second: 1_Celebration_Animation_27
+  - first:
+      213: 283130669243764311
+    second: 1_Celebration_Animation_28
+  - first:
+      213: -786748351303888016
+    second: 1_Celebration_Animation_29
+  - first:
+      213: -2538142585582800369
+    second: 1_Celebration_Animation_30
+  - first:
+      213: -3818005403462489219
+    second: 1_Celebration_Animation_31
+  - first:
+      213: 8163110808355957362
+    second: 1_Celebration_Animation_32
+  - first:
+      213: 5801673748224722697
+    second: 1_Celebration_Animation_33
+  - first:
+      213: -7044085596105608265
+    second: 1_Celebration_Animation_34
+  - first:
+      213: -2801307626887885373
+    second: 1_Celebration_Animation_35
+  - first:
+      213: -3708615463619407559
+    second: 1_Celebration_Animation_36
+  - first:
+      213: -8730926636346666428
+    second: 1_Celebration_Animation_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 2047
+        width: 202
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23f667db6c5fb2330800000000000000
+      internalID: 3687310953863868210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 2047
+        width: 210
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d3788c0ca31fd510800000000000000
+      internalID: 1576000024268534743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 2296
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe6f0962bf50a2600800000000000000
+      internalID: 444174089491379951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 2047
+        width: 222
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b267cebdc6c88c930800000000000000
+      internalID: 4163732254678087211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 2138
+        width: 232
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f83c63d97eefe0c0800000000000000
+      internalID: -4544151291988002575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 2273
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72b87ef966316a590800000000000000
+      internalID: -7663416384433976537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 2271
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2edc0bce170bd210800000000000000
+      internalID: 1358687541419367980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 2079
+        width: 87
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d23a89c47778a6c0800000000000000
+      internalID: -4131921314631241007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1567
+        width: 233
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69bf6d2d9700326b0800000000000000
+      internalID: -5322409811393447018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 1535
+        width: 233
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd9d4c3a999f35370800000000000000
+      internalID: 8310260175701596637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1535
+        width: 210
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a2f6adc79ab96b80800000000000000
+      internalID: -8400978468729851229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 1912
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51a9d6ef8b5890900800000000000000
+      internalID: 651198650720819733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1870
+        width: 13
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df22bd6a664c0dc0800000000000000
+      internalID: -3671482173292924971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 1907
+        width: 11
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58b15586d28df840800000000000000
+      internalID: 5259503797709944924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 1535
+        width: 218
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d005e8dd491c6cb0800000000000000
+      internalID: -4869489274952285993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 1878
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1d4eef23a44a44b0800000000000000
+      internalID: -5455472530931430116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_16
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 1825
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3fce03e825821fc0800000000000000
+      internalID: -3525609147623092422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_17
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1792
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8906899d4f9b41c10800000000000000
+      internalID: 2023446593869996184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_18
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1764
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75208bdc79049ac90800000000000000
+      internalID: -7158119111993064873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_19
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 1740
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 035cc6c27915512d0800000000000000
+      internalID: -3308648641506523856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_20
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1023
+        width: 223
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb90f5f0b3d80500800000000000000
+      internalID: 362772526997216255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_21
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 1023
+        width: 233
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9199d1b4298e56170800000000000000
+      internalID: 8171192813956733209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_22
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1023
+        width: 231
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19bf7b4e2f06ad4c0800000000000000
+      internalID: -4261987501017138287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_23
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 1407
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae067fa913f56bf30800000000000000
+      internalID: 4590961536808739050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_24
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1378
+        width: 13
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e4167033ad203d30800000000000000
+      internalID: 4409074214111679712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_25
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 1023
+        width: 233
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3efd0e658844e04d0800000000000000
+      internalID: -3166518135631061021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_26
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1310
+        width: 12
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fe1288cf1161d350800000000000000
+      internalID: 6039715364416397049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_27
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 1299
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cbc7df47531e22b0800000000000000
+      internalID: -5607523220307063869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_28
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1267
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75e0b45f7d1ede300800000000000000
+      internalID: 283130669243764311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_29
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 1254
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07358e8fa88e415f0800000000000000
+      internalID: -786748351303888016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_30
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 1240
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f02bb0d14c4b6ccd0800000000000000
+      internalID: -2538142585582800369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_31
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 511
+        width: 236
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ba8107058b30bc0800000000000000
+      internalID: -3818005403462489219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_32
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 511
+        width: 233
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27a653ab702394170800000000000000
+      internalID: 8163110808355957362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_33
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 511
+        width: 220
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 907c4a1198fa38050800000000000000
+      internalID: 5801673748224722697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_34
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 511
+        width: 221
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b3fda4b8716e3e90800000000000000
+      internalID: -7044085596105608265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_35
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 0
+        width: 220
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cd41c82e81cf19d0800000000000000
+      internalID: -2801307626887885373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_36
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 0
+        width: 219
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 931d17a82e9588cc0800000000000000
+      internalID: -3708615463619407559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Celebration_Animation_37
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 0
+        width: 222
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4429f809b7485d680800000000000000
+      internalID: -8730926636346666428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      1_Celebration_Animation_0: 3687310953863868210
+      1_Celebration_Animation_1: 1576000024268534743
+      1_Celebration_Animation_10: -8400978468729851229
+      1_Celebration_Animation_11: 651198650720819733
+      1_Celebration_Animation_12: -3671482173292924971
+      1_Celebration_Animation_13: 5259503797709944924
+      1_Celebration_Animation_14: -4869489274952285993
+      1_Celebration_Animation_15: -5455472530931430116
+      1_Celebration_Animation_16: -3525609147623092422
+      1_Celebration_Animation_17: 2023446593869996184
+      1_Celebration_Animation_18: -7158119111993064873
+      1_Celebration_Animation_19: -3308648641506523856
+      1_Celebration_Animation_2: 444174089491379951
+      1_Celebration_Animation_20: 362772526997216255
+      1_Celebration_Animation_21: 8171192813956733209
+      1_Celebration_Animation_22: -4261987501017138287
+      1_Celebration_Animation_23: 4590961536808739050
+      1_Celebration_Animation_24: 4409074214111679712
+      1_Celebration_Animation_25: -3166518135631061021
+      1_Celebration_Animation_26: 6039715364416397049
+      1_Celebration_Animation_27: -5607523220307063869
+      1_Celebration_Animation_28: 283130669243764311
+      1_Celebration_Animation_29: -786748351303888016
+      1_Celebration_Animation_3: 4163732254678087211
+      1_Celebration_Animation_30: -2538142585582800369
+      1_Celebration_Animation_31: -3818005403462489219
+      1_Celebration_Animation_32: 8163110808355957362
+      1_Celebration_Animation_33: 5801673748224722697
+      1_Celebration_Animation_34: -7044085596105608265
+      1_Celebration_Animation_35: -2801307626887885373
+      1_Celebration_Animation_36: -3708615463619407559
+      1_Celebration_Animation_37: -8730926636346666428
+      1_Celebration_Animation_4: -4544151291988002575
+      1_Celebration_Animation_5: -7663416384433976537
+      1_Celebration_Animation_6: 1358687541419367980
+      1_Celebration_Animation_7: -4131921314631241007
+      1_Celebration_Animation_8: -5322409811393447018
+      1_Celebration_Animation_9: 8310260175701596637
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

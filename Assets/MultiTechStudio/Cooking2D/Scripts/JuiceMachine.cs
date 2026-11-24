@@ -48,6 +48,7 @@ namespace MultiTechStudio.Cooking2D
         [SerializeField] private Vector2 pourOffset = Vector2.zero;
 
         private static readonly Color JuiceColor = new Color(1f, 0.6f, 0.12f);
+        private static readonly Color CoffeeColor = new Color(0.43f, 0.24f, 0.11f);
 
         // Built in code when no particle is assigned (the juice machine).
         private JuicePourEffect juicePour;
@@ -86,6 +87,10 @@ namespace MultiTechStudio.Cooking2D
         {
             if (juicePourParticle != null)
             {
+                // Keep its place and size from the scene, but give it a proper coffee stream look.
+                Color coffee = pourColor.a > 0f ? pourColor : CoffeeColor;
+                coffee.a = 1f;
+                JuicePourEffect.StyleCoffeeStream(juicePourParticle, coffee);
                 juicePourParticle.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                 return;
             }
@@ -156,6 +161,23 @@ namespace MultiTechStudio.Cooking2D
         }
         private void ReadyToServe()
         {
+        }
+
+        /// <summary>
+        /// The glass the hint hand should tap: a ready glass, or else the glass that is
+        /// being filled. Null when no glass is shown.
+        /// </summary>
+        public Transform GetHintGlass()
+        {
+            if (allGlassImg != null)
+            {
+                foreach (GameObject glass in allGlassImg)
+                    if (glass != null && glass.activeInHierarchy)
+                        return glass.transform;
+            }
+            if (fillGlassImg != null && fillGlassImg.activeInHierarchy)
+                return fillGlassImg.transform;
+            return null;
         }
 
         private void SetJuiceGlasses()
@@ -244,6 +266,10 @@ namespace MultiTechStudio.Cooking2D
 
         void OnMouseDown()
         {
+            // Hint running: only the item under the hint hand can be tapped.
+            if (TutorialManager.instance != null && TutorialManager.instance.IsClickBlocked(objectType, TutorialClickSource.Juice))
+                return;
+
             AudioManager.Instance.MakeVibrate(VibrationType.Low);
             GameManager.instance.uiAnimationManager.ClickAnimation(transform);
             JuiceClicked();
@@ -277,6 +303,8 @@ namespace MultiTechStudio.Cooking2D
         /// </summary>
         public void AutoOrderServe()
         {
+            if (levelController == null)
+                return;
             if (curGlasses > 0 && levelController.IsOrderWaiting(objectType, this))
             {
                 GameObject _dish = Instantiate(allGlassImg[0], allGlassImg[0].transform.position, Quaternion.identity, transform.parent);

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 235bfd883885ca140a7ce968ebf9f6ff
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Resources/AkTextFxAdditive.shader
+  uploadId: 1017394

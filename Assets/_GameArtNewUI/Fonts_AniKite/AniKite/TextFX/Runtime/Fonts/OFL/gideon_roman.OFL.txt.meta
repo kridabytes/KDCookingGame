@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3db5228110c3558439119491f7b73d75
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/gideon_roman.OFL.txt
+  uploadId: 1017394

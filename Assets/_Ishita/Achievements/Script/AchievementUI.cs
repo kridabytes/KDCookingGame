@@ -14,13 +14,12 @@ public class AchievementUI : MonoBehaviour
     [SerializeField] private Image rewardFlyImage;
     [SerializeField] private Transform rewardFlyTarget;
     [SerializeField] private float rewardFlyDuration = 0.7f;
-    private Vector3 rewardFlyStartPosition;
     public AudioSource buttonsound;
     void Start()
     {
         achievementpanel.SetActive(false);
-        rewardFlyStartPosition = rewardFlyImage.transform.position;
-        rewardFlyImage.gameObject.SetActive(false);
+        if (rewardFlyImage != null)
+            rewardFlyImage.gameObject.SetActive(false);
     }
 
     public void ClickAchievement()
@@ -58,7 +57,10 @@ public class AchievementUI : MonoBehaviour
             AchievementsCollector.instance.GetNextCompleteLevelTaskIndex();
             Image[] image = task.GetComponentsInChildren<Image>();
             image[1].sprite = data.rewardIcon;
-            task.GetComponentInChildren<Text>().text = data.GetTaskText();
+            RectTransform rewardImage = image[1].rectTransform;
+            Text taskText = task.GetComponentInChildren<Text>();
+            taskText.text = GetTaskTextWithReward(data);
+            RewardText.FitText(taskText);
             int current = data.GetCurrentProgress();
             int target = data.targetValue;
 
@@ -159,13 +161,13 @@ public class AchievementUI : MonoBehaviour
             btn.onClick.RemoveAllListeners();
             btn.onClick.AddListener(() =>
             {
-                CollectReward(data);
+                CollectReward(data, rewardImage);
             });
 
         }
     }
 
-    public void CollectReward(AchievementsCollector.TaskData rewardData)
+    public void CollectReward(AchievementsCollector.TaskData rewardData, RectTransform rewardImage = null)
     {
         buttonsound.Play();
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
@@ -173,186 +175,73 @@ public class AchievementUI : MonoBehaviour
             return;
         rewardData.collected = true;
         int amount = Mathf.Max(1, rewardData.rewardAmount);
-        PlayRewardFlyAnimation(rewardData, amount);
 
-        switch (rewardData.rewardType)
-        {
-            case AchievementRewardType.ComboExtender:
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.ComboExtender, amount);
-                break;
-
-            case AchievementRewardType.DoubleProfit:
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.DoubleProfit, amount);
-                break;
-
-            case AchievementRewardType.HelpingHand:
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.HelpingHand, amount);
-                break;
-
-            case AchievementRewardType.InstantCook:
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.InstantCook, amount);
-                break;
-
-            case AchievementRewardType.SuperCooker:
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.SuperCooker, amount);
-                break;
-
-            case AchievementRewardType.Diamond:
-                Extensions.AddDiamonds(amount);
-                break;
-        }
-
+        // Give the reward exactly once (it used to be given here AND again when the fly animation ended).
+        GiveReward(rewardData, amount);
         Debug.Log($"Reward Collected: {rewardData.rewardType} x{amount}");
 
+        // The reward picture flies from the row's reward image into the Play button.
+        RewardFly.Play(rewardData.rewardIcon, rewardImage, GetFlyTarget(), rewardFlyDuration);
+
         Achievementdata();
     }
-    private void PlayRewardFlyAnimation(
-    AchievementsCollector.TaskData rewardData,
-    int amount)
+
+    private Transform GetFlyTarget()
     {
-        if (rewardFlyImage == null || rewardFlyTarget == null)
-        {
-            GiveReward(rewardData, amount);
-            return;
-        }
-
-        // Kill any previous tween
-        rewardFlyImage.transform.DOKill();
-
-        // Set icon
-        rewardFlyImage.sprite = rewardData.rewardIcon;
-
-        // ALWAYS reset to original start position
-        rewardFlyImage.transform.position = rewardFlyStartPosition;
-
-        // Reset scale to 1 (start full size)
-        rewardFlyImage.transform.localScale = Vector3.one;
-
-        // Show
-        rewardFlyImage.gameObject.SetActive(true);
-
-        // Target position
-        Vector3 targetPosition = rewardFlyTarget.position;
-
-        // Fly (position)
-        rewardFlyImage.transform
-            .DOMove(targetPosition, rewardFlyDuration)
-            .SetEase(Ease.OutQuad)
-            .OnComplete(() =>
-            {
-                rewardFlyImage.gameObject.SetActive(false);
-                GiveReward(rewardData, amount);
-            });
-
-        // Shrink (scale) - same duration, target par small thay jashe
-        rewardFlyImage.transform
-            .DOScale(Vector3.one * 0.3f, rewardFlyDuration)
-            .SetEase(Ease.InQuad);
+        return rewardFlyTarget;
     }
 
-    private void GiveReward(
-        AchievementsCollector.TaskData rewardData,
-        int amount)
+    private static void GiveReward(AchievementsCollector.TaskData rewardData, int amount)
     {
         switch (rewardData.rewardType)
         {
             case AchievementRewardType.ComboExtender:
-
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.ComboExtender,
-                    amount);
-
+                BoosterManager.instance.UnlockGiveBooster(BoosterType.ComboExtender, amount);
                 break;
-
-
             case AchievementRewardType.DoubleProfit:
-
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.DoubleProfit,
-                    amount);
-
+                BoosterManager.instance.UnlockGiveBooster(BoosterType.DoubleProfit, amount);
                 break;
-
-
             case AchievementRewardType.HelpingHand:
-
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.HelpingHand,
-                    amount);
-
+                BoosterManager.instance.UnlockGiveBooster(BoosterType.HelpingHand, amount);
                 break;
-
-
             case AchievementRewardType.InstantCook:
-
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.InstantCook,
-                    amount);
-
+                BoosterManager.instance.UnlockGiveBooster(BoosterType.InstantCook, amount);
                 break;
-
-
             case AchievementRewardType.SuperCooker:
-
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.SuperCooker,
-                    amount);
-
+                BoosterManager.instance.UnlockGiveBooster(BoosterType.SuperCooker, amount);
                 break;
-
-
             case AchievementRewardType.Diamond:
-
                 Extensions.AddDiamonds(amount);
-
                 break;
         }
-
-        Debug.Log(
-            $"Reward Collected: {rewardData.rewardType} x{amount}");
-
-        Achievementdata();
     }
-    public void PlayRewardFlyAnimation(Sprite rewardIcon)
+
+    /// <summary>"Earn 200 Coins and get Super Cooker booster x1".</summary>
+    public static string GetTaskTextWithReward(AchievementsCollector.TaskData data)
     {
-        if (rewardFlyImage == null || rewardFlyTarget == null)
-            return;
+        int amount = Mathf.Max(1, data.rewardAmount);
+        switch (data.rewardType)
+        {
+            case AchievementRewardType.Diamond:
+                return RewardText.WithReward(data.GetTaskText(), "Diamonds", false, amount);
+            case AchievementRewardType.ComboExtender:
+                return RewardText.WithReward(data.GetTaskText(), RewardText.BoosterName(BoosterType.ComboExtender), true, amount);
+            case AchievementRewardType.DoubleProfit:
+                return RewardText.WithReward(data.GetTaskText(), RewardText.BoosterName(BoosterType.DoubleProfit), true, amount);
+            case AchievementRewardType.HelpingHand:
+                return RewardText.WithReward(data.GetTaskText(), RewardText.BoosterName(BoosterType.HelpingHand), true, amount);
+            case AchievementRewardType.InstantCook:
+                return RewardText.WithReward(data.GetTaskText(), RewardText.BoosterName(BoosterType.InstantCook), true, amount);
+            default:
+                return RewardText.WithReward(data.GetTaskText(), RewardText.BoosterName(BoosterType.SuperCooker), true, amount);
+        }
+    }
 
-        // Stop previous animation
-        rewardFlyImage.transform.DOKill();
-
-        // Set reward image
-        rewardFlyImage.sprite = rewardIcon;
-
-        // ALWAYS start from original position
-        rewardFlyImage.transform.position = rewardFlyStartPosition;
-
-        // Reset scale to 1
-        rewardFlyImage.transform.localScale = Vector3.one;
-
-        // Show
-        rewardFlyImage.gameObject.SetActive(true);
-
-        // Get target position
-        Vector3 targetPosition = rewardFlyTarget.position;
-
-        // Fly animation (position)
-        rewardFlyImage.transform
-            .DOMove(targetPosition, rewardFlyDuration)
-            .SetEase(Ease.OutQuad)
-            .OnComplete(() =>
-            {
-                rewardFlyImage.gameObject.SetActive(false);
-            });
-
-        // Shrink animation (scale)
-        rewardFlyImage.transform
-            .DOScale(Vector3.one * 0.3f, rewardFlyDuration)
-            .SetEase(Ease.InQuad);
+    /// <summary>Free gift and other callers: fly a reward picture to the Play button.</summary>
+    public void PlayRewardFlyAnimation(Sprite rewardIcon, RectTransform from = null)
+    {
+        if (from == null && rewardFlyImage != null)
+            from = rewardFlyImage.rectTransform;
+        RewardFly.Play(rewardIcon, from, GetFlyTarget(), rewardFlyDuration);
     }
 }

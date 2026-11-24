@@ -21,6 +21,32 @@ namespace MultiTechStudio.Cooking2D
         private float dustbinTimer = 0.5f;
         [SerializeField] private Sprite finalPizzaSprite;
 
+        [Header("Pizza layout (Pizza Plate only)")]
+        [Tooltip("Pizza width as a part of the plate width. The pizza keeps its own shape.")]
+        [SerializeField, Range(0.3f, 1f)] private float pizzaWidthOnPlate = 0.86f;
+        [Tooltip("Pizza height can use at most this part of the plate height.")]
+        [SerializeField, Range(0.3f, 1f)] private float pizzaMaxHeightOnPlate = 0.9f;
+        [Tooltip("Moves the pizza up/down on the plate, as a part of the plate height (0 = centre).")]
+        [SerializeField, Range(-0.3f, 0.3f)] private float pizzaOffsetY = 0.04f;
+        [Tooltip("Toppings width as a part of the pizza width, so they always stay on the pizza.")]
+        [SerializeField, Range(0.3f, 1.2f)] private float toppingWidthOnPizza = 0.9f;
+
+        [Header("Fish layout (Fish Plate / MainDish2 only)")]
+        [Tooltip("Visible fish width as a part of the plate width.")]
+        [SerializeField, Range(0.3f, 1f)] private float fishWidthOnPlate = 0.78f;
+        [Tooltip("Visible fish height can use at most this part of the plate height.")]
+        [SerializeField, Range(0.3f, 1f)] private float fishMaxHeightOnPlate = 0.8f;
+        [Tooltip("Fish centre on the plate, as a part of the plate size (0,0 = centre).")]
+        [SerializeField] private Vector2 fishOffset = new Vector2(0f, 0.04f);
+        [Tooltip("Visible lemon (Topping3) width as a part of the plate width.")]
+        [SerializeField, Range(0.05f, 0.8f)] private float lemonWidthOnPlate = 0.3f;
+        [Tooltip("Lemon centre on the plate, as a part of the plate size (0,0 = centre). It sits on the fish.")]
+        [SerializeField] private Vector2 lemonOffset = new Vector2(-0.08f, 0.06f);
+        [Tooltip("Visible sauce bowl (Topping4) width as a part of the plate width.")]
+        [SerializeField, Range(0.05f, 0.8f)] private float sauceWidthOnPlate = 0.2f;
+        [Tooltip("Sauce bowl centre on the plate, as a part of the plate size (0,0 = centre).")]
+        [SerializeField] private Vector2 sauceOffset = new Vector2(0.3f, -0.12f);
+
         [Header("Sound")]
         public AudioSource servfoodSound;
 
@@ -175,6 +201,7 @@ namespace MultiTechStudio.Cooking2D
                     toppingObj.imageInGame.GetComponent<Image>().sprite = toppingObj.Img;//Ishita
             }
 
+            LayoutPizzaItem(toppingObj.imageInGame, topping, (RectTransform)transform);
             toppingObj.imageInGame.SetActive(toppingObj.isOnDish);
             SortStack();
 
@@ -193,6 +220,221 @@ namespace MultiTechStudio.Cooking2D
             }
 
             UpdatePizzaImage();
+        }
+
+        /// <summary>
+        /// Pizza plate only: puts the pizza in the middle of the plate and every topping on top of
+        /// the pizza, sized from the plate. Anchors are used (not pixels), so it stays centred on
+        /// every screen resolution. Before, all items stretched to the same box as the plate, and the
+        /// large topping pictures spilled outside the pizza.
+        /// </summary>
+        private void LayoutPizzaItem(GameObject item, ObjectType itemType, RectTransform area)
+        {
+            if (objectType != ObjectType.PizzaPlate || item == null || area == null)
+                return;
+            RectTransform rect = item.transform as RectTransform;
+            if (rect == null)
+                return;
+
+            Vector2 plate = area.rect.size;
+            if (plate.x <= 0f || plate.y <= 0f)
+                return;
+
+            // Pizza box: keeps the pizza picture's own shape.
+            float pizzaAspect = SpriteAspect(GetPizzaLayoutSprite(), 179f / 98f);
+            float pizzaW = plate.x * pizzaWidthOnPlate;
+            float pizzaH = pizzaW / pizzaAspect;
+            float maxH = plate.y * pizzaMaxHeightOnPlate;
+            if (pizzaH > maxH)
+            {
+                pizzaH = maxH;
+                pizzaW = pizzaH * pizzaAspect;
+            }
+
+            float w, h;
+            if (itemType == ObjectType.Pizza)
+            {
+                w = pizzaW;
+                h = pizzaH;
+            }
+            else
+            {
+                Image itemImage = item.GetComponent<Image>();
+                float toppingAspect = SpriteAspect(itemImage != null ? itemImage.sprite : null, pizzaAspect);
+                w = pizzaW * toppingWidthOnPizza;
+                h = w / toppingAspect;
+            }
+
+            float cx = 0.5f;
+            float cy = 0.5f + pizzaOffsetY;
+            float hw = w / plate.x * 0.5f;
+            float hh = h / plate.y * 0.5f;
+
+            rect.anchorMin = new Vector2(cx - hw, cy - hh);
+            rect.anchorMax = new Vector2(cx + hw, cy + hh);
+            rect.pivot = new Vector2(0.5f, 0.5f);
+            rect.anchoredPosition = Vector2.zero;
+            rect.sizeDelta = Vector2.zero;
+            rect.localRotation = Quaternion.identity;
+            rect.localScale = Vector3.one;
+
+            Image image = item.GetComponent<Image>();
+            if (image != null)
+                image.preserveAspect = true;
+        }
+
+        /// <summary>Layout of a food picture on this plate (pizza plate or fish plate); other plates keep their own setup.</summary>
+        private void LayoutItem(GameObject item, ObjectType itemType, RectTransform area)
+        {
+            if (objectType == ObjectType.PizzaPlate)
+                LayoutPizzaItem(item, itemType, area);
+            else if (objectType == ObjectType.MainDish2)
+                LayoutFishItem(item, itemType, area);
+        }
+
+        /// <summary>
+        /// Fish plate only: the fish lies in the middle of the plate (keeping its shape), the lemon
+        /// sits on the fish and the sauce bowl next to it. Before, the fish was stretched to the
+        /// plate and the lemon / sauce pictures (small food in the middle of a big empty 512px
+        /// picture) were placed by hand, so they were tiny or off the fish, on the plate and in
+        /// the customer's order bubble. Sizes use the visible part of each picture, so it works
+        /// for every upgrade picture and every screen size.
+        /// </summary>
+        private void LayoutFishItem(GameObject item, ObjectType itemType, RectTransform area)
+        {
+            if (item == null || area == null)
+                return;
+            RectTransform rect = item.transform as RectTransform;
+            Image image = item.GetComponent<Image>();
+            if (rect == null || image == null)
+                return;
+
+            Vector2 plate = area.rect.size;
+            if (plate.x <= 0f || plate.y <= 0f)
+                return;
+
+            float width;
+            float maxHeight;
+            Vector2 offset;
+            switch (itemType)
+            {
+                case ObjectType.CoockedBase2:
+                    width = plate.x * fishWidthOnPlate;
+                    maxHeight = plate.y * fishMaxHeightOnPlate;
+                    offset = fishOffset;
+                    break;
+                case ObjectType.Topping3:
+                    width = plate.x * lemonWidthOnPlate;
+                    maxHeight = plate.y * 0.6f;
+                    offset = lemonOffset;
+                    break;
+                case ObjectType.Topping4:
+                    width = plate.x * sauceWidthOnPlate;
+                    maxHeight = plate.y * 0.6f;
+                    offset = sauceOffset;
+                    break;
+                default:
+                    return;
+            }
+
+            PlaceVisiblePart(rect, image, plate, width, maxHeight, new Vector2(offset.x * plate.x, offset.y * plate.y));
+        }
+
+        /// <summary>
+        /// Sizes and moves <paramref name="rect"/> so the VISIBLE part of its sprite (not the
+        /// transparent border around it) is <paramref name="visibleWidth"/> wide (at most
+        /// <paramref name="maxVisibleHeight"/> high) with its centre at <paramref name="centre"/>
+        /// (pixels from the middle of the plate). Anchors are used, so it scales with the plate.
+        /// </summary>
+        private static void PlaceVisiblePart(RectTransform rect, Image image, Vector2 plate,
+                                             float visibleWidth, float maxVisibleHeight, Vector2 centre)
+        {
+            Sprite sprite = image.sprite;
+            Rect visible = VisibleRect01(sprite);
+            float spriteW = sprite != null ? sprite.rect.width : 1f;
+            float spriteH = sprite != null ? sprite.rect.height : 1f;
+
+            float visibleAspect = (visible.width * spriteW) / Mathf.Max(0.0001f, visible.height * spriteH);
+            float vw = visibleWidth;
+            float vh = vw / visibleAspect;
+            if (vh > maxVisibleHeight)
+            {
+                vh = maxVisibleHeight;
+                vw = vh * visibleAspect;
+            }
+
+            // Whole picture size, so that its visible part gets the size above.
+            float w = vw / Mathf.Max(0.0001f, visible.width);
+            float h = vh / Mathf.Max(0.0001f, visible.height);
+            // Move the picture so its visible part (not its box) is centred on the target point.
+            Vector2 pos = centre - new Vector2((visible.center.x - 0.5f) * w, (visible.center.y - 0.5f) * h);
+
+            Vector2 min = new Vector2(0.5f + (pos.x - w * 0.5f) / plate.x, 0.5f + (pos.y - h * 0.5f) / plate.y);
+            Vector2 max = new Vector2(0.5f + (pos.x + w * 0.5f) / plate.x, 0.5f + (pos.y + h * 0.5f) / plate.y);
+            rect.anchorMin = min;
+            rect.anchorMax = max;
+            rect.pivot = new Vector2(0.5f, 0.5f);
+            rect.anchoredPosition = Vector2.zero;
+            rect.sizeDelta = Vector2.zero;
+            rect.localRotation = Quaternion.identity;
+            rect.localScale = Vector3.one;
+            image.preserveAspect = true;
+        }
+
+        /// <summary>
+        /// The part of the sprite that is not transparent, as 0..1 of the sprite rect.
+        /// Uses the sprite's tight mesh outline (no readable texture needed).
+        /// </summary>
+        private static Rect VisibleRect01(Sprite sprite)
+        {
+            if (sprite == null || sprite.rect.width <= 0f || sprite.rect.height <= 0f)
+                return new Rect(0f, 0f, 1f, 1f);
+
+            Vector2[] vertices = sprite.vertices;
+            if (vertices == null || vertices.Length == 0)
+                return new Rect(0f, 0f, 1f, 1f);
+
+            Vector2 lo = vertices[0];
+            Vector2 hi = vertices[0];
+            for (int i = 1; i < vertices.Length; i++)
+            {
+                lo = Vector2.Min(lo, vertices[i]);
+                hi = Vector2.Max(hi, vertices[i]);
+            }
+
+            // Vertices are in world units around the pivot; turn them into 0..1 of the sprite rect.
+            float ppu = sprite.pixelsPerUnit;
+            Vector2 sizeUnits = sprite.rect.size / ppu;
+            Vector2 pivotUnits = sprite.pivot / ppu;
+            Vector2 min01 = new Vector2((lo.x + pivotUnits.x) / sizeUnits.x, (lo.y + pivotUnits.y) / sizeUnits.y);
+            Vector2 max01 = new Vector2((hi.x + pivotUnits.x) / sizeUnits.x, (hi.y + pivotUnits.y) / sizeUnits.y);
+            min01 = Vector2.Max(Vector2.zero, min01);
+            max01 = Vector2.Min(Vector2.one, max01);
+            if (max01.x - min01.x < 0.01f || max01.y - min01.y < 0.01f)
+                return new Rect(0f, 0f, 1f, 1f);
+            return Rect.MinMaxRect(min01.x, min01.y, max01.x, max01.y);
+        }
+
+        private Sprite GetPizzaLayoutSprite()
+        {
+            OnDishObjects pizza = dishObjects.Find(x => x.objectType == ObjectType.Pizza);
+            if (pizza != null && pizza.imageInGame != null)
+            {
+                Image img = pizza.imageInGame.GetComponent<Image>();
+                if (img != null && img.sprite != null)
+                    return img.sprite;
+            }
+            Sprite upgraded = GameManager.instance != null ? GameManager.instance.upgradeManager.GetToppingImageAsLevel(ObjectType.Pizza) : null;
+            if (upgraded != null)
+                return upgraded;
+            return pizza != null ? pizza.Img : null;
+        }
+
+        private static float SpriteAspect(Sprite sprite, float fallback)
+        {
+            if (sprite == null || sprite.rect.height <= 0f)
+                return fallback;
+            return sprite.rect.width / sprite.rect.height;
         }
 
         private void UpdatePizzaImage()
@@ -235,6 +477,12 @@ namespace MultiTechStudio.Cooking2D
         {
             Debug.Log("AssignOnDish called for: " + _objectType);
 
+            if (objectType == ObjectType.CupcakePlate && _objectType == ObjectType.CapCake)
+            {
+                PlaceCupcake(flyFrom);
+                return;
+            }
+
             for (int i = 0; i < dishObjects.Count; i++)
             {
                 if (dishObjects[i].objectType == _objectType)
@@ -267,6 +515,7 @@ namespace MultiTechStudio.Cooking2D
                             dishObjects[i].imageInGame.GetComponent<Image>().sprite = dishObjects[i].Img;
                     }
 
+                    LayoutItem(dishObjects[i].imageInGame, _objectType, (RectTransform)transform);
                     dishObjects[i].imageInGame.SetActive(true);
                     SortStack();
 
@@ -281,6 +530,49 @@ namespace MultiTechStudio.Cooking2D
             }
 
             Debug.LogError("Pizza entry NOT FOUND in dishObjects!");
+        }
+
+        /// <summary>
+        /// Cupcake "plate": its own picture already IS the cupcake (the object is hidden while empty).
+        /// Before, a second cupcake picture was added on top of it and the plate appeared at once,
+        /// while the flying cupcake was still on its way, so two cupcakes were seen.
+        /// Now only this object shows the cupcake, and only once the flying one has landed.
+        /// </summary>
+        private void PlaceCupcake(Transform flyFrom)
+        {
+            OnDishObjects entry = dishObjects.Find(x => x.objectType == ObjectType.CapCake);
+            if (entry == null)
+            {
+                entry = new OnDishObjects { objectType = ObjectType.CapCake };
+                dishObjects.Add(entry);
+            }
+            entry.isOnDish = true;
+            if (entry.imageInGame != null)
+                entry.imageInGame.SetActive(false); // no second cupcake picture
+
+            if (!gameObject.activeSelf)
+                gameObject.SetActive(true);
+
+            Image plateImage = GetComponent<Image>();
+            Sprite cupcakeSprite = plateImage != null ? plateImage.sprite : entry.Img;
+
+            if (flyFrom != null && cupcakeSprite != null)
+            {
+                FlyToTarget.FlyAndReveal(cupcakeSprite, flyFrom, gameObject);
+            }
+            else
+            {
+                CanvasGroup group = GetComponent<CanvasGroup>();
+                if (group != null)
+                    group.alpha = 1f;
+            }
+        }
+
+        /// <summary>True while the cupcake is still flying onto this plate (it is hidden until it lands).</summary>
+        private bool IsCupcakeLanding()
+        {
+            CanvasGroup group = GetComponent<CanvasGroup>();
+            return group != null && group.alpha < 0.99f;
         }
 
         private void ClearDish()
@@ -472,11 +764,15 @@ namespace MultiTechStudio.Cooking2D
         /// </summary>
         void OnMouseDown()
         {
+            // Hint running: only the item under the hint hand can be tapped.
+            if (TutorialManager.instance != null && TutorialManager.instance.IsClickBlocked(objectType, TutorialClickSource.Plate))
+                return;
+
             // Debug.Log(objectType);
             GameManager.instance.uiAnimationManager.ClickAnimation(transform);
             if (objectType == ObjectType.CupcakePlate)
             {
-                if (HaveCupcake())
+                if (HaveCupcake() && !IsCupcakeLanding())
                 {
                     Debug.Log("Cupcake Ready → Serving");
 
@@ -666,6 +962,33 @@ namespace MultiTechStudio.Cooking2D
         /// </summary>
         public void AutoOrderServe()
         {
+            if (levelController == null || !gameObject.activeInHierarchy || IsFoodLanding())
+                return;
+
+            // Pizza plate: serve as soon as the pizza has all its toppings.
+            if (objectType == ObjectType.PizzaPlate)
+            {
+                if (HavePizza() && IsPizzaReady() && levelController.IsOrderWaiting(ObjectType.Pizza, this, 4))
+                {
+                    if (servfoodSound != null) servfoodSound.Play();
+                    GameObject _pizza = Instantiate(gameObject, transform.position, Quaternion.identity, transform.parent);
+                    _pizza.SetActive(false);
+                    Destroy(_pizza.GetComponent<BoxCollider2D>());
+                    Destroy(_pizza.GetComponent<MainDish>());
+                    GameManager.instance.uiAnimationManager.SetOrderCompleteAnim(_pizza);
+
+                    levelController.ObjectClicked(ObjectType.Pizza, transform);
+                    ClearDish();
+                    GameManager.instance.uiAnimationManager.ClickAnimation(transform);
+                }
+                return;
+            }
+            if (objectType == ObjectType.CupcakePlate)
+                return;
+            // Garlic bread is served from its own plates (GarlicBreadPlate.TryServe).
+            if (objectType == ObjectType.GarlicBread && levelController.garlicBreadManager != null)
+                return;
+
             ObjectType _cookedBase = ObjectType.CoockedBase1;
             switch (objectType)
             {
@@ -693,6 +1016,24 @@ namespace MultiTechStudio.Cooking2D
                 ClearDish();
                 GameManager.instance.uiAnimationManager.ClickAnimation(transform);
             }
+        }
+
+        /// <summary>
+        /// True while a food picture is still flying onto this plate (it is hidden until it lands).
+        /// Helping Hand waits for it, so the plate is never served half-way through the animation.
+        /// </summary>
+        public bool IsFoodLanding()
+        {
+            for (int i = 0; i < dishObjects.Count; i++)
+            {
+                GameObject img = dishObjects[i].imageInGame;
+                if (!dishObjects[i].isOnDish || img == null || !img.activeInHierarchy)
+                    continue;
+                CanvasGroup group = img.GetComponent<CanvasGroup>();
+                if (group != null && group.alpha < 0.99f)
+                    return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -788,6 +1129,9 @@ namespace MultiTechStudio.Cooking2D
                 // Upgraded pictures can have a different shape: never stretch them in the bubble.
                 image.preserveAspect = true;
             }
+
+            // Pizza in the order bubble: same layout as on the real pizza plate.
+            LayoutItem(item, itemType, holder as RectTransform);
 
             // It is only a picture: it must not catch taps meant for the game.
             foreach (Collider2D col in item.GetComponentsInChildren<Collider2D>(true))

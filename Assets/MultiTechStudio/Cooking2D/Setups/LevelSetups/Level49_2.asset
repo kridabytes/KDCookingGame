@@ -26,7 +26,7 @@ MonoBehaviour:
   - objectType: 2
     noOfObject: 1
     baseDish: 0
-    mustHave: 0
+    mustHave: 3
     notHave: 1
   - objectType: 9
     noOfObject: 1
@@ -51,7 +51,7 @@ MonoBehaviour:
   - objectType: 3
     noOfObject: 1
     baseDish: 0
-    mustHave: 2
+    mustHave: 0
     notHave: 5
   - objectType: 7
     noOfObject: 1
@@ -114,8 +114,8 @@ MonoBehaviour:
     coinReward: 6
   - time: 4
     coockBase: 2
-    isTopping: 0
-    allToppings: 
+    isTopping: 1
+    allToppings: 03000000
     orderStatus: 3
     botMain: {fileID: 0}
     multiOrder: 1
@@ -176,16 +176,16 @@ MonoBehaviour:
     multiOrder: 1
     allMultiOrders:
     - coockBase: 2
-      isTopping: 0
-      allToppings: 
+      isTopping: 1
+      allToppings: 03000000
       orderCompleted: 0
       coinReward: 0
     orderCompleted: 0
     coinReward: 6
   - time: 4
     coockBase: 2
-    isTopping: 0
-    allToppings: 
+    isTopping: 1
+    allToppings: 03000000
     orderStatus: 3
     botMain: {fileID: 0}
     multiOrder: 1
@@ -246,16 +246,16 @@ MonoBehaviour:
     multiOrder: 1
     allMultiOrders:
     - coockBase: 2
-      isTopping: 0
-      allToppings: 
+      isTopping: 1
+      allToppings: 03000000
       orderCompleted: 0
       coinReward: 0
     orderCompleted: 0
     coinReward: 6
   - time: 4
     coockBase: 2
-    isTopping: 0
-    allToppings: 
+    isTopping: 1
+    allToppings: 03000000
     orderStatus: 3
     botMain: {fileID: 0}
     multiOrder: 1
@@ -334,8 +334,8 @@ MonoBehaviour:
     coinReward: 6
   - time: 4
     coockBase: 2
-    isTopping: 0
-    allToppings: 
+    isTopping: 1
+    allToppings: 03000000
     orderStatus: 3
     botMain: {fileID: 0}
     multiOrder: 1

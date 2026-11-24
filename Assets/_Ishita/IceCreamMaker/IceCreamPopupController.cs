@@ -135,9 +135,9 @@ namespace MultiTechStudio.Cooking2D
 
             // Waiting time texts
             if (waitingCurrentText != null)
-                waitingCurrentText.text = $"{currentTime} min";
+                GameText.Set(waitingCurrentText, "ui_minutes_n", "{0} min", currentTime);
             if (waitingNextText != null)
-                waitingNextText.text = $"{nextTime} min";
+                GameText.Set(waitingNextText, "ui_minutes_n", "{0} min", nextTime);
 
             int nextPrice = IceCreamManager.Instance.NextUpgradePrice;
             upgradeCostText.text = nextPrice > 0 ? nextPrice.ToString() : "2000";
@@ -164,7 +164,7 @@ namespace MultiTechStudio.Cooking2D
             TimeSpan remaining = IceCreamManager.Instance.GetTimeRemainingToNextBatch();
             if (IceCreamManager.Instance.MachineStored >= IceCreamManager.Instance.MachineCapacity)
             {
-                timerText.text = "Full";
+                GameText.Set(timerText, "ui_full", "Full");
             }
             else
             {

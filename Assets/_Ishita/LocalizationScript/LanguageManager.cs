@@ -17,6 +17,12 @@ public class LanguageManager : MonoBehaviour
     [SerializeField] private Transform parentOfPrefab;
     [SerializeField] private AudioSource buttonSound;
 
+    [Header("Settings: current language row")]
+    [Tooltip("Tapping this (the 'English' box next to Language in Settings) opens the language popup.")]
+    [SerializeField] private GameObject currentLanguageButton;
+    [Tooltip("Text that shows the selected language's name (replaces 'English').")]
+    [SerializeField] private TMPro.TMP_Text currentLanguageText;
+
     private const string LANG_CODE_KEY = "lang_code";
     private const string LANG_INDEX_KEY = "lang";   // old save key (locale index), still read for existing players
     private const int DEFAULT_LANG_INDEX = 3;       // English in the alphabetical locale list
@@ -25,6 +31,7 @@ public class LanguageManager : MonoBehaviour
 
     void Start()
     {
+        HookCurrentLanguageButton();
         BuildLanguages();
         StartCoroutine(ApplySavedLanguage());
     }
@@ -69,6 +76,50 @@ public class LanguageManager : MonoBehaviour
         {
             if (item != null)
                 item.SetSelected(item.Data.localeCode == localeCode);
+        }
+        ShowCurrentLanguageName(localeCode);
+    }
+
+    /// <summary>Makes the Settings "English" box open the language popup.</summary>
+    private void HookCurrentLanguageButton()
+    {
+        if (currentLanguageButton == null)
+            return;
+
+        UnityEngine.UI.Button button = currentLanguageButton.GetComponent<UnityEngine.UI.Button>();
+        if (button == null)
+        {
+            button = currentLanguageButton.AddComponent<UnityEngine.UI.Button>();
+            button.transition = UnityEngine.UI.Selectable.Transition.None;
+            // A Button needs something to catch the tap: use the row's background picture.
+            UnityEngine.UI.Graphic graphic = currentLanguageButton.GetComponentInChildren<UnityEngine.UI.Graphic>();
+            if (graphic != null)
+            {
+                graphic.raycastTarget = true;
+                button.targetGraphic = graphic;
+            }
+        }
+        button.onClick.AddListener(() =>
+        {
+            if (buttonSound != null)
+                buttonSound.Play();
+            OpenLanguageScreen();
+        });
+    }
+
+    /// <summary>Shows the selected language's name in the Settings row.</summary>
+    private void ShowCurrentLanguageName(string localeCode)
+    {
+        if (currentLanguageText == null || languageCollector == null)
+            return;
+
+        foreach (LanguageCollector.LanguageData data in languageCollector.languages)
+        {
+            if (data != null && data.localeCode == localeCode)
+            {
+                currentLanguageText.text = data.languageName;
+                return;
+            }
         }
     }
 

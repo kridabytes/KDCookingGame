@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9f9cfb202af89ba4d8f6dc5ef483cefc
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/protest_guerrilla.OFL.txt
+  uploadId: 1017394

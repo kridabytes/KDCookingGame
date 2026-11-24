@@ -26,6 +26,12 @@ namespace MultiTechStudio.Cooking2D
         [Header("Cupcake Image")]
         public Sprite cupcakeImg;
 
+        [Header("Pizza / garlic bread in the bubble")]
+        [Tooltip("Food width as a part of the plate picture's width, so it always sits inside the plate.")]
+        [SerializeField, Range(0.3f, 1f)] private float foodWidthOnPlate = 0.78f;
+        [Tooltip("Food height can use at most this part of the plate picture's height.")]
+        [SerializeField, Range(0.3f, 1f)] private float foodMaxHeightOnPlate = 0.8f;
+
         public void SetServed()
         {
             if (setServed)
@@ -34,7 +40,9 @@ namespace MultiTechStudio.Cooking2D
             {
                 transform.GetChild(i).gameObject.SetActive(false);
             }
-            transform.GetComponent<Image>().sprite = GameManager.instance.tickImg;
+            Image bubbleImage = transform.GetComponent<Image>();
+            bubbleImage.sprite = GameManager.instance.tickImg;
+            bubbleImage.enabled = true; // drinks / cupcake hide the plate picture; the tick must still show
             setServed = true;
             this.Wait(1, () => gameObject.SetActive(false));
         }
@@ -83,13 +91,13 @@ namespace MultiTechStudio.Cooking2D
 
             Image bubbleImage = GetComponent<Image>();
 
-            if (dishBase == ObjectType.JuiceMachine2)
+            bool drawnWithoutPlate = dishBase == ObjectType.JuiceMachine1
+                                     || dishBase == ObjectType.JuiceMachine2
+                                     || dishBase == ObjectType.CapCake;
+            if (drawnWithoutPlate)
             {
-                // Left exactly as before (no plate change).
-            }
-            else if (dishBase == ObjectType.JuiceMachine1)
-            {
-                // The glass is drawn on its own, without a plate behind it.
+                // Drinks (juice glass, coffee cup) and the cupcake are drawn on their own,
+                // without a plate behind them.
                 if (bubbleImage != null)
                     bubbleImage.enabled = false;
             }
@@ -110,7 +118,14 @@ namespace MultiTechStudio.Cooking2D
             Sprite itemSprite = GetSingleItemSprite(dishBase);
             if (itemSprite == null)
                 Debug.LogWarning($"[OrderBotDish] No picture for order item {dishBase} (order {orderNo}, sub {subOrderNo}).", this);
-            AddPicture(itemSprite);
+            GameObject mainPicture = AddPicture(itemSprite);
+
+            // Pizza and garlic bread were drawn bigger than (outside) their plate: fit them inside it.
+            if (mainPicture != null && (dishBase == ObjectType.Pizza || dishBase == ObjectType.GarlicBread))
+                FitInsidePlate(mainPicture, itemSprite, bubbleImage);
+            // Coffee and cupcake (no plate): fill the middle of the bubble instead.
+            else if (mainPicture != null && (dishBase == ObjectType.JuiceMachine2 || dishBase == ObjectType.CapCake))
+                FitInsidePlate(mainPicture, itemSprite, null);
 
             if (toppings != null)
             {
@@ -166,7 +181,17 @@ namespace MultiTechStudio.Cooking2D
                         ? levelController.garlicBreadManager.GetGarlicBreadSprite()
                         : null;
                 case ObjectType.CapCake:
-                    return cupcakeImg;
+                    if (cupcakeImg != null)
+                        return cupcakeImg;
+                    // Same picture as the cupcake on the player's counter.
+                    if (levelController.cupCakeallDishes != null)
+                        foreach (MainDish plate in levelController.cupCakeallDishes)
+                        {
+                            Image img = plate != null ? plate.GetComponent<Image>() : null;
+                            if (img != null && img.sprite != null)
+                                return img.sprite;
+                        }
+                    return null;
                 default:
                     return levelController.FindImageAsLevel(item);
             }
@@ -210,12 +235,57 @@ namespace MultiTechStudio.Cooking2D
             return null;
         }
 
-        private void AddPicture(Sprite sprite)
+        /// <summary>
+        /// Sizes <paramref name="picture"/> to sit in the middle of the plate picture drawn by
+        /// <paramref name="plateImage"/> (the bubble). Uses anchors, so it holds on every resolution.
+        /// </summary>
+        private void FitInsidePlate(GameObject picture, Sprite foodSprite, Image plateImage)
+        {
+            RectTransform bubble = (RectTransform)transform;
+            RectTransform rect = picture.transform as RectTransform;
+            Vector2 area = bubble.rect.size;
+            if (rect == null || area.x <= 0f || area.y <= 0f)
+                return;
+
+            // The area the plate picture really covers inside the bubble (it keeps its shape).
+            Vector2 plate = area;
+            if (plateImage != null && plateImage.enabled && plateImage.sprite != null && plateImage.preserveAspect)
+            {
+                float plateAspect = plateImage.sprite.rect.width / Mathf.Max(1f, plateImage.sprite.rect.height);
+                plate = area.x / area.y > plateAspect
+                    ? new Vector2(area.y * plateAspect, area.y)
+                    : new Vector2(area.x, area.x / plateAspect);
+            }
+
+            float foodAspect = foodSprite != null ? foodSprite.rect.width / Mathf.Max(1f, foodSprite.rect.height) : 1f;
+            float w = plate.x * foodWidthOnPlate;
+            float h = w / foodAspect;
+            float maxH = plate.y * foodMaxHeightOnPlate;
+            if (h > maxH)
+            {
+                h = maxH;
+                w = h * foodAspect;
+            }
+
+            // Centre of the bubble rect (independent of its pivot).
+            float hw = w / area.x * 0.5f;
+            float hh = h / area.y * 0.5f;
+            rect.SetParent(bubble, false);
+            rect.anchorMin = new Vector2(0.5f - hw, 0.5f - hh);
+            rect.anchorMax = new Vector2(0.5f + hw, 0.5f + hh);
+            rect.pivot = new Vector2(0.5f, 0.5f);
+            rect.anchoredPosition = Vector2.zero;
+            rect.sizeDelta = Vector2.zero;
+            rect.localRotation = Quaternion.identity;
+            rect.localScale = Vector3.one;
+        }
+
+        private GameObject AddPicture(Sprite sprite)
         {
             // The hidden "Child" template shows a meat picture. Never show it for an item
             // that has no picture, or the order looks like a plain meat order.
             if (sprite == null)
-                return;
+                return null;
 
             GameObject picture = Instantiate(childImg, childImg.transform.position, childImg.transform.rotation, childImg.transform.parent);
             Image image = picture.GetComponent<Image>();
@@ -228,6 +298,7 @@ namespace MultiTechStudio.Cooking2D
             }
             picture.transform.SetParent(transform);
             picture.SetActive(true);
+            return picture;
         }
     }
 }

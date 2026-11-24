@@ -62,6 +62,294 @@ MonoBehaviour:
     m_Localized: Verzamelen
     m_Metadata:
       m_Items: []
+  - m_Id: 970000000000
+    m_Localized: "Ynstellingen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000001
+    m_Localized: "Muzyk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000002
+    m_Localized: "L\u00fbd"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000003
+    m_Localized: "Trillen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000004
+    m_Localized: "Haptyske feedback"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000005
+    m_Localized: "Notifikaasjes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000006
+    m_Localized: "Taal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000007
+    m_Localized: "OAN"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000008
+    m_Localized: "\u00daT"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000009
+    m_Localized: "Privacybelied"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000010
+    m_Localized: "Betingsten"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000011
+    m_Localized: "Help en stipe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000012
+    m_Localized: "\u00d4fmelde"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000013
+    m_Localized: "Winkel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000014
+    m_Localized: "Munten"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000015
+    m_Localized: "Diamanten"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000016
+    m_Localized: "Booster"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000017
+    m_Localized: "Boosters"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000018
+    m_Localized: "Bondels"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000019
+    m_Localized: "B\u00easte wearde"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000020
+    m_Localized: "Advertinsje sjen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000021
+    m_Localized: "1 oere"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000022
+    m_Localized: "Gjin advertinsjes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000023
+    m_Localized: "Deistige taak"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000024
+    m_Localized: "Rige fan 7 dagen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000025
+    m_Localized: "Helje alle dagen om dyn rige te h\u00e2lden!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000026
+    m_Localized: "Slute"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000027
+    m_Localized: "OK"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000028
+    m_Localized: "Okee"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000029
+    m_Localized: "Folgjende"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000030
+    m_Localized: "Opnij besykje"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000031
+    m_Localized: "Spylje"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000032
+    m_Localized: "Tik om te spyljen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000033
+    m_Localized: "Tik om fierder te gean"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000034
+    m_Localized: "Nivo folt\u00f4ge"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000035
+    m_Localized: "Mislearre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000036
+    m_Localized: "Fertsjinne:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000037
+    m_Localized: "Lade"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000038
+    m_Localized: "Beskoattele"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000039
+    m_Localized: "MAKS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000040
+    m_Localized: "Unbeheind"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000041
+    m_Localized: "Fol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000042
+    m_Localized: "Ferb\u00fbn"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000043
+    m_Localized: "Ferbining kontrolearje"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000044
+    m_Localized: "Netwurkflater"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000045
+    m_Localized: "Ferbine asjebleaft mei it ynternet!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000046
+    m_Localized: "Dei {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000047
+    m_Localized: "Nivo {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000048
+    m_Localized: "{0} min"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000049
+    m_Localized: "{0} en krij {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000050
+    m_Localized: "{0} x{1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000051
+    m_Localized: "{0} diamanten"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000052
+    m_Localized: "Kombo-ferlinger"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000053
+    m_Localized: "D\u00fbbele winst"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000054
+    m_Localized: "Helpende h\u00e2n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000055
+    m_Localized: "Daliks koken"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000056
+    m_Localized: "Superkoker"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000057
+    m_Localized: "Nivo folt\u00f4ge!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000058
+    m_Localized: "Paprika"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000059
+    m_Localized: "Boarden"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000060
+    m_Localized: "Sapgl\u00eas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000061
+    m_Localized: "Sapmasine"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000062
+    m_Localized: "Ketchup"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000063
+    m_Localized: "Slaad"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000064
+    m_Localized: "Mayo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000065
+    m_Localized: "Fleis"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000066
+    m_Localized: "Poddestoel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000067
+    m_Localized: "Oliif"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000068
+    m_Localized: "Sipel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000069
+    m_Localized: "Pizzaboerd"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000070
+    m_Localized: "Kachel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000071
+    m_Localized: "Tomaat"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

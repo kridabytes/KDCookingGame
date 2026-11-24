@@ -35,8 +35,28 @@ namespace MultiTechStudio.Cooking2D
 
         private void OnMouseDown()
         {
-            if (!isFilled)
+            if (TutorialManager.instance != null && TutorialManager.instance.IsClickBlocked(ObjectType.GarlicBread, TutorialClickSource.Plate))
                 return;
+            TryServe();
+        }
+
+        /// <summary>True while the bread is still flying onto the plate (hidden until it lands).</summary>
+        public bool IsBreadLanding()
+        {
+            if (garlicBreadVisual == null)
+                return false;
+            CanvasGroup group = garlicBreadVisual.GetComponent<CanvasGroup>();
+            return group != null && group.alpha < 0.99f;
+        }
+
+        /// <summary>
+        /// Serves this plate's garlic bread to a waiting customer (tap, or Helping Hand booster).
+        /// Returns true when it was served.
+        /// </summary>
+        public bool TryServe()
+        {
+            if (!isFilled)
+                return false;
 
             levelController = LevelManager.Instance.ThisLevel;
 
@@ -68,9 +88,10 @@ namespace MultiTechStudio.Cooking2D
             }
 
             if (!orderWaiting)
-                return;
+                return false;
 
-            MainDish.instance.servfoodSound.Play();
+            if (MainDish.instance != null && MainDish.instance.servfoodSound != null)
+                MainDish.instance.servfoodSound.Play();
 
             GameObject animDish = Instantiate(
                 gameObject,
@@ -96,6 +117,7 @@ namespace MultiTechStudio.Cooking2D
             levelController.ObjectClicked(ObjectType.GarlicBread, transform);
 
             GameManager.instance.uiAnimationManager.ClickAnimation(transform);
+            return true;
         }
     }
 }

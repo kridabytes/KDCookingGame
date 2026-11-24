@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c58c206dd00fb9b4f9fa7b79a02c9118
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/vt323.OFL.txt
+  uploadId: 1017394

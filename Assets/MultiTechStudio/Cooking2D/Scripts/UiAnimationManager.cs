@@ -90,6 +90,11 @@ namespace MultiTechStudio.Cooking2D
                     thisLevelController = _levelController;
                 GameObject _goTemp = animDish;
                 animDish.transform.DOKill();
+                // The served dish must fly OVER everything (stoves, ovens, other plates).
+                // Without its own top canvas it was drawn under the stove when the customer
+                // was lower on the screen than the plate (burger in truck 2 / 3).
+                FlyToTarget.DrawOnTop(animDish);
+                animDish.transform.SetAsLastSibling();
                 animDish.SetActive(true);
                 animDish.transform.DOMove(_endPos, moveTime).OnComplete(() =>
                 {

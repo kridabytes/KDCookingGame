@@ -17,8 +17,11 @@ public class FreeGiftCollector : ScriptableObject
         [Tooltip("Gift name, e.g. \"Coins\" or \"Combo Extender\".")]
         public string giftName;
 
-        [Tooltip("Text shown on the row, e.g. \"Get 50 Coins\".")]
+        [Tooltip("Text shown on the row, e.g. \"Get 50 Coins\". Used only when Localized Text is empty.")]
         public string text;
+
+        [Tooltip("Row text in every language (entry of a string table). Takes priority over Text.")]
+        public UnityEngine.Localization.LocalizedString localizedText = new UnityEngine.Localization.LocalizedString();
 
         [Tooltip("Gift image shown on the row (also used for the booster fly animation).")]
         public Sprite icon;

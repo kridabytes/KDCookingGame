@@ -26,8 +26,13 @@ MonoBehaviour:
   - objectType: 2
     noOfObject: 1
     baseDish: 0
-    mustHave: 0
+    mustHave: 3
     notHave: 1
+  - objectType: 3
+    noOfObject: 1
+    baseDish: 0
+    mustHave: 0
+    notHave: 5
   - objectType: 9
     noOfObject: 1
     baseDish: 9
@@ -69,8 +74,8 @@ MonoBehaviour:
   allOrders:
   - time: 2
     coockBase: 2
-    isTopping: 0
-    allToppings: 
+    isTopping: 1
+    allToppings: 03000000
     orderStatus: 3
     botMain: {fileID: 0}
     multiOrder: 0
@@ -114,15 +119,15 @@ MonoBehaviour:
     coinReward: 6
   - time: 4
     coockBase: 2
-    isTopping: 0
-    allToppings: 
+    isTopping: 1
+    allToppings: 03000000
     orderStatus: 3
     botMain: {fileID: 0}
     multiOrder: 1
     allMultiOrders:
     - coockBase: 2
-      isTopping: 0
-      allToppings: 
+      isTopping: 1
+      allToppings: 03000000
       orderCompleted: 0
       coinReward: 6
     - coockBase: 20
@@ -134,8 +139,8 @@ MonoBehaviour:
     coinReward: 6
   - time: 4
     coockBase: 2
-    isTopping: 0
-    allToppings: 
+    isTopping: 1
+    allToppings: 03000000
     orderStatus: 3
     botMain: {fileID: 0}
     multiOrder: 1
@@ -174,8 +179,8 @@ MonoBehaviour:
     coinReward: 6
   - time: 4
     coockBase: 2
-    isTopping: 0
-    allToppings: 
+    isTopping: 1
+    allToppings: 03000000
     orderStatus: 3
     botMain: {fileID: 0}
     multiOrder: 1
@@ -206,8 +211,8 @@ MonoBehaviour:
     multiOrder: 1
     allMultiOrders:
     - coockBase: 2
-      isTopping: 0
-      allToppings: 
+      isTopping: 1
+      allToppings: 03000000
       orderCompleted: 0
       coinReward: 0
     - coockBase: 11
@@ -239,8 +244,8 @@ MonoBehaviour:
     coinReward: 6
   - time: 4
     coockBase: 2
-    isTopping: 0
-    allToppings: 
+    isTopping: 1
+    allToppings: 03000000
     orderStatus: 3
     botMain: {fileID: 0}
     multiOrder: 1
@@ -294,8 +299,8 @@ MonoBehaviour:
     coinReward: 6
   - time: 4
     coockBase: 2
-    isTopping: 0
-    allToppings: 
+    isTopping: 1
+    allToppings: 03000000
     orderStatus: 3
     botMain: {fileID: 0}
     multiOrder: 1

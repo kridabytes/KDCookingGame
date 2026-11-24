@@ -135,7 +135,7 @@ public class EnergyManager : MonoBehaviour
 
     private void UpdateUnlimitedUI()
     {
-        UiManager.Instance.allCanvas.persistent.energyTxt.text = "Unlimited";
+        GameText.Set(UiManager.Instance.allCanvas.persistent.energyTxt, "ui_unlimited", "Unlimited");
     }
 
     void Update()

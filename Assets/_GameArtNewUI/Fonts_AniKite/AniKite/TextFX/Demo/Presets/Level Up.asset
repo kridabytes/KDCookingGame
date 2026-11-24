@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423d95667cc6c3241b3a65d726948bb5, type: 3}
+  m_Name: Level Up
+  m_EditorClassIdentifier: 
+  json: "{\n  \"schema\": \"aktextfx/1\",\n  \"id\": \"level_up\",\n  \"name\": \"Level
+    Up\",\n  \"tags\": [\n    \"game\",\n    \"reward\"\n  ],\n  \"seed\": 7,\n 
+    \"enter\": {\n    \"unit\": \"char\",\n    \"dur\": 0.6,\n    \"spread\": 0.45,\n   
+    \"tracks\": [\n      {\n        \"prop\": \"scale\",\n        \"expr\": \"outBack(q,
+    2.2)\"\n      },\n      {\n        \"prop\": \"y\",\n        \"expr\": \"(1 -
+    outCubic(q)) * 0.6\"\n      }\n    ]\n  },\n  \"hold\": {\n    \"unit\": \"char\",\n   
+    \"ramp\": 0.3,\n    \"tint\": \"#FFFFFF\",\n    \"tracks\": [\n      {\n       
+    \"prop\": \"tint\",\n        \"expr\": \"pow(max(0, sin(t * 3 - k * 4)), 8) *
+    0.9\"\n      },\n      {\n        \"prop\": \"y\",\n        \"expr\": \"sin(t
+    * 4 + i * 0.5) * 0.03\"\n      }\n    ]\n  },\n  \"exit\": {\n    \"unit\": \"char\",\n   
+    \"order\": \"random\",\n    \"dur\": 0.7,\n    \"spread\": 0.3,\n    \"let\":
+    {\n      \"e\": \"inCubic(q)\"\n    },\n    \"tracks\": [\n      {\n        \"prop\":
+    \"y\",\n        \"expr\": \"-e * (2 + r(1))\"\n      },\n      {\n        \"prop\":
+    \"x\",\n        \"expr\": \"rs(2) * e * 1.5\"\n      },\n      {\n        \"prop\":
+    \"rot\",\n        \"expr\": \"rs(3) * 180 * e\"\n      },\n      {\n        \"prop\":
+    \"alpha\",\n        \"expr\": \"1 - q * q\"\n      }\n    ]\n  },\n  \"material\":
+    {\n    \"face\": {\n      \"color\": \"#FFD447\"\n    },\n    \"outline\": {\n     
+    \"w\": 0.22,\n      \"color\": \"#5A2D00\"\n    },\n    \"glow\": {\n      \"power\":
+    0.3,\n      \"outer\": 0.4,\n      \"color\": \"#FFB300AA\"\n    }\n  },\n  \"font\":
+    \"bungee\",\n  \"particles\": [\n    {\n      \"preset\": \"star\",\n      \"on\":
+    \"unitLand\",\n      \"at\": \"unit\",\n      \"count\": 3\n    },\n    {\n     
+    \"preset\": \"confetti\",\n      \"on\": \"land\",\n      \"at\": \"center\",\n     
+    \"count\": 24\n    },\n    {\n      \"preset\": \"spark\",\n      \"on\": \"hold\",\n     
+    \"at\": \"text\",\n      \"count\": 2,\n      \"every\": 0.3\n    }\n  ]\n}\n"

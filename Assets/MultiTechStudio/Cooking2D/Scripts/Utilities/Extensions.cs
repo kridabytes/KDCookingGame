@@ -279,7 +279,7 @@ namespace MultiTechStudio.Cooking2D
             UiManager.Instance.allCanvas.persistent.energyTxt.text = UiManager.TotalEnergy.ToString();
             if (GameManager.instance.energyManager.IsUnlimited())
             {
-                UiManager.Instance.allCanvas.persistent.energyTxt.text = "Unlimited";
+                GameText.Set(UiManager.Instance.allCanvas.persistent.energyTxt, "ui_unlimited", "Unlimited");
             }
 
             // Update energy fill bar if it exists
@@ -300,7 +300,7 @@ namespace MultiTechStudio.Cooking2D
             UiManager.Instance.allCanvas.persistent.energyTxt.text = UiManager.TotalEnergy.ToString();
             if (GameManager.instance.energyManager.IsUnlimited())
             {
-                UiManager.Instance.allCanvas.persistent.energyTxt.text = "Unlimited";
+                GameText.Set(UiManager.Instance.allCanvas.persistent.energyTxt, "ui_unlimited", "Unlimited");
             }
 
             // Update energy fill bar if it exists

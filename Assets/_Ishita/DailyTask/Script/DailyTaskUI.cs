@@ -16,7 +16,6 @@ public class DailyTaskUI : MonoBehaviour
     [SerializeField] private Image rewardFlyImage;
     [SerializeField] private Transform rewardFlyTarget;
     [SerializeField] private float rewardFlyDuration = 0.7f;
-    private Vector3 rewardFlyStartPosition;
 
 
     public AudioSource buttonsound;
@@ -36,8 +35,8 @@ public class DailyTaskUI : MonoBehaviour
         taskCollector.CheckDailyReset();
         DaliyTaskUI();
         dailytaskpanel.SetActive(false);
-        rewardFlyStartPosition = rewardFlyImage.transform.position;
-        rewardFlyImage.gameObject.SetActive(false);
+        if (rewardFlyImage != null)
+            rewardFlyImage.gameObject.SetActive(false);
     }
 
     public void ClickDailyTask()
@@ -83,7 +82,10 @@ public class DailyTaskUI : MonoBehaviour
 
             Image[] image = task.GetComponentsInChildren<Image>();
             image[1].sprite = data.rewardIcon;
-            task.GetComponentInChildren<Text>().text = data.GetTaskText();
+            RectTransform rewardImage = image[1].rectTransform;
+            Text taskText = task.GetComponentInChildren<Text>();
+            taskText.text = GetTaskTextWithReward(data);
+            RewardText.FitText(taskText);
             Button btn = task.GetComponentInChildren<Button>();
 
             // Debug.Log($"Task {i} - Completed: {data.completed}, Collected: {data.collected}, Coins: {UiManager.TotalCoins}, Target: {data.targetValue}");
@@ -116,14 +118,14 @@ public class DailyTaskUI : MonoBehaviour
             btn.onClick.RemoveAllListeners();
             btn.onClick.AddListener(() =>
             {
-                CollectReward(data);
+                CollectReward(data, rewardImage);
             });
 
 
         }
     }
 
-    public void CollectReward(DailyTaskCollector.TaskData rewardData)
+    public void CollectReward(DailyTaskCollector.TaskData rewardData, RectTransform rewardImage = null)
     {
         buttonsound.Play();
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
@@ -134,148 +136,62 @@ public class DailyTaskUI : MonoBehaviour
         rewardData.collected = true;
 
         int amount = Mathf.Max(1, rewardData.rewardAmount);
-        PlayRewardFlyAnimation(rewardData, amount);
 
-        switch (rewardData.rewardType)
-        {
-            case DailyTaskRewardType.ComboExtender:
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.ComboExtender, amount);
-                break;
-
-            case DailyTaskRewardType.DoubleProfit:
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.DoubleProfit, amount);
-                break;
-
-            case DailyTaskRewardType.HelpingHand:
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.HelpingHand, amount);
-                break;
-
-            case DailyTaskRewardType.InstantCook:
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.InstantCook, amount);
-                break;
-
-            case DailyTaskRewardType.SuperCooker:
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.SuperCooker, amount);
-                break;
-
-            case DailyTaskRewardType.Diamond:
-                Extensions.AddDiamonds(amount);
-                break;
-        }
-
+        // Give the reward exactly once (it used to be given here AND again when the fly animation ended).
+        GiveReward(rewardData, amount);
         Debug.Log($"Reward Collected: {rewardData.rewardType} x{amount}");
 
+        // The reward picture flies from the row's reward image into the Play button.
+        RewardFly.Play(rewardData.rewardIcon, rewardImage, rewardFlyTarget, rewardFlyDuration);
+
         DaliyTaskUI();
         taskCollector.CheckAllDailyTasksCompleted();
     }
-    private void PlayRewardFlyAnimation(
-  DailyTaskCollector.TaskData rewardData,
-  int amount)
-    {
-        if (rewardFlyImage == null || rewardFlyTarget == null)
-        {
-            GiveReward(rewardData, amount);
-            return;
-        }
 
-        // Kill any previous tween
-        rewardFlyImage.transform.DOKill();
-
-        // Set icon
-        rewardFlyImage.sprite = rewardData.rewardIcon;
-
-        // ALWAYS reset to original start position
-        rewardFlyImage.transform.position = rewardFlyStartPosition;
-
-        // Reset scale to 1 (start full size)
-        rewardFlyImage.transform.localScale = Vector3.one;
-
-        // Show
-        rewardFlyImage.gameObject.SetActive(true);
-
-        // Target position
-        Vector3 targetPosition = rewardFlyTarget.position;
-
-        // Fly (position)
-        rewardFlyImage.transform
-            .DOMove(targetPosition, rewardFlyDuration)
-            .SetEase(Ease.OutQuad)
-            .OnComplete(() =>
-            {
-                rewardFlyImage.gameObject.SetActive(false);
-
-                GiveReward(rewardData, amount);
-            });
-
-        // Shrink (scale) - same duration, target par small thay jashe
-        rewardFlyImage.transform
-            .DOScale(Vector3.one * 0.3f, rewardFlyDuration)
-            .SetEase(Ease.InQuad);
-    }
-    private void GiveReward(
-        DailyTaskCollector.TaskData rewardData,
-        int amount)
+    private static void GiveReward(DailyTaskCollector.TaskData rewardData, int amount)
     {
         switch (rewardData.rewardType)
         {
             case DailyTaskRewardType.ComboExtender:
-
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.ComboExtender,
-                    amount);
-
+                BoosterManager.instance.UnlockGiveBooster(BoosterType.ComboExtender, amount);
                 break;
-
             case DailyTaskRewardType.DoubleProfit:
-
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.DoubleProfit,
-                    amount);
-
+                BoosterManager.instance.UnlockGiveBooster(BoosterType.DoubleProfit, amount);
                 break;
-
             case DailyTaskRewardType.HelpingHand:
-
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.HelpingHand,
-                    amount);
-
+                BoosterManager.instance.UnlockGiveBooster(BoosterType.HelpingHand, amount);
                 break;
-
             case DailyTaskRewardType.InstantCook:
-
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.InstantCook,
-                    amount);
-
+                BoosterManager.instance.UnlockGiveBooster(BoosterType.InstantCook, amount);
                 break;
-
             case DailyTaskRewardType.SuperCooker:
-
-                BoosterManager.instance.UnlockGiveBooster(
-                    BoosterType.SuperCooker,
-                    amount);
-
+                BoosterManager.instance.UnlockGiveBooster(BoosterType.SuperCooker, amount);
                 break;
-
             case DailyTaskRewardType.Diamond:
-
                 Extensions.AddDiamonds(amount);
-
                 break;
         }
+    }
 
-        Debug.Log(
-            $"Daily Reward Collected: {rewardData.rewardType} x{amount}");
-
-        DaliyTaskUI();
-
-        taskCollector.CheckAllDailyTasksCompleted();
+    /// <summary>"Earn 200 Coins and get Super Cooker booster x1".</summary>
+    public static string GetTaskTextWithReward(DailyTaskCollector.TaskData data)
+    {
+        int amount = Mathf.Max(1, data.rewardAmount);
+        switch (data.rewardType)
+        {
+            case DailyTaskRewardType.Diamond:
+                return RewardText.WithReward(data.GetTaskText(), "Diamonds", false, amount);
+            case DailyTaskRewardType.ComboExtender:
+                return RewardText.WithReward(data.GetTaskText(), RewardText.BoosterName(BoosterType.ComboExtender), true, amount);
+            case DailyTaskRewardType.DoubleProfit:
+                return RewardText.WithReward(data.GetTaskText(), RewardText.BoosterName(BoosterType.DoubleProfit), true, amount);
+            case DailyTaskRewardType.HelpingHand:
+                return RewardText.WithReward(data.GetTaskText(), RewardText.BoosterName(BoosterType.HelpingHand), true, amount);
+            case DailyTaskRewardType.InstantCook:
+                return RewardText.WithReward(data.GetTaskText(), RewardText.BoosterName(BoosterType.InstantCook), true, amount);
+            default:
+                return RewardText.WithReward(data.GetTaskText(), RewardText.BoosterName(BoosterType.SuperCooker), true, amount);
+        }
     }
 
 }

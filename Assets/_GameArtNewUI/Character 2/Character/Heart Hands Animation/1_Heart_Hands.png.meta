@@ -1,0 +1,468 @@
+fileFormatVersion: 2
+guid: 0841a51240f668749bfab877935ce1ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2795928474377892303
+    second: 1_Heart_Hands_0
+  - first:
+      213: -6741687451599327832
+    second: 1_Heart_Hands_1
+  - first:
+      213: -8335625293291266162
+    second: 1_Heart_Hands_2
+  - first:
+      213: 7054290590368855353
+    second: 1_Heart_Hands_3
+  - first:
+      213: -878238480862619524
+    second: 1_Heart_Hands_4
+  - first:
+      213: -1475638041543263877
+    second: 1_Heart_Hands_5
+  - first:
+      213: -8366505736319485081
+    second: 1_Heart_Hands_6
+  - first:
+      213: -7091242123187423634
+    second: 1_Heart_Hands_7
+  - first:
+      213: 7097538006463851474
+    second: 1_Heart_Hands_8
+  - first:
+      213: 3137206556508115493
+    second: 1_Heart_Hands_9
+  - first:
+      213: -5809602845980751368
+    second: 1_Heart_Hands_10
+  - first:
+      213: 4689048788916585568
+    second: 1_Heart_Hands_11
+  - first:
+      213: -8052784322826780788
+    second: 1_Heart_Hands_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1_Heart_Hands_0
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 1535
+        width: 140
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc1b1bc42222dc620800000000000000
+      internalID: 2795928474377892303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Heart_Hands_1
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 1535
+        width: 143
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ada6b45bf6b072a0800000000000000
+      internalID: -6741687451599327832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Heart_Hands_2
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 1535
+        width: 151
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8fdc94b5f8e15c80800000000000000
+      internalID: -8335625293291266162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Heart_Hands_3
+      rect:
+        serializedVersion: 2
+        x: 1266
+        y: 1535
+        width: 155
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 935f05daaefd5e160800000000000000
+      internalID: 7054290590368855353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Heart_Hands_4
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1023
+        width: 156
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c78da1831cedfc3f0800000000000000
+      internalID: -878238480862619524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Heart_Hands_5
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 1023
+        width: 155
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b79b2ccf40b758be0800000000000000
+      internalID: -1475638041543263877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Heart_Hands_6
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 1023
+        width: 165
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76bb8674c5334eb80800000000000000
+      internalID: -8366505736319485081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Heart_Hands_7
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1023
+        width: 167
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6670272cd8d69d90800000000000000
+      internalID: -7091242123187423634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Heart_Hands_8
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 511
+        width: 167
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dbac1766358f7260800000000000000
+      internalID: 7097538006463851474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Heart_Hands_9
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 511
+        width: 166
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52251b3ddb8998b20800000000000000
+      internalID: 3137206556508115493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Heart_Hands_10
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 511
+        width: 167
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9083ffdf4206fa0800000000000000
+      internalID: -5809602845980751368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Heart_Hands_11
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 511
+        width: 166
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06449d5a709d21140800000000000000
+      internalID: 4689048788916585568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Heart_Hands_12
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 168
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8f3319e253ce3090800000000000000
+      internalID: -8052784322826780788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      1_Heart_Hands_0: 2795928474377892303
+      1_Heart_Hands_1: -6741687451599327832
+      1_Heart_Hands_10: -5809602845980751368
+      1_Heart_Hands_11: 4689048788916585568
+      1_Heart_Hands_12: -8052784322826780788
+      1_Heart_Hands_2: -8335625293291266162
+      1_Heart_Hands_3: 7054290590368855353
+      1_Heart_Hands_4: -878238480862619524
+      1_Heart_Hands_5: -1475638041543263877
+      1_Heart_Hands_6: -8366505736319485081
+      1_Heart_Hands_7: -7091242123187423634
+      1_Heart_Hands_8: 7097538006463851474
+      1_Heart_Hands_9: 3137206556508115493
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -62,6 +62,294 @@ MonoBehaviour:
     m_Localized: Kumpulkan
     m_Metadata:
       m_Items: []
+  - m_Id: 970000000000
+    m_Localized: "Pengaturan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000001
+    m_Localized: "Musik"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000002
+    m_Localized: "Suara"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000003
+    m_Localized: "Getar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000004
+    m_Localized: "Haptik"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000005
+    m_Localized: "Notifikasi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000006
+    m_Localized: "Bahasa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000007
+    m_Localized: "NYALA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000008
+    m_Localized: "MATI"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000009
+    m_Localized: "Kebijakan Privasi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000010
+    m_Localized: "Ketentuan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000011
+    m_Localized: "Bantuan & Dukungan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000012
+    m_Localized: "Keluar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000013
+    m_Localized: "Toko"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000014
+    m_Localized: "Koin"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000015
+    m_Localized: "Berlian"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000016
+    m_Localized: "Booster"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000017
+    m_Localized: "Booster"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000018
+    m_Localized: "Paket"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000019
+    m_Localized: "Nilai Terbaik"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000020
+    m_Localized: "Tonton Iklan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000021
+    m_Localized: "1 Jam"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000022
+    m_Localized: "Tanpa Iklan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000023
+    m_Localized: "Tugas Harian"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000024
+    m_Localized: "Beruntun 7 Hari"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000025
+    m_Localized: "Klaim setiap hari untuk menjaga beruntunmu!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000026
+    m_Localized: "Tutup"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000027
+    m_Localized: "OK"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000028
+    m_Localized: "Oke"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000029
+    m_Localized: "Lanjut"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000030
+    m_Localized: "Coba Lagi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000031
+    m_Localized: "Main"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000032
+    m_Localized: "Ketuk untuk Main"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000033
+    m_Localized: "Ketuk untuk Lanjut"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000034
+    m_Localized: "Level Selesai"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000035
+    m_Localized: "Gagal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000036
+    m_Localized: "Didapat:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000037
+    m_Localized: "Memuat"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000038
+    m_Localized: "Terkunci"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000039
+    m_Localized: "MAKS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000040
+    m_Localized: "Tak Terbatas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000041
+    m_Localized: "Penuh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000042
+    m_Localized: "Terhubung"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000043
+    m_Localized: "Memeriksa Koneksi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000044
+    m_Localized: "Kesalahan Jaringan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000045
+    m_Localized: "Harap sambungkan ke internet!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000046
+    m_Localized: "Hari {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000047
+    m_Localized: "Level {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000048
+    m_Localized: "{0} mnt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000049
+    m_Localized: "{0} dan dapatkan {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000050
+    m_Localized: "{0} x{1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000051
+    m_Localized: "{0} Berlian"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000052
+    m_Localized: "Perpanjang Kombo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000053
+    m_Localized: "Untung Ganda"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000054
+    m_Localized: "Tangan Penolong"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000055
+    m_Localized: "Masak Instan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000056
+    m_Localized: "Kompor Super"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000057
+    m_Localized: "Level Selesai!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000058
+    m_Localized: "Paprika"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000059
+    m_Localized: "Piring"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000060
+    m_Localized: "Gelas Jus"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000061
+    m_Localized: "Mesin Jus"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000062
+    m_Localized: "Saus Tomat"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000063
+    m_Localized: "Selada"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000064
+    m_Localized: "Mayones"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000065
+    m_Localized: "Daging"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000066
+    m_Localized: "Jamur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000067
+    m_Localized: "Zaitun"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000068
+    m_Localized: "Bawang"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000069
+    m_Localized: "Piring Pizza"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000070
+    m_Localized: "Kompor"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000071
+    m_Localized: "Tomat"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

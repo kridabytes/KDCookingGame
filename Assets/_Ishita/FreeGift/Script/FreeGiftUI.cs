@@ -54,11 +54,16 @@ public class FreeGiftUI : MonoBehaviour
             buttonSound.Play();
 
         FreeGiftCollector.Gift gift = item.Gift;
-        GoogleMobileAd.Instatiate.ShowFreeGiftRewardAd(() => GiveReward(gift));
+        RectTransform giftImage = item.GiftImageRect;
+        GoogleMobileAd.Instatiate.ShowFreeGiftRewardAd(() => GiveReward(gift, giftImage));
     }
 
-    private void GiveReward(FreeGiftCollector.Gift gift)
+    private void GiveReward(FreeGiftCollector.Gift gift, RectTransform giftImage = null)
     {
+        // The gift picture flies from the row into the Play button.
+        if (achievementUI != null)
+            achievementUI.PlayRewardFlyAnimation(gift.icon, giftImage);
+
         switch (gift.rewardType)
         {
             case FreeGiftRewardType.Coin:
@@ -71,8 +76,6 @@ public class FreeGiftUI : MonoBehaviour
 
             case FreeGiftRewardType.Booster:
                 BoosterManager.instance.UnlockGiveBooster(gift.boosterType, gift.amount);
-                if (achievementUI != null)
-                    achievementUI.PlayRewardFlyAnimation(gift.icon);
                 break;
         }
 

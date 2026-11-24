@@ -62,6 +62,294 @@ MonoBehaviour:
     m_Localized: Raccogli
     m_Metadata:
       m_Items: []
+  - m_Id: 970000000000
+    m_Localized: "Impostazioni"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000001
+    m_Localized: "Musica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000002
+    m_Localized: "Suono"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000003
+    m_Localized: "Vibrazione"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000004
+    m_Localized: "Feedback aptico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000005
+    m_Localized: "Notifiche"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000006
+    m_Localized: "Lingua"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000007
+    m_Localized: "S\u00cc"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000008
+    m_Localized: "NO"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000009
+    m_Localized: "Informativa sulla privacy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000010
+    m_Localized: "Termini"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000011
+    m_Localized: "Aiuto e supporto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000012
+    m_Localized: "Esci"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000013
+    m_Localized: "Negozio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000014
+    m_Localized: "Monete"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000015
+    m_Localized: "Diamanti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000016
+    m_Localized: "Potenziamento"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000017
+    m_Localized: "Potenziamenti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000018
+    m_Localized: "Pacchetti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000019
+    m_Localized: "Miglior valore"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000020
+    m_Localized: "Guarda annuncio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000021
+    m_Localized: "1 ora"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000022
+    m_Localized: "Niente pubblicit\u00e0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000023
+    m_Localized: "Attivit\u00e0 giornaliera"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000024
+    m_Localized: "Serie di 7 giorni"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000025
+    m_Localized: "Riscatta ogni giorno per mantenere la serie!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000026
+    m_Localized: "Chiudi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000027
+    m_Localized: "OK"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000028
+    m_Localized: "Va bene"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000029
+    m_Localized: "Avanti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000030
+    m_Localized: "Riprova"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000031
+    m_Localized: "Gioca"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000032
+    m_Localized: "Tocca per giocare"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000033
+    m_Localized: "Tocca per continuare"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000034
+    m_Localized: "Livello completato"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000035
+    m_Localized: "Fallito"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000036
+    m_Localized: "Guadagnati:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000037
+    m_Localized: "Caricamento"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000038
+    m_Localized: "Bloccato"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000039
+    m_Localized: "MAX"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000040
+    m_Localized: "Illimitato"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000041
+    m_Localized: "Pieno"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000042
+    m_Localized: "Connesso"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000043
+    m_Localized: "Verifica connessione"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000044
+    m_Localized: "Errore di rete"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000045
+    m_Localized: "Connettiti a Internet!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000046
+    m_Localized: "Giorno {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000047
+    m_Localized: "Livello {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000048
+    m_Localized: "{0} min"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000049
+    m_Localized: "{0} e ottieni {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000050
+    m_Localized: "{0} x{1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000051
+    m_Localized: "{0} diamanti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000052
+    m_Localized: "Estensore combo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000053
+    m_Localized: "Doppio profitto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000054
+    m_Localized: "Mano amica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000055
+    m_Localized: "Cottura istantanea"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000056
+    m_Localized: "Super fornello"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000057
+    m_Localized: "Livello completato!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000058
+    m_Localized: "Peperone"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000059
+    m_Localized: "Piatti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000060
+    m_Localized: "Bicchiere di succo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000061
+    m_Localized: "Spremiagrumi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000062
+    m_Localized: "Ketchup"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000063
+    m_Localized: "Lattuga"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000064
+    m_Localized: "Maionese"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000065
+    m_Localized: "Carne"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000066
+    m_Localized: "Fungo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000067
+    m_Localized: "Oliva"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000068
+    m_Localized: "Cipolla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000069
+    m_Localized: "Piatto pizza"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000070
+    m_Localized: "Fornello"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000071
+    m_Localized: "Pomodoro"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

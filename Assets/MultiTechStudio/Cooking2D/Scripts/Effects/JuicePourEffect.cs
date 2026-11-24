@@ -300,6 +300,143 @@ namespace MultiTechStudio.Cooking2D
             color.color = fade;
         }
 
+        // ------------------------------------------------------------------ coffee stream (scene particle)
+
+        private const string CoffeeShineName = "Coffee Shine";
+        private const string CoffeeSplashName = "Coffee Splash";
+
+        /// <summary>
+        /// Gives the coffee machine's hand-placed particle a proper "coffee pouring" look.
+        /// Its position, direction, width (start size) and length (speed x lifetime) are kept,
+        /// because those already fit the machine and the cup. Only the look changes: before it
+        /// was a few separate square-ish dots in random orange/brown, now it is one smooth,
+        /// glossy coffee stream with a light highlight and small drops where it hits the cup.
+        /// Safe to call more than once.
+        /// </summary>
+        public static void StyleCoffeeStream(ParticleSystem stream, Color coffee)
+        {
+            if (stream == null || stream.transform.Find(CoffeeShineName) != null)
+                return;
+
+            stream.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+            ParticleSystem.MainModule main = stream.main;
+            float width = Mathf.Max(0.0001f, main.startSize.mode == ParticleSystemCurveMode.TwoConstants
+                ? main.startSize.constantMax : main.startSize.constant);
+            float speed = main.startSpeed.mode == ParticleSystemCurveMode.TwoConstants
+                ? main.startSpeed.constantMax : main.startSpeed.constant;
+            float lifetime = main.startLifetime.mode == ParticleSystemCurveMode.TwoConstants
+                ? main.startLifetime.constantMax : main.startLifetime.constant;
+            float length = Mathf.Abs(speed) * lifetime;
+
+            Material material = GetMaterial();
+            Color dark = Color.Lerp(coffee, Color.black, 0.18f);
+            Color light = Color.Lerp(coffee, Color.white, 0.4f);
+
+            // ---- main stream: many soft drops overlapping into one continuous line
+            main.playOnAwake = false;
+            main.loop = true;
+            main.startSize = new ParticleSystem.MinMaxCurve(width * 0.92f, width * 1.05f);
+            main.startSpeed = speed;
+            main.startLifetime = lifetime;
+            main.startColor = new ParticleSystem.MinMaxGradient(dark, coffee);
+            main.startRotation = 0f;
+            main.maxParticles = Mathf.Max(main.maxParticles, 400);
+
+            ParticleSystem.EmissionModule emission = stream.emission;
+            emission.rateOverTime = Mathf.Clamp(Mathf.Abs(speed) / (width * 0.12f), 120f, 350f);
+
+            ParticleSystem.ShapeModule shape = stream.shape;
+            if (shape.enabled)
+            {
+                shape.angle = 0f;          // straight down, no spray
+                shape.radius = width * 0.05f;
+            }
+
+            ParticleSystem.ColorOverLifetimeModule colorOverLife = stream.colorOverLifetime;
+            colorOverLife.enabled = true;
+            var streamFade = new Gradient();
+            streamFade.SetKeys(
+                new[] { new GradientColorKey(Color.white, 0f), new GradientColorKey(Color.white, 1f) },
+                new[] { new GradientAlphaKey(0.6f, 0f), new GradientAlphaKey(1f, 0.12f), new GradientAlphaKey(1f, 0.85f), new GradientAlphaKey(0.5f, 1f) });
+            colorOverLife.color = streamFade;
+
+            // Slightly thicker at the nozzle, a little thinner as it falls, like real liquid.
+            ParticleSystem.SizeOverLifetimeModule sizeOverLife = stream.sizeOverLifetime;
+            sizeOverLife.enabled = true;
+            sizeOverLife.size = new ParticleSystem.MinMaxCurve(1f, AnimationCurve.Linear(0f, 1f, 1f, 0.8f));
+
+            ParticleSystemRenderer renderer = stream.GetComponent<ParticleSystemRenderer>();
+            renderer.sharedMaterial = material;
+            renderer.renderMode = ParticleSystemRenderMode.Billboard;
+            int order = renderer.sortingOrder;
+
+            // ---- highlight: a thin light line on one side of the stream (gloss)
+            GameObject shineGo = Object.Instantiate(stream.gameObject, stream.transform);
+            shineGo.name = CoffeeShineName;
+            foreach (Transform child in shineGo.transform)
+                Object.Destroy(child.gameObject);
+            shineGo.transform.localRotation = Quaternion.identity;
+            shineGo.transform.localScale = Vector3.one;
+            // Particle sizes are world units here (the particle ignores the canvas scale), so offsets are set in world space.
+            shineGo.transform.position = stream.transform.position + stream.transform.TransformDirection(Vector3.left) * width * 0.18f;
+            ParticleSystem shine = shineGo.GetComponent<ParticleSystem>();
+            ParticleSystem.MainModule shineMain = shine.main;
+            shineMain.startSize = new ParticleSystem.MinMaxCurve(width * 0.22f, width * 0.3f);
+            shineMain.startColor = new Color(light.r, light.g, light.b, 0.55f);
+            ParticleSystemRenderer shineRenderer = shine.GetComponent<ParticleSystemRenderer>();
+            shineRenderer.sortingOrder = order + 1;
+
+            // ---- small drops jumping where the stream lands in the cup
+            GameObject splashGo = Object.Instantiate(stream.gameObject, stream.transform);
+            splashGo.name = CoffeeSplashName;
+            foreach (Transform child in splashGo.transform)
+                Object.Destroy(child.gameObject);
+            splashGo.transform.localRotation = Quaternion.identity;
+            splashGo.transform.localScale = Vector3.one;
+            // End of the stream, in the stream's own space (it falls along its emit direction).
+            Vector3 fallDirection = shape.enabled
+                ? Quaternion.Euler(shape.rotation) * Vector3.forward
+                : Vector3.down;
+            Vector3 worldFall = stream.transform.TransformDirection(fallDirection).normalized;
+            splashGo.transform.position = stream.transform.position + worldFall * length * 0.95f;
+
+            ParticleSystem splash = splashGo.GetComponent<ParticleSystem>();
+            ParticleSystem.MainModule splashMain = splash.main;
+            splashMain.startLifetime = new ParticleSystem.MinMaxCurve(0.18f, 0.32f);
+            splashMain.startSpeed = new ParticleSystem.MinMaxCurve(width * 1.6f, width * 3.2f);
+            splashMain.startSize = new ParticleSystem.MinMaxCurve(width * 0.18f, width * 0.35f);
+            splashMain.startColor = new ParticleSystem.MinMaxGradient(coffee, light);
+            ParticleSystem.EmissionModule splashEmission = splash.emission;
+            splashEmission.rateOverTime = 22f;
+            ParticleSystem.ShapeModule splashShape = splash.shape;
+            splashShape.enabled = true;
+            splashShape.shapeType = ParticleSystemShapeType.Cone;
+            splashShape.angle = 40f;
+            splashShape.radius = width * 0.2f;
+            splashShape.rotation = new Vector3(-90f, 0f, 0f); // upwards
+            ParticleSystem.ForceOverLifetimeModule force = splash.forceOverLifetime;
+            force.enabled = true;
+            force.space = ParticleSystemSimulationSpace.Local;
+            force.x = 0f;
+            force.y = -width * 22f;
+            force.z = 0f;
+            ParticleSystem.ColorOverLifetimeModule splashColor = splash.colorOverLifetime;
+            splashColor.enabled = true;
+            var splashFade = new Gradient();
+            splashFade.SetKeys(
+                new[] { new GradientColorKey(Color.white, 0f), new GradientColorKey(Color.white, 1f) },
+                new[] { new GradientAlphaKey(1f, 0f), new GradientAlphaKey(0.9f, 0.5f), new GradientAlphaKey(0f, 1f) });
+            splashColor.color = splashFade;
+            ParticleSystem.SizeOverLifetimeModule splashSize = splash.sizeOverLifetime;
+            splashSize.enabled = true;
+            splashSize.size = new ParticleSystem.MinMaxCurve(1f, AnimationCurve.EaseInOut(0f, 1f, 1f, 0.3f));
+            ParticleSystemRenderer splashRenderer = splash.GetComponent<ParticleSystemRenderer>();
+            splashRenderer.sortingOrder = order + 2;
+
+            stream.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
+
         /// <summary>One material for all juice effects: a soft round dot, alpha blended.</summary>
         private static Material GetMaterial()
         {

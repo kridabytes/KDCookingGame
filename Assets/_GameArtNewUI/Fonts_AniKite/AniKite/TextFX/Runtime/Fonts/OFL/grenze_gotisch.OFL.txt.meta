@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 09fa00e1de8d1614eb419d8d548b3153
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/grenze_gotisch.OFL.txt
+  uploadId: 1017394

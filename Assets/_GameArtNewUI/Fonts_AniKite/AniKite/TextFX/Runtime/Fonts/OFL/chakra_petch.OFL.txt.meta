@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 41df30032824e6d469c89b2678e8377b
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/chakra_petch.OFL.txt
+  uploadId: 1017394

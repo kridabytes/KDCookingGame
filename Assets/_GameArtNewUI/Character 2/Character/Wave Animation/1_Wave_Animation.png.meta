@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: c43205eb77de0bd448868e7f0e0b645b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 396568090588648245
+    second: 1_Wave_Animation_0
+  - first:
+      213: -5613374085398150704
+    second: 1_Wave_Animation_1
+  - first:
+      213: 936515393069606229
+    second: 1_Wave_Animation_2
+  - first:
+      213: 7332853763901449116
+    second: 1_Wave_Animation_3
+  - first:
+      213: -8680519465887639394
+    second: 1_Wave_Animation_4
+  - first:
+      213: 2953194334400708657
+    second: 1_Wave_Animation_5
+  - first:
+      213: -270184514400218388
+    second: 1_Wave_Animation_6
+  - first:
+      213: 1969320928677987355
+    second: 1_Wave_Animation_7
+  - first:
+      213: 3274555820413371126
+    second: 1_Wave_Animation_8
+  - first:
+      213: 813222598843038310
+    second: 1_Wave_Animation_9
+  - first:
+      213: 6258775667906692873
+    second: 1_Wave_Animation_10
+  - first:
+      213: -6940784553282031008
+    second: 1_Wave_Animation_11
+  - first:
+      213: 6623973605605370587
+    second: 1_Wave_Animation_12
+  - first:
+      213: 7971191626049453597
+    second: 1_Wave_Animation_13
+  - first:
+      213: -7667341516032375350
+    second: 1_Wave_Animation_14
+  - first:
+      213: 7821217624477133699
+    second: 1_Wave_Animation_15
+  - first:
+      213: 8795739036698441508
+    second: 1_Wave_Animation_16
+  - first:
+      213: -1289105940995768604
+    second: 1_Wave_Animation_17
+  - first:
+      213: 8429432261701457255
+    second: 1_Wave_Animation_18
+  - first:
+      213: -1858662736250269844
+    second: 1_Wave_Animation_19
+  - first:
+      213: 2448544971359143840
+    second: 1_Wave_Animation_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1_Wave_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 2559
+        width: 170
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5339ac8c394e08500800000000000000
+      internalID: 396568090588648245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 2559
+        width: 178
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d1c570a20a4912b0800000000000000
+      internalID: -5613374085398150704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 2559
+        width: 181
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5556992c9cb2ffc00800000000000000
+      internalID: 936515393069606229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 2559
+        width: 182
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c936b3ba5a783c560800000000000000
+      internalID: 7332853763901449116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 2047
+        width: 183
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9857e18989988780800000000000000
+      internalID: -8680519465887639394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 2047
+        width: 176
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13086a6b99adbf820800000000000000
+      internalID: 2953194334400708657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 2047
+        width: 174
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce21d5b9d9c104cf0800000000000000
+      internalID: -270184514400218388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 2047
+        width: 170
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b14089263fe645b10800000000000000
+      internalID: 1969320928677987355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1535
+        width: 168
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f24de85b2f817d20800000000000000
+      internalID: 3274555820413371126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1535
+        width: 169
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66afb5f15a5294b00800000000000000
+      internalID: 813222598843038310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 1535
+        width: 180
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 907cf6e3f43abd650800000000000000
+      internalID: 6258775667906692873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 1535
+        width: 181
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0623b1ff8316daf90800000000000000
+      internalID: -6940784553282031008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 1023
+        width: 180
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdaeba326e41deb50800000000000000
+      internalID: 6623973605605370587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1023
+        width: 170
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1efe3bfc8c5f9e60800000000000000
+      internalID: 7971191626049453597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 1023
+        width: 162
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac50945b381289590800000000000000
+      internalID: -7667341516032375350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 1023
+        width: 161
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38bebf9adfb8a8c60800000000000000
+      internalID: 7821217624477133699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_16
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 511
+        width: 161
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42772735d0eb01a70800000000000000
+      internalID: 8795739036698441508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_17
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 511
+        width: 172
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eef9150afc2c1ee0800000000000000
+      internalID: -1289105940995768604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_18
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 511
+        width: 172
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 765dee02bfb5bf470800000000000000
+      internalID: 8429432261701457255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_19
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 511
+        width: 170
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6f0c88c614b436e0800000000000000
+      internalID: -1858662736250269844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Wave_Animation_20
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 0
+        width: 169
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a74e62bdaafaf120800000000000000
+      internalID: 2448544971359143840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      1_Wave_Animation_0: 396568090588648245
+      1_Wave_Animation_1: -5613374085398150704
+      1_Wave_Animation_10: 6258775667906692873
+      1_Wave_Animation_11: -6940784553282031008
+      1_Wave_Animation_12: 6623973605605370587
+      1_Wave_Animation_13: 7971191626049453597
+      1_Wave_Animation_14: -7667341516032375350
+      1_Wave_Animation_15: 7821217624477133699
+      1_Wave_Animation_16: 8795739036698441508
+      1_Wave_Animation_17: -1289105940995768604
+      1_Wave_Animation_18: 8429432261701457255
+      1_Wave_Animation_19: -1858662736250269844
+      1_Wave_Animation_2: 936515393069606229
+      1_Wave_Animation_20: 2448544971359143840
+      1_Wave_Animation_3: 7332853763901449116
+      1_Wave_Animation_4: -8680519465887639394
+      1_Wave_Animation_5: 2953194334400708657
+      1_Wave_Animation_6: -270184514400218388
+      1_Wave_Animation_7: 1969320928677987355
+      1_Wave_Animation_8: 3274555820413371126
+      1_Wave_Animation_9: 813222598843038310
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

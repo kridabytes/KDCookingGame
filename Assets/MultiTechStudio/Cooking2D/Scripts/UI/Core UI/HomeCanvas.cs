@@ -17,7 +17,7 @@ namespace MultiTechStudio.Cooking2D
         private void Start()
         {
             int lvlIndex = LevelManager.LevelDisplay;
-            levelTxt.text = "Level " + (lvlIndex).ToString("00");
+            GameText.Set(levelTxt, "ui_level_n", "Level {0}", (lvlIndex).ToString("00"));
             this.Wait(1.0f, () => { blockingImg.SetActive(false); });
         }
     }

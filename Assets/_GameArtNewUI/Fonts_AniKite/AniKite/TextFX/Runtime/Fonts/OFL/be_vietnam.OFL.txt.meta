@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 76b09ff5db45f64449b0438c2f051cf6
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/be_vietnam.OFL.txt
+  uploadId: 1017394

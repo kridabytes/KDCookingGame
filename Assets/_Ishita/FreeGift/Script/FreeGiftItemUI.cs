@@ -16,6 +16,9 @@ public class FreeGiftItemUI : MonoBehaviour
 
     public FreeGiftCollector.Gift Gift { get; private set; }
 
+    /// <summary>The gift picture on this row (start point of the reward fly animation).</summary>
+    public RectTransform GiftImageRect => giftImage != null ? giftImage.rectTransform : null;
+
     public void Setup(FreeGiftCollector.Gift gift, Action<FreeGiftItemUI> onWatchClicked)
     {
         Gift = gift;
@@ -27,7 +30,28 @@ public class FreeGiftItemUI : MonoBehaviour
         }
 
         if (giftText != null)
-            giftText.text = gift.text;
+        {
+            // The row's Text has a Localize String Event that used ONE fixed entry for every row.
+            // Each gift now gives it its own entry, so every row shows its own text in the
+            // chosen language (and updates when the language changes).
+            var localize = giftText.GetComponent<UnityEngine.Localization.Components.LocalizeStringEvent>();
+            bool hasLocalized = gift.localizedText != null && !gift.localizedText.IsEmpty;
+            if (localize != null && hasLocalized)
+            {
+                localize.enabled = true;
+                localize.StringReference = gift.localizedText;
+                localize.RefreshString();
+            }
+            else
+            {
+                if (localize != null)
+                {
+                    localize.enabled = false;
+                    Destroy(localize);
+                }
+                giftText.text = hasLocalized ? gift.localizedText.GetLocalizedString() : gift.text;
+            }
+        }
 
 
         if (watchButton != null)

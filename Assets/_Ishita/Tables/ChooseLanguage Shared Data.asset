@@ -59,6 +59,294 @@ MonoBehaviour:
     m_Key: collect
     m_Metadata:
       m_Items: []
+  - m_Id: 970000000000
+    m_Key: ui_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000001
+    m_Key: ui_music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000002
+    m_Key: ui_sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000003
+    m_Key: ui_vibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000004
+    m_Key: ui_haptics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000005
+    m_Key: ui_notifications
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000006
+    m_Key: ui_language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000007
+    m_Key: ui_on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000008
+    m_Key: ui_off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000009
+    m_Key: ui_privacy_policy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000010
+    m_Key: ui_terms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000011
+    m_Key: ui_help_support
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000012
+    m_Key: ui_logout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000013
+    m_Key: ui_shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000014
+    m_Key: ui_coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000015
+    m_Key: ui_diamond
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000016
+    m_Key: ui_booster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000017
+    m_Key: ui_boosters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000018
+    m_Key: ui_bundles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000019
+    m_Key: ui_best_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000020
+    m_Key: ui_watch_ad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000021
+    m_Key: ui_one_hour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000022
+    m_Key: ui_no_ads
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000023
+    m_Key: ui_daily_task
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000024
+    m_Key: ui_streak_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000025
+    m_Key: ui_streak_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000026
+    m_Key: ui_close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000027
+    m_Key: ui_ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000028
+    m_Key: ui_okay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000029
+    m_Key: ui_next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000030
+    m_Key: ui_retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000031
+    m_Key: ui_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000032
+    m_Key: ui_tap_to_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000033
+    m_Key: ui_tap_to_next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000034
+    m_Key: ui_level_completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000035
+    m_Key: ui_failed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000036
+    m_Key: ui_earned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000037
+    m_Key: ui_loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000038
+    m_Key: ui_locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000039
+    m_Key: ui_max
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000040
+    m_Key: ui_unlimited
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000041
+    m_Key: ui_full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000042
+    m_Key: ui_connected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000043
+    m_Key: ui_checking_connection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000044
+    m_Key: ui_network_error
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000045
+    m_Key: ui_connect_internet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000046
+    m_Key: ui_day_n
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000047
+    m_Key: ui_level_n
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000048
+    m_Key: ui_minutes_n
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000049
+    m_Key: ui_task_reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000050
+    m_Key: ui_reward_booster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000051
+    m_Key: ui_reward_diamonds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000052
+    m_Key: ui_combo_extender
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000053
+    m_Key: ui_double_profit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000054
+    m_Key: ui_helping_hand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000055
+    m_Key: ui_instant_cook
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000056
+    m_Key: ui_super_cooker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000057
+    m_Key: ui_level_completed_excl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000058
+    m_Key: ui_up_capsicum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000059
+    m_Key: ui_up_dishes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000060
+    m_Key: ui_up_juice_glass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000061
+    m_Key: ui_up_juice_machine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000062
+    m_Key: ui_up_ketchup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000063
+    m_Key: ui_up_lettuce
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000064
+    m_Key: ui_up_mayo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000065
+    m_Key: ui_up_meat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000066
+    m_Key: ui_up_mushroom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000067
+    m_Key: ui_up_olive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000068
+    m_Key: ui_up_onion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000069
+    m_Key: ui_up_pizza_plate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000070
+    m_Key: ui_up_stove
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000071
+    m_Key: ui_up_tomato
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e77d7ddb910098d458b1f08b86856b8a
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/dela_gothic.OFL.txt
+  uploadId: 1017394

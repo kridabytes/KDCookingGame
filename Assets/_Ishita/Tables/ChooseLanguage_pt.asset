@@ -62,6 +62,294 @@ MonoBehaviour:
     m_Localized: Coletar
     m_Metadata:
       m_Items: []
+  - m_Id: 970000000000
+    m_Localized: "Configura\u00e7\u00f5es"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000001
+    m_Localized: "M\u00fasica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000002
+    m_Localized: "Som"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000003
+    m_Localized: "Vibra\u00e7\u00e3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000004
+    m_Localized: "H\u00e1ptica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000005
+    m_Localized: "Notifica\u00e7\u00f5es"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000006
+    m_Localized: "Idioma"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000007
+    m_Localized: "SIM"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000008
+    m_Localized: "N\u00c3O"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000009
+    m_Localized: "Pol\u00edtica de Privacidade"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000010
+    m_Localized: "Termos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000011
+    m_Localized: "Ajuda e suporte"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000012
+    m_Localized: "Sair"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000013
+    m_Localized: "Loja"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000014
+    m_Localized: "Moedas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000015
+    m_Localized: "Diamantes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000016
+    m_Localized: "Impulso"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000017
+    m_Localized: "Impulsos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000018
+    m_Localized: "Pacotes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000019
+    m_Localized: "Melhor valor"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000020
+    m_Localized: "Ver an\u00fancio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000021
+    m_Localized: "1 hora"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000022
+    m_Localized: "Sem an\u00fancios"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000023
+    m_Localized: "Tarefa di\u00e1ria"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000024
+    m_Localized: "Sequ\u00eancia de 7 dias"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000025
+    m_Localized: "Resgate diariamente para manter sua sequ\u00eancia!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000026
+    m_Localized: "Fechar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000027
+    m_Localized: "OK"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000028
+    m_Localized: "Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000029
+    m_Localized: "Pr\u00f3ximo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000030
+    m_Localized: "Tentar novamente"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000031
+    m_Localized: "Jogar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000032
+    m_Localized: "Toque para jogar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000033
+    m_Localized: "Toque para continuar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000034
+    m_Localized: "N\u00edvel conclu\u00eddo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000035
+    m_Localized: "Falhou"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000036
+    m_Localized: "Ganho:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000037
+    m_Localized: "Carregando"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000038
+    m_Localized: "Bloqueado"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000039
+    m_Localized: "M\u00c1X"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000040
+    m_Localized: "Ilimitado"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000041
+    m_Localized: "Cheio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000042
+    m_Localized: "Conectado"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000043
+    m_Localized: "Verificando conex\u00e3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000044
+    m_Localized: "Erro de rede"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000045
+    m_Localized: "Conecte-se \u00e0 internet!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000046
+    m_Localized: "Dia {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000047
+    m_Localized: "N\u00edvel {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000048
+    m_Localized: "{0} min"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000049
+    m_Localized: "{0} e ganhe {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000050
+    m_Localized: "{0} x{1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000051
+    m_Localized: "{0} diamantes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000052
+    m_Localized: "Extensor de combo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000053
+    m_Localized: "Lucro em dobro"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000054
+    m_Localized: "M\u00e3o amiga"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000055
+    m_Localized: "Cozimento instant\u00e2neo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000056
+    m_Localized: "Super fog\u00e3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000057
+    m_Localized: "N\u00edvel conclu\u00eddo!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000058
+    m_Localized: "Piment\u00e3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000059
+    m_Localized: "Pratos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000060
+    m_Localized: "Copo de suco"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000061
+    m_Localized: "M\u00e1quina de suco"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000062
+    m_Localized: "Ketchup"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000063
+    m_Localized: "Alface"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000064
+    m_Localized: "Maionese"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000065
+    m_Localized: "Carne"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000066
+    m_Localized: "Cogumelo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000067
+    m_Localized: "Azeitona"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000068
+    m_Localized: "Cebola"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000069
+    m_Localized: "Prato de pizza"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000070
+    m_Localized: "Fog\u00e3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000071
+    m_Localized: "Tomate"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

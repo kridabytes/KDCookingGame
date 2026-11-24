@@ -14,6 +14,9 @@ public class ConsumbleItem
 
     public int rewardCoins;
     public int rewardDiamonds;
+
+    [Tooltip("How many of EACH booster (Combo Extender, Double Profit, Helping Hand, Instant Cook, Super Cooker) this pack gives. Must match the x number shown on the pack.")]
+    public int boosterAmount;
 }
 [Serializable]
 public class NonConsumbleItem
@@ -38,6 +41,18 @@ public class IAPScript : MonoBehaviour
     public GameObject WatchAdDaimond;
     public GameObject offerIAP;
     public static IAPScript Instance;
+
+    [Header("Coins / Diamond tabs (shop popup)")]
+    [Tooltip("'selectIcon' image of the Coins tab, shown while the Coins list is open.")]
+    public GameObject coinTabSelect;
+    public TMPro.TMP_Text coinTabText;
+    [Tooltip("'selectIcon' image of the Diamond tab, shown while the Diamond list is open.")]
+    public GameObject diamondTabSelect;
+    public TMPro.TMP_Text diamondTabText;
+    public Color selectedTabTextColor = Color.white;
+    private Color coinTabNormalColor = Color.white;
+    private Color diamondTabNormalColor = Color.white;
+    private bool tabColorsSaved;
     [Header("Ice Cream Maker Upgrade Mapping")]
     [Tooltip("Index in 'items' array used for the FIRST ice cream maker upgrade (Level 2).")]
     public int iceCreamUpgradeItemLevel1Index = -1;
@@ -66,6 +81,26 @@ public class IAPScript : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        SaveTabColors();
+    }
+
+    private void SaveTabColors()
+    {
+        if (tabColorsSaved)
+            return;
+        if (coinTabText != null) coinTabNormalColor = coinTabText.color;
+        if (diamondTabText != null) diamondTabNormalColor = diamondTabText.color;
+        tabColorsSaved = true;
+    }
+
+    /// <summary>Selected tab: select image on and white text. The other tab goes back to normal.</summary>
+    private void SetTabSelected(bool coinSelected)
+    {
+        SaveTabColors();
+        if (coinTabSelect != null) coinTabSelect.SetActive(coinSelected);
+        if (diamondTabSelect != null) diamondTabSelect.SetActive(!coinSelected);
+        if (coinTabText != null) coinTabText.color = coinSelected ? selectedTabTextColor : coinTabNormalColor;
+        if (diamondTabText != null) diamondTabText.color = coinSelected ? diamondTabNormalColor : selectedTabTextColor;
     }
 
     private void OnDestroy()
@@ -205,8 +240,8 @@ public class IAPScript : MonoBehaviour
         if (bought.rewardDiamonds > 0)
             Extensions.AddDiamonds(bought.rewardDiamonds, DailyBonusUI.Instance != null ? DailyBonusUI.Instance.diamondAnimation : null);
 
-        // Booster packs: items 1 and 2 give 1 of each booster, item 3 gives 2 of each.
-        int boosterAmount = selectedIndex == 3 ? 2 : (selectedIndex == 1 || selectedIndex == 2 ? 1 : 0);
+        // Booster packs: every pack sets its own amount (of each booster) in the inspector.
+        int boosterAmount = bought.boosterAmount;
         if (boosterAmount > 0 && BoosterManager.instance != null)
         {
             BoosterManager.instance.UnlockGiveBooster(BoosterType.ComboExtender, boosterAmount);
@@ -372,6 +407,7 @@ public class IAPScript : MonoBehaviour
     {
         coinIAPPanel.SetActive(true);
         diamondIAPPanel.SetActive(false);
+        SetTabSelected(true);
         PopupAnimation.Show(iapPanel);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
 
@@ -382,6 +418,7 @@ public class IAPScript : MonoBehaviour
     {
         diamondIAPPanel.SetActive(true);
         coinIAPPanel.SetActive(false);
+        SetTabSelected(false);
         PopupAnimation.Show(iapPanel);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
 

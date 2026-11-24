@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a754825fc8dfe684da0bb24f99686391
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/tektur.OFL.txt
+  uploadId: 1017394

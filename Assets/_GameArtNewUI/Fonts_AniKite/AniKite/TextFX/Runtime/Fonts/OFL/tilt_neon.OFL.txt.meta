@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e14c49de1db337f4fa039e4f404005ad
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/tilt_neon.OFL.txt
+  uploadId: 1017394

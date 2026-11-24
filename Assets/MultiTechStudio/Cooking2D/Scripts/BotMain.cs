@@ -94,6 +94,13 @@ namespace MultiTechStudio.Cooking2D
 
         private void Waiting()
         {
+            // While a hint is running the customer waits patiently, so the hint can always be finished.
+            if (TutorialManager.instance != null && TutorialManager.instance.isTutorialRunning)
+            {
+                fillBar.fillAmount = ((float)botWaitTime - _time) / (float)botWaitTime;
+                return;
+            }
+
             _time += Time.deltaTime;
             if (_time >= botWaitTime)
             {

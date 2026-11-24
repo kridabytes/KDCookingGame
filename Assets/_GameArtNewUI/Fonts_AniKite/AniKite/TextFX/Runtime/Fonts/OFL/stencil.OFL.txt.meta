@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b0c563937cc518b44b32b3164822d81c
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/stencil.OFL.txt
+  uploadId: 1017394

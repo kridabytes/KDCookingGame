@@ -145,6 +145,10 @@ namespace MultiTechStudio.Cooking2D
             if (levelController == null)
                 levelController = LevelController.instance;
 
+            // Hint running: only the item under the hint hand can be tapped.
+            if (TutorialManager.instance != null && TutorialManager.instance.IsClickBlocked(objectType, TutorialClickSource.Tray))
+                return;
+
             GameManager.instance.uiAnimationManager.ClickAnimation(transform);
             // ✅ CUPCAKE FLOW (same as pizza)
             if (objectType == ObjectType.CapCake)

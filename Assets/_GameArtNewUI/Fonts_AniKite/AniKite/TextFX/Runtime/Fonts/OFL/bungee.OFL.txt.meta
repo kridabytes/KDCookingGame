@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 74b5de96456112f4da23ec2c3b1a12ab
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/bungee.OFL.txt
+  uploadId: 1017394

@@ -39,7 +39,7 @@ namespace MultiTechStudio.Cooking2D
                 }
                 if (GameManager.instance.energyManager.IsUnlimited())
                 {
-                    energyTxt.text = "Unlimited";
+                    GameText.Set(energyTxt, "ui_unlimited", "Unlimited");
                 }
             }
         }

@@ -62,6 +62,294 @@ MonoBehaviour:
     m_Localized: Bailigh
     m_Metadata:
       m_Items: []
+  - m_Id: 970000000000
+    m_Localized: "Roghainnean"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000001
+    m_Localized: "Ce\u00f2l"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000002
+    m_Localized: "Fuaim"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000003
+    m_Localized: "Crith"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000004
+    m_Localized: "Fios-suathaidh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000005
+    m_Localized: "Brathan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000006
+    m_Localized: "C\u00e0nan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000007
+    m_Localized: "AIR"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000008
+    m_Localized: "DHETH"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000009
+    m_Localized: "Poileasaidh pr\u00ecobhaideachd"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000010
+    m_Localized: "Teirmichean"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000011
+    m_Localized: "Cuideachadh is taic"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000012
+    m_Localized: "Cl\u00e0raich a-mach"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000013
+    m_Localized: "B\u00f9th"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000014
+    m_Localized: "Buinn"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000015
+    m_Localized: "Daoimeanan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000016
+    m_Localized: "Brosnachadh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000017
+    m_Localized: "Brosnachaidhean"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000018
+    m_Localized: "Pasgain"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000019
+    m_Localized: "Luach as fhe\u00e0rr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000020
+    m_Localized: "Coimhead air sanas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000021
+    m_Localized: "1 uair"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000022
+    m_Localized: "Gun sanasan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000023
+    m_Localized: "Obair l\u00e0itheil"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000024
+    m_Localized: "Sreath 7 latha"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000025
+    m_Localized: "Tagair gach latha gus do shreath a chumail!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000026
+    m_Localized: "D\u00f9in"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000027
+    m_Localized: "Ceart"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000028
+    m_Localized: "Ceart ma-th\u00e0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000029
+    m_Localized: "Air adhart"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000030
+    m_Localized: "Feuch a-rithist"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000031
+    m_Localized: "Cluich"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000032
+    m_Localized: "Thoir tap airson cluich"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000033
+    m_Localized: "Thoir tap airson leantainn"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000034
+    m_Localized: "Leibheil deiseil"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000035
+    m_Localized: "Dh'fh\u00e0illig"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000036
+    m_Localized: "Air a chosnadh:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000037
+    m_Localized: "A' luchdadh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000038
+    m_Localized: "Glaiste"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000039
+    m_Localized: "AS MOTHA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000040
+    m_Localized: "Gun chr\u00ecoch"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000041
+    m_Localized: "L\u00e0n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000042
+    m_Localized: "Ceangailte"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000043
+    m_Localized: "A' sgr\u00f9dadh a' cheangail"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000044
+    m_Localized: "Mearachd l\u00econraidh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000045
+    m_Localized: "Ceangail ris an eadar-l\u00econ!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000046
+    m_Localized: "Latha {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000047
+    m_Localized: "Leibheil {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000048
+    m_Localized: "{0} mion"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000049
+    m_Localized: "{0} agus faigh {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000050
+    m_Localized: "{0} x{1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000051
+    m_Localized: "{0} daoimeanan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000052
+    m_Localized: "S\u00ecneadh combo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000053
+    m_Localized: "Prothaid dh\u00f9bailte"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000054
+    m_Localized: "L\u00e0mh-chuidich"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000055
+    m_Localized: "C\u00f2caireachd sa bhad"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000056
+    m_Localized: "C\u00f2caire s\u00e0r-mhath"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000057
+    m_Localized: "Leibheil deiseil!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000058
+    m_Localized: "Piobar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000059
+    m_Localized: "Soithichean"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000060
+    m_Localized: "Glainne s\u00f9igh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000061
+    m_Localized: "Inneal s\u00f9igh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000062
+    m_Localized: "Ketchup"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000063
+    m_Localized: "Leatas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000064
+    m_Localized: "Mayo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000065
+    m_Localized: "Fe\u00f2il"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000066
+    m_Localized: "Balgan-buachair"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000067
+    m_Localized: "Ollaidh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000068
+    m_Localized: "Uinnean"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000069
+    m_Localized: "Truinnsear pizza"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000070
+    m_Localized: "St\u00f2bh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 970000000071
+    m_Localized: "Tom\u00e0to"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

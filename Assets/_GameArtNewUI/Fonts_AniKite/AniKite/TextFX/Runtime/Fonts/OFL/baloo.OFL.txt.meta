@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0f56b58151ed7a24381446a61d237522
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/baloo.OFL.txt
+  uploadId: 1017394

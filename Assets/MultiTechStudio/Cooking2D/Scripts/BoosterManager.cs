@@ -13,11 +13,61 @@ namespace MultiTechStudio.Cooking2D
 
         public static BoosterManager instance;
 
+        // SetStartBooster is called from both UiManager.Play and LevelController.SetLevel.
+        // Boosters must be applied (and their count used) only once per level.
+        private bool boostersApplied;
+
         private void Awake()
         {
             instance = this;
-
+            RemoveDuplicateBoosters();
         }
+
+        /// <summary>
+        /// Keeps one entry per booster type. A second entry for the same type (with the same
+        /// buttons) used to hide that booster's in-game icon and break its count display.
+        /// </summary>
+        private void RemoveDuplicateBoosters()
+        {
+            if (allBoosters == null)
+                return;
+            var seen = new HashSet<BoosterType>();
+            var unique = new List<BoosterData>();
+            foreach (BoosterData data in allBoosters)
+            {
+                if (data == null || !seen.Add(data.booster))
+                {
+                    Debug.LogWarning($"BoosterManager: duplicate entry for {data?.booster} removed. Keep one entry per booster in the inspector.");
+                    continue;
+                }
+                unique.Add(data);
+            }
+            allBoosters = unique.ToArray();
+        }
+
+        /// <summary>Redraws the booster buttons (counts) after boosters were given.</summary>
+        private void RefreshUiSafe()
+        {
+            try { SetBoosterUi(); }
+            catch (System.Exception e) { Debug.LogWarning("BoosterManager: UI refresh skipped: " + e.Message); }
+        }
+
+        private static void SaveToCloud()
+        {
+            if (GoogleLogin.instance != null)
+                GoogleLogin.instance.SavePlayerDataToFirebase();
+        }
+
+        public int GetCount(BoosterType type)
+        {
+            for (int i = 0; i < allBoosters.Length; i++)
+            {
+                if (allBoosters[i].booster == type)
+                    return allBoosters[i].count;
+            }
+            return 0;
+        }
+
         private void Start()
         {
 
@@ -62,7 +112,9 @@ namespace MultiTechStudio.Cooking2D
 
                     allBoosters[i].count += amount;
                     PlayerPrefs.SetInt(booster + "Count", allBoosters[i].count);
-                                        GoogleLogin.instance.SavePlayerDataToFirebase();
+                    PlayerPrefs.Save();
+                    SaveToCloud();
+                    RefreshUiSafe();
 
                     return;
                 }
@@ -92,7 +144,8 @@ namespace MultiTechStudio.Cooking2D
                 {
                     allBoosters[i].count++;
                     PlayerPrefs.SetInt(allBoosters[i].booster + "Count", allBoosters[i].count);
-                       GoogleLogin.instance.SavePlayerDataToFirebase();
+                    SaveToCloud();
+                    RefreshUiSafe();
 
                     return;
                 }
@@ -174,15 +227,15 @@ namespace MultiTechStudio.Cooking2D
             gameManager = GameManager.instance;
             int _total = allBoosters.Length;
 
-            int selectedIndex = -1;
-
-            for (int i = 0; i < _total; i++)
+            // Second call in the same level (Play + SetLevel): keep what is already running,
+            // do not use another booster or double the combo timer again.
+            if (boostersApplied)
             {
-                if (allBoosters[i].isSelected)
-                {
-                    selectedIndex = i;
-                }
+                for (int i = 0; i < _total; i++)
+                    allBoosters[i].playScreenUi.SetActive(allBoosters[i].isActive);
+                return true;
             }
+            boostersApplied = true;
 
             for (int i = 0; i < _total; i++)
             {
@@ -210,13 +263,42 @@ namespace MultiTechStudio.Cooking2D
 
                 booster.count = Mathf.Max(0, booster.count - 1);
                 PlayerPrefs.SetInt(booster.booster + "Count", booster.count);
-                   GoogleLogin.instance.SavePlayerDataToFirebase();
+                SaveToCloud();
 
-
+                // The selection is used up; the booster stays active for this level.
+                booster.isSelected = false;
                 booster.isActive = true;
                 booster.playScreenUi.SetActive(true);
+                PlayBoosterIconPop(booster.playScreenUi);
+                OnBoosterUsed();
             }
+            PlayerPrefs.Save();
             return true;
+        }
+
+        /// <summary>Small pop so the player sees which boosters are running in this level.</summary>
+        private static void PlayBoosterIconPop(GameObject icon)
+        {
+            if (icon == null)
+                return;
+            Transform t = icon.transform;
+            DG.Tweening.ShortcutExtensions.DOKill(t, true);
+            t.localScale = Vector3.one;
+            DG.Tweening.ShortcutExtensions.DOPunchScale(t, Vector3.one * 0.25f, 0.4f, 6, 0.6f);
+        }
+
+        private static void OnBoosterUsed()
+        {
+            if (DailyTaskCollector.instance != null)
+            {
+                foreach (var task in DailyTaskCollector.instance.Task)
+                    task.OnBoosterUsed();
+            }
+            if (AchievementsCollector.instance != null)
+            {
+                foreach (var task in AchievementsCollector.instance.Task)
+                    task.OnBoosterUsed();
+            }
         }
 
         /* public bool IsBoosterOn(BoosterType _boosterType)
@@ -333,6 +415,7 @@ namespace MultiTechStudio.Cooking2D
             {
                 allBoosters[i].isActive = false;
             }
+            boostersApplied = false;
         }
 
         #endregion

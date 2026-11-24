@@ -1,0 +1,702 @@
+fileFormatVersion: 2
+guid: 8e80425355d65ef448240614a2c923b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8590861463982726484
+    second: 1_Sad_Disappointed_Animation_0
+  - first:
+      213: -578820496753546162
+    second: 1_Sad_Disappointed_Animation_1
+  - first:
+      213: -5784936932712111940
+    second: 1_Sad_Disappointed_Animation_2
+  - first:
+      213: 6111747492631316372
+    second: 1_Sad_Disappointed_Animation_3
+  - first:
+      213: -8502430128183042737
+    second: 1_Sad_Disappointed_Animation_4
+  - first:
+      213: 7619893788388167711
+    second: 1_Sad_Disappointed_Animation_5
+  - first:
+      213: 8949876347357012642
+    second: 1_Sad_Disappointed_Animation_6
+  - first:
+      213: 2791599942973048920
+    second: 1_Sad_Disappointed_Animation_7
+  - first:
+      213: -4508949040005081375
+    second: 1_Sad_Disappointed_Animation_8
+  - first:
+      213: -4869137202075423404
+    second: 1_Sad_Disappointed_Animation_9
+  - first:
+      213: -6260076225392220438
+    second: 1_Sad_Disappointed_Animation_10
+  - first:
+      213: 7937637725782888752
+    second: 1_Sad_Disappointed_Animation_11
+  - first:
+      213: 1515973190023545784
+    second: 1_Sad_Disappointed_Animation_12
+  - first:
+      213: 7617045372552739720
+    second: 1_Sad_Disappointed_Animation_13
+  - first:
+      213: -2103391352100073737
+    second: 1_Sad_Disappointed_Animation_14
+  - first:
+      213: -7977299485137553648
+    second: 1_Sad_Disappointed_Animation_15
+  - first:
+      213: -7022008533650097862
+    second: 1_Sad_Disappointed_Animation_16
+  - first:
+      213: 7249980851109135436
+    second: 1_Sad_Disappointed_Animation_17
+  - first:
+      213: -2613427785581340489
+    second: 1_Sad_Disappointed_Animation_18
+  - first:
+      213: -8363889025126121414
+    second: 1_Sad_Disappointed_Animation_19
+  - first:
+      213: 5164388029764863489
+    second: 1_Sad_Disappointed_Animation_20
+  - first:
+      213: 6549304910415991992
+    second: 1_Sad_Disappointed_Animation_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 2559
+        width: 142
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca2a7bcc30127c880800000000000000
+      internalID: -8590861463982726484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 2559
+        width: 145
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c2a4e23dd97f7f0800000000000000
+      internalID: -578820496753546162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 2559
+        width: 138
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb028a57286c7bfa0800000000000000
+      internalID: -5784936932712111940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 3011
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4978c2f86f941d450800000000000000
+      internalID: 6111747492631316372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 2559
+        width: 141
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d1212a8dc410a80800000000000000
+      internalID: -8502430128183042737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 2047
+        width: 138
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f101513570d4fb960800000000000000
+      internalID: 7619893788388167711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2047
+        width: 151
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a2a2e39e19543c70800000000000000
+      internalID: 8949876347357012642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 2047
+        width: 148
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 858c8eb8b51cdb620800000000000000
+      internalID: 2791599942973048920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 1266
+        y: 2047
+        width: 155
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e69820dcbefc61c0800000000000000
+      internalID: -4508949040005081375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 1535
+        width: 150
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45da7a333895d6cb0800000000000000
+      internalID: -4869137202075423404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 1535
+        width: 154
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae6e0ae17ddbf19a0800000000000000
+      internalID: -6260076225392220438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 1535
+        width: 149
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0315709c477282e60800000000000000
+      internalID: 7937637725782888752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 1535
+        width: 145
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b38e589591d90510800000000000000
+      internalID: 1515973190023545784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 1023
+        width: 140
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88bf905d86e25b960800000000000000
+      internalID: 7617045372552739720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 1023
+        width: 147
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fe4272a5b04fc2e0800000000000000
+      internalID: -2103391352100073737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1023
+        width: 143
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01738714260fa4190800000000000000
+      internalID: -7977299485137553648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_16
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 1023
+        width: 144
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a39360e5170dc8e90800000000000000
+      internalID: -7022008533650097862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_17
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 511
+        width: 144
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c448eba0c2b1d9460800000000000000
+      internalID: 7249980851109135436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_18
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 511
+        width: 140
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b8d94a864d3bbbd0800000000000000
+      internalID: -2613427785581340489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_19
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 511
+        width: 140
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a30c194de3f7deb80800000000000000
+      internalID: -8363889025126121414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_20
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 511
+        width: 142
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1060a6c0d879ba740800000000000000
+      internalID: 5164388029764863489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Sad_Disappointed_Animation_21
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 143
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b41117cd1ec3ea50800000000000000
+      internalID: 6549304910415991992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      1_Sad_Disappointed_Animation_0: -8590861463982726484
+      1_Sad_Disappointed_Animation_1: -578820496753546162
+      1_Sad_Disappointed_Animation_10: -6260076225392220438
+      1_Sad_Disappointed_Animation_11: 7937637725782888752
+      1_Sad_Disappointed_Animation_12: 1515973190023545784
+      1_Sad_Disappointed_Animation_13: 7617045372552739720
+      1_Sad_Disappointed_Animation_14: -2103391352100073737
+      1_Sad_Disappointed_Animation_15: -7977299485137553648
+      1_Sad_Disappointed_Animation_16: -7022008533650097862
+      1_Sad_Disappointed_Animation_17: 7249980851109135436
+      1_Sad_Disappointed_Animation_18: -2613427785581340489
+      1_Sad_Disappointed_Animation_19: -8363889025126121414
+      1_Sad_Disappointed_Animation_2: -5784936932712111940
+      1_Sad_Disappointed_Animation_20: 5164388029764863489
+      1_Sad_Disappointed_Animation_21: 6549304910415991992
+      1_Sad_Disappointed_Animation_3: 6111747492631316372
+      1_Sad_Disappointed_Animation_4: -8502430128183042737
+      1_Sad_Disappointed_Animation_5: 7619893788388167711
+      1_Sad_Disappointed_Animation_6: 8949876347357012642
+      1_Sad_Disappointed_Animation_7: 2791599942973048920
+      1_Sad_Disappointed_Animation_8: -4508949040005081375
+      1_Sad_Disappointed_Animation_9: -4869137202075423404
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

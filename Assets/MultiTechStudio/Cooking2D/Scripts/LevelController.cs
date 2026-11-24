@@ -393,6 +393,17 @@ namespace MultiTechStudio.Cooking2D
             if (!isLevelSet || !UiManager.IsPlaying)
                 return;
 
+
+            if (isHelpingHandBooster)
+            {
+                helpingHandTime += Time.deltaTime;
+                if (helpingHandTime >= HelpingHandCheckInterval)
+                {
+                    helpingHandTime = 0f;
+                    AutoServeReadyDishes();
+                }
+            }
+
             _time += Time.deltaTime;
             if (_time >= timer)
             {
@@ -1281,6 +1292,54 @@ namespace MultiTechStudio.Cooking2D
             }
             return null;
         }
+        // Helping Hand: how often ready plates are checked and served automatically.
+        private const float HelpingHandCheckInterval = 0.2f;
+        private float helpingHandTime;
+
+        /// <summary>
+        /// Helping Hand booster: every plate / glass that is ready and matches a waiting customer
+        /// is served at once (meat plates, pizza, garlic bread, juice). Before, it only served
+        /// when the NEXT customer arrived, so ready food waited on the counter.
+        /// </summary>
+        private void AutoServeReadyDishes()
+        {
+            if (!isHelpingHandBooster || allOrders == null)
+                return;
+            if (TutorialManager.instance != null && TutorialManager.instance.isTutorialRunning)
+                return;
+
+            ServeAll(mainDishes);
+            ServeAll(mainDishes2);
+            ServeAll(allDishes); // pizza plates
+
+            if (juiceMachines != null)
+                foreach (JuiceMachine machine in juiceMachines)
+                    if (machine != null && machine.isActiveAndEnabled) machine.AutoOrderServe();
+            if (juiceMachines2 != null)
+                foreach (JuiceMachine machine in juiceMachines2)
+                    if (machine != null && machine.isActiveAndEnabled) machine.AutoOrderServe();
+
+            if (garlicBreadManager != null && garlicBreadManager.isActiveAndEnabled && garlicBreadManager.plates != null)
+            {
+                foreach (GarlicBreadPlate plate in garlicBreadManager.plates)
+                {
+                    if (plate != null && plate.isActiveAndEnabled && plate.isFilled && !plate.IsBreadLanding())
+                        plate.TryServe();
+                }
+            }
+        }
+
+        private static void ServeAll(MainDish[] dishes)
+        {
+            if (dishes == null)
+                return;
+            foreach (MainDish dish in dishes)
+            {
+                if (dish != null && dish.isActiveAndEnabled)
+                    dish.AutoOrderServe();
+            }
+        }
+
         public void HelpingHandBooster(ObjectType _objectType, bool _newOrder = false)
         {
             if (isHelpingHandBooster)
@@ -1843,6 +1902,7 @@ namespace MultiTechStudio.Cooking2D
 
             SetCookerLock();
             SetPizzaOvenVisibility();
+            SetCupcakeStationVisibility();
 
             baseCoockingTime = levelConfig.baseCoockingTime;
             baseBurningTime = levelConfig.baseBurningTime;
@@ -1858,6 +1918,62 @@ namespace MultiTechStudio.Cooking2D
             isLevelSet = true;
             burnedThisLevel = false;
 
+        }
+
+        /// <summary>
+        /// The cupcake oven (and its tray) only belong in levels that make cupcakes.
+        /// Cupcake level: shown from the start. Any other level: hidden the whole level.
+        /// </summary>
+        private void SetCupcakeStationVisibility()
+        {
+            bool show = IsCupcakeLevel();
+
+            if (cupcakeCooker != null)
+                cupcakeCooker.gameObject.SetActive(show);
+
+            // Trays are turned on by SetData only when the level places them; just make sure
+            // they stay off in a non-cupcake level.
+            if (!show && cupcakeobjects != null)
+            {
+                foreach (ClickingObject tray in cupcakeobjects)
+                {
+                    if (tray != null)
+                        tray.gameObject.SetActive(false);
+                }
+            }
+        }
+
+        /// <summary>
+        /// True when this level uses cupcakes: the cupcake / cupcake plates are placed, or any
+        /// customer (or part of a multi order) asks for a cupcake.
+        /// </summary>
+        public bool IsCupcakeLevel()
+        {
+            if (levelConfig == null)
+                return false;
+
+            if (HasObject(ObjectType.CapCake) || HasObject(ObjectType.CupcakePlate))
+                return true;
+
+            if (levelConfig.allOrders == null)
+                return false;
+
+            foreach (OrderDetails order in levelConfig.allOrders)
+            {
+                if (order == null)
+                    continue;
+                if (order.coockBase == ObjectType.CapCake)
+                    return true;
+                if (order.multiOrder && order.allMultiOrders != null)
+                {
+                    foreach (MultiOrderDetails multi in order.allMultiOrders)
+                    {
+                        if (multi != null && multi.coockBase == ObjectType.CapCake)
+                            return true;
+                    }
+                }
+            }
+            return false;
         }
 
         /// <summary>

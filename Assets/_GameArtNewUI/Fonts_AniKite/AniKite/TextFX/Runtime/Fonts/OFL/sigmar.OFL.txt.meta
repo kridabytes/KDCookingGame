@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 58c7128d48e4af244806b943589d1018
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/Fonts/OFL/sigmar.OFL.txt
+  uploadId: 1017394

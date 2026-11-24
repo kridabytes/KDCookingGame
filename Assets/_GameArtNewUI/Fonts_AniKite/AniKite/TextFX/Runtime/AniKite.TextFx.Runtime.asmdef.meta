@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bf94b8452a7ec3448a88057b57648c17
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 416066
+  packageName: Text Effect Engine (UGUI)
+  packageVersion: 1.0.0
+  assetPath: Assets/AniKite/TextFX/Runtime/AniKite.TextFx.Runtime.asmdef
+  uploadId: 1017394

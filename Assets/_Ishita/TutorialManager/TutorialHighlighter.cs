@@ -1,263 +1,305 @@
 using UnityEngine;
 using UnityEngine.UI;
 using MultiTechStudio.Cooking2D;
-using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 
+/// <summary>
+/// Gameplay hint look: the whole screen is darkened and ONLY the real object of the current
+/// hint step is drawn above the dark layer (it is "lifted" with its own Canvas sort order),
+/// with the hint hand tapping on it. When the step changes, the old object goes back to normal
+/// and the next one is lifted.
+///
+/// Before, a copied sprite was drawn on top of the dark layer; that copy often did not match the
+/// object (wrong size, missing food on the plate, missing stove), so the hint looked wrong.
+/// </summary>
 public class TutorialHighlighter : MonoBehaviour
 {
     public static TutorialHighlighter instance;
 
-   [Header("Level 1 UI")]
-public Image dimBackground_L1;
-public RectTransform hole_L1;
-public Image highlightImage_L1;
+    [Header("Level 1 UI")]
+    public Image dimBackground_L1;
+    public RectTransform hole_L1;
+    public Image highlightImage_L1;
 
-[Header("Level 2 UI")]
-public Image dimBackground_L2;
-public RectTransform hole_L2;
-public Image highlightImage_L2;
+    [Header("Level 2 UI")]
+    public Image dimBackground_L2;
+    public RectTransform hole_L2;
+    public Image highlightImage_L2;
 
-// ✅ runtime active references
-private Image dimBackground;
-private RectTransform hole;
-private Image highlightImage;
-    private Cooker currentCooker;
+    [Header("Look")]
+    [Tooltip("Sort order of the dark layer while a hint shows. Must be above every gameplay canvas " +
+             "(dishes, stoves, trays, table, customers use 5 or less), so nothing else stays bright.")]
+    public int dimSortingOrder = 40;
+    [Tooltip("Sort order of the hinted object: just above the dark layer.")]
+    public int liftedSortingOrder = 41;
+    [Tooltip("Sort order of the hint hand: above the hinted object.")]
+    public int handSortingOrder = 45;
+    [Tooltip("How dark the screen gets (0..1).")]
+    [Range(0f, 1f)] public float dimAlpha = 0.72f;
+    public float fadeTime = 0.25f;
+
+    // runtime active references
+    private Image dimBackground;
+    private RectTransform hole;
+    private Image highlightImage;
+
+    private Transform liftedTarget;
+    private readonly List<LiftedCanvas> liftedCanvases = new List<LiftedCanvas>();
+
+    private class LiftedCanvas
+    {
+        public Canvas canvas;
+        public bool added;
+        public bool overrideSorting;
+        public int sortingOrder;
+    }
 
     private void Awake()
     {
         instance = this;
     }
-   public void SetTutorialUI(bool isLevel2)
-{
-    if (isLevel2)
-    {
-        dimBackground = dimBackground_L2;
-        hole = hole_L2;
-        highlightImage = highlightImage_L2;
 
-        SafeSet(dimBackground_L1, false);
+    public void SetTutorialUI(bool isLevel2)
+    {
+        if (isLevel2)
+        {
+            dimBackground = dimBackground_L2;
+            dimPrepared = false;
+            hole = hole_L2;
+            highlightImage = highlightImage_L2;
+
+            SafeSet(dimBackground_L1, false);
+        }
+        else
+        {
+            dimBackground = dimBackground_L1;
+            dimPrepared = false;
+            hole = hole_L1;
+            highlightImage = highlightImage_L1;
+
+            SafeSet(dimBackground_L2, false);
+        }
+
+        // The old "copied picture" highlight is not used any more.
         SafeSet(highlightImage_L1, false);
-        SafeSet(hole_L1, false);
-    }
-    else
-    {
-        dimBackground = dimBackground_L1;
-        hole = hole_L1;
-        highlightImage = highlightImage_L1;
-
-        SafeSet(dimBackground_L2, false);
         SafeSet(highlightImage_L2, false);
+        SafeSet(hole_L1, false);
         SafeSet(hole_L2, false);
+
+        if (dimBackground == null)
+            Debug.LogError("Tutorial dim background NOT assigned");
     }
 
-    // ❗ FINAL SAFETY
-    if (dimBackground == null || highlightImage == null)
+    void SafeSet(Component obj, bool state)
     {
-        Debug.LogError("Tutorial UI NOT assigned properly ❌");
+        if (obj != null)
+            obj.gameObject.SetActive(state);
     }
-}
-void SafeSet(Component obj, bool state)
-{
-    if (obj != null)
-        obj.gameObject.SetActive(state);
-}
-public void HighlightCooker(Cooker cooker)
-{
-    ClearExtraLayers();
-    dimBackground.gameObject.SetActive(true);
-    highlightImage.gameObject.SetActive(true);
 
-    currentCooker = cooker;
-}
-public void HighlightTarget(Transform target)
-{
-    if (dimBackground == null || highlightImage == null)
+    // ---------------------------------------------------------------- Focus
+
+    /// <summary>Darkens the screen and shows only <paramref name="target"/> lit up.</summary>
+    public void Focus(Transform target, Transform alsoShow = null)
     {
-        Debug.LogError("Highlight UI NULL ❌");
-        return;
+        if (target == liftedTarget && alsoShow == liftedExtra && target != null)
+            return;
+
+        Unlift();
+        ShowDim();
+
+        if (target == null)
+            return;
+
+        // A fallback target that is itself part of the dark layer just needs to be visible.
+        if (dimBackground != null && target.IsChildOf(dimBackground.transform))
+        {
+            target.gameObject.SetActive(true);
+            return;
+        }
+
+        Lift(target);
+        // The thing the hand taps (e.g. the juice glass) must be lit too if it is not inside the object.
+        if (alsoShow != null && !alsoShow.IsChildOf(target))
+        {
+            liftedExtra = alsoShow;
+            LiftOne(alsoShow);
+        }
+
+        // Small "look here" pop on the object.
+        Transform pop = target;
+        pop.DOKill(true);
+        pop.DOPunchScale(Vector3.one * 0.08f, 0.35f, 5, 0.6f);
     }
 
-    currentCooker = null;
-    ClearExtraLayers();
+    // Kept for existing callers.
+    public void HighlightTarget(Transform target) => Focus(target);
+    public void HighlightCooker(Cooker cooker) => Focus(cooker != null ? cooker.transform : null);
+    public void HighlightDish(MainDish dish) => Focus(dish != null ? dish.transform : null);
+    public void ClearCooker() { }
 
-    dimBackground.gameObject.SetActive(true);
-    highlightImage.gameObject.SetActive(true);
-
-    Image targetImg = target.GetComponent<Image>();
-
-    if (targetImg == null)
+    public void Hide()
     {
-        Debug.LogError("No Image found on target: " + target.name);
-        return;
+        Unlift();
+        HideDim();
+        SafeSet(hole, false);
+        SafeSet(highlightImage, false);
     }
 
-    highlightImage.sprite = targetImg.sprite;
-
-    RectTransform targetRect = targetImg.GetComponent<RectTransform>();
-    RectTransform highlightRect = highlightImage.GetComponent<RectTransform>();
-
-    highlightRect.sizeDelta = targetRect.rect.size;
-    highlightRect.localScale = Vector3.one;
-    highlightRect.rotation = Quaternion.identity;
-
-    Vector2 pos;
-    RectTransformUtility.ScreenPointToLocalPointInRectangle(
-        highlightRect.parent as RectTransform,
-        Camera.main.WorldToScreenPoint(targetRect.position),
-        Camera.main,
-        out pos
-    );
-
-    highlightRect.anchoredPosition = pos;
-}
-  public void Hide()
-{
-    ClearExtraLayers();
-
-    if (dimBackground != null)
-        dimBackground.gameObject.SetActive(false);
-
-    if (hole != null)
-        hole.gameObject.SetActive(false);
-
-    if (highlightImage != null)
-        highlightImage.gameObject.SetActive(false);
-}
-    void Update()
-{
-    if (currentCooker != null)
+    private void OnDisable()
     {
-        UpdateCookerHighlight();
+        Unlift();
     }
-    
-}
-void UpdateCookerHighlight()
-{
-    Image targetImg = currentCooker.baseImage;
 
-    if (targetImg == null) return;
+    // ---------------------------------------------------------------- Dim layer
 
-    highlightImage.sprite = targetImg.sprite;
+    private float savedDimAlpha = -1f;
 
-    RectTransform targetRect = targetImg.GetComponent<RectTransform>();
-    RectTransform highlightRect = highlightImage.GetComponent<RectTransform>();
-
-    highlightRect.sizeDelta = targetRect.rect.size;
-    highlightRect.localScale = Vector3.one;
-
-    Vector2 pos;
-    RectTransformUtility.ScreenPointToLocalPointInRectangle(
-        highlightRect.parent as RectTransform,
-        Camera.main.WorldToScreenPoint(targetRect.position),
-        Camera.main,
-        out pos
-    );
-
-    highlightRect.anchoredPosition = pos;
-}
-public void ClearCooker()
-{
-    currentCooker = null;
-}
-public void HighlightDish(MainDish dish)
-{
-    currentCooker = null;
-    ClearExtraLayers();
-
-    StartCoroutine(HighlightDishCoroutine(dish));
-}
-
-IEnumerator HighlightDishCoroutine(MainDish dish)
-{
-    // ✅ WAIT 1 FRAME (VERY IMPORTANT FIX)
-    yield return null;
-
-    dimBackground.gameObject.SetActive(true);
-    highlightImage.gameObject.SetActive(true);
-
-    // The whole stack on the plate, bottom first: meat, then the toppings on top of it.
-    List<Image> layers = dish.GetCurrentFoodImages();
-
-    if (layers.Count == 0)
+    /// <summary>Draws the hint hand above the dark layer and the hinted object.</summary>
+    public void RaiseHand(GameObject hand)
     {
-        Debug.LogError("No food image found on dish!");
-        yield break;
+        if (hand == null)
+            return;
+        Canvas canvas = hand.GetComponent<Canvas>();
+        if (canvas == null)
+            canvas = hand.AddComponent<Canvas>();
+        canvas.overrideSorting = true;
+        canvas.sortingOrder = handSortingOrder;
+        Image img = hand.GetComponent<Image>();
+        if (img != null)
+            img.raycastTarget = false;
     }
 
-    // 🔥 FORCE CANVAS UPDATE (CRITICAL)
-    Canvas.ForceUpdateCanvases();
+    private bool dimPrepared;
 
-    // Bottom layer goes on the main highlight image...
-    PlaceOver(highlightImage, layers[0]);
-
-    // ...and every layer above it (the toppings) is drawn on top of it, in the same order.
-    // The highlight image has its own Canvas with override sorting. A cloned copy would get the
-    // same sorting order, and with equal orders Unity ignores sibling order, so a topping could
-    // end up drawn under the meat. Instead each topping layer is a plain Image *inside* the
-    // highlight image: children of a canvas always draw after (above) their parent, in child order,
-    // and they stay below the hand pointer's canvas.
-    for (int i = 1; i < layers.Count; i++)
+    /// <summary>
+    /// The dark layer used to sit at sort order 5, the same as the Dishes group (all plates,
+    /// stoves and trays) which is drawn after it, so every object stayed bright. It now goes on
+    /// top of all gameplay canvases and is made larger than the screen.
+    /// </summary>
+    private void PrepareDim()
     {
-        Image layer = CreateHighlightLayer(i);
-        PlaceOver(layer, layers[i]);
-        extraLayers.Add(layer.gameObject);
+        if (dimPrepared || dimBackground == null)
+            return;
+        dimPrepared = true;
+
+        Canvas canvas = dimBackground.GetComponent<Canvas>();
+        if (canvas == null)
+            canvas = dimBackground.gameObject.AddComponent<Canvas>();
+        canvas.overrideSorting = true;
+        canvas.sortingOrder = dimSortingOrder;
+
+        RectTransform rect = dimBackground.rectTransform;
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = new Vector2(-5000f, -5000f);
+        rect.offsetMax = new Vector2(5000f, 5000f);
     }
-}
 
-Image CreateHighlightLayer(int index)
-{
-    var go = new GameObject("Highlight Layer " + index, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
-    go.layer = highlightImage.gameObject.layer;
-
-    var rect = (RectTransform)go.transform;
-    rect.SetParent(highlightImage.transform, false);
-    rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 0.5f);
-    rect.pivot = new Vector2(0.5f, 0.5f);
-    rect.SetAsLastSibling();
-
-    Image img = go.GetComponent<Image>();
-    img.material = highlightImage.material;
-    img.color = highlightImage.color;
-    img.raycastTarget = false;
-    return img;
-}
-
-// Extra highlight copies made for a stacked dish (toppings over the meat).
-private readonly List<GameObject> extraLayers = new List<GameObject>();
-
-void ClearExtraLayers()
-{
-    for (int i = 0; i < extraLayers.Count; i++)
+    private void ShowDim()
     {
-        if (extraLayers[i] != null)
-            Destroy(extraLayers[i]);
+        if (dimBackground == null)
+            return;
+        PrepareDim();
+
+        // Keep the darkness that was set on the dark layer in the scene, if any.
+        if (savedDimAlpha < 0f)
+            savedDimAlpha = dimBackground.color.a > 0.05f ? dimBackground.color.a : dimAlpha;
+
+        // Only the dark layer itself: its old highlight copies stay hidden.
+        foreach (Transform child in dimBackground.transform)
+            child.gameObject.SetActive(false);
+
+        dimBackground.raycastTarget = false;
+        if (!dimBackground.gameObject.activeSelf)
+        {
+            Color c = dimBackground.color;
+            c.a = 0f;
+            dimBackground.color = c;
+            dimBackground.gameObject.SetActive(true);
+        }
+        dimBackground.DOKill();
+        dimBackground.DOFade(savedDimAlpha, fadeTime).SetEase(Ease.OutQuad);
     }
-    extraLayers.Clear();
-}
 
-// Copies the sprite, size and screen position of target onto highlight.
-void PlaceOver(Image highlight, Image target)
-{
-    highlight.sprite = target.sprite;
-    highlight.preserveAspect = target.preserveAspect;
+    private void HideDim()
+    {
+        if (dimBackground == null || !dimBackground.gameObject.activeSelf)
+            return;
 
-    RectTransform targetRect = target.rectTransform;
-    RectTransform highlightRect = highlight.rectTransform;
+        Image dim = dimBackground;
+        dim.DOKill();
+        dim.DOFade(0f, fadeTime).SetEase(Ease.InQuad).OnComplete(() =>
+        {
+            if (dim != null)
+                dim.gameObject.SetActive(false);
+        });
+    }
 
-    highlightRect.sizeDelta = targetRect.rect.size;
-    highlightRect.localScale = Vector3.one;
-    highlightRect.rotation = Quaternion.identity;
+    // ---------------------------------------------------------------- Lift
 
-    Vector2 pos;
-    RectTransformUtility.ScreenPointToLocalPointInRectangle(
-        highlightRect.parent as RectTransform,
-        Camera.main.WorldToScreenPoint(targetRect.position),
-        Camera.main,
-        out pos
-    );
+    private Transform liftedExtra;
 
-    highlightRect.anchoredPosition = pos;
-}
+    private void Lift(Transform target)
+    {
+        liftedTarget = target;
+        LiftOne(target);
+    }
 
+    private void LiftOne(Transform target)
+    {
+        Canvas root = target.GetComponent<Canvas>();
+        bool added = false;
+        if (root == null)
+        {
+            root = target.gameObject.AddComponent<Canvas>();
+            added = true;
+        }
+        Remember(root, added);
+        root.overrideSorting = true;
+        root.sortingOrder = liftedSortingOrder;
+
+        // Child canvases that sort themselves (e.g. a stove picture) must go up as well.
+        foreach (Canvas child in target.GetComponentsInChildren<Canvas>(true))
+        {
+            if (child == root || !child.overrideSorting)
+                continue;
+            Remember(child, false);
+            child.sortingOrder = liftedSortingOrder + 1;
+        }
+    }
+
+    private void Remember(Canvas canvas, bool added)
+    {
+        liftedCanvases.Add(new LiftedCanvas
+        {
+            canvas = canvas,
+            added = added,
+            overrideSorting = canvas.overrideSorting,
+            sortingOrder = canvas.sortingOrder
+        });
+    }
+
+    private void Unlift()
+    {
+        for (int i = liftedCanvases.Count - 1; i >= 0; i--)
+        {
+            LiftedCanvas saved = liftedCanvases[i];
+            if (saved.canvas == null)
+                continue;
+            if (saved.added)
+            {
+                // Immediately, so the next step can lift the same object again in this frame.
+                DestroyImmediate(saved.canvas);
+            }
+            else
+            {
+                saved.canvas.overrideSorting = saved.overrideSorting;
+                saved.canvas.sortingOrder = saved.sortingOrder;
+            }
+        }
+        liftedCanvases.Clear();
+        liftedTarget = null;
+        liftedExtra = null;
+    }
 }

@@ -291,10 +291,10 @@ namespace MultiTechStudio.Cooking2D
                 {
                     if (upgradedata.level >= upgradedata.maxLevel)
                     {
-                        upgradedata.priceTxt.text = "MAX";
+                        GameText.Set(upgradedata.priceTxt, "ui_max", "MAX");
                     }
                     else if (!upgradedata.unlocked)
-                        upgradedata.priceTxt.text = "Locked";
+                        GameText.Set(upgradedata.priceTxt, "ui_locked", "Locked");
                     else
                         upgradedata.priceTxt.text = upgradedata.price.ToString();
                 }
@@ -339,7 +339,7 @@ namespace MultiTechStudio.Cooking2D
             {
                 nextAmountTxt.text = allUpgradeData[selectedUpgrade].curAmount.ToString();
                 next2AmountTxt.text = allUpgradeData[selectedUpgrade].cur2Amount.ToString();
-                priceTxt.text = "MAX";
+                GameText.Set(priceTxt, "ui_max", "MAX");
             }
         }
 
