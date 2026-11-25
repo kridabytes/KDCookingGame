@@ -451,6 +451,14 @@ namespace MultiTechStudio.Cooking2D
             return levelImages.glassEmptyImgs[Mathf.Clamp(GetUpgradedLevel(juiceType, false), 0, levelImages.glassEmptyImgs.Length - 1)];
         }
 
+        /// <summary>Empty cup that has the same shape as the filled coffee cup of the current upgrade.</summary>
+        public Sprite GetCoffeeEmptyImageAsLevel()
+        {
+            if (levelImages == null || levelImages.coffeeEmptyImgs == null || levelImages.coffeeEmptyImgs.Length == 0)
+                return null;
+            return levelImages.coffeeEmptyImgs[Mathf.Clamp(GetUpgradedLevel(ObjectType.JuiceMachine2, false), 0, levelImages.coffeeEmptyImgs.Length - 1)];
+        }
+
         public Sprite GetPickBaseImage(ObjectType _objectType, bool isMaking = false)
         {
             Sprite _sprite = null;

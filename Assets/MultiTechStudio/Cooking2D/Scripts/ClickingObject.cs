@@ -150,7 +150,7 @@ namespace MultiTechStudio.Cooking2D
                 return;
 
             GameManager.instance.uiAnimationManager.ClickAnimation(transform);
-            // ✅ CUPCAKE FLOW (same as pizza)
+            
             if (objectType == ObjectType.CapCake)
             {
                 // 🔒 Check if any cupcake plate already has cupcake
@@ -179,7 +179,7 @@ namespace MultiTechStudio.Cooking2D
                     AudioManager.Instance.MakeVibrate(VibrationType.Low);
                     levelController.garlicBreadManager.OnClickGarlicBread(transform);
                 }
-                return; // IMPORTANT
+                return; 
             }
             if (objectType == ObjectType.onion || objectType == ObjectType.Capsicum
        || objectType == ObjectType.Olive || objectType == ObjectType.mushroom)
@@ -188,15 +188,15 @@ namespace MultiTechStudio.Cooking2D
                !TutorialManager.instance.CanClickPizzaTopping(objectType))
                 {
                     Debug.Log("❌ Wrong topping click blocked: " + objectType);
-                    return; // ⛔ BLOCK WRONG CLICK
+                    return; 
                 }
                 toopingSound.Play();
 
                 AudioManager.Instance.MakeVibrate(VibrationType.Low);
-                // ✅ CORRECT CLICK
+               
                 levelController.ObjectClicked(objectType, transform);
                 // Find the pizza plate
-                MainDish pizzaPlate = levelController.GetPizzaPlate(); // ✅ You need this function
+                MainDish pizzaPlate = levelController.GetPizzaPlate(); 
                 if (pizzaPlate != null && pizzaPlate.HavePizza())
                 {
                     pizzaPlate.ToggleTopping(objectType, transform); // Add topping image to pizza (flies from the tray)

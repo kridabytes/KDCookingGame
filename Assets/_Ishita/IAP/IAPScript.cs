@@ -387,19 +387,21 @@ public class IAPScript : MonoBehaviour
         });
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
     }
+    // The shop popup has one Close button for both tabs, so the offer follows the open tab.
     public void CloseCoinIAPPanel()
     {
-        PopupAnimation.Hide(iapPanel);
-        watchAdCoin.SetActive(true);
-        WatchAdDaimond.SetActive(false);
-        PopupAnimation.Show(watchAdPanel);
-        AudioManager.Instance.MakeVibrate(VibrationType.Low);
+        CloseShop();
     }
     public void CloseDiamondIAPPanel()
     {
+        CloseShop();
+    }
+    private void CloseShop()
+    {
+        bool coinTab = coinIAPPanel.activeSelf;
         PopupAnimation.Hide(iapPanel);
-        WatchAdDaimond.SetActive(true);
-        watchAdCoin.SetActive(false);
+        watchAdCoin.SetActive(coinTab);
+        WatchAdDaimond.SetActive(!coinTab);
         PopupAnimation.Show(watchAdPanel);
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
     }

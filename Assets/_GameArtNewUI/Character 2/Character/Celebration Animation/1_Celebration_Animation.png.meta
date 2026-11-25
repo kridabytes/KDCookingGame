@@ -232,7 +232,7 @@ TextureImporter:
         width: 202
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -254,7 +254,7 @@ TextureImporter:
         width: 210
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -268,28 +268,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_Celebration_Animation_2
-      rect:
-        serializedVersion: 2
-        x: 461
-        y: 2296
-        width: 24
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fe6f0962bf50a2600800000000000000
-      internalID: 444174089491379951
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 1_Celebration_Animation_3
       rect:
         serializedVersion: 2
@@ -298,7 +276,7 @@ TextureImporter:
         width: 222
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -320,7 +298,7 @@ TextureImporter:
         width: 232
         height: 403
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -334,72 +312,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_Celebration_Animation_5
-      rect:
-        serializedVersion: 2
-        x: 678
-        y: 2273
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 72b87ef966316a590800000000000000
-      internalID: -7663416384433976537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_6
-      rect:
-        serializedVersion: 2
-        x: 844
-        y: 2271
-        width: 12
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c2edc0bce170bd210800000000000000
-      internalID: 1358687541419367980
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_7
-      rect:
-        serializedVersion: 2
-        x: 1264
-        y: 2079
-        width: 87
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1d23a89c47778a6c0800000000000000
-      internalID: -4131921314631241007
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 1_Celebration_Animation_8
       rect:
         serializedVersion: 2
@@ -408,7 +320,7 @@ TextureImporter:
         width: 233
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -430,7 +342,7 @@ TextureImporter:
         width: 233
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -452,7 +364,7 @@ TextureImporter:
         width: 210
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -466,72 +378,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_Celebration_Animation_11
-      rect:
-        serializedVersion: 2
-        x: 1059
-        y: 1912
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 51a9d6ef8b5890900800000000000000
-      internalID: 651198650720819733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_12
-      rect:
-        serializedVersion: 2
-        x: 1062
-        y: 1870
-        width: 13
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5df22bd6a664c0dc0800000000000000
-      internalID: -3671482173292924971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_13
-      rect:
-        serializedVersion: 2
-        x: 1064
-        y: 1907
-        width: 11
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c58b15586d28df840800000000000000
-      internalID: 5259503797709944924
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 1_Celebration_Animation_14
       rect:
         serializedVersion: 2
@@ -540,7 +386,7 @@ TextureImporter:
         width: 218
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -554,116 +400,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_Celebration_Animation_15
-      rect:
-        serializedVersion: 2
-        x: 459
-        y: 1878
-        width: 6
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c1d4eef23a44a44b0800000000000000
-      internalID: -5455472530931430116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_16
-      rect:
-        serializedVersion: 2
-        x: 462
-        y: 1825
-        width: 13
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a3fce03e825821fc0800000000000000
-      internalID: -3525609147623092422
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_17
-      rect:
-        serializedVersion: 2
-        x: 844
-        y: 1792
-        width: 12
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8906899d4f9b41c10800000000000000
-      internalID: 2023446593869996184
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_18
-      rect:
-        serializedVersion: 2
-        x: 844
-        y: 1764
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 75208bdc79049ac90800000000000000
-      internalID: -7158119111993064873
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_19
-      rect:
-        serializedVersion: 2
-        x: 846
-        y: 1740
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 035cc6c27915512d0800000000000000
-      internalID: -3308648641506523856
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 1_Celebration_Animation_20
       rect:
         serializedVersion: 2
@@ -672,7 +408,7 @@ TextureImporter:
         width: 223
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -694,7 +430,7 @@ TextureImporter:
         width: 233
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -711,12 +447,12 @@ TextureImporter:
       name: 1_Celebration_Animation_22
       rect:
         serializedVersion: 2
-        x: 844
+        x: 843
         y: 1023
-        width: 231
+        width: 232
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -730,50 +466,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_Celebration_Animation_23
-      rect:
-        serializedVersion: 2
-        x: 845
-        y: 1407
-        width: 7
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ae067fa913f56bf30800000000000000
-      internalID: 4590961536808739050
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_24
-      rect:
-        serializedVersion: 2
-        x: 1062
-        y: 1378
-        width: 13
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0e4167033ad203d30800000000000000
-      internalID: 4409074214111679712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 1_Celebration_Animation_25
       rect:
         serializedVersion: 2
@@ -782,7 +474,7 @@ TextureImporter:
         width: 233
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -796,116 +488,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1_Celebration_Animation_26
-      rect:
-        serializedVersion: 2
-        x: 844
-        y: 1310
-        width: 12
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9fe1288cf1161d350800000000000000
-      internalID: 6039715364416397049
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_27
-      rect:
-        serializedVersion: 2
-        x: 1053
-        y: 1299
-        width: 8
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3cbc7df47531e22b0800000000000000
-      internalID: -5607523220307063869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_28
-      rect:
-        serializedVersion: 2
-        x: 844
-        y: 1267
-        width: 9
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 75e0b45f7d1ede300800000000000000
-      internalID: 283130669243764311
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_29
-      rect:
-        serializedVersion: 2
-        x: 845
-        y: 1254
-        width: 9
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 07358e8fa88e415f0800000000000000
-      internalID: -786748351303888016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1_Celebration_Animation_30
-      rect:
-        serializedVersion: 2
-        x: 1051
-        y: 1240
-        width: 16
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f02bb0d14c4b6ccd0800000000000000
-      internalID: -2538142585582800369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 1_Celebration_Animation_31
       rect:
         serializedVersion: 2
@@ -914,7 +496,7 @@ TextureImporter:
         width: 236
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -936,7 +518,7 @@ TextureImporter:
         width: 233
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -958,7 +540,7 @@ TextureImporter:
         width: 220
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -980,7 +562,7 @@ TextureImporter:
         width: 221
         height: 462
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1002,7 +584,7 @@ TextureImporter:
         width: 220
         height: 461
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1024,7 +606,7 @@ TextureImporter:
         width: 219
         height: 461
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1046,7 +628,7 @@ TextureImporter:
         width: 222
         height: 461
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1063,7 +645,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9d725870e65108041aaee899ee774cfa
     internalID: 0
     vertices: []
     indices: 

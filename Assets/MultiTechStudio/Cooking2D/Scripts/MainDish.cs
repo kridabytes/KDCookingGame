@@ -47,6 +47,13 @@ namespace MultiTechStudio.Cooking2D
         [Tooltip("Sauce bowl centre on the plate, as a part of the plate size (0,0 = centre).")]
         [SerializeField] private Vector2 sauceOffset = new Vector2(0.3f, -0.12f);
 
+        // Burger toppings (MainDish1 in truck 2 / 3), as a part of the burger's size on this plate.
+        // The burger and the fish themselves follow the "Child" object placed in the scene.
+        private const float cheeseWidthOnBurger = 0.93f;
+        private static readonly Vector2 cheeseOffset = new Vector2(0f, 0.02f);
+        private const float lettuceWidthOnBurger = 0.59f;
+        private static readonly Vector2 lettuceOffset = new Vector2(0.02f, -0.29f);
+
         [Header("Sound")]
         public AudioSource servfoodSound;
 
@@ -290,6 +297,64 @@ namespace MultiTechStudio.Cooking2D
                 LayoutPizzaItem(item, itemType, area);
             else if (objectType == ObjectType.MainDish2)
                 LayoutFishItem(item, itemType, area);
+            else if (objectType == ObjectType.MainDish1 && GetComponentInParent<TruckResolutionLayout>(true) != null)
+                LayoutBurgerItem(item, itemType, area);
+        }
+
+        /// <summary>
+        /// Burger plate (truck 2 / 3): same burger size and place on all three plates, and in the
+        /// order bubble, for every upgrade picture and screen size.
+        /// </summary>
+        private void LayoutBurgerItem(GameObject item, ObjectType itemType, RectTransform area)
+        {
+            if (item == null || area == null)
+                return;
+            RectTransform rect = item.transform as RectTransform;
+            Image image = item.GetComponent<Image>();
+            Vector2 plate = area.rect.size;
+            if (rect == null || image == null || plate.x <= 0f || plate.y <= 0f)
+                return;
+
+            if (itemType == ObjectType.CoockedBase1 || itemType == ObjectType.Topping1)
+            {
+                FollowTemplate(rect, image);
+                return;
+            }
+
+            // Toppings sit on the burger: find the burger's box on this plate.
+            RectTransform burger = childImg != null ? childImg.transform as RectTransform : null;
+            if (burger == null)
+                return;
+            Vector2 boxSize = Vector2.Scale(burger.anchorMax - burger.anchorMin, plate);
+            Vector2 boxCentre = Vector2.Scale((burger.anchorMin + burger.anchorMax) * 0.5f - new Vector2(0.5f, 0.5f), plate);
+            float side = Mathf.Min(boxSize.x, boxSize.y); // burger pictures are square...
+            Vector2 burgerSize = new Vector2(side * 0.7f, side * 0.6f); // ...with an empty border
+
+            if (itemType == ObjectType.Topping2)
+                PlaceVisiblePart(rect, image, plate, cheeseWidthOnBurger * burgerSize.x, burgerSize.y,
+                                 boxCentre + Vector2.Scale(cheeseOffset, burgerSize));
+            else if (itemType == ObjectType.Topping5)
+                PlaceVisiblePart(rect, image, plate, lettuceWidthOnBurger * burgerSize.x, burgerSize.y,
+                                 boxCentre + Vector2.Scale(lettuceOffset, burgerSize));
+        }
+
+        /// <summary>
+        /// Gives the food the exact place and size of this plate's "Child" object in the scene
+        /// (TruckResolutionLayout turned it into anchors, so it fits every resolution).
+        /// </summary>
+        private void FollowTemplate(RectTransform rect, Image image)
+        {
+            RectTransform template = childImg != null ? childImg.transform as RectTransform : null;
+            if (template == null)
+                return;
+            rect.anchorMin = template.anchorMin;
+            rect.anchorMax = template.anchorMax;
+            rect.pivot = template.pivot;
+            rect.sizeDelta = template.sizeDelta;
+            rect.anchoredPosition = template.anchoredPosition;
+            rect.localRotation = Quaternion.identity;
+            rect.localScale = Vector3.one;
+            image.preserveAspect = true;
         }
 
         /// <summary>
@@ -313,11 +378,17 @@ namespace MultiTechStudio.Cooking2D
             if (plate.x <= 0f || plate.y <= 0f)
                 return;
 
+            bool followScene = GetComponentInParent<TruckResolutionLayout>(true) != null;
+            Image plateImage = GetComponent<Image>();
+            float plateAspect = SpriteAspect(plateImage != null ? plateImage.sprite : null, 2.23f);
             float width;
             float maxHeight;
             Vector2 offset;
             switch (itemType)
             {
+                case ObjectType.CoockedBase2 when followScene:
+                    FollowTemplate(rect, image);
+                    return;
                 case ObjectType.CoockedBase2:
                     width = plate.x * fishWidthOnPlate;
                     maxHeight = plate.y * fishMaxHeightOnPlate;
@@ -337,6 +408,14 @@ namespace MultiTechStudio.Cooking2D
                     return;
             }
 
+            if (followScene)
+            {
+                // Use the plate that is really drawn (its box can be taller than the picture),
+                // and keep the lemon / sauce where they belong on the fish placed in the scene.
+                float drawnHeight = Mathf.Min(plate.y, plate.x / plateAspect);
+                maxHeight = drawnHeight * 0.6f;
+                offset.y = (offset.y + 0.09f) * drawnHeight / plate.y;
+            }
             PlaceVisiblePart(rect, image, plate, width, maxHeight, new Vector2(offset.x * plate.x, offset.y * plate.y));
         }
 
@@ -772,43 +851,7 @@ namespace MultiTechStudio.Cooking2D
             GameManager.instance.uiAnimationManager.ClickAnimation(transform);
             if (objectType == ObjectType.CupcakePlate)
             {
-                if (HaveCupcake() && !IsCupcakeLanding())
-                {
-                    Debug.Log("Cupcake Ready → Serving");
-
-                    if (levelController.IsOrderWaiting(ObjectType.CapCake, this, 0))
-                    {
-                        servfoodSound.Play();
-                        AudioManager.Instance.MakeVibrate(VibrationType.Low);
-
-                        GameObject _dish = Instantiate(
-                            gameObject,
-                            transform.position,
-                            Quaternion.identity,
-                            transform.parent
-                        );
-
-                        _dish.SetActive(false);
-
-                        // Remove scripts/collider from temporary animation object
-                        Destroy(_dish.GetComponent<BoxCollider2D>());
-                        Destroy(_dish.GetComponent<MainDish>());
-
-                        // Send Cupcake to Bot
-                        GameManager.instance.uiAnimationManager.SetOrderCompleteAnim(_dish);
-
-                        levelController.ObjectClicked(ObjectType.CapCake, transform);
-                        ClearDish();
-
-                        // hide again after serve
-                        gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        Debug.Log("No cupcake order");
-                    }
-                }
-
+                TryServeCupcake();
                 return;
             }
 
@@ -958,10 +1001,45 @@ namespace MultiTechStudio.Cooking2D
         }
 
         /// <summary>
+        /// Serves the cupcake if it has landed and a customer waits for one.
+        /// Used by the tap and by the Helping Hand booster.
+        /// </summary>
+        private void TryServeCupcake()
+        {
+            if (levelController == null)
+                levelController = LevelController.instance;
+            if (levelController == null || !HaveCupcake() || IsCupcakeLanding()
+                || !levelController.IsOrderWaiting(ObjectType.CapCake, this, 0))
+                return;
+
+            if (servfoodSound != null)
+                servfoodSound.Play();
+            AudioManager.Instance.MakeVibrate(VibrationType.Low);
+
+            GameObject _dish = Instantiate(gameObject, transform.position, Quaternion.identity, transform.parent);
+            _dish.SetActive(false);
+
+            // Remove scripts/collider from temporary animation object
+            Destroy(_dish.GetComponent<BoxCollider2D>());
+            Destroy(_dish.GetComponent<MainDish>());
+
+            // Send Cupcake to Bot
+            GameManager.instance.uiAnimationManager.SetOrderCompleteAnim(_dish);
+
+            levelController.ObjectClicked(ObjectType.CapCake, transform);
+            ClearDish();
+
+            // hide again after serve
+            gameObject.SetActive(false);
+        }
+
+        /// <summary>
         /// Helper for Helping Hand booster to auto-serve a completed dish.
         /// </summary>
         public void AutoOrderServe()
         {
+            if (levelController == null && objectType == ObjectType.CupcakePlate)
+                levelController = LevelController.instance; // cupcake plates never get SetData
             if (levelController == null || !gameObject.activeInHierarchy || IsFoodLanding())
                 return;
 
@@ -984,7 +1062,10 @@ namespace MultiTechStudio.Cooking2D
                 return;
             }
             if (objectType == ObjectType.CupcakePlate)
+            {
+                TryServeCupcake();
                 return;
+            }
             // Garlic bread is served from its own plates (GarlicBreadPlate.TryServe).
             if (objectType == ObjectType.GarlicBread && levelController.garlicBreadManager != null)
                 return;

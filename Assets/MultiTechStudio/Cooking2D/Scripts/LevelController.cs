@@ -92,6 +92,35 @@ namespace MultiTechStudio.Cooking2D
         {
             instance = this;
 
+            // Trucks 2 and 3: same counter layout on every resolution.
+            if (gameObject.name == "Level02" || gameObject.name == "Level03")
+            {
+                TruckResolutionLayout layout = GetComponent<TruckResolutionLayout>();
+                if (layout == null)
+                    layout = gameObject.AddComponent<TruckResolutionLayout>();
+                layout.Setup();
+
+                DrawFrontRowOnTop(mainDishes);
+                DrawFrontRowOnTop(mainDishes2);
+                DrawFrontRowOnTop(coockedBases);
+                DrawFrontRowOnTop(coockedBases2);
+                DrawFrontRowOnTop(cupCakeallDishes);
+            }
+        }
+
+        /// <summary>
+        /// Arrays go front (nearest the player) to back. The front one must be drawn last, or the
+        /// 2nd plate covers the 1st burger and the 3rd grill lock covers the 2nd patty.
+        /// </summary>
+        private static void DrawFrontRowOnTop<T>(T[] frontToBack) where T : Component
+        {
+            if (frontToBack == null)
+                return;
+            for (int i = frontToBack.Length - 1; i >= 0; i--)
+            {
+                if (frontToBack[i] != null)
+                    frontToBack[i].transform.SetAsLastSibling();
+            }
         }
         bool CheckTutorialStep(ObjectType type)
         {
@@ -1311,6 +1340,7 @@ namespace MultiTechStudio.Cooking2D
             ServeAll(mainDishes);
             ServeAll(mainDishes2);
             ServeAll(allDishes); // pizza plates
+            ServeAll(cupCakeallDishes); // a plate that was just served is empty, so never served twice
 
             if (juiceMachines != null)
                 foreach (JuiceMachine machine in juiceMachines)

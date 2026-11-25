@@ -57,6 +57,134 @@ namespace MultiTechStudio.Cooking2D
         public AudioSource fillsound;
         public AudioSource fillcompliteSound;
 
+        #region Coffee machine layout (truck 2 / 3)
+
+        // Measured on each machine picture, as a part of the picture (0,0 = bottom left):
+        // x = coffee stream, y = lower edge of the nozzle, z = where the bottom of the cup stands on the
+        // tray, w = middle of the cup body (between the nozzle and the middle of the tray).
+        private static readonly Vector4[] CoffeeSpots =
+        {
+            new Vector4(0.512f, 0.609f, 0.256f, 0.540f), // Coffee-machine1
+            new Vector4(0.510f, 0.612f, 0.267f, 0.540f), // Coffee-machine2
+            new Vector4(0.545f, 0.556f, 0.285f, 0.570f), // Coffee-machine3
+        };
+
+        private const float CupHeightOnMachine = 0.25f; // of the machine's box height
+        private const float CoffeeDesignHeight = 264f;  // machine box height at 1920x1080
+        private const float CoffeeStreamWidth = 24f;    // pixels at 1920x1080
+        private bool coffeeLayoutDone;
+
+        /// <summary>
+        /// Puts the cup exactly under the nozzle and the coffee stream exactly between the nozzle and
+        /// the cup, for every machine / cup upgrade. Everything is anchored inside the machine, so it
+        /// holds on every resolution (the stream was placed on the screen, apart from the machine).
+        /// </summary>
+        private void LayoutCoffeeMachine()
+        {
+            Image machineImage = GetComponent<Image>();
+            if (juicePourParticle == null || fillGlassImg == null || glassImg == null || machineImage == null
+                || machineImage.sprite == null || GetComponentInParent<TruckResolutionLayout>(true) == null)
+                return;
+
+            string machineName = machineImage.sprite.name;
+            Vector4 spot = machineName.Contains("machine3") ? CoffeeSpots[2]
+                         : machineName.Contains("machine2") ? CoffeeSpots[1]
+                         : CoffeeSpots[0];
+
+            RectTransform machine = (RectTransform)transform;
+            Vector2 box = machine.rect.size;
+            if (box.x <= 0f || box.y <= 0f)
+                return;
+
+            // The area the machine picture really covers in its box.
+            float aspect = machineImage.sprite.rect.width / machineImage.sprite.rect.height;
+            Vector2 drawn = box.x / box.y > aspect ? new Vector2(box.y * aspect, box.y) : new Vector2(box.x, box.x / aspect);
+            Vector2 drawnMin = (box - drawn) * 0.5f;
+            machineImage.preserveAspect = true;
+
+            float nozzleX = drawnMin.x + spot.x * drawn.x;
+            float nozzleY = drawnMin.y + spot.y * drawn.y;
+            float trayY = drawnMin.y + spot.z * drawn.y;
+
+            // Cup: the body (not body + handle) stands right under the nozzle.
+            Sprite cup = glassImg.sprite;
+            // The third machine has a lower nozzle: a slightly smaller cup leaves room for the coffee.
+            float cupHeight = (spot == CoffeeSpots[2] ? 0.22f : CupHeightOnMachine) * box.y;
+            float cupWidth = cup != null ? cupHeight * cup.rect.width / cup.rect.height : cupHeight;
+            float bodyCentre = cup != null && cup.name.Contains("Cup_3") ? 0.485f : 0.41f;
+            float cupLeft = drawnMin.x + spot.w * drawn.x - cupWidth * bodyCentre;
+
+            RectTransform cupRect = (RectTransform)fillGlassImg.transform;
+            if (cupRect.parent == machine)
+            {
+                Place(cupRect, box, new Vector2(cupLeft, trayY), new Vector2(cupWidth, cupHeight));
+                if (glassImg.transform.parent == cupRect)
+                    Place(glassImg.rectTransform, Vector2.one, Vector2.zero, Vector2.one);
+            }
+
+            // Stream: from just inside the nozzle to the opening of the cup.
+            // (A drop is drawn around its point, so keep the ends inside by part of its size.)
+            float unit = box.y / CoffeeDesignHeight;
+            float startY = nozzleY - CoffeeStreamWidth * 0.35f * unit;
+            float endY = trayY + cupHeight * 0.8f + CoffeeStreamWidth * 0.15f * unit;
+
+            ParticleSystem stream = juicePourParticle;
+            stream.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            RectTransform streamRect = stream.transform as RectTransform;
+            stream.transform.SetParent(machine, false);
+            stream.transform.localRotation = Quaternion.identity;
+            stream.transform.localScale = Vector3.one * unit;
+            if (streamRect != null)
+            {
+                Vector2 anchor = new Vector2(nozzleX / box.x, startY / box.y);
+                streamRect.anchorMin = streamRect.anchorMax = anchor;
+                streamRect.pivot = new Vector2(0.5f, 0.5f);
+                streamRect.sizeDelta = Vector2.zero;
+                streamRect.anchoredPosition3D = Vector3.zero;
+            }
+
+            // Sizes are in canvas pixels from here on, so the stream scales with the screen.
+            ParticleSystem.MainModule main = stream.main;
+            main.scalingMode = ParticleSystemScalingMode.Hierarchy;
+            main.simulationSpace = ParticleSystemSimulationSpace.Local;
+            float lifetime = 0.3f;
+            main.startLifetime = lifetime;
+            main.startSize = CoffeeStreamWidth;
+            main.startSpeed = Mathf.Max(CoffeeStreamWidth * 0.4f, (startY - endY) / unit) / lifetime;
+            main.gravityModifier = 0f;
+
+            ParticleSystem.VelocityOverLifetimeModule velocity = stream.velocityOverLifetime;
+            velocity.enabled = false;
+            ParticleSystem.TextureSheetAnimationModule sheet = stream.textureSheetAnimation;
+            sheet.enabled = false;
+            ParticleSystem.ShapeModule shape = stream.shape;
+            shape.enabled = true;
+            shape.shapeType = ParticleSystemShapeType.Cone;
+            shape.position = Vector3.zero;
+            shape.rotation = new Vector3(90f, 0f, 0f); // straight down
+            shape.scale = Vector3.one;
+
+            coffeeLayoutDone = true;
+        }
+
+        /// <summary>Anchors <paramref name="rect"/> inside its parent (size <paramref name="box"/>).</summary>
+        private static void Place(RectTransform rect, Vector2 box, Vector2 min, Vector2 size)
+        {
+            rect.anchorMin = new Vector2(min.x / box.x, min.y / box.y);
+            rect.anchorMax = new Vector2((min.x + size.x) / box.x, (min.y + size.y) / box.y);
+            rect.anchoredPosition = Vector2.zero;
+            rect.sizeDelta = Vector2.zero;
+        }
+
+        // Screen size changed: the cup is anchored, only the stream needs the machine's new size.
+        private void OnRectTransformDimensionsChange()
+        {
+            if (coffeeLayoutDone && juicePourParticle != null)
+                juicePourParticle.transform.localScale = Vector3.one * (((RectTransform)transform).rect.height / CoffeeDesignHeight);
+        }
+
+        #endregion
+
         void StartPourEffect()
         {
             if (juicePour != null)
@@ -359,11 +487,20 @@ namespace MultiTechStudio.Cooking2D
                 if (emptyGlass != null && emptySprite != null)
                     emptyGlass.sprite = emptySprite;
             }
+            else if (juiceType == ObjectType.JuiceMachine2 && fillGlassImg != null)
+            {
+                // Coffee: the empty cup behind the fill must be the same cup, or two handles are seen.
+                Image emptyCup = fillGlassImg.GetComponent<Image>();
+                Sprite emptySprite = GameManager.instance.upgradeManager.GetCoffeeEmptyImageAsLevel();
+                if (emptyCup != null && emptySprite != null)
+                    emptyCup.sprite = emptySprite;
+            }
 
             // ✅ Apply machine image
             Sprite _machineImg = GameManager.instance.upgradeManager.GetToppingImageAsLevel(juiceType, true);
             GetComponent<Image>().sprite = _machineImg;
 
+            LayoutCoffeeMachine();
             SetUpPourEffect();
 
             gameObject.SetActive(true);

@@ -19,6 +19,8 @@ public class LevelImages : ScriptableObject
     public Sprite[] glass1FillImgs;
     public Sprite[] glass2FillImgs;
     public Sprite[] glassEmptyImgs;
+    [Tooltip("Empty coffee cup for each coffee cup upgrade (truck 2 / 3).")]
+    public Sprite[] coffeeEmptyImgs;
     [Space(7)]
     public ImagesAsUpgrade[] upgradeImgs;
 

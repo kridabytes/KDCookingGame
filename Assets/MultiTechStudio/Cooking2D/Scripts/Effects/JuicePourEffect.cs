@@ -328,6 +328,8 @@ namespace MultiTechStudio.Cooking2D
             float lifetime = main.startLifetime.mode == ParticleSystemCurveMode.TwoConstants
                 ? main.startLifetime.constantMax : main.startLifetime.constant;
             float length = Mathf.Abs(speed) * lifetime;
+            // Sizes are world units, or the stream's own units when it scales with its parents.
+            float toWorld = main.scalingMode == ParticleSystemScalingMode.Hierarchy ? Mathf.Abs(stream.transform.lossyScale.y) : 1f;
 
             Material material = GetMaterial();
             Color dark = Color.Lerp(coffee, Color.black, 0.18f);
@@ -379,7 +381,7 @@ namespace MultiTechStudio.Cooking2D
             shineGo.transform.localRotation = Quaternion.identity;
             shineGo.transform.localScale = Vector3.one;
             // Particle sizes are world units here (the particle ignores the canvas scale), so offsets are set in world space.
-            shineGo.transform.position = stream.transform.position + stream.transform.TransformDirection(Vector3.left) * width * 0.18f;
+            shineGo.transform.position = stream.transform.position + stream.transform.TransformDirection(Vector3.left) * width * 0.18f * toWorld;
             ParticleSystem shine = shineGo.GetComponent<ParticleSystem>();
             ParticleSystem.MainModule shineMain = shine.main;
             shineMain.startSize = new ParticleSystem.MinMaxCurve(width * 0.22f, width * 0.3f);
@@ -399,7 +401,7 @@ namespace MultiTechStudio.Cooking2D
                 ? Quaternion.Euler(shape.rotation) * Vector3.forward
                 : Vector3.down;
             Vector3 worldFall = stream.transform.TransformDirection(fallDirection).normalized;
-            splashGo.transform.position = stream.transform.position + worldFall * length * 0.95f;
+            splashGo.transform.position = stream.transform.position + worldFall * length * 0.95f * toWorld;
 
             ParticleSystem splash = splashGo.GetComponent<ParticleSystem>();
             ParticleSystem.MainModule splashMain = splash.main;

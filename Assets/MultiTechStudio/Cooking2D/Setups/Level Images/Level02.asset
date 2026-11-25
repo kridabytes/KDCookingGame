@@ -127,6 +127,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a1076a4d3e6e42e4b9a690ec0503e28b, type: 3}
   - {fileID: 21300000, guid: 89a834aa34fe0ab40a5bd2b93a1f97b4, type: 3}
   - {fileID: 21300000, guid: 97d8ca097660ddd4786839f734a33245, type: 3}
+  coffeeEmptyImgs:
+  - {fileID: -7776909509468329131, guid: e00b5fd94e646c04a8bd4b04f9d38798, type: 3}
+  - {fileID: -7776909509468329131, guid: e00b5fd94e646c04a8bd4b04f9d38798, type: 3}
+  - {fileID: 6879730474082383511, guid: 8343a286c7184cc47ba5d539738eb63e, type: 3}
   upgradeImgs:
   - objectType: 3
     allImages:
