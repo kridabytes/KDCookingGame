@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using GoogleMobileAds.Api;
 using MultiTechStudio.Cooking2D;
 
@@ -76,6 +76,74 @@ public class GoogleMobileAd : MonoBehaviour
 
     }
 
+    // ------------------- REWARD AFTER THE AD IS CLOSED -------------------
+    /// <summary>
+    /// Shows a rewarded ad and gives the reward only after the player has closed the ad.
+    /// The "reward earned" callback arrives while the ad still covers the screen (and the game is
+    /// paused behind it), so the coin / diamond fly animation and the top bar used to play hidden
+    /// behind the ad and were already over when the player came back. Now the reward waits for
+    /// the close, plus a short moment for the game screen to come back.
+    /// </summary>
+    private void ShowRewarded(RewardedAd ad, System.Action onRewarded)
+    {
+        bool earned = false;
+        bool closed = false;
+        bool given = false;
+
+        void TryGive()
+        {
+            if (given || !earned || !closed)
+                return;
+            given = true;
+            StartCoroutine(GiveRewardAfterAd(onRewarded));
+        }
+
+        ad.OnAdFullScreenContentClosed += () =>
+        {
+            closed = true;
+            if (!earned)
+                ReloadAfterSkip(ad); // closed early: no reward, but load a fresh ad for next time
+            TryGive();
+        };
+        ad.OnAdFullScreenContentFailed += (AdError error) =>
+        {
+            Debug.LogError("Rewarded ad failed to show: " + error);
+            closed = true;
+            if (!earned)
+                ReloadAfterSkip(ad);
+            TryGive();
+        };
+
+        ad.Show((Reward reward) =>
+        {
+            earned = true;
+            TryGive();
+            // Safety: if the close event never arrives, still give the reward.
+            StartCoroutine(GiveRewardFallback(() => { closed = true; TryGive(); }));
+        });
+    }
+
+    // A shown ad cannot be shown again, so a skipped ad must be replaced.
+    private void ReloadAfterSkip(RewardedAd ad)
+    {
+        if (ad == rewardedAdCoin) LoadCoinAd();
+        else if (ad == rewardedAdDiamond) LoadDiamondAd();
+        else if (ad == rewordAdComboExtender) LoadComboExtenderAd();
+    }
+
+    private System.Collections.IEnumerator GiveRewardAfterAd(System.Action onRewarded)
+    {
+        // Let Unity resume and the Home screen draw again before the fly animation starts.
+        yield return new WaitForSecondsRealtime(0.3f);
+        onRewarded?.Invoke();
+    }
+
+    private System.Collections.IEnumerator GiveRewardFallback(System.Action giveNow)
+    {
+        yield return new WaitForSecondsRealtime(30f);
+        giveNow();
+    }
+
     // ------------------- REWARDED COIN -------------------
     private void LoadCoinAd()
     {
@@ -122,7 +190,7 @@ public class GoogleMobileAd : MonoBehaviour
         if (AdsDisabled) return;
         if (rewardedAdCoin == null) { LoadCoinAd(); return; }
 
-        rewardedAdCoin.Show((Reward reward) =>
+        ShowRewarded(rewardedAdCoin, () =>
         {
             PopupAnimation.Hide(mobileadspanel);
             Extensions.AddCoins(50, DailyBonusUI.Instance.coinAnimation);
@@ -202,7 +270,7 @@ public class GoogleMobileAd : MonoBehaviour
         if (AdsDisabled) return;
         if (rewardedAdDiamond == null) { LoadDiamondAd(); return; }
 
-        rewardedAdDiamond.Show((Reward reward) =>
+        ShowRewarded(rewardedAdDiamond, () =>
         {
             PopupAnimation.Hide(mobileadspanel);
             Extensions.AddDiamonds(1, DailyBonusUI.Instance.diamondAnimation);
@@ -222,9 +290,9 @@ public class GoogleMobileAd : MonoBehaviour
         }
 
 
-        rewardedAdCoin.Show((Reward reward) =>
+        ShowRewarded(rewardedAdCoin, () =>
         {
-            Debug.Log("Add reward coins: " + reward.Amount);
+            Debug.Log("Add reward coins: 100");
             Extensions.AddCoins(100);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
@@ -243,9 +311,9 @@ public class GoogleMobileAd : MonoBehaviour
         }
 
 
-        rewardedAdCoin.Show((Reward reward) =>
+        ShowRewarded(rewardedAdCoin, () =>
         {
-            Debug.Log("Add reward coins in IAP: " + reward.Amount);
+            Debug.Log("Add reward coins: 50");
             IAPScript.Instance.CloseIAPPanel();
             PopupAnimation.Hide(adpanel);
 
@@ -262,7 +330,7 @@ public class GoogleMobileAd : MonoBehaviour
 
         if (rewardedAdDiamond == null) { LoadDiamondAd(); return; }
 
-        rewardedAdDiamond.Show((Reward reward) =>
+        ShowRewarded(rewardedAdDiamond, () =>
         {
             IAPScript.Instance.CloseIAPPanel();
             PopupAnimation.Hide(adpanel);
@@ -289,6 +357,28 @@ public class GoogleMobileAd : MonoBehaviour
     /// Used by FreeGiftUI: shows a rewarded ad, closes the free gift panel,
     /// then runs onRewarded (which gives that gift's reward).
     /// </summary>
+    /// <summary>Event x2 points on the win screen. No-ads players get the reward directly.</summary>
+    public void ShowEventRewardAd(System.Action onRewarded)
+    {
+        if (AdsDisabled)
+        {
+            onRewarded?.Invoke();
+            return;
+        }
+
+        if (rewardedAdCoin == null)
+        {
+            LoadCoinAd();
+            return;
+        }
+
+        ShowRewarded(rewardedAdCoin, () =>
+        {
+            onRewarded?.Invoke();
+            LoadCoinAd();
+        });
+    }
+
     public void ShowFreeGiftRewardAd(System.Action onRewarded)
     {
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
@@ -301,7 +391,7 @@ public class GoogleMobileAd : MonoBehaviour
             return;
         }
 
-        rewardedAdCoin.Show((Reward reward) =>
+        ShowRewarded(rewardedAdCoin, () =>
         {
             PopupAnimation.Hide(freegiftpanel);
             onRewarded?.Invoke();
@@ -318,7 +408,7 @@ public class GoogleMobileAd : MonoBehaviour
 
         if (rewardedAdDiamond == null) { LoadDiamondAd(); return; }
 
-        rewardedAdDiamond.Show((Reward reward) =>
+        ShowRewarded(rewardedAdDiamond, () =>
         {
             PopupAnimation.Hide(freegiftpanel);
             Extensions.AddDiamonds(1, DailyBonusUI.Instance.diamondAnimation);
@@ -340,11 +430,11 @@ public class GoogleMobileAd : MonoBehaviour
         }
 
 
-        rewardedAdCoin.Show((Reward reward) =>
+        ShowRewarded(rewardedAdCoin, () =>
         {
             PopupAnimation.Hide(freegiftpanel);
 
-            Debug.Log("Add reward coins in IAP: " + reward.Amount);
+            Debug.Log("Add reward coins: 50");
             Extensions.AddCoins(50, DailyBonusUI.Instance.coinAnimation);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
@@ -363,7 +453,7 @@ public class GoogleMobileAd : MonoBehaviour
             LoadComboExtenderAd();
             return;
         }
-        rewordAdComboExtender.Show((Reward reward) =>
+        ShowRewarded(rewordAdComboExtender, () =>
         {
             BoosterManager.instance.UnlockGiveBooster(BoosterType.ComboExtender, 1);
             PopupAnimation.Hide(freegiftpanel);
@@ -384,7 +474,7 @@ public class GoogleMobileAd : MonoBehaviour
             LoadComboExtenderAd();
             return;
         }
-        rewordAdComboExtender.Show((Reward reward) =>
+        ShowRewarded(rewordAdComboExtender, () =>
         {
             BoosterManager.instance.UnlockGiveBooster(BoosterType.HelpingHand, 1);
             PopupAnimation.Hide(freegiftpanel);
@@ -405,7 +495,7 @@ public class GoogleMobileAd : MonoBehaviour
             LoadComboExtenderAd();
             return;
         }
-        rewordAdComboExtender.Show((Reward reward) =>
+        ShowRewarded(rewordAdComboExtender, () =>
         {
             BoosterManager.instance.UnlockGiveBooster(BoosterType.DoubleProfit, 1);
             PopupAnimation.Hide(freegiftpanel);

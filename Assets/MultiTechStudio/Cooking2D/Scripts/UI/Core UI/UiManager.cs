@@ -380,6 +380,7 @@ namespace MultiTechStudio.Cooking2D
             StateOfGame = GameState.BeforePlay;
             onBeforePlayStartExtraCalls?.Invoke();
             BoosterManager.instance.SetStartBooster();
+            EventManager.NotifyLevelStarted();
 
             if (WaitToStart)
             {
@@ -548,6 +549,7 @@ namespace MultiTechStudio.Cooking2D
             yield return new WaitForEndOfFrame();
             yield return new WaitForSeconds(waitTime);
             GameAnalyticsManager.Instance.SendLevelFailEvent(LevelManager.LevelDisplay);
+            EventManager.NotifyLevelFinished(false);
             fail.Invoke();
             tOPForBTnCanvas.SetActive(false);
             icecreamimage.SetActive(false);

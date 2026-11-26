@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a5d43ed3a5190874185c2a2245b06f6f
+guid: c3d1c0eb076a34343b5c5a8e9c0c9a2c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 992371606876259033
-    second: Leaderboard_Sprite_Sheet_01_0
+      213: 3897586406813748843
+    second: Strawberry_Point_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Leaderboard_Sprite_Sheet_01_0
+      name: Strawberry_Point_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 3
-        width: 682
-        height: 182
+        x: 36
+        y: 9
+        width: 184
+        height: 207
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d20b09f7bc95cd00800000000000000
-      internalID: 992371606876259033
+      spriteID: b6e468bcf22071630800000000000000
+      internalID: 3897586406813748843
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Leaderboard_Sprite_Sheet_01_0: 992371606876259033
+      Strawberry_Point_0: 3897586406813748843
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

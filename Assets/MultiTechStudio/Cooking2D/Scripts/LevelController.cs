@@ -402,6 +402,9 @@ namespace MultiTechStudio.Cooking2D
             Debug.Log("No valid plate found!");
             return false;
         }
+        // Pizza plate being served right now (set only while ObjectClicked(Pizza) runs from a plate).
+        private MainDish servingPizzaPlate;
+
         // Add this inside LevelController class
         public MainDish GetPizzaPlate()
         {
@@ -860,9 +863,10 @@ namespace MultiTechStudio.Cooking2D
                 clickedOrderNo = -1;
                 clickedSubOrderNo = -1;
 
-                MainDish pizzaPlate = GetPizzaPlate();
+                // The plate that was tapped, not just the first plate holding a pizza.
+                MainDish pizzaPlate = servingPizzaPlate != null ? servingPizzaPlate : GetPizzaPlate();
 
-                if (pizzaPlate == null || !pizzaPlate.IsPizzaReady())
+                if (pizzaPlate == null || !pizzaPlate.HavePizza() || !pizzaPlate.IsPizzaReady())
                 {
                     Debug.Log("No Ready Pizza");
                     return;
@@ -1025,6 +1029,7 @@ namespace MultiTechStudio.Cooking2D
                     );
 
                     AchievementsCollector.instance.OnOrderCompleted();
+                    EventManager.NotifyOrderServed(bot.transform.position);
 
                     Debug.Log("FULL PIZZA ORDER COMPLETED → TARGET UPDATED");
                 }
@@ -1214,6 +1219,7 @@ namespace MultiTechStudio.Cooking2D
                     );
 
                     AchievementsCollector.instance.OnOrderCompleted();
+                    EventManager.NotifyOrderServed(bot.transform.position);
 
                     Debug.Log("FULL GARLIC BREAD ORDER COMPLETED → TARGET UPDATED");
                 }
@@ -1231,6 +1237,7 @@ namespace MultiTechStudio.Cooking2D
                 allOrders[clickedOrderNo].botMain.ChangeStatus(OrderStatus.Served);
                 targetManager.OrderCompleted(allOrders[clickedOrderNo].coinReward, true, allOrders[clickedOrderNo].botMain.GetSmileNo());
                 AchievementsCollector.instance.OnOrderCompleted();
+                EventManager.NotifyOrderServed(allOrders[clickedOrderNo].botMain.transform.position);
 
             }
             else
@@ -1304,6 +1311,7 @@ namespace MultiTechStudio.Cooking2D
                     allOrders[clickedOrderNo].botMain.ChangeStatus(OrderStatus.Served);
                     targetManager.OrderCompleted(0, true, allOrders[clickedOrderNo].botMain.GetSmileNo());
                     AchievementsCollector.instance.OnOrderCompleted();
+                    EventManager.NotifyOrderServed(allOrders[clickedOrderNo].botMain.transform.position);
                 }
             }
             CheckForLevelPass();
@@ -1505,7 +1513,16 @@ namespace MultiTechStudio.Cooking2D
                     FillOrder(_objectType);
                     break;
                 case ObjectType.Pizza:
-                    FillOrder(ObjectType.Pizza);
+                    // Only the pizza plate itself serves a pizza (player tap or Helping Hand).
+                    // The raw pizza tray and the oven also report "Pizza" here (for the tutorial
+                    // steps), but they must NOT serve the ready pizza that is already on a plate.
+                    MainDish servingPlate = _clickedTrans != null ? _clickedTrans.GetComponent<MainDish>() : null;
+                    if (servingPlate != null && servingPlate.GetObjectType() == ObjectType.PizzaPlate)
+                    {
+                        servingPizzaPlate = servingPlate;
+                        FillOrder(ObjectType.Pizza);
+                        servingPizzaPlate = null;
+                    }
                     break;
                 case ObjectType.CapCake:
                     FillOrder(ObjectType.CapCake);

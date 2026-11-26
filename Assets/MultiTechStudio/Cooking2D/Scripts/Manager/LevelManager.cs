@@ -305,6 +305,7 @@ namespace MultiTechStudio.Cooking2D
             Debug.Log("LevelComlete");
             DailyTaskCollector.instance.OnLevelCompleted();
             AchievementsCollector.instance.OnLevelCompleted();
+            EventManager.NotifyLevelFinished(true);
            
         }*/
         public void LevelComplete()
@@ -320,6 +321,7 @@ namespace MultiTechStudio.Cooking2D
 
             DailyTaskCollector.instance.OnLevelCompleted();
             AchievementsCollector.instance.OnLevelCompleted();
+            EventManager.NotifyLevelFinished(true);
         }
 
         private void SetLevelUi(LevelButton _levelButton, int _levelBtnIndex)

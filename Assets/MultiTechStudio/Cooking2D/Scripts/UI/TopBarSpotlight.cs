@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace MultiTechStudio.Cooking2D
 {
     /// <summary>
-    /// Brings the top coin / diamond bar (Home/BG/PersistentBG) in front of every popup for a moment,
+    /// Brings the top coin / diamond bar (Home/panel/Top) in front of every popup for a moment,
     /// so the player sees the coins or diamonds they just got (shop purchase, rewarded ad, daily bonus...)
     /// fly into the counter and count up.
     ///
@@ -139,13 +139,16 @@ namespace MultiTechStudio.Cooking2D
             coinCanvas = null;
         }
 
-        /// <summary>The "PersistentBG" object that holds the counters (falls back to the root-level child).</summary>
+        /// <summary>
+        /// The top bar that holds the counters: "Home/panel/Top" (older layouts called it "PersistentBG").
+        /// Without it the bar stays behind the Upgrade panel / shop popup and the coins fly to nowhere.
+        /// </summary>
         private static RectTransform FindBar(Transform counter)
         {
             Transform t = counter;
             while (t != null)
             {
-                if (t.name == "PersistentBG")
+                if (t.name == "Top" || t.name == "PersistentBG")
                     return t as RectTransform;
                 t = t.parent;
             }

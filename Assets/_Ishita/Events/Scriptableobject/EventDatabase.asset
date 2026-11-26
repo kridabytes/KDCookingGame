@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4adec1f0bbf1aa47b9b83c08c4f6d8b, type: 3}
+  m_Name: EventDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::EventDatabase
+  fallbackEventId: strawberry_2026_12
+  events:
+  - {fileID: 11400000, guid: 6ffa562b9182a1341a64690e291106d9, type: 2}
+  coinIcon: {fileID: 21300000, guid: 16402360b4fe14042b5a574a1502c018, type: 3}
+  diamondIcon: {fileID: 21300000, guid: 4c5e71d5bf37ee5419c5726375f93a1f, type: 3}
+  keyIcon: {fileID: 21300000, guid: a44cc3aee1eea924db4a6dd5ed99b64a, type: 3}
+  energyIcon: {fileID: 21300000, guid: ba28121db7ff4b36be0677739f880eb7, type: 3}
+  superCookerIcon: {fileID: 21300000, guid: c304f52f26b3167428ecb1886eded922, type: 3}
+  doubleProfitIcon: {fileID: 21300000, guid: 41e4e6f1d730baa4ca65fdb5c56e1f05, type: 3}
+  instantCookIcon: {fileID: 21300000, guid: c304f52f26b3167428ecb1886eded922, type: 3}
+  helpingHandIcon: {fileID: 603736332, guid: 308819bd11f0c914996d3eb4e0036787, type: 3}
+  comboExtenderIcon: {fileID: 21300000, guid: 64acda57a6c2dbf408c8369170633021, type: 3}
