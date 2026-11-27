@@ -26,18 +26,35 @@ public class UITutorialManager : MonoBehaviour
     public GameObject blackBG;
     private int currentStep = 0;
 
+    // True while the home screen tutorial is on screen (other popups, like the event intro, wait for it).
+    public static bool IsRunning =>
+        PlayerPrefs.GetInt(TUTORIAL_KEY, 0) == 0 && instance != null && instance.isActiveAndEnabled;
+
     private void Awake()
     {
         instance = this;
     }
 
-    void Start()
+    System.Collections.IEnumerator Start()
     {
         if (PlayerPrefs.GetInt(TUTORIAL_KEY, 0) == 1)
         {
             gameObject.SetActive(false);
-            return;
+            yield break;
         }
+
+        // First install: Google login comes first, the tutorial starts after it is closed.
+        infoPanel.gameObject.SetActive(false);
+        blackBG.SetActive(false);
+        bool highlightWasOn = highlightImage.gameObject.activeSelf;
+        bool highlight8WasOn = highlightImage_Step8.gameObject.activeSelf;
+        highlightImage.gameObject.SetActive(false);
+        highlightImage_Step8.gameObject.SetActive(false);
+
+        yield return new WaitUntil(() => !HomePopupFlow.IsLoginOpen());
+
+        highlightImage.gameObject.SetActive(highlightWasOn);
+        highlightImage_Step8.gameObject.SetActive(highlight8WasOn);
 
         infoPanel.gameObject.SetActive(true);
         blackBG.SetActive(true);

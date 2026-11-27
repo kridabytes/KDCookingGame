@@ -289,6 +289,7 @@ namespace MultiTechStudio.Cooking2D
 
         private static void OnBoosterUsed()
         {
+            EventManager.NotifyBoosterUsed();
             if (DailyTaskCollector.instance != null)
             {
                 foreach (var task in DailyTaskCollector.instance.Task)

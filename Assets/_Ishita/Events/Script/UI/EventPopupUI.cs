@@ -1,64 +1,74 @@
 using System.Collections;
+using System.Collections.Generic;
 using MultiTechStudio.Cooking2D;
 using UnityEngine;
 using UnityEngine.UI;
 
-// The main event popup: banner, timer, points, progress bar and the scrolling reward track.
+// The event popup:
+// - points + fill bar, with one gift prefab per milestone placed on the bar by its points
+// - gifts that are reached are given automatically (with animation) when the popup opens
+// - event task cards (prefab) in the scroll view, each with its own claim button
+// - timer and the player's rank
 public class EventPopupUI : MonoBehaviour
 {
     [Header("Popup")]
     [SerializeField] private GameObject panel;
-    [SerializeField] private Image tintBackground;
 
     [Header("Header")]
-    [SerializeField] private Image bannerImage;
-    [SerializeField] private Text titleText;
+    [SerializeField] private Graphic titleText;
     [SerializeField] private Image eventIcon;
-    [SerializeField] private Text timerText;
+    [SerializeField] private Graphic timerText;
     [SerializeField] private Color timerColor = new Color(0.35f, 0.15f, 0.1f);
     [SerializeField] private Color timerLastDayColor = new Color(0.9f, 0.1f, 0.1f);
 
-    [Header("Points")]
+    [Header("Points + gifts on the fill bar")]
     [SerializeField] private Image pointIcon;
-    [SerializeField] private Text pointsText;
-    [SerializeField] private Text pointNameText;
-    [SerializeField] private Image progressFill;      // Image Type = Filled
-    [SerializeField] private Text progressText;       // "340 / 500"
+    [SerializeField] private Graphic pointsText;
+    [SerializeField] private Image progressFill;          // Image Type = Filled, Horizontal
+    [SerializeField] private Graphic progressText;        // optional "340 / 500"
+    [SerializeField] private RectTransform giftsParent;   // gifts are spawned here
+    [SerializeField] private EventPointGiftItem giftPrefab;
 
-    [Header("Reward track")]
+    [Header("Event tasks")]
     [SerializeField] private ScrollRect scrollRect;
     [SerializeField] private Transform content;
-    [SerializeField] private EventMilestoneItem milestonePrefab;
+    [SerializeField] private EventTaskItem taskPrefab;
+
+    [Header("Rank")]
+    [SerializeField] private Graphic rankText;
 
     [Header("Buttons")]
     [SerializeField] private Button closeButton;
     [SerializeField] private Button playButton;
-    [SerializeField] private Text playText;
+    [SerializeField] private Graphic playText;
     [SerializeField] private Button infoButton;
 
     [Header("How to earn points")]
     [SerializeField] private GameObject infoPanel;
-    [SerializeField] private Text infoTitleText;
-    [SerializeField] private Text infoText;
+    [SerializeField] private Graphic infoTitleText;
+    [SerializeField] private Graphic infoText;
     [SerializeField] private Button infoCloseButton;
 
-    [Header("Claim fly")]
-    [SerializeField] private float flyDuration = 0.7f;
+    [Header("Animation")]
+    [SerializeField] private float giftGiveDelay = 0.6f;   // wait after opening before reached gifts are given
+    [SerializeField] private float giftGiveGap = 0.45f;    // time between two gifts
     [SerializeField] private AudioSource clickSound;
 
     private EventManager manager;
+    private readonly List<EventPointGiftItem> gifts = new List<EventPointGiftItem>();
+    private bool givingGifts;
 
     public bool IsOpen => panel != null && panel.activeSelf;
 
     private void Awake()
     {
         closeButton.onClick.AddListener(Close);
-        playButton.onClick.AddListener(PlayNextLevel);
-        infoButton.onClick.AddListener(OpenInfo);
-        infoCloseButton.onClick.AddListener(CloseInfo);
+        if (playButton != null) playButton.onClick.AddListener(PlayNextLevel);
+        if (infoButton != null) infoButton.onClick.AddListener(OpenInfo);
+        if (infoCloseButton != null) infoCloseButton.onClick.AddListener(CloseInfo);
 
         panel.SetActive(false);
-        infoPanel.SetActive(false);
+        if (infoPanel != null) infoPanel.SetActive(false);
     }
 
     private void Start()
@@ -85,20 +95,24 @@ public class EventPopupUI : MonoBehaviour
             return;
         }
 
-        timerText.text = EventClock.FormatTimeLeft(manager.TimeLeft);
-        timerText.color = manager.State == EventState.LastDay ? timerLastDayColor : timerColor;
+        EventUIText.Set(timerText, EventClock.FormatTimeLeft(manager.TimeLeft));
+        if (timerText != null)
+            timerText.color = manager.State == EventState.LastDay ? timerLastDayColor : timerColor;
     }
 
     public void Open()
     {
+        if (manager == null)
+            manager = EventManager.Instance;
         if (manager == null || !manager.IsLive)
             return;
 
         PlayClick();
-        Refresh();
-        infoPanel.SetActive(false);
+        if (infoPanel != null) infoPanel.SetActive(false);
         PopupAnimation.Show(panel);
-        StartCoroutine(ScrollToFocus());
+        Refresh();
+        RefreshRank();
+        StartCoroutine(GiveReachedGifts());
 
         EventAnalytics.Log("event_popup_open",
             "event_id", manager.ActiveEvent.eventId, "points", manager.Progress.points);
@@ -119,75 +133,162 @@ public class EventPopupUI : MonoBehaviour
     private void Refresh()
     {
         EventConfig config = manager.ActiveEvent;
-        EventProgress progress = manager.Progress;
+        int points = manager.Progress.points;
 
-        if (tintBackground != null) tintBackground.color = config.tintColor;
-        if (bannerImage != null && config.banner != null) bannerImage.sprite = config.banner;
-        if (eventIcon != null) eventIcon.sprite = config.eventIcon;
-        titleText.text = config.GetDisplayName();
-        pointIcon.sprite = config.pointIcon;
-        pointsText.text = progress.points.ToString("N0");
-        if (pointNameText != null) pointNameText.text = config.GetPointName();
-        playText.text = GameText.Get("event_play", "Play");
+        EventUIText.Set(titleText, config.GetDisplayName());
+        if (eventIcon != null && config.eventIcon != null) eventIcon.sprite = config.eventIcon;
+        if (pointIcon != null && config.pointIcon != null) pointIcon.sprite = config.pointIcon;
+        EventUIText.Set(pointsText, points.ToString("N0"));
+        EventUIText.Set(playText, GameText.Get("event_play", "Play Event"));
 
-        RefreshProgressBar(config, progress.points);
-        BuildTrack(config);
-    }
+        // Gifts are evenly spaced, and the bar fills section by section between them.
+        if (progressFill != null)
+            progressFill.fillAmount = GetFillAmount(config, points);
 
-    // Bar from the previous milestone to the next one ("340 / 500").
-    private void RefreshProgressBar(EventConfig config, int points)
-    {
         int next = manager.GetNextMilestoneIndex();
-        int target = config.milestones[next].pointsNeeded;
-        int from = next > 0 ? config.milestones[next - 1].pointsNeeded : 0;
+        int target = config.milestones.Count > 0 ? config.milestones[next].pointsNeeded : 0;
+        EventUIText.Set(progressText, $"{Mathf.Min(points, target):N0} / {target:N0}");
 
-        float fill = target > from ? (float)(points - from) / (target - from) : 1f;
-        progressFill.fillAmount = Mathf.Clamp01(fill);
-        progressText.text = $"{Mathf.Min(points, target):N0} / {target:N0}";
+        BuildGifts(config, points);
+        BuildTasks(config);
     }
 
-    private void BuildTrack(EventConfig config)
+    #region Gifts on the fill bar
+
+    private void BuildGifts(EventConfig config, int points)
+    {
+        foreach (EventPointGiftItem old in gifts)
+        {
+            if (old != null)
+                Destroy(old.gameObject);
+        }
+        gifts.Clear();
+
+        int count = config.milestones.Count;
+        if (count == 0)
+            return;
+
+        // Left and right end of the fill bar, in the gifts parent space.
+        RectTransform bar = progressFill.rectTransform;
+        Vector3 left = giftsParent.InverseTransformPoint(bar.TransformPoint(new Vector3(bar.rect.xMin, bar.rect.center.y)));
+        Vector3 right = giftsParent.InverseTransformPoint(bar.TransformPoint(new Vector3(bar.rect.xMax, bar.rect.center.y)));
+
+        // Shrink the gifts if there are too many to fit side by side.
+        float slotWidth = Mathf.Abs(right.x - left.x) / count;
+        RectTransform giftRect = (RectTransform)giftPrefab.transform;
+        float giftWidth = giftRect.rect.width * Mathf.Abs(giftRect.localScale.x);
+        float scale = giftWidth > slotWidth && giftWidth > 0f ? slotWidth / giftWidth * 0.95f : 1f;
+
+        for (int i = 0; i < count; i++)
+        {
+            EventMilestone milestone = config.milestones[i];
+            EventPointGiftItem gift = Instantiate(giftPrefab, giftsParent);
+            gift.gameObject.SetActive(true);
+            gift.Setup(milestone, points >= milestone.pointsNeeded, config, manager.database);
+
+            // Keep the prefab height, place it at its even spot on the bar.
+            Vector3 position = gift.transform.localPosition;
+            position.x = Mathf.Lerp(left.x, right.x, GiftSpot(i, count));
+            gift.transform.localPosition = position;
+            gift.transform.localScale = gift.transform.localScale * scale;
+
+            gifts.Add(gift);
+        }
+    }
+
+    // Even spots along the bar: with 5 gifts -> 20%, 40%, 60%, 80%, 100%.
+    private static float GiftSpot(int index, int count)
+    {
+        return (index + 1f) / count;
+    }
+
+    // Fill that reaches each gift's spot exactly when its points are reached.
+    private static float GetFillAmount(EventConfig config, int points)
+    {
+        int count = config.milestones.Count;
+        int previousPoints = 0;
+
+        for (int i = 0; i < count; i++)
+        {
+            int needed = config.milestones[i].pointsNeeded;
+            if (points < needed)
+            {
+                float startSpot = i == 0 ? 0f : GiftSpot(i - 1, count);
+                float part = needed > previousPoints ? (float)(points - previousPoints) / (needed - previousPoints) : 1f;
+                return Mathf.Lerp(startSpot, GiftSpot(i, count), part);
+            }
+            previousPoints = needed;
+        }
+        return 1f;
+    }
+
+    // Reached gifts are given one by one, so the player sees each animation.
+    private IEnumerator GiveReachedGifts()
+    {
+        if (givingGifts)
+            yield break;
+        givingGifts = true;
+
+        yield return new WaitForSecondsRealtime(giftGiveDelay);
+
+        for (int i = 0; i < manager.ActiveEvent.milestones.Count; i++)
+        {
+            if (!IsOpen)
+                break;
+            if (manager.GetMilestoneState(i) != MilestoneState.Ready)
+                continue;
+
+            RectTransform from = i < gifts.Count ? gifts[i].GiftIconRect : null;
+            manager.Claim(i, from);
+            AudioManager.Instance.MakeVibrate(VibrationType.Low);
+
+            yield return new WaitForSecondsRealtime(giftGiveGap);
+        }
+
+        givingGifts = false;
+    }
+
+    #endregion
+
+    #region Tasks
+
+    private void BuildTasks(EventConfig config)
     {
         foreach (Transform child in content)
             Destroy(child.gameObject);
 
-        for (int i = 0; i < config.milestones.Count; i++)
+        for (int i = 0; i < config.tasks.Count; i++)
         {
-            EventMilestoneItem item = Instantiate(milestonePrefab, content);
-            item.Setup(i, config.milestones[i], manager.GetMilestoneState(i), config, manager.database, OnClaimClicked);
+            EventTaskItem item = Instantiate(taskPrefab, content);
+            item.Setup(i, config.tasks[i], manager.Progress.GetTaskValue(i),
+                manager.Progress.IsTaskClaimed(i), manager.database, OnTaskClaimClicked);
         }
     }
 
-    private void OnClaimClicked(EventMilestoneItem item)
+    private void OnTaskClaimClicked(EventTaskItem item)
     {
         PlayClick();
         AudioManager.Instance.MakeVibrate(VibrationType.Low);
-
-        EventMilestone milestone = manager.ActiveEvent.milestones[item.Index];
-        RectTransform from = item.FirstRewardIcon;
-
-        // Start the fly animations before the list is rebuilt by the claim.
-        foreach (EventReward reward in milestone.rewards)
-        {
-            Transform target = EventRewardGiver.GetFlyTarget(reward.type, playButton.transform);
-            RewardFly.Play(manager.database.GetIcon(reward.type), from, target, flyDuration);
-        }
-
-        manager.Claim(item.Index);
+        manager.ClaimTask(item.Index, item.RewardIconRect);
     }
 
-    private IEnumerator ScrollToFocus()
+    #endregion
+
+    #region Rank
+
+    private void RefreshRank()
     {
-        yield return null; // wait one frame so the layout has its size
-        Canvas.ForceUpdateCanvases();
-
-        int count = manager.ActiveEvent.milestones.Count;
-        if (count <= 1)
-            yield break;
-
-        float t = (float)manager.GetFocusMilestoneIndex() / (count - 1);
-        scrollRect.verticalNormalizedPosition = 1f - t;
+        EventUIText.Set(rankText, "#-");
+        manager.LoadRank(rank =>
+        {
+            if (this != null)
+                EventUIText.Set(rankText, rank > 0 ? "#" + rank.ToString("N0") : "#-");
+        });
     }
+
+    #endregion
+
+    #region Buttons
 
     private void PlayNextLevel()
     {
@@ -203,14 +304,14 @@ public class EventPopupUI : MonoBehaviour
         EventConfig config = manager.ActiveEvent;
         string points = config.GetPointName();
 
-        infoTitleText.text = GameText.Get("event_how_title", "How to earn points");
-        infoText.text =
+        EventUIText.Set(infoTitleText, GameText.Get("event_how_title", "How to earn points"));
+        EventUIText.Set(infoText,
             GameText.Format("event_how_order", "Serve a customer: +{0} {1}", config.pointsPerOrder, points) + "\n" +
             GameText.Format("event_how_win", "Win a level: +{0}", config.pointsPerWin) + "\n" +
             GameText.Format("event_how_noburn", "Win without burning food: +{0}", config.bonusNoBurn) + "\n" +
             GameText.Format("event_how_firsttry", "Win on the first try: +{0}", config.bonusFirstTry) + "\n" +
             GameText.Format("event_how_stars", "Win with 3 stars: +{0}", config.bonusThreeStars) + "\n" +
-            GameText.Format("event_how_ad", "Watch an ad on the win screen: x2 level points ({0} per day)", config.maxAdDoublePerDay);
+            GameText.Format("event_how_ad", "Watch an ad on the win screen: x2 level points ({0} per day)", config.maxAdDoublePerDay));
 
         PopupAnimation.Show(infoPanel);
     }
@@ -226,4 +327,6 @@ public class EventPopupUI : MonoBehaviour
         if (clickSound != null)
             clickSound.Play();
     }
+
+    #endregion
 }

@@ -23,6 +23,7 @@ public class EventIntroPopup : MonoBehaviour
         letsGoButton.onClick.AddListener(Close);
         if (closeButton != null)
             closeButton.onClick.AddListener(Close);
+        EventPopupLayer.PutOnTop(panel); // shows first, above the offer / daily bonus popups
         panel.SetActive(false);
     }
 

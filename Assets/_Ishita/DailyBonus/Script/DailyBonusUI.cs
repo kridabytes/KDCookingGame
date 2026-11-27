@@ -25,16 +25,22 @@ public class DailyBonusUI : MonoBehaviour
     }
     void Start()
     {
+        // The panel is opened by HomePopupFlow (after the limited time offer).
         CheckMissedDayReset();
-        if (CanShowDailyReward())
-        {
-            PopupAnimation.Show(dailybonusPanel);
-            Dailybonusui();
-        }
-        else
-        {
-            dailybonusPanel.SetActive(false);
-        }
+        dailybonusPanel.SetActive(false);
+    }
+
+    public bool IsOpen => dailybonusPanel != null && dailybonusPanel.activeInHierarchy;
+
+    /// <summary>Opens the Daily Bonus if today's reward is not collected yet. Returns false if not shown.</summary>
+    public bool TryShowDailyBonus()
+    {
+        if (!CanShowDailyReward())
+            return false;
+
+        PopupAnimation.Show(dailybonusPanel);
+        Dailybonusui();
+        return true;
     }
     void CheckMissedDayReset()
     {

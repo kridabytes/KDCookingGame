@@ -111,21 +111,8 @@ public class IAPScript : MonoBehaviour
 
     void Start()
     {
-        // If Restart / Retry happened, keep offer hidden
-        if (PlayerPrefs.GetInt("HideOfferOnRestart", 0) == 1)
-        {
-            offerIAP.SetActive(false);
-        }
-        else if (PlayerPrefs.GetInt("OfferRemoved", 0) == 1)
-        {
-            // Offer permanently removed after purchase
-            offerIAP.SetActive(false);
-        }
-        else
-        {
-            PopupAnimation.Show(offerIAP);
-            AudioManager.Instance.MakeVibrate(VibrationType.Low);
-        }
+        // The offer is opened by HomePopupFlow (after login and tutorial, before Daily Bonus).
+        offerIAP.SetActive(false);
 
         EnsureInitialized();
 
@@ -134,6 +121,22 @@ public class IAPScript : MonoBehaviour
             CheckNonConsumble(ncitem != null ? ncitem.id : null);
             DeliverPendingPurchases();
         }
+    }
+
+    public bool IsOfferOpen => offerIAP != null && offerIAP.activeInHierarchy;
+
+    /// <summary>
+    /// Opens the limited time offer once per app open (not after every level).
+    /// Returns false when it is not shown (already shown this session or already bought).
+    /// </summary>
+    public bool TryShowStartOffer(bool firstHomeOfSession)
+    {
+        if (!firstHomeOfSession || PlayerPrefs.GetInt("OfferRemoved", 0) == 1)
+            return false;
+
+        PopupAnimation.Show(offerIAP);
+        AudioManager.Instance.MakeVibrate(VibrationType.Low);
+        return true;
     }
 
     /// <summary>Starts the store once. Safe to call any number of times.</summary>

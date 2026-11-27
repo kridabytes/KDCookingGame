@@ -29,8 +29,6 @@ public class EventManager : MonoBehaviour
     public EventWinLine winLine;
 
     [Header("Settings")]
-    [Tooltip("Seconds to wait on the home screen before the intro / end popup opens.")]
-    public float startPopupDelay = 1.5f;
     [Tooltip("Max seconds to wait for Firebase before using the build dates.")]
     public float firebaseTimeout = 8f;
 
@@ -53,13 +51,15 @@ public class EventManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        // Load the event here (not in Start) so coins / orders counted by other Start()
+        // methods on the first frame already go to the event tasks.
+        UseBuildSchedule();
     }
 
     private void Start()
     {
-        UseBuildSchedule();
         StartCoroutine(SyncWithFirebase());
-        StartCoroutine(ShowStartPopups());
+        // The intro / end popups are opened by HomePopupFlow, after login, tutorial, offer and Daily Bonus.
     }
 
     private void OnDestroy()
@@ -78,16 +78,28 @@ public class EventManager : MonoBehaviour
             Instance.OnLevelStarted();
     }
 
-    public static void NotifyOrderServed(Vector3 customerWorldPos)
+    public static void NotifyOrderServed(BotMain customer)
     {
         if (Instance != null)
-            Instance.OnOrderServed(customerWorldPos);
+            Instance.OnOrderServed(customer);
     }
 
     public static void NotifyLevelFinished(bool won, int stars = 0)
     {
         if (Instance != null)
             Instance.OnLevelFinished(won, stars);
+    }
+
+    public static void NotifyCoinsEarned(int coins)
+    {
+        if (Instance != null && Instance.IsLive)
+            Instance.AddTaskProgress(EventTaskType.EarnCoins, coins);
+    }
+
+    public static void NotifyBoosterUsed()
+    {
+        if (Instance != null && Instance.IsLive)
+            Instance.AddTaskProgress(EventTaskType.UseBoosters, 1);
     }
 
     #endregion
@@ -239,7 +251,22 @@ public class EventManager : MonoBehaviour
             if (GetMilestoneState(i) == MilestoneState.Ready)
                 return true;
         }
+        for (int i = 0; i < ActiveEvent.tasks.Count; i++)
+        {
+            if (CanClaimTask(i))
+                return true;
+        }
         return false;
+    }
+
+    public bool IsTaskComplete(int index)
+    {
+        return Progress.GetTaskValue(index) >= ActiveEvent.tasks[index].target;
+    }
+
+    public bool CanClaimTask(int index)
+    {
+        return IsTaskComplete(index) && !Progress.IsTaskClaimed(index);
     }
 
     // First milestone the player has not reached yet (or the last one when everything is reached).
@@ -278,17 +305,18 @@ public class EventManager : MonoBehaviour
             levelCounter.Show(earningThisLevel, ActiveEvent);
     }
 
-    private void OnOrderServed(Vector3 customerWorldPos)
+    private void OnOrderServed(BotMain customer)
     {
         if (!earningThisLevel || levelFinished)
             return;
 
         int points = ActiveEvent.pointsPerOrder;
         PointsThisLevel += points;
+        AddTaskProgress(EventTaskType.ServeOrders, 1);
         AddPoints(points); // saved right away, so quitting never loses order points
 
         if (levelCounter != null)
-            levelCounter.FlyPoint(customerWorldPos, points, PointsThisLevel);
+            levelCounter.FlyPoint(customer, points, PointsThisLevel);
     }
 
     private void OnLevelFinished(bool won, int stars)
@@ -304,12 +332,19 @@ public class EventManager : MonoBehaviour
         if (won)
         {
             levelPoints += ActiveEvent.pointsPerWin;
+            AddTaskProgress(EventTaskType.CompleteLevels, 1);
 
             if (LevelController.instance != null && !LevelController.instance.burnedThisLevel)
+            {
                 levelPoints += ActiveEvent.bonusNoBurn;
+                AddTaskProgress(EventTaskType.WinWithoutBurn, 1);
+            }
 
             if (PlayerPrefs.GetInt("Tries", 0) == 0)
+            {
                 levelPoints += ActiveEvent.bonusFirstTry;
+                AddTaskProgress(EventTaskType.WinFirstTry, 1);
+            }
 
             if (stars >= 3)
                 levelPoints += ActiveEvent.bonusThreeStars;
@@ -334,9 +369,38 @@ public class EventManager : MonoBehaviour
             return;
 
         Progress.points += amount;
+        AddTaskProgress(EventTaskType.EarnPoints, amount);
         PlayerPrefs.SetString(LastJoinedKey, ActiveEvent.eventId);
         SaveLocal();
         NotifyChanged();
+    }
+
+    // Adds progress to every task of this type (stops at the target).
+    private void AddTaskProgress(EventTaskType type, int amount)
+    {
+        if (ActiveEvent == null || Progress == null || amount <= 0)
+            return;
+
+        bool changed = false;
+        for (int i = 0; i < ActiveEvent.tasks.Count; i++)
+        {
+            EventTask task = ActiveEvent.tasks[i];
+            if (task.taskType != type || Progress.IsTaskClaimed(i))
+                continue;
+
+            int value = Mathf.Min(task.target, Progress.GetTaskValue(i) + amount);
+            if (value != Progress.GetTaskValue(i))
+            {
+                Progress.SetTaskValue(i, value);
+                changed = true;
+            }
+        }
+
+        if (changed)
+        {
+            SaveLocal();
+            NotifyChanged();
+        }
     }
 
     public bool CanWatchDoubleAd()
@@ -379,8 +443,9 @@ public class EventManager : MonoBehaviour
 
     #region Claim
 
-    // Gives the milestone reward. Returns false if it can't be claimed.
-    public bool Claim(int index)
+    // Gives the milestone reward. "from" = icon the reward animation starts from (optional).
+    // Returns false if it can't be claimed.
+    public bool Claim(int index, RectTransform from = null)
     {
         if (!IsLive || GetMilestoneState(index) != MilestoneState.Ready)
             return false;
@@ -390,7 +455,7 @@ public class EventManager : MonoBehaviour
 
         EventMilestone milestone = ActiveEvent.milestones[index];
         foreach (EventReward reward in milestone.rewards)
-            EventRewardGiver.Give(reward);
+            GiveReward(reward, from);
 
         SaveAllToCloud();
         EventAnalytics.Log("event_milestone_claimed",
@@ -398,6 +463,45 @@ public class EventManager : MonoBehaviour
 
         NotifyChanged();
         return true;
+    }
+
+    // Gives an event task reward. Returns false if it can't be claimed.
+    public bool ClaimTask(int index, RectTransform from = null)
+    {
+        if (!IsLive || !CanClaimTask(index))
+            return false;
+
+        Progress.taskClaimed.Add(index);
+        SaveLocal();
+
+        EventReward reward = ActiveEvent.tasks[index].reward;
+        GiveReward(reward, from);
+
+        SaveAllToCloud();
+        EventAnalytics.Log("event_task_claimed",
+            "event_id", ActiveEvent.eventId, "task", index + 1, "reward", reward.type + " x" + reward.amount);
+
+        NotifyChanged();
+        return true;
+    }
+
+    private void GiveReward(EventReward reward, RectTransform from)
+    {
+        if (from != null)
+            EventRewardGiver.GiveWithAnimation(reward, database.GetIcon(reward.type), from, 0.7f);
+        else
+            EventRewardGiver.Give(reward);
+    }
+
+    // Player rank for this event (1 = best). Gets -1 when it can't be loaded (offline / not logged in).
+    public void LoadRank(Action<int> onDone)
+    {
+        if (ActiveEvent == null || Progress == null)
+        {
+            onDone?.Invoke(-1);
+            return;
+        }
+        EventCloud.LoadRank(ActiveEvent.eventId, Progress.points, onDone);
     }
 
     private static string RewardsToString(List<EventReward> rewards)
@@ -419,11 +523,10 @@ public class EventManager : MonoBehaviour
 
     #region Start popups (intro / event ended)
 
-    private IEnumerator ShowStartPopups()
+    // Called by HomePopupFlow when the home screen is free (after login, tutorial, offer, Daily Bonus).
+    // Doesn't wait for Firebase: the build dates / last server time are enough to know the event is live.
+    public IEnumerator ShowStartPopups()
     {
-        yield return new WaitForSecondsRealtime(startPopupDelay);
-        yield return new WaitUntil(() => IsSynced);
-        yield return new WaitUntil(IsOnHomeScreen);
 
         // 1. A finished event the player took part in -> end popup (once).
         string lastJoined = PlayerPrefs.GetString(LastJoinedKey, "");
@@ -444,7 +547,17 @@ public class EventManager : MonoBehaviour
         }
 
         // 2. A live event the player hasn't seen yet -> intro popup (once).
-        if (IsLive && !Progress.introSeen && introPopup != null)
+        if (!IsLive)
+        {
+            Debug.Log($"[Event] No start popup: event state is {State}" +
+                      (ActiveEvent != null && LevelManager.LevelDisplay < ActiveEvent.minPlayerLevel
+                          ? $" (player level {LevelManager.LevelDisplay} < min level {ActiveEvent.minPlayerLevel})" : ""));
+        }
+        else if (Progress.introSeen)
+        {
+            Debug.Log("[Event] No start popup: already shown for this event.");
+        }
+        else if (introPopup != null)
         {
             Progress.introSeen = true;
             PlayerPrefs.SetString(LastJoinedKey, ActiveEvent.eventId);
@@ -454,16 +567,6 @@ public class EventManager : MonoBehaviour
             EventAnalytics.Log("event_seen", "event_id", ActiveEvent.eventId);
             introPopup.Show(ActiveEvent);
         }
-    }
-
-    private bool IsOnHomeScreen()
-    {
-        if (UiManager.Instance == null)
-            return true;
-        if (UiManager.IsPlaying)
-            return false;
-        HomeCanvas home = UiManager.Instance.allCanvas.home;
-        return home == null || home.gameObject.activeInHierarchy;
     }
 
     // Gives every reached-but-unclaimed reward and shows the end popup.
@@ -496,6 +599,17 @@ public class EventManager : MonoBehaviour
                 EventRewardGiver.Give(reward);
                 given.Add(reward);
             }
+        }
+
+        // Finished tasks that were never claimed.
+        for (int i = 0; i < finished.tasks.Count; i++)
+        {
+            if (progress.IsTaskClaimed(i) || progress.GetTaskValue(i) < finished.tasks[i].target)
+                continue;
+
+            progress.taskClaimed.Add(i);
+            EventRewardGiver.Give(finished.tasks[i].reward);
+            given.Add(finished.tasks[i].reward);
         }
 
         progress.endSeen = true;

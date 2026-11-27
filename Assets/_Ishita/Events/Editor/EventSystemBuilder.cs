@@ -43,17 +43,24 @@ public static class EventSystemBuilder
         EventConfig config = CreateOrLoadConfig();
         EventDatabase database = CreateOrLoadDatabase(config);
 
-        // Small prefabs first, the big ones use them.
-        EventRewardItem rewardItem = SavePrefab(BuildRewardItem(), "EventRewardItem").GetComponent<EventRewardItem>();
-        EventMilestoneItem milestoneItem = SavePrefab(BuildMilestoneItem(rewardItem), "EventMilestoneItem").GetComponent<EventMilestoneItem>();
-        EventFlyingPoint flyingPoint = SavePrefab(BuildFlyingPoint(), "EventFlyingPoint").GetComponent<EventFlyingPoint>();
+        // Prefabs that already exist are kept as they are (your design changes are not overwritten).
+        EventRewardItem rewardItem = KeepOrBuild("EventRewardItem", BuildRewardItem).GetComponent<EventRewardItem>();
+        EventFlyingPoint flyingPoint = KeepOrBuild("EventFlyingPoint", BuildFlyingPoint).GetComponent<EventFlyingPoint>();
 
-        GameObject popupPrefab = SavePrefab(BuildEventPopup(milestoneItem), "EventPopup");
-        GameObject introPrefab = SavePrefab(BuildIntroPopup(), "EventIntroPopup");
-        GameObject endPrefab = SavePrefab(BuildEndPopup(rewardItem), "EventEndPopup");
-        GameObject homeButtonPrefab = SavePrefab(BuildHomeButton(), "EventHomeButton");
-        GameObject counterPrefab = SavePrefab(BuildLevelCounter(flyingPoint), "EventLevelCounter");
-        GameObject winLinePrefab = SavePrefab(BuildWinLine(), "EventWinLine");
+        GameObject introPrefab = KeepOrBuild("EventIntroPopup", BuildIntroPopup);
+        GameObject endPrefab = KeepOrBuild("EventEndPopup", () => BuildEndPopup(rewardItem));
+        GameObject homeButtonPrefab = KeepOrBuild("EventHomeButton", BuildHomeButton);
+        GameObject counterPrefab = KeepOrBuild("EventLevelCounter", () => BuildLevelCounter(flyingPoint));
+        GameObject winLinePrefab = KeepOrBuild("EventWinLine", BuildWinLine);
+
+        // The event popup is your own design: wire it (gifts + tasks prefabs).
+        GameObject popupPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabFolder + "/EventPopup.prefab");
+        if (popupPrefab == null)
+        {
+            EditorUtility.DisplayDialog("Event System", "EventPopup.prefab is missing in " + PrefabFolder, "OK");
+            return;
+        }
+        EventPopupSetup.Run();
 
         PlaceInScene(database, popupPrefab, introPrefab, endPrefab, homeButtonPrefab, counterPrefab, winLinePrefab);
 
@@ -240,6 +247,12 @@ public static class EventSystemBuilder
             .ToList();
     }
 
+    private static GameObject KeepOrBuild(string name, System.Func<GameObject> build)
+    {
+        GameObject existing = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabFolder + "/" + name + ".prefab");
+        return existing != null ? existing : SavePrefab(build(), name);
+    }
+
     private static GameObject SavePrefab(GameObject root, string name)
     {
         string path = PrefabFolder + "/" + name + ".prefab";
@@ -269,97 +282,6 @@ public static class EventSystemBuilder
         return root.gameObject;
     }
 
-    private static GameObject BuildMilestoneItem(EventRewardItem rewardItemPrefab)
-    {
-        RectTransform root = NewUI("EventMilestoneItem", null);
-        root.sizeDelta = new Vector2(860, 150);
-        CanvasGroup group = root.gameObject.AddComponent<CanvasGroup>();
-        LayoutElement layout = root.gameObject.AddComponent<LayoutElement>();
-        layout.preferredHeight = 150;
-
-        // Gold glow behind the card when ready.
-        Image glow = AddImage(NewUI("Glow", root), panelSprite, false);
-        glow.type = Image.Type.Sliced;
-        glow.pixelsPerUnitMultiplier = 2.5f;
-        glow.color = new Color(1f, 0.85f, 0.2f, 1f);
-        Stretch(glow.rectTransform, -8, -8, -8, -8);
-
-        Image card = AddImage(NewUI("Card", root), panelSprite, false);
-        card.type = Image.Type.Sliced;
-        card.pixelsPerUnitMultiplier = 2.5f;
-        Stretch(card.rectTransform, 0, 0, 0, 0);
-
-        // Milestone number in a gold circle.
-        Image numberBg = AddImage(NewUI("NumberBg", root), EventSprite(19), true);
-        Place(numberBg.rectTransform, new Vector2(0, 0.5f), new Vector2(55, 0), new Vector2(64, 64));
-        Text number = AddText(NewUI("Number", numberBg.rectTransform), "1", 30, Brown, TextAnchor.MiddleCenter, false);
-        Stretch(number.rectTransform, 0, 0, 0, 0);
-
-        // Chest (grand row only) + rewards.
-        RectTransform rewardRow = NewUI("RewardRow", root);
-        rewardRow.anchorMin = new Vector2(0, 0);
-        rewardRow.anchorMax = new Vector2(0, 1);
-        rewardRow.pivot = new Vector2(0, 0.5f);
-        rewardRow.anchoredPosition = new Vector2(100, 0);
-        rewardRow.sizeDelta = new Vector2(460, -10);
-        HorizontalLayoutGroup rowLayout = rewardRow.gameObject.AddComponent<HorizontalLayoutGroup>();
-        rowLayout.childAlignment = TextAnchor.MiddleLeft;
-        rowLayout.spacing = 8;
-        rowLayout.childControlWidth = true;
-        rowLayout.childControlHeight = true;
-        rowLayout.childForceExpandWidth = false;
-        rowLayout.childForceExpandHeight = false;
-
-        Image chest = AddImage(NewUI("Chest", rewardRow), EventSprite(27), true);
-        LayoutElement chestLayout = chest.gameObject.AddComponent<LayoutElement>();
-        chestLayout.preferredWidth = 130;
-        chestLayout.preferredHeight = 115;
-        chest.gameObject.SetActive(false);
-
-        RectTransform rewards = NewUI("Rewards", rewardRow);
-        GridLayoutGroup grid = rewards.gameObject.AddComponent<GridLayoutGroup>();
-        grid.cellSize = new Vector2(78, 96);
-        grid.spacing = new Vector2(4, 4);
-        grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-        grid.constraintCount = 4;
-        grid.childAlignment = TextAnchor.MiddleLeft;
-
-        // Points needed.
-        Image pointIcon = AddImage(NewUI("PointIcon", root), null, true);
-        Place(pointIcon.rectTransform, new Vector2(1, 0.5f), new Vector2(-300, 0), new Vector2(50, 50));
-        Text points = AddText(NewUI("PointsNeeded", root), "50", 32, Brown, TextAnchor.MiddleLeft, false);
-        Place(points.rectTransform, new Vector2(1, 0.5f), new Vector2(-215, 0), new Vector2(110, 50));
-
-        // State: claim button / tick / lock.
-        Button claim = AddButton(NewUI("ClaimButton", root), EventSprite(39));
-        Place((RectTransform)claim.transform, new Vector2(1, 0.5f), new Vector2(-90, 0), new Vector2(160, 62));
-        Text claimText = AddText(NewUI("Text", claim.transform), "Claim", 30, Color.white, TextAnchor.MiddleCenter, true);
-        Stretch(claimText.rectTransform, 8, 8, 4, 4);
-
-        Image tick = AddImage(NewUI("ClaimedTick", root), EventSprite(17), true);
-        Place(tick.rectTransform, new Vector2(1, 0.5f), new Vector2(-90, 0), new Vector2(66, 66));
-
-        Image locked = AddImage(NewUI("Locked", root), EventSprite(20), true);
-        Place(locked.rectTransform, new Vector2(1, 0.5f), new Vector2(-90, 0), new Vector2(56, 56));
-
-        EventMilestoneItem item = root.gameObject.AddComponent<EventMilestoneItem>();
-        Set(item, "background", card);
-        Set(item, "canvasGroup", group);
-        Set(item, "layoutElement", layout);
-        Set(item, "numberText", number);
-        Set(item, "chestImage", chest);
-        Set(item, "rewardsParent", rewards);
-        Set(item, "rewardItemPrefab", rewardItemPrefab);
-        Set(item, "pointIcon", pointIcon);
-        Set(item, "pointsText", points);
-        Set(item, "claimButton", claim);
-        Set(item, "claimText", claimText);
-        Set(item, "glow", glow.gameObject);
-        Set(item, "claimedTick", tick.gameObject);
-        Set(item, "lockedIcon", locked.gameObject);
-        return root.gameObject;
-    }
-
     private static GameObject BuildFlyingPoint()
     {
         RectTransform root = NewUI("EventFlyingPoint", null);
@@ -378,108 +300,6 @@ public static class EventSystemBuilder
         EventFlyingPoint fly = root.gameObject.AddComponent<EventFlyingPoint>();
         Set(fly, "icon", icon);
         Set(fly, "amountText", amount);
-        return root.gameObject;
-    }
-
-    private static GameObject BuildEventPopup(EventMilestoneItem milestonePrefab)
-    {
-        RectTransform root = NewUI("EventPopup", null);
-        Stretch(root, 0, 0, 0, 0);
-        RectTransform panel = PopupBase(root, new Vector2(1500, 880), out Image frame, out Image tint, out Button close);
-
-        Image banner = AddImage(NewUI("Banner", panel), EventSprite(1), true);
-        Place(banner.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0, 400), new Vector2(760, 205));
-        Text title = AddText(NewUI("Title", banner.rectTransform), "Strawberry Festival", 54, Color.white, TextAnchor.MiddleCenter, true);
-        Stretch(title.rectTransform, 110, 110, 30, 60);
-
-        Image eventIcon = AddImage(NewUI("EventIcon", panel), null, true);
-        Place(eventIcon.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(-420, 400), new Vector2(130, 130));
-
-        // Timer pill.
-        Image timerPill = AddImage(NewUI("TimerPill", panel), EventSprite(15), true);
-        Place(timerPill.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0, 280), new Vector2(456, 94));
-        Text timer = AddText(NewUI("Timer", timerPill.rectTransform), "6d 23h", 36, Brown, TextAnchor.MiddleCenter, false);
-        Stretch(timer.rectTransform, 90, 30, 10, 10);
-
-        // Left column: points badge, progress bar, icon, play + info.
-        Image badge = AddImage(NewUI("PointsBadge", panel), EventSprite(29), true);
-        Place(badge.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(-490, 110), new Vector2(360, 237));
-        Image pointIcon = AddImage(NewUI("PointIcon", badge.rectTransform), null, true);
-        Place(pointIcon.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(-95, 15), new Vector2(80, 80));
-        Text points = AddText(NewUI("Points", badge.rectTransform), "0", 56, Color.white, TextAnchor.MiddleLeft, true);
-        Place(points.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(40, 15), new Vector2(180, 80));
-        Text pointName = AddText(NewUI("PointName", badge.rectTransform), "Strawberries", 28, Color.white, TextAnchor.MiddleCenter, true);
-        Place(pointName.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0, -50), new Vector2(260, 40));
-
-        Image barBg = AddImage(NewUI("ProgressBar", panel), EventSprite(36), false);
-        Place(barBg.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(-490, -70), new Vector2(430, 74));
-        Image fill = AddImage(NewUI("Fill", barBg.rectTransform), EventSprite(39), false);
-        fill.type = Image.Type.Filled;
-        fill.fillMethod = Image.FillMethod.Horizontal;
-        fill.fillOrigin = (int)Image.OriginHorizontal.Left;
-        fill.fillAmount = 0.5f;
-        Stretch(fill.rectTransform, 8, 8, 8, 8);
-        Text progress = AddText(NewUI("ProgressText", barBg.rectTransform), "0 / 50", 32, Color.white, TextAnchor.MiddleCenter, true);
-        Stretch(progress.rectTransform, 0, 0, 0, 0);
-
-        Image chestDeco = AddImage(NewUI("ChestDecor", panel), EventSprite(27), true);
-        Place(chestDeco.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(-490, -200), new Vector2(150, 120));
-
-        Button play = AddButton(NewUI("PlayButton", panel), EventSprite(39));
-        Place((RectTransform)play.transform, new Vector2(0.5f, 0.5f), new Vector2(-530, -340), new Vector2(330, 107));
-        Text playText = AddText(NewUI("Text", play.transform), "Play", 48, Color.white, TextAnchor.MiddleCenter, true);
-        Stretch(playText.rectTransform, 20, 20, 8, 12);
-
-        Button info = AddButton(NewUI("InfoButton", panel), EventSprite(19));
-        Place((RectTransform)info.transform, new Vector2(0.5f, 0.5f), new Vector2(-305, -340), new Vector2(90, 90));
-        Text infoLetter = AddText(NewUI("Text", info.transform), "i", 50, Brown, TextAnchor.MiddleCenter, false);
-        Stretch(infoLetter.rectTransform, 0, 0, 0, 0);
-
-        // Right column: reward track.
-        ScrollRect scroll = BuildVerticalScroll(panel, new Vector2(210, -50), new Vector2(900, 680), out RectTransform content);
-
-        // How to earn points panel (on top).
-        RectTransform infoPanel = NewUI("InfoPanel", panel);
-        Stretch(infoPanel, 0, 0, 0, 0);
-        Image infoDim = AddImage(infoPanel.gameObject, whiteSprite, false);
-        infoDim.color = new Color(0, 0, 0, 0.5f);
-        Image infoFrame = AddImage(NewUI("Frame", infoPanel), panelSprite, false);
-        infoFrame.type = Image.Type.Sliced;
-        Place(infoFrame.rectTransform, new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(900, 620));
-        Text infoTitle = AddText(NewUI("Title", infoFrame.rectTransform), "How to earn points", 46, Pink, TextAnchor.MiddleCenter, false);
-        Place(infoTitle.rectTransform, new Vector2(0.5f, 1f), new Vector2(0, -80), new Vector2(760, 70));
-        Text infoText = AddText(NewUI("Text", infoFrame.rectTransform), "", 32, Brown, TextAnchor.UpperLeft, false);
-        infoText.lineSpacing = 1.2f;
-        Stretch(infoText.rectTransform, 80, 80, 130, 60);
-        Button infoClose = AddButton(NewUI("Close", infoFrame.rectTransform), EventSprite(5));
-        Place((RectTransform)infoClose.transform, new Vector2(1, 1), new Vector2(-30, -30), new Vector2(90, 90));
-        infoPanel.gameObject.SetActive(false);
-
-        EventPopupUI ui = root.gameObject.AddComponent<EventPopupUI>();
-        Set(ui, "panel", panel.gameObject);
-        Set(ui, "tintBackground", tint);
-        Set(ui, "bannerImage", banner);
-        Set(ui, "titleText", title);
-        Set(ui, "eventIcon", eventIcon);
-        Set(ui, "timerText", timer);
-        Set(ui, "pointIcon", pointIcon);
-        Set(ui, "pointsText", points);
-        Set(ui, "pointNameText", pointName);
-        Set(ui, "progressFill", fill);
-        Set(ui, "progressText", progress);
-        Set(ui, "scrollRect", scroll);
-        Set(ui, "content", content);
-        Set(ui, "milestonePrefab", milestonePrefab);
-        Set(ui, "closeButton", close);
-        Set(ui, "playButton", play);
-        Set(ui, "playText", playText);
-        Set(ui, "infoButton", info);
-        Set(ui, "infoPanel", infoPanel.gameObject);
-        Set(ui, "infoTitleText", infoTitle);
-        Set(ui, "infoText", infoText);
-        Set(ui, "infoCloseButton", infoClose);
-
-        panel.gameObject.SetActive(false);
         return root.gameObject;
     }
 
@@ -647,7 +467,6 @@ public static class EventSystemBuilder
         Set(counter, "visualRoot", visual.gameObject);
         Set(counter, "pointIcon", icon);
         Set(counter, "pointsText", points);
-        Set(counter, "flyingPointPrefab", flyingPointPrefab);
 
         visual.gameObject.SetActive(false);
         return root.gameObject;
@@ -716,43 +535,6 @@ public static class EventSystemBuilder
         close = AddButton(NewUI("CloseButton", panel), EventSprite(5));
         Place((RectTransform)close.transform, new Vector2(0.5f, 0.5f), new Vector2(frameSize.x / 2 - 20, frameSize.y / 2 - 60), new Vector2(110, 110));
         return panel;
-    }
-
-    private static ScrollRect BuildVerticalScroll(RectTransform parent, Vector2 pos, Vector2 size, out RectTransform content)
-    {
-        RectTransform scrollRt = NewUI("RewardTrack", parent);
-        Place(scrollRt, new Vector2(0.5f, 0.5f), pos, size);
-        ScrollRect scroll = scrollRt.gameObject.AddComponent<ScrollRect>();
-        scroll.horizontal = false;
-        scroll.vertical = true;
-        scroll.movementType = ScrollRect.MovementType.Elastic;
-        scroll.scrollSensitivity = 30;
-
-        RectTransform viewport = NewUI("Viewport", scrollRt);
-        Stretch(viewport, 0, 0, 0, 0);
-        Image viewportImage = AddImage(viewport.gameObject, whiteSprite, false);
-        viewportImage.color = new Color(1, 1, 1, 0.01f); // needed so the list can be dragged
-        viewport.gameObject.AddComponent<RectMask2D>();
-
-        content = NewUI("Content", viewport);
-        content.anchorMin = new Vector2(0, 1);
-        content.anchorMax = new Vector2(1, 1);
-        content.pivot = new Vector2(0.5f, 1);
-        content.anchoredPosition = Vector2.zero;
-        content.sizeDelta = new Vector2(0, 0);
-        VerticalLayoutGroup layout = content.gameObject.AddComponent<VerticalLayoutGroup>();
-        layout.padding = new RectOffset(14, 14, 14, 14);
-        layout.spacing = 14;
-        layout.childControlWidth = true;
-        layout.childControlHeight = true;
-        layout.childForceExpandWidth = true;
-        layout.childForceExpandHeight = false;
-        ContentSizeFitter fitter = content.gameObject.AddComponent<ContentSizeFitter>();
-        fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-
-        scroll.viewport = viewport;
-        scroll.content = content;
-        return scroll;
     }
 
     #endregion

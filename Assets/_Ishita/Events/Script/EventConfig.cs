@@ -46,6 +46,9 @@ public class EventConfig : ScriptableObject
     [Header("Reward track")]
     public List<EventMilestone> milestones = new List<EventMilestone>();
 
+    [Header("Event tasks (cards in the popup scroll view)")]
+    public List<EventTask> tasks = new List<EventTask>();
+
     public string GetDisplayName()
     {
         return string.IsNullOrEmpty(nameKey) ? displayName : GameText.Get(nameKey, displayName);

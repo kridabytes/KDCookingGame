@@ -133,6 +133,33 @@ public static class EventCloud
                 if (task.IsFaulted)
                     Debug.LogWarning("[Event] Cloud save failed: " + task.Exception);
             });
+
+        // Points also go to the event leaderboard, used for "Your rank".
+        Root.Child(LeaderboardNode).Child(progress.eventId).Child(uid).SetValueAsync(progress.points);
+    }
+
+    public const string LeaderboardNode = "eventLeaderboard";
+
+    // Rank = number of players with more points + 1.
+    // Add ".indexOn": ".value" on eventLeaderboard/$eventId in the database rules for speed.
+    public static void LoadRank(string eventId, int myPoints, Action<int> onDone)
+    {
+        if (UserId == null)
+        {
+            onDone?.Invoke(-1);
+            return;
+        }
+
+        Root.Child(LeaderboardNode).Child(eventId).OrderByValue().StartAt(myPoints + 1).GetValueAsync()
+            .ContinueWithOnMainThread(task =>
+            {
+                if (task.IsFaulted || task.IsCanceled || task.Result == null)
+                {
+                    onDone?.Invoke(-1);
+                    return;
+                }
+                onDone?.Invoke((int)task.Result.ChildrenCount + 1);
+            });
     }
 
     private static string ReadString(DataSnapshot snap, string key)

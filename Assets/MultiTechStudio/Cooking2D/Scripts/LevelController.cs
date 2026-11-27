@@ -851,6 +851,7 @@ namespace MultiTechStudio.Cooking2D
                     bot.ChangeStatus(OrderStatus.Served);
 
                     targetManager.OrderCompleted(0, true, bot.GetSmileNo());
+                    EventManager.NotifyOrderServed(bot);
                 }
 
                 CheckForLevelPass();
@@ -1029,7 +1030,7 @@ namespace MultiTechStudio.Cooking2D
                     );
 
                     AchievementsCollector.instance.OnOrderCompleted();
-                    EventManager.NotifyOrderServed(bot.transform.position);
+                    EventManager.NotifyOrderServed(bot);
 
                     Debug.Log("FULL PIZZA ORDER COMPLETED → TARGET UPDATED");
                 }
@@ -1219,7 +1220,7 @@ namespace MultiTechStudio.Cooking2D
                     );
 
                     AchievementsCollector.instance.OnOrderCompleted();
-                    EventManager.NotifyOrderServed(bot.transform.position);
+                    EventManager.NotifyOrderServed(bot);
 
                     Debug.Log("FULL GARLIC BREAD ORDER COMPLETED → TARGET UPDATED");
                 }
@@ -1237,7 +1238,7 @@ namespace MultiTechStudio.Cooking2D
                 allOrders[clickedOrderNo].botMain.ChangeStatus(OrderStatus.Served);
                 targetManager.OrderCompleted(allOrders[clickedOrderNo].coinReward, true, allOrders[clickedOrderNo].botMain.GetSmileNo());
                 AchievementsCollector.instance.OnOrderCompleted();
-                EventManager.NotifyOrderServed(allOrders[clickedOrderNo].botMain.transform.position);
+                EventManager.NotifyOrderServed(allOrders[clickedOrderNo].botMain);
 
             }
             else
@@ -1311,7 +1312,7 @@ namespace MultiTechStudio.Cooking2D
                     allOrders[clickedOrderNo].botMain.ChangeStatus(OrderStatus.Served);
                     targetManager.OrderCompleted(0, true, allOrders[clickedOrderNo].botMain.GetSmileNo());
                     AchievementsCollector.instance.OnOrderCompleted();
-                    EventManager.NotifyOrderServed(allOrders[clickedOrderNo].botMain.transform.position);
+                    EventManager.NotifyOrderServed(allOrders[clickedOrderNo].botMain);
                 }
             }
             CheckForLevelPass();

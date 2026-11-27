@@ -163,13 +163,18 @@ public void StartTutorial()
         yield return null;
         yield return null;
 
-        showRoutine = null;
         if (!isTutorialRunning)
+        {
+            showRoutine = null;
             yield break;
+        }
 
         var config = Level != null ? Level.levelConfig : null;
         if (config == null)
+        {
+            showRoutine = null;
             yield break;
+        }
 
         // Normal tutorial: skip the topping steps this level does not have.
         if (!config.isPizzaLevel && !config.isLevel2Tutorial)
@@ -180,9 +185,24 @@ public void StartTutorial()
 
         if (IsLastStep(config))
         {
+            showRoutine = null;
             EndTutorial();
             yield break;
         }
+
+        // Show the hint only when a customer is really waiting for this item
+        // (e.g. the juice hint waits until a customer has ordered juice).
+        if (!IsStepOrdered(config))
+        {
+            HideHint();
+            yield return new WaitUntil(() => !isTutorialRunning || IsStepOrdered(config));
+            if (!isTutorialRunning)
+            {
+                showRoutine = null;
+                yield break;
+            }
+        }
+        showRoutine = null;
 
         Transform focus;
         Transform handTarget;
@@ -192,6 +212,64 @@ public void StartTutorial()
         currentExtra = handTarget;
         TutorialHighlighter.instance.Focus(focus, handTarget);
         MoveHand(handTarget != null ? handTarget : focus);
+    }
+
+    // ------------------------------------------------------------------ Wait for the order
+
+    /// <summary>True when a customer at the counter is waiting for what this step makes.</summary>
+    private bool IsStepOrdered(LevelConfig config)
+    {
+        LevelController lc = Level;
+        if (lc == null || lc.allOrders == null)
+            return true;
+
+        bool juiceStep = IsJuiceStep(config);
+        foreach (OrderDetails order in lc.allOrders)
+        {
+            if (order == null || order.orderStatus != OrderStatus.Waiting)
+                continue;
+
+            if (!order.orderCompleted && IsJuice(order.coockBase) == juiceStep)
+                return true;
+
+            if (order.multiOrder && order.allMultiOrders != null)
+            {
+                foreach (MultiOrderDetails sub in order.allMultiOrders)
+                {
+                    if (sub != null && !sub.orderCompleted && IsJuice(sub.coockBase) == juiceStep)
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // The last step of the normal and level 2 tutorial is the juice machine.
+    private bool IsJuiceStep(LevelConfig config)
+    {
+        if (config.isPizzaLevel) return false;
+        if (config.isLevel2Tutorial) return step == 4;
+        return step == 5;
+    }
+
+    private static bool IsJuice(ObjectType type)
+    {
+        return type == ObjectType.JuiceMachine1 || type == ObjectType.JuiceMachine2;
+    }
+
+    private void HideHint()
+    {
+        if (handLoop != null)
+            handLoop.Kill();
+        if (handPointer != null)
+        {
+            handPointer.transform.DOKill();
+            handPointer.SetActive(false);
+        }
+        currentFocus = null;
+        currentExtra = null;
+        currentHandTarget = null;
+        TutorialHighlighter.instance.Hide();
     }
 
     private bool IsLastStep(LevelConfig config)

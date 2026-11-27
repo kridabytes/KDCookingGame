@@ -42,20 +42,36 @@ public static class EventRewardGiver
         Debug.Log($"[Event] Reward given: {reward.type} x{amount}");
     }
 
-    // Where the reward icon flies to after a claim (the matching counter in the top bar).
-    public static Transform GetFlyTarget(EventRewardType type, Transform fallback)
+    // Gives the reward with its animation:
+    // - coins / diamonds: the game's own coin animation (the top bar comes in front of the popup)
+    // - key / energy: the icon flies from the gift to its counter
+    // - boosters: the icon flies from the gift to the home Play button
+    public static void GiveWithAnimation(EventReward reward, Sprite icon, RectTransform from, float duration)
+    {
+        bool hasOwnAnimation = reward.type == EventRewardType.Coins || reward.type == EventRewardType.Diamonds;
+        if (!hasOwnAnimation)
+        {
+            Transform target = GetFlyTarget(reward.type);
+            if (target != null)
+                RewardFly.Play(icon, from, target, duration);
+        }
+
+        Give(reward);
+    }
+
+    private static Transform GetFlyTarget(EventRewardType type)
     {
         if (UiManager.Instance == null || UiManager.Instance.allCanvas.persistent == null)
-            return fallback;
+            return null;
 
         PersistentCanvas bar = UiManager.Instance.allCanvas.persistent;
+        Transform playButton = bar.btn != null ? bar.btn.transform : null;
+
         switch (type)
         {
-            case EventRewardType.Coins: return bar.coinTxt != null ? bar.coinTxt.transform : fallback;
-            case EventRewardType.Diamonds: return bar.diamondTxt != null ? bar.diamondTxt.transform : fallback;
-            case EventRewardType.Key: return bar.keyTxt != null ? bar.keyTxt.transform : fallback;
-            case EventRewardType.Energy: return bar.energyTxt != null ? bar.energyTxt.transform : fallback;
-            default: return fallback;
+            case EventRewardType.Key: return bar.keyTxt != null ? bar.keyTxt.transform : playButton;
+            case EventRewardType.Energy: return bar.energyTxt != null ? bar.energyTxt.transform : playButton;
+            default: return playButton; // boosters
         }
     }
 

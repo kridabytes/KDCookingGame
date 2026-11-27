@@ -26,6 +26,7 @@ public class EventEndPopup : MonoBehaviour
     private void Awake()
     {
         okButton.onClick.AddListener(Close);
+        EventPopupLayer.PutOnTop(panel); // shows first, above the offer / daily bonus popups
         panel.SetActive(false);
     }
 

@@ -315,6 +315,7 @@ namespace MultiTechStudio.Cooking2D
         public static void ScoreAdder(int valueToAdd)
         {
             AddCoins(valueToAdd);
+            EventManager.NotifyCoinsEarned(valueToAdd);
             GoogleLogin.instance.SavePlayerDataToFirebase();
 
         }

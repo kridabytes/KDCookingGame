@@ -17,8 +17,8 @@ MonoBehaviour:
   nameKey: event_strawberry_name
   introLine: Serve customers, collect strawberries and win big rewards!
   introLineKey: event_strawberry_intro
-  startUtc: 2026-11-26 3:38
-  endUtc: 2026-12-03 00:00
+  startUtc: 2026-11-27 05:30
+  endUtc: 2026-12-04 00:00
   pointName: Strawberries
   pointNameKey: event_strawberry_points
   pointsPerOrder: 2
@@ -27,10 +27,10 @@ MonoBehaviour:
   bonusFirstTry: 10
   bonusThreeStars: 15
   maxAdDoublePerDay: 5
-  minPlayerLevel: 3
+  minPlayerLevel: 1
   eventIcon: {fileID: -5174526061848603953, guid: 76d42770c95271b488638d09f0bc5f20, type: 3}
   pointIcon: {fileID: 3897586406813748843, guid: c3d1c0eb076a34343b5c5a8e9c0c9a2c, type: 3}
-  banner: {fileID: -7532956834472741250, guid: 5eea57699b2259d44b8c090908caa260, type: 3}
+  banner: {fileID: 21300000, guid: 12a4a9298c984a7f994a5167bd1d3924, type: 3}
   grandChest: {fileID: 5923222873912078516, guid: 1b1d0defd6357b54387c556c24c2e811, type: 3}
   tintColor: {r: 1, g: 0.85, b: 0.9, a: 1}
   milestones:
@@ -49,3 +49,40 @@ MonoBehaviour:
     rewards:
     - type: 7
       amount: 1
+  - pointsNeeded: 3000
+    isGrandChest: 0
+    rewards:
+    - type: 6
+      amount: 1
+  - pointsNeeded: 6000
+    isGrandChest: 1
+    rewards:
+    - type: 6
+      amount: 1
+    - type: 0
+      amount: 200
+  tasks:
+  - taskType: 0
+    target: 20
+    icon: {fileID: 2822334019072641489, guid: 8aa583af5aa50e747a01e92ba93a2c01, type: 3}
+    description: Serve {0} customers
+    descriptionKey: 
+    reward:
+      type: 0
+      amount: 1000
+  - taskType: 4
+    target: 3000
+    icon: {fileID: 234549787011655241, guid: c7e5b32c23290e74e92a76ef5cc8319b, type: 3}
+    description: Earn {0} coins
+    descriptionKey: 
+    reward:
+      type: 1
+      amount: 50
+  - taskType: 1
+    target: 5
+    icon: {fileID: 246757783590344140, guid: 079ce22bfc905e640b5d355df92e4b56, type: 3}
+    description: Complete {0} levels
+    descriptionKey: 
+    reward:
+      type: 6
+      amount: 3

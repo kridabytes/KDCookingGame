@@ -8,6 +8,7 @@ using System.Collections;
 using UnityEngine.Networking;
 using Firebase;
 using Firebase.Database;
+using Firebase.Extensions;
 using MultiTechStudio.Cooking2D;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
@@ -28,6 +29,22 @@ public class GoogleLogin : MonoBehaviour
     private DatabaseReference db;
 
     public GameObject loginpanel;
+
+    [Tooltip("Editor only: untick to skip the Google login panel while testing. Builds always show it.")]
+    public bool showLoginPanelInEditor = true;
+
+    // In builds the login panel always works; in the Editor it follows the tick box above.
+    private bool LoginPanelAllowed
+    {
+        get
+        {
+#if UNITY_EDITOR
+            return showLoginPanelInEditor;
+#else
+            return true;
+#endif
+        }
+    }
     public static GoogleLogin instance;
     public static bool FirebaseReady = false;
 
@@ -37,10 +54,8 @@ public class GoogleLogin : MonoBehaviour
     }
     IEnumerator Start()
     {
-        if (PlayerPrefs.GetInt("IsLoggedIn", 0) == 1)
-        {
-            loginpanel.SetActive(false);
-        }
+        // Decide right away, so the panel doesn't pop in a second later after the Firebase check.
+        loginpanel.SetActive(LoginPanelAllowed && PlayerPrefs.GetInt("IsLoggedIn", 0) == 0);
 
         var check = FirebaseApp.CheckAndFixDependenciesAsync();
         yield return new WaitUntil(() => check.IsCompleted);
@@ -66,9 +81,14 @@ public class GoogleLogin : MonoBehaviour
             }
             else
             {
-                if (PlayerPrefs.GetInt("IsLoggedIn", 0) == 0)
-                    loginpanel.SetActive(true);
+                if (LoginPanelAllowed && PlayerPrefs.GetInt("IsLoggedIn", 0) == 0)
+                    loginpanel.SetActive(true); // already open from above, no second pop
             }
+        }
+        else
+        {
+            // Firebase not available (offline): login can't work, don't block the player.
+            loginpanel.SetActive(false);
         }
     }
 
@@ -190,7 +210,7 @@ public class GoogleLogin : MonoBehaviour
         }
 
 
-        GoogleSignIn.DefaultInstance.SignIn().ContinueWith(task =>
+        GoogleSignIn.DefaultInstance.SignIn().ContinueWithOnMainThread(task =>
         {
             if (task.IsFaulted || task.IsCanceled)
             {
@@ -201,7 +221,7 @@ public class GoogleLogin : MonoBehaviour
             var googleUser = task.Result;
             Credential credential = GoogleAuthProvider.GetCredential(googleUser.IdToken, null);
 
-            auth.SignInWithCredentialAsync(credential).ContinueWith(authTask =>
+            auth.SignInWithCredentialAsync(credential).ContinueWithOnMainThread(authTask =>
             {
                 if (authTask.IsFaulted || authTask.IsCanceled)
                 {
@@ -356,7 +376,10 @@ public class GoogleLogin : MonoBehaviour
         {
             Debug.Log("Existing user found � loading...");
 
-            PlayerPrefs.SetInt("Coins", ToInt(snapshot, "Coins"));
+            // Coins come from the Firebase cloud save (users/{userId}/Coins) when the player logs in with Google.
+            // This is where a big amount like 284543 comes from: whatever is stored in Firebase for that account.
+            // Turned off on request: coins are no longer restored from the cloud on login.
+            // PlayerPrefs.SetInt("Coins", ToInt(snapshot, "Coins"));
             PlayerPrefs.SetInt("Diamond", ToInt(snapshot, "Diamond"));
             PlayerPrefs.SetInt("Key", ToInt(snapshot, "Key"));
             PlayerPrefs.SetInt("Energy", ToInt(snapshot, "Energy"));
@@ -410,7 +433,7 @@ public class GoogleLogin : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
 
-        SceneManager.LoadScene("Demo Scene");
+        SceneManager.LoadScene(0); // "Demo Scene" is not in Build Settings, the game scene is index 0
     }
 
     private int ToInt(DataSnapshot snap, string key)
